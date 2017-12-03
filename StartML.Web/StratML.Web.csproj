@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Xml" Version="2.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StartML.Data\StratML.Data.csproj" />
+    <ProjectReference Include="..\StratML.Business.Core\StratML.Business.Core.csproj" />
+    <ProjectReference Include="..\StratML.Business\StratML.Business.csproj" />
+    <ProjectReference Include="..\StratML.Core\StratML.Core.csproj" />
+    <ProjectReference Include="..\StratML.Data.Core\StratML.Data.Core.csproj" />
+  </ItemGroup>
+
+</Project>

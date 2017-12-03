@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>StratML.Data</AssemblyName>
+    <RootNamespace>StratML.Data</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StratML.Core\StratML.Core.csproj" />
+    <ProjectReference Include="..\StratML.Data.Core\StratML.Data.Core.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+Schema agency: AIIM
+Schema version: 3.0
+Schema date: August 21, 2014
+    
+Disclaimer: 	This document and the information contained herein is provided on an "as is" basis and AIIM disclaims all warranties, express or implied, including but not limited to any warranty that the use of the information herein will not infringe any rights or any rights or any implied warranties of merchantability or fitness for a particular purpose. 
+-->
+	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:stratml="urn:schemas:AIIM:org:03201408:AdditionalElements" 
+		targetNamespace="urn:schemas:AIIM:org:03201408:AdditionalElements" 
+		elementFormDefault="qualified" 
+		attributeFormDefault="unqualified" 
+		version="3.0">	
+	
+	<!--Root Element-->
+
+    <xsd:element name="Description" type="xsd:string" id="uuid-6289635d-98a7-40bd-978c-37ae6ede5f7e">
+      <xsd:annotation>
+        <xsd:documentation source="documentation" xml:lang="EN">A sentence or short paragraph defining and explaining a concept.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="SequenceIndicator" type="xsd:string" id="uuid-7f10f639-e7cf-4513-804c-5f4f7592c5e5">
+      <xsd:annotation>
+        <xsd:documentation source="documentation" xml:lang="EN">An alphanumeric identifier applied to an element to designate its order in a series.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:element>
+    <!--Simple Types A - Z-->
+    <xsd:simpleType name="EmptyStringType">
+      <xsd:restriction base="xsd:string">
+        <xsd:length value="0"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="DateTypeType">
+      <xsd:union memberTypes="xsd:date stratml:EmptyStringType"/>
+    </xsd:simpleType>
+
+    
+
+    <xsd:simpleType name="FiveLevelTypeType">
+      <xsd:restriction base="xsd:nonNegativeInteger">
+        <xsd:enumeration value="1"/>
+        <xsd:enumeration value="2"/>
+        <xsd:enumeration value="3"/>
+        <xsd:enumeration value="4"/>
+        <xsd:enumeration value="5"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="PercentageType">
+      <xsd:annotation>
+        <xsd:documentation source="documentation" xml:lang="EN">An element enabling the designation of an individual qualitative performance indicator as comprising from zero to 100 percent of an overall subjective performance assessment rating based upon the sum of a set of one or more qualitative performance indicators totaling 100 percent.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+        <xsd:pattern value="((100)|(\d{0,2}))"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="PerformanceIndicatorTypeType">
+      <xsd:annotation>
+        <xsd:documentation source="documentation" xml:lang="EN">An attribute enabling the designation of a performance indicator as being either subject to objective measurement or based upon a subjective determination made by an individual or group of people empowered to render such judgment.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="Quantitative"/>
+        <xsd:enumeration value="Qualitative"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="RelationshipTypeType">
+      <xsd:annotation>
+        <xsd:documentation source="documentation" xml:lang="EN">An attribute enabling the designation of a relationship as being of one of three enumerated types.  </xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="Broader_Than"/>
+        <xsd:enumeration value="Peer_To"/>
+        <xsd:enumeration value="Narrower_Than"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="SevenLevelTypeType">
+      <xsd:restriction base="xsd:nonNegativeInteger">
+        <xsd:enumeration value="1"/>
+        <xsd:enumeration value="2"/>
+        <xsd:enumeration value="3"/>
+        <xsd:enumeration value="4"/>
+        <xsd:enumeration value="5"/>
+        <xsd:enumeration value="6"/>
+        <xsd:enumeration value="7"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="SpecialOrganizationTypeType">
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="Board_of_Directors"/>
+        <xsd:enumeration value="Committee"/>
+        <xsd:enumeration value="Conference"/>
+        <xsd:enumeration value="Consortium"/>
+        <xsd:enumeration value="Cooperative"/>
+        <xsd:enumeration value="Exposition"/>
+        <xsd:enumeration value="Family"/>
+        <xsd:enumeration value="Individual"/>
+        <xsd:enumeration value="Initiative"/>
+        <xsd:enumeration value="Investment"/>
+        <xsd:enumeration value="Program"/>
+        <xsd:enumeration value="Project"/>
+        <xsd:enumeration value="Student"/>
+        <xsd:enumeration value="System"/>
+        <xsd:enumeration value="Virtual"/>
+        <xsd:enumeration value="Work_Group"/>
+        <xsd:enumeration value="Other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="TenLevelTypeType">
+      <xsd:restriction base="xsd:nonNegativeInteger">
+        <xsd:enumeration value="1"/>
+        <xsd:enumeration value="2"/>
+        <xsd:enumeration value="3"/>
+        <xsd:enumeration value="4"/>
+        <xsd:enumeration value="5"/>
+        <xsd:enumeration value="6"/>
+        <xsd:enumeration value="7"/>
+        <xsd:enumeration value="8"/>
+        <xsd:enumeration value="9"/>
+        <xsd:enumeration value="10"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="ThreeLevelTypeType">
+      <xsd:restriction base="xsd:nonNegativeInteger">
+        <xsd:enumeration value="0"/>
+        <xsd:enumeration value="1"/>
+        <xsd:enumeration value="2"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="TimeTypeType">
+      <xsd:union memberTypes="xsd:time stratml:EmptyStringType"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="TwoLevelTypeType">
+      <xsd:restriction base="xsd:nonNegativeInteger">
+        <xsd:enumeration value="0"/>
+        <xsd:enumeration value="1"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="ValueChainStageType">
+      <xsd:annotation>
+        <xsd:documentation source="documentation" xml:lang="EN">An element enabling the designation of a performance indicator as being of one of five enumerated types.  When combined in serial order, the five types comprise the full chain for the delivery of value to stakeholders.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="Outcome"/>
+        <xsd:enumeration value="Output_Processing"/>
+        <xsd:enumeration value="Output"/>
+        <xsd:enumeration value="Input_Processing"/>
+        <xsd:enumeration value="Input"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+    
+
+	<!--Elements A - Z-->
+
+	<xsd:element name="Acronym" type="xsd:string" id="uuid-a21e6dc4-b67c-4120-b881-ce72882fc958">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">An abbreviation of a proper name usually composed of the first letters of each word in the name.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+    <xsd:element name="RatingType" id="uuid-A9278A5B-2E6A-4ad4-BA31-838E0210FD26">
+      <xsd:annotation>
+        <xsd:documentation source="documentation" xml:lang="EN">A multi-level scale by which the quality of an actual result may be evaluated in relation to the desired target result.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType>
+        <xsd:choice>
+          <xsd:element ref="stratml:TwoLevelType" id="uuid-F9F237D5-34B5-72c4-84BB-153A0259767A" minOccurs="0"/>
+          <xsd:element ref="stratml:ThreeLevelType" id="uuid-F9F237D5-5B43-72c4-84BB-153A0259767A" minOccurs="0"/>
+          <xsd:element ref="stratml:FiveLevelType" id="uuid-0DDC5C0E-5842-9374-98D1-1A132CDFE16E" minOccurs="0"/>
+          <xsd:element ref="stratml:SevenLevelType" id="uuid-0DDC5C0E-5842-9374-1D89-1A132CDFE16E" minOccurs="0"/>
+          <xsd:element ref="stratml:TenLevelType" id="uuid-F9F237D5-34B5-72c4-BB48-153A0259767A" minOccurs="0"/>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="ActualResult" id="uuid-576F1BF5-C7E4-4ad5-88E9-2781C538F8D4">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A measurable result achieved on or before a specified date.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:SequenceIndicator" id="uuid-2F8b5a6C-DA08-46A1-85AB-E37D3212192B" minOccurs="0"/>
+				<xsd:element ref="stratml:Description" id="uuid-2F8b5a6C-80AD-46A1-85AB-E37D3212192B" minOccurs="0"/>
+				<xsd:element ref="stratml:RatingType" id="uuid-2F8b5a6C-DA08-46A1-BA85-E37D3212192B" minOccurs="0"/>
+				<xsd:element ref="stratml:NumberOfUnits" id="uuid-9595F589-38BF-4bfe-81A6-43D9DAA36700" minOccurs="0"/>
+				<xsd:element ref="stratml:OtherInformation" id="uuid1cf1C862-2FE0-44f2-8F3A-A48A1E07BEBC" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute ref="stratml:StartDate" use="optional" id="uuid-F64605F4-D372-c784-9C5D-D68F1031BA86"/>
+			<xsd:attribute ref="stratml:StartTime" use="optional" id="uuid-F64605F4-273D-c784-DC59-D68F1031BA86"/>
+			<xsd:attribute ref="stratml:EndDate" use="optional" id="uuid-F64605F4-D372-c784-9C5D-D68F103168ab"/>
+			<xsd:attribute ref="stratml:EndTime" use="optional" id="uuid-F64605F4-273D-487c-9C5D-D68F103168ab"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="AdministrativeInformation" type="stratml:AdministrativeInformationType" id="uuid-9d240214-9768-4dd9-b98a-c62448b63f26">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">Information that is not essential to the content of plans or reports but is useful for managing them.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="Authority" type="stratml:AuthorityType" id="uuid-902c48d2-4b7e-3333-48su-a86a446988bb">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">An accepted source of power to compel compliance.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="Categorization" type="stratml:CategorizationType" id="uuid-902c48d2-4b7e-7625-48su-a86a446988bb">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The application of terms from a controlled vocabulary to distinguish items from each other based upon their characteristics.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="Category" type="stratml:CategoryType" id="uuid-902c48d2-4b7e-5286-48su-a86a446988bb">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The term selected from a controlled vocabulary in order to distinguish an item from others in its set.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Competency" type="stratml:CompetencyType" id="uuid-9084c2d2-4b7e-3333-48su-a86a446988bb">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A capability that is unique to the organization, difficult for competitors to duplicate, can be leveraged broadly in multiple products or services, and contributes perceived value to beneficiary stakeholders.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+
+	
+	<xsd:element name="DrivingForce" id="uuid-5e02ef4b-d669-47c4-b443-d77db6727528">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A dynamic that may powerfully influence the achievement of goals.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:NameDescription" id="uuid-80c1215c-3491-49f3-7821-d261809a8b3c" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="InhibitingOrEnabling" use="optional" id="uuid-FF946034-D372-BQV3-9C5D-D68F2221BA86">
+				<xsd:annotation>
+					<xsd:documentation source="documentation" xml:lang="EN">An attribute enabling the designation of driving forces as being supportive or in opposition to the achievement of goals.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Enabling"/>
+						<xsd:enumeration value="Inhibiting"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="InternalOrExternal" use="optional" id="uuid-946F03F4-437F-487C-9C5D-D68F2221BA86">
+				<xsd:annotation>
+					<xsd:documentation source="documentation" xml:lang="EN">An attribute enabling the designation of success factors and driving forces as being within or outside of the direct control of the organization compiling the plan or report.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Internal"/>
+						<xsd:enumeration value="External"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="EconomicFactor" type="stratml:NameDescriptionType" id="uuid-9084c2d2-4b7e-4189-a784-a86a4469cc77">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A condition in the economy that may affect the achievement of a goal.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="EmailAddress" type="xsd:string" id="uuid-412bb450-d116-4dec-9269-a92209232df1">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The E-mail address of a person or office.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:attribute name="EndDate" type="stratml:DateTypeType" id="uuid-19977fd4-556d-41bc-be29-477e05e4c971">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The year, month, and day the element with which it is associated is projected to cease, if it is not subsequently extended.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:attribute>
+
+	<xsd:attribute name="EndTime" type="stratml:TimeTypeType" id="uuid-19977fd4-556d-41bc-be29-477e05e4179c">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The hour, minute, and second the element with which it is associated is projected to cease, if it is not subsequently extended. Typically the end of a calendar or fiscal year.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:attribute>
+
+	<xsd:element name="EnvironmentalFactor" type="stratml:NameDescriptionType" id="uuid-9084c2d2-4b7e-4189-a784-a4a68469cc77">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A condition in the environment that may affect the achievement of a goal.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="GivenName" type="xsd:string" id="uuid-a8c3e55c-96f2-404a-97b5-16022d9369ac">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The given name of the person submitting the plan or report.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="FiveLevelType" type="stratml:FiveLevelTypeType" id="uuid-1dec8252-6561-3714-afce-677c1cf24bf3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A subjective rating scale comprised of five levels.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="FunctionType" id="uuid-DB989313-6D91-46AC-926B-0805B33183C">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">An ongoing activity conducted by an organization in support of its mission.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:NameDescription" id="uuid-CEF57259-F01C-4aac-BB59-83D0101324E6" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Goal" id="uuid-1e56b2c9-c6d6-4f79-8ad7-cdb1508a9614">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A relatively broad statement of intended results to be achieved over more than one resource allocation and performance measurement cycle.</xsd:documentation>
+			<xsd:documentation source="documentation" xml:lang="EN">Supports Mission.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="stratml:GoalType">
+					<xsd:sequence>
+						<xsd:element ref="stratml:Objective" id="uuid-28866F8C-AE8F-43a1-8E3D-D146280CE3F2" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Identifier" type="xsd:string" id="uuid-a9cee972-59f3-42a9-8876-03bd0166689c">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A string of alphanumeric characters by which the information contained within an element is distinguished from other versions of the same information as well as information contained in other instances of the same element.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="LegalFactor" type="stratml:NameDescriptionType" id="uuid-9084c2d2-47Be-4189-a784-a4a68469cc77">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A matter of law that may affect the achievement of a goal.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ManagementChallenge" id="uuid-50f98cmw-573c-4afa-wdpc-1d0e4a2c7ff3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A relatively difficult issue to be addressed or obstacle to be overcome in order to achieve an objective.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:NameDescription" id="uuid-54768289-ad1d-2097-b63v-081f6b1fdeb3" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="Probability" use="required" id="uuid-F64605F4-529b-487C-9C5D-D68F1031BA86">
+				<xsd:annotation>
+					<xsd:documentation source="documentation" xml:lang="EN">An attribute documenting the likelihood that a management challenge will occur.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="To_Be_Determined"/>
+						<xsd:enumeration value="High"/>
+						<xsd:enumeration value="Medium"/>
+						<xsd:enumeration value="Low"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Impact" use="required" id="uuid-F64605F4-529b-v985-9C5D-D68F1031BA86">
+				<xsd:annotation>
+					<xsd:documentation source="documentation" xml:lang="EN">An attribute documenting the scope of the effect of a management challenge, if were to occur.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="To_Be_Determined"/>
+						<xsd:enumeration value="High"/>
+						<xsd:enumeration value="Medium"/>
+						<xsd:enumeration value="Low"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="MeasurementDimension" type="xsd:string" id="uuid-A81AF0C9-7900-44dd-9E2C-77F601EB13D2">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The aspect of reality to be measured.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="MeasurementInstance" id="uuid-CA989313-6D91-46AC-926B-0805B331882B">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A measurement at a point in time.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:TargetResult" id="uuid-BDE57259-F01C-4aac-BB59-71A0101324E6" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:ActualResult" id="uuid-B52A1491-AC8D-4548-A1A4-628342FA525A" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Mission" id="uuid-755706ea-40d6-40f0-a8e5-998b91390620">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A brief description of the basic purpose of the organization.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:Description" id="uuid-d4000d59-fc40-4f93-bbae-f92de9808818" minOccurs="0"/>
+				<xsd:element ref="stratml:Identifier" id="uuid-e8484845-ea0e-47f3-8fe2-55b54db21202" minOccurs="0"/>
+				<xsd:element ref="stratml:FunctionType" id="uuid-e4848845-ea0e-47g3-8fe2-55b54db21202" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Name" type="xsd:string" id="uuid-f6300ca4-40bc-455c-a963-dfef45f558d3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A word or short phrase intended to identify a concept within the context in which is it being applied.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+    <xsd:complexType name="NameDescriptionType" id="uuid-A494052D-3642-qugh-B49B-DC0FF3089A79">
+      <xsd:annotation>
+        <xsd:documentation source="documentation" xml:lang="EN">A complex element that is used in multiple instances to enable the naming and description of concepts.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ref="stratml:SequenceIndicator" id="uuid-cbac7e84-pBCU-4c89-9c8e-30a9d09616d2" minOccurs="0"/>
+        <xsd:element ref="stratml:Name" id="uuid-36e8852b-pxrQ-460d-19Jc-0c01c7bdecd3" minOccurs="0"/>
+        <xsd:element ref="stratml:Acronym" id="uuid-eb510ea2-9d70-40ec-95f1-abdf6644e002" minOccurs="0"/>
+        <xsd:element ref="stratml:Description" id="uuid-687daacf-5rBZ-4e91-b1e7-8e9191d17338" minOccurs="0"/>
+        <xsd:element ref="stratml:Identifier" id="uuid-8e762c3e-WiYn-92kp-93d1-a2513667507f" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="stratml:WebAddress" id="uuid-GI260a38-4d9b-sdp3-a0f0-f05ee8936f4c" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+	<xsd:element name="NameDescription" type="stratml:NameDescriptionType" id="uuid-9084c2d2-4b7e-4189-a784-a844a669MVc5">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element comprised of name, acronym, description, sequence indicator, identifier, and Web address.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="NumberOfUnits" type="xsd:decimal" id="uuid-41DEC7F0-F974-4903-B535-B219F2EB284A">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A numeric value (number) associated with a type of measurement.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="Objective" type="stratml:ObjectiveType" id="uuid-AA88DC79-BC74-4a7c-97BD-37EDD048D14C">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A target level of results against which achievement is to be measured within a single resource allocation and performance execution cycle.</xsd:documentation>
+			<xsd:documentation source="documentation" xml:lang="EN">Supports Goal.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Opportunity" type="stratml:NameDescriptionType" id="uuid-9084c2d2-4b7e-4189-a784-a86a4469MVc5">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A condition upon which an organization may wish to capitalize to benefit its stakeholders.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="Organization" id="uuid-9d589d53-ec24-4c18-b5db-5be8075c1be5">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The legal or logical entity to which the plan or report applies.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:NameDescription" id="uuid-e871651e-e943-4414-b0b6-eb1f5754f3be" minOccurs="0"/>
+				<xsd:element ref="stratml:Stakeholder" id="uuid-d9bccbbf-67ae-402c-8914-56d12c1a7190" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:Competency" id="uuid-d9bccbbf-67ae-402c-8914-ne7v2c1a7190" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:ValueProposition" id="uuid-84d5cbbf-67ae-402c-8914-ne7v2c1a7190" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:SpecialOrganizationType" id="uuid-84d5fbbc-ea76-402c-8914-v73n2c1a0917" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OtherInformation" type="stratml:OtherInformationType" id="uuid-2cfca418-05c2-4fa1-b233-d1bd60d0d86a">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">Additional explanation or guidance that is not expressly addressed in other elements of the schema.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="PerformanceIndicator" id="uuid-5E26BC7A-7340-48ce-A11E-D3B566026C49">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A measurement dimension, unit of measurement, and measurement instance specifying target and actual results, e.g., of inputs applied, outputs produced, processes conducted, and outcomes realized.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:SequenceIndicator" id="uuid-49339C06-33C8-4e80-8FFE-B1BF1668EE5D" minOccurs="0"/>
+				<xsd:element ref="stratml:MeasurementDimension" id="uuid-17139C06-33C8-4e80-8FFE-B1BF1668ED4C"/>
+				<xsd:element ref="stratml:UnitOfMeasurement" id="uuid-9E274585-8F26-456A-864A-01E0FB177A3B"/>
+				<xsd:element ref="stratml:Identifier" id="uuid-5C262CB2-FB6B-4508-A0FB-2954CFC98841" minOccurs="0"/>
+				<xsd:element ref="stratml:Relationship" id="uuid-537184F4-BB04-409A-BFD9-40B27AD1B9E3" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:MeasurementInstance" id="uuid-A9FC8FA2-1102-4994-AD1D-40903738999D" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:Categorization" id="uuid-A9FC8FA2-2011-9449-AD1D-40903738999D" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:OtherInformation" id="uuid2FC2C862-2FE0-44f2-8F3A-A48A1E07BEBC" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="ValueChainStage" type="stratml:ValueChainStageType" id="uuid-6203C7DD-4373-47B4-A331-063F14B35668"/>
+			<xsd:attribute name="PerformanceIndicatorType" type="stratml:PerformanceIndicatorTypeType" id="uuid-5607C853-43F1-43E5-BA82-99E08F59AB31"/>
+			<xsd:attribute name="Keyness" use="optional" id="uuid-F09463F4-F893-487C-9C5D-D68F2221BA86">
+				<xsd:annotation>
+					<xsd:documentation source="documentation" xml:lang="EN">An attribute enabling designation of the importance of a performance indicator, such as for monitoring by the top managers of the organization.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="To_Be_Determined"/>
+						<xsd:enumeration value="Key"/>
+						<xsd:enumeration value="Secondary"/>
+						<xsd:enumeration value="Ancillary"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!--
+	<xsd:element name="PersonalAttribute" type="PersonalAttributeType" id="uuid-90842c2d-4b7e-4189-a784-a86a446988bb">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A characteristic of an individual or group of stakeholders.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+-->
+
+	<xsd:element name="PESTLE" id="uuid-A9278A5B-2E6A-4ad4-31AB-838E021062Fd">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">Political, economic, social, technological, legal and environmental factors.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:PoliticalFactor" id="uuid-F9F237D5-5B43-uR73-84BB-153A0259aj36" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:EconomicFactor" id="uuid-F9F237D5-7UNC-uR73-84BB-153A0259piu4" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:SocialFactor" id="uuid-F9F237D5-05Jv-uR73-84BB-153A025992hL" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:TechnologicalFactor" id="uuid-F9F237D5-5B43-0KLc-84BB-153A0259BN2c" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:LegalFactor" id="uuid-F32f97D5-05Jv-uR73-84BB-153A025992hL" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:EnvironmentalFactor" id="uuid-F32f97D5-05Jv-37rU-84BB-153A025992hL" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="PhoneNumber" type="xsd:string" id="uuid-9084c2d2-4b7e-4189-a784-a86a4469a01c">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The telephone number of the person submitting the plan.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="Place" id="uuid-75570gjb-40d6-40f0-a8e5-998b91390620">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The named geographical area to which a goal applies.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:NameDescription" id="uuid-d4000d59-gg83-4f93-bbae-f92de9808818" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="PointOfContact" type="stratml:ContactInformationType" id="uuid-1dec258f-2396-5599-acfe-677c1cf24bf3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The person or office to be contacted for further information or to submit comments.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PoliticalFactor" type="stratml:NameDescriptionType" id="uuid-9084c2d2-4b7e-4189-a784-a86a4469ca72">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A condition influenced by politics that may affect the achievement of a goal.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:attribute name="PublicationDate" type="xsd:date" id="uuid-04d8f96c-b5fc-458e-8de4-f5e2746e8b8b">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The day, month, and year a plan, report, or an individual objective statement was published in its current form.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:attribute>
+	
+	<xsd:element name="Relationship">
+		<xsd:annotation>
+			<xsd:documentation>A conceptual connection between two elements that have Identifiers.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:NameDescription" minOccurs="0"/>
+				<xsd:element name="Referent" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>The target (object) of a designated relationship.</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="stratml:NameDescription" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="RelationshipType" type="stratml:RelationshipTypeType"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	
+
+	<xsd:element name="SevenLevelType" type="stratml:SevenLevelTypeType" id="uuid-1decf852-6561-4173-afce-677c1cf24bf3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A subjective rating scale comprised of seven levels.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="SocialFactor" type="stratml:NameDescriptionType" id="uuid-9084c2d2-4b7e-4189-a784-a86a446999cc">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A condition in society that may affect the achievement of a goal.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Source" type="xsd:anyURI" id="uuid-03b90177-d13b-4e32-ada9-7c7a1eb1703b">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The Web address (URL) for the authoritative source of the information to which it refers.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="Stakeholder" id="uuid-1effcb49-9462-4c9b-bdc2-92971c9fc9cf">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">An individual whose interests may be affected by or whose action may be required to achieve a goal or objective.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:StakeholderType" id="uuid-cc53454d-43d4-46b2-a548-eeb3ff8605dd"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+		<xsd:attribute name="StartDate" type="stratml:DateTypeType" id="uuid-11a1e9c3-959b-4c2e-b3de-5e1296eb6ab3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The year, month and day the element with which it is associated is scheduled to begin.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:attribute>
+
+	<xsd:attribute name="StartTime" type="stratml:TimeTypeType" id="uuid-11a1e9c3-b959-e2c4-b3de-5e1296eb6ab3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The hour, minute and second the element with which it is associated is scheduled to begin.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:attribute>
+
+	<xsd:element name="StrategyFramework" id="uuid-A9278A5B-2E6A-4ad4-31AB-838E0210FD26">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The methodology used to determine goals and objectives.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="stratml:DrivingForce" id="uuid-0D5CCD0E-5842-4739-98D1-1A132CDFE16E" minOccurs="0"/>
+				<xsd:element ref="stratml:SWOT" id="uuid-F9F237D5-5B43-4C27-84BB-153A0259767A" minOccurs="0"/>
+				<xsd:element ref="stratml:PESTLE" id="uuid-0DDC5C0E-5842-4739-98D1-1A132CDFE16E" minOccurs="0"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Strength" type="stratml:NameDescriptionType" id="uuid-9084c2d2-4b7e-4189-a784-a86a446934ld">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A positive aspect of an organization that may provide a competitive advantage.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="Submitter" type="stratml:ContactInformationType" id="uuid-1dec258f-1656-4173-acfe-677c1cf24bf3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The person submitting the plan or report in StratML format.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="SuccessFactor" id="uuid-5e02ef4b-d669-47c4-b443-d7776bd27528">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A condition that contributes to the achievement of a goal.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:NameDescription" id="uuid-8201c15c-3491-49f3-7821-d261809a8b3c" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="Criticality" use="optional" id="uuid-F64903F4-D372-BQV3-9C5D-D68F2221BA86">
+				<xsd:annotation>
+					<xsd:documentation source="documentation" xml:lang="EN">An attribute enabling the designation of success factors as being of one of two types based upon relative importance.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Critical"/>
+						<xsd:enumeration value="Contributory"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="InternalOrExternal" use="optional" id="uuid-F64903F4-437F-487C-9C5D-D68F2221BA86">
+				<xsd:annotation>
+					<xsd:documentation source="documentation" xml:lang="EN">An attribute enabling the designation of success factors and driving forces as being within or outside of the direct control of the organization compiling the plan or report.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Internal"/>
+						<xsd:enumeration value="External"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Surname" type="xsd:string" id="uuid-d48842b4-9324-4f71-9502-1a991b707b38">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The family name of the person submitting the plan or report.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SWOT" id="uuid-A9278A5B-2E6A-4ad4-31AB-838E021062fd">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">Strengths, weaknesses, opportunities, and threats.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:Strength" id="uuid-F9F237D5-5B43-uR73-84BB-153A0259767A" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:Weakness" id="uuid-F9F237D5-7UNC-uR73-84BB-153A0259767A" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:Opportunity" id="uuid-F9F237D5-05Jv-uR73-84BB-153A0259767A" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:Threat" id="uuid-F9F237D5-5B43-0KLc-84BB-153A0259767A" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="TargetResult" id="uuid-A9278A5B-2E6A-4ad4-BA13-838E0210FD26">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A measurable result to be achieved on or before a specified date.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:SequenceIndicator" id="uuid-2F8b5a6C-DA08-46A1-85AB-E37D3291212B" minOccurs="0"/>
+				<xsd:element ref="stratml:Description" id="uuid-F9F237D5-43B4-4C27-84BB-153A0259767A"/>
+				<xsd:element ref="stratml:NumberOfUnits" id="uuid-0DDC5C0E-2485-4739-98D1-1A132CDFE16E" minOccurs="0"/>
+				<xsd:element ref="stratml:OtherInformation" id="uuid1cf1C862-2FE0-44f2-A3F8-A48A1E07BEBC" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute ref="stratml:StartDate" use="optional" id="uuid-F6464f50-D372-c784-9C5D-D68F103168ab"/>
+			<xsd:attribute ref="stratml:StartTime" use="optional" id="uuid-F64605f4-D372-c784-9C5D-D68F130168ab"/>
+			<xsd:attribute ref="stratml:EndDate" use="optional" id="uuid-F6464f50-273d-c784-9C5D-D68F103168ab"/>
+			<xsd:attribute ref="stratml:EndTime" use="optional" id="uuid-646F4f50-273d-c784-9C5D-D68F103168ab"/>
+			<xsd:attribute name="Weighting" type="stratml:PercentageType" use="optional" id="uuid-F64605F4-4VUQ-487C-9C5D-D68F1031BA86">
+				<xsd:annotation>
+					<xsd:documentation source="documentation" xml:lang="EN">An attribute enabling the designation of a performance indicator as being a certain percentage of a total performance rating score.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="TechnologicalFactor" type="stratml:NameDescriptionType" id="uuid-9084c2d2-4b7e-4189-a784-a86a446988bb">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A condition associated with technology that may affect the achievement of a goal.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="Threat" type="stratml:NameDescriptionType" id="uuid-9084c2d2-4b7e-4189-a784-a86a4469Mwe8">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A condition that may negatively impact the achievement of a goal.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="TenLevelType" type="stratml:TenLevelTypeType" id="uuid-1dec258f-1656-4173-afce-677c1cf24bf3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A subjective rating scale comprised of ten levels.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="ThreeLevelType" type="stratml:ThreeLevelTypeType" id="uuid-1dec258f-6561-4173-afce-677c1cf24bf3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A subjective rating scale comprised of three levels.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="TwoLevelType" type="stratml:TwoLevelTypeType" id="uuid-1decf852-1656-4173-afce-677c1cf24bf3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A subjective rating scale comprised of two levels.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="UnitOfMeasurement" type="xsd:string" id="uuid-BCF7687F-8056-4F02-AC0F-E92B84BEC16E">
+		<xsd:annotation>
+			<xsd:documentation>The scale by which measurements are divided into increments.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="Value" id="uuid-50f98ade-573c-4afa-8696-1d0e4a2c7ff3">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A principle that is important and helps to define the essential character of the organization.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:NameDescription" id="uuid-54768289-ad1d-4983-8b30-081f6b1fdeb3" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ValueProposition" type="stratml:ValuePropositionType" id="uuid-9084c2d2-4b7e-3333-48su-995m446988bb">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A statement of value to be delivered by an organization and a belief on the part of intended beneficiary stakeholders that such value will be realized.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="Vision" id="uuid-5e02d6ec-d669-47c4-b443-e7716bd27528">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A concise and inspirational statement implicitly relating an organization's purpose to its values, thus motivating its actions toward a future state it strives to achieve.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:Description" id="uuid-8201c15c-8206-49f3-9bd3-d816209a8b3c" minOccurs="0"/>
+				<xsd:element ref="stratml:Identifier" id="uuid-333e71c6-6b27-4bd2-bf39-c6e7b69d0404" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Weakness" type="stratml:NameDescriptionType" id="uuid-9084c2d2-4b7e-4189-a784-a86a44695xs9">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A negative aspect of an organization that may place it at a competitive disadvantage.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="WebAddress" type="xsd:string" id="uuid-he486dc4-b67c-4120-b881-ce72882fc958">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">The URL where the authoritative source or additional information can be found.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<!--Complex Types A - Z-->
+
+	<xsd:complexType name="AdministrativeInformationType" id="uuid-32864389-230a-4f77-9c09-c083386fcad9">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element enabling the documentation of information that is not essential to the content of the plan or report itself but may provide useful context.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="stratml:Identifier" id="uuid-A36D9558-9F96-4972-91FA-B4F311A7735D" minOccurs="0"/>
+			<xsd:element ref="stratml:Source" id="uuid-f2e49267-3f70-497a-827e-3b65644badd8" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute ref="stratml:StartDate" use="optional" id="uuid-F6464f50-D372-c784-d5cw-D68F103168ab"/>
+		<xsd:attribute ref="stratml:EndDate" use="optional" id="uuid-F6464f50-D372-c784-d5cw-f86d103168ab"/>
+		<xsd:attribute ref="stratml:PublicationDate" use="optional" id="uuid-F6464f50-D372-58bN-d5cw-f86d103168ab"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="AuthorityType" id="uuid-A494052D-3642-lwUV-B49B-DC0FF3089A79">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element enabling the naming and description of an authority.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="stratml:NameDescription" id="uuid-362b8e85-gg0c-460d-19Jc-0c01c7bdecd3" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CategoryType">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element enabling the naming of a category within a taxonomy as well as the association of an identifier and/or a Web address with the category.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="stratml:Identifier"/>
+			<xsd:element ref="stratml:Name"/>
+			<xsd:element name="WebAddress" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CategorizationType">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element enabling the naming of a taxonomy and the designation of a category from the taxonomy.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="stratml:Name" minOccurs="0"/>
+			<xsd:element ref="stratml:Category" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CompetencyType" id="uuid-A49428wl-3642-b853-B49B-DC0FF3089A79">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element enabling the naming and description of competencies with attribution as being one of three types.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="stratml:NameDescription" id="uuid-36e8b285-gc0g-460d-19Jc-0c01c7bdecd3" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="CompetencyTypeType" use="required" id="uuid-F55775F4-D372-487C-9C5D-D68F1031BA86">
+			<xsd:annotation>
+				<xsd:documentation source="documentation" xml:lang="EN">An attribute enabling the designation of competencies as being one of three types.</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="Core"/>
+					<xsd:enumeration value="Supporting"/>
+					<xsd:enumeration value="Ancillary"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="ContactInformationType" id="uuid-b07e1586-6676-4212-8a6a-4a365a4977ec">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element enabling the documentation of point of contact information.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="stratml:Identifier" id="uuid-3AA1341B-C021-43a9-94D3-5AE78BEA9B90" minOccurs="0"/>
+			<xsd:element ref="stratml:GivenName" id="uuid-be2396f2-cdf9-498c-82ef-1ce1b9209086" minOccurs="0"/>
+			<xsd:element ref="stratml:Surname" id="uuid-3d5034e0-328a-46a0-b5fb-776e070cca5f" minOccurs="0"/>
+			<xsd:element ref="stratml:PhoneNumber" id="uuid-160fe527-9d1d-423a-bc95-ad48f3257276" minOccurs="0"/>
+			<xsd:element ref="stratml:EmailAddress" id="uuid-9e408a3b-034a-486f-b045-7cc74505b44d" minOccurs="0"/>
+			<xsd:element ref="stratml:WebAddress" id="uuid-9804ea3b-034a-486f-b045-7cc74505b44d" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="GoalType" id="uuid-3604D5A8-2B17-41b1-88E9-F71866006E23">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element enabling the naming, description, prioritization, and categorization of goals as well as the identification of stakeholders, places affected, and success factors.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="stratml:NameDescription" id="uuid-36e8b285-gg0c-460d-19Jc-0c01db7cecd3" minOccurs="0"/>
+			<xsd:element ref="stratml:Place" id="uuid-93270a8d-75b5-6185-974e-19e5bd9c5931" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="stratml:Stakeholder" id="uuid-93270a8d-75b5-4052-974e-19e5bd9c5931" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="stratml:Authority" id="uuid-93270a8d-XPke-8529-974e-19e5bd9c5931" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="stratml:SuccessFactor" id="uuid-93270a8d-VQMC-8529-974e-19e5bd9c5931" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="stratml:OtherInformation" id="uuid-edd05fe8-91ca-4511-8f5b-c360ac07ebe8" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="Priority" use="optional" id="uuid-F64903F4-F893-487C-9C5D-D68F2221BA86">
+			<xsd:annotation>
+				<xsd:documentation source="documentation" xml:lang="EN">An attribute enabling the designation of goals as being of one of three qualitative degrees of importance.</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="To_Be_Determined"/>
+					<xsd:enumeration value="High"/>
+					<xsd:enumeration value="Medium"/>
+					<xsd:enumeration value="Low"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	
+
+	<xsd:complexType name="ObjectiveType" id="uuid-A494052D-115D-4452-B49B-DC0FF3089A79">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element enabling the naming, description, and categorization of objectives as well as the identification of stakeholders and management challenges.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="stratml:NameDescription" id="uuid-36e8b285-gg0c-460d-19Jc-0c01c7bdecd3" minOccurs="0"/>
+			<xsd:element ref="stratml:Stakeholder" id="uuid-3c9c0a38-4d9b-4641-a0f0-f05e722e6f4c" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="stratml:Categorization" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="stratml:ManagementChallenge" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="stratml:OtherInformation" id="uuid-75d113e5-ae18-4c6f-87ca-1811557471fb" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="stratml:PerformanceIndicator" id="uuid-87F2E84B-2216-4D56-9B58-250CD8D52CB8" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute ref="stratml:PublicationDate" use="optional" id="uuid-8e762c3e-85b6-4f5c-93d1-252a3667507f"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="OtherInformationType" id="uuid-A494052D-3642-hugg-B49B-DC0FF3089A79">
+		<xsd:sequence>
+			<xsd:element ref="stratml:NameDescription" id="uuid-36e2858b-pxrQ-460d-19Jc-0c01c7bdecd3" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!--
+	<xsd:complexType name="PersonalAttributeType" id="uuid-494A052D-3642-b853-B49B-DC0FF3089A79">
+		<xsd:sequence>
+			<xsd:element ref="NameDescription" id="uuid-8e63852b-gg0c-460d-19Jc-0c01c7bdecd3" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+-->
+
+	<xsd:element name="RoleType" id="uuid-6BEF4BD5-C9DB-497c-A264-B81B443F36AA">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element containing other elements enabling the naming, description, and categorization of different kinds of interests individuals and groups may have in the achievement of goals and objectives.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:NameDescription" id="uuid-8AA40586-F938-44fd-8D84-873E6E172480"/>
+			</xsd:sequence>
+			<xsd:attribute name="PerformerOrBeneficiary" use="optional" id="uuid-16827A64-1DE2-4cfb-AE53-E8CEE0AA3391">
+				<xsd:annotation>
+					<xsd:documentation source="documentation" xml:lang="EN">An attribute enabling designation of stakeholders as either prospective beneficiaries or performers of actions required to achieve an objective, or both performers and beneficiaries.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Performer"/>
+						<xsd:enumeration value="Beneficiary"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="RASCI" use="optional" id="uuid-F64903F4-f734-478C-9C5D-D68F2221BA86">
+				<xsd:annotation>
+					<xsd:documentation source="documentation" xml:lang="EN">An attribute enabling the designation of a roles as being of one of five types, commonly known as RASCI.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Responsible"/>
+						<xsd:enumeration value="Accountable"/>
+						<xsd:enumeration value="Supportive"/>
+						<xsd:enumeration value="to_be_Consulted"/>
+						<xsd:enumeration value="to_be_Informed"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="SpecialOrganizationType" id="uuid-84d5cbbf-ea76-402c-8914-ne7v2c1a0917">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">An element enabling the naming of other strategic planning and performance reporting entities that are not commonly considered to be organizations and not yet included in the controlled vocabulary of special types of organizations in the context of the StratML standard.</xsd:documentation>
+			<xsd:documentation source="documentation" xml:lang="EN">Such entities may be candidates for inclusion in the controlled vocabulary for special types of organizations in subsequent releases of the StratML standard.</xsd:documentation>
+			<xsd:documentation source="documentation" xml:lang="EN">The OtherOrganizationType attribute may be used to indicate that the name of the type of planning entity is not yet listed in the controlled vocabulary for special types of organizations in the context of the StratML standard.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="stratml:SpecialOrganizationTypeType">
+					<xsd:attribute name="OtherOrganizationTypeName" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation source="documentation" xml:lang="EN">An attribute enabling the naming of a type of organization not yet included in the enumerated listing of special types not commonly considered to be organizations.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="StakeholderType" id="uuid-ffelcb49-9462-4c9b-bdc2-92971c9fc9cf">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element enabling the naming and categorization of stakeholders as well as the specification of their roles and points of contact.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="stratml:NameDescription" id="uuid-cc53454d-43d4-46b2-a548-eebf8f2605dd"/>
+				<xsd:element ref="stratml:RoleType" id="uuid-75B20BA6-6B35-490b-87eb-B98008D49CC2" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:Categorization" id="uuid-2B570BA6-6B35-490b-87eb-B98008D49CC2" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="stratml:PointOfContact" id="uuid-75B20BA6-8679-acpw-BE78-c38998D49CC2" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="StakeholderTypeType" use="optional" id="uuid-F64605F4-D372-487C-9C5D-D68F103168AB">
+				<xsd:annotation>
+					<xsd:documentation source="documentation" xml:lang="EN">An attribute indicating whether the stakeholder is an individual person, an organization, or a generic group of people.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Person"/>
+						<xsd:enumeration value="Organization"/>
+						<xsd:enumeration value="Generic_Group"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="ValuePropositionType" id="uuid-A494052D-3642-b853-B49B-DC0FF3089A79">
+		<xsd:annotation>
+			<xsd:documentation source="documentation" xml:lang="EN">A complex element enabling the naming and description of value propositions.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="stratml:NameDescription" id="uuid-36e8852b-gg0c-460d-19Jc-0c01c7bdecd3" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+    <xsd:element name="PerformancePlanOrReport" id="uuid-91D3FADB-E6CF-45a0-9676-34E1DBCFE10C">
+      <xsd:annotation>
+        <xsd:documentation>A document identifying inputs and processes required to accomplish objectives and establishing metrics by which progress will be assessed within a single budgetary planning and resource allocation cycle.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="stratml:NameDescription" id="uuid-B1A2B247-56EF-4d0a-9A68-4AD35ED5DC1E"/>
+          <xsd:element ref="stratml:Organization" id="uuid-f8d6372e-52e8-4a60-ab1c-274aad8bcf33" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element ref="stratml:Vision" id="uuid-d4dbdad8-0cdd-4294-b091-b8bec961d03b" minOccurs="0"/>
+          <xsd:element ref="stratml:Mission" id="uuid-f66bec3e-2714-49ec-8e15-8820cecba9ae" minOccurs="0"/>
+          <xsd:element ref="stratml:Value" id="uuid-1ab0aa31-a42f-410e-8b2c-29c22eed8a77" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element ref="stratml:Goal" id="uuid-294b80a3-7288-4477-9458-35292f7a47c3" maxOccurs="unbounded"/>
+          <xsd:element ref="stratml:StrategyFramework" id="uuid-1ab0aa31-F24A-410e-8b2c-29c22eed8a77" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element ref="stratml:OtherInformation" id="uuid-C800A4FC-A36D-45d5-B862-70FBF6628156" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element ref="stratml:AdministrativeInformation" id="uuid-29939A46-15F9-45a1-B865-D62FEEE9AB8C" minOccurs="0"/>
+          <xsd:element ref="stratml:Submitter" id="uuid-4147E26D-BB81-495f-921E-1D63EBE45A62" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attribute name="DocumentType" use="required" id="uuid-F64605F4-D372-487C-9C5D-D68F1031BA86">
+          <xsd:annotation>
+            <xsd:documentation source="documentation" xml:lang="EN">An attribute indicating whether the document is a strategic plan, a performance plan, or a performance report.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="Strategic_Plan"/>
+              <xsd:enumeration value="Performance_Plan"/>
+              <xsd:enumeration value="Performance_Report"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Language" default="en" id="uuid-F64605F4-D372-487C-9C5D-D6801f831BA86">
+          <xsd:annotation>
+            <xsd:documentation source="documentation" xml:lang="EN">The ISO code for the language of the text of the document.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="en"/>
+              <xsd:enumeration value="es"/>
+              <xsd:enumeration value="de"/>
+              <xsd:enumeration value="fr"/>
+              <xsd:enumeration value="it"/>
+              <xsd:enumeration value="ja"/>
+              <xsd:enumeration value="pt"/>
+              <xsd:enumeration value="ru"/>
+              <xsd:enumeration value="zh"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+    </xsd:element>
+	
+</xsd:schema>
+

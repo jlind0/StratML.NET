@@ -3,7 +3,55 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratML.Core", "StratML.Core\StratML.Core.csproj", "{41F4B30E-7857-4A66-B466-0BD610956722}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratML.Data", "StartML.Data\StratML.Data.csproj", "{C817F1A3-56F4-4031-8E7A-1709B299EFAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratML.Data.Core", "StratML.Data.Core\StratML.Data.Core.csproj", "{86CE57A7-1F07-4150-9B21-E1E50D51053B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Business.Core", "StratML.Business.Core\StratML.Business.Core.csproj", "{234EBD6A-4158-44D5-B2E4-593C3585C2B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Business", "StratML.Business\StratML.Business.csproj", "{A636F218-5B94-4897-B273-DDD9A63C4F78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Web", "StartML.Web\StratML.Web.csproj", "{86A37645-1C7F-42FC-8505-2834B4BA414A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Data.Tests", "StratML.Data.Tests\StratML.Data.Tests.csproj", "{EBF3042C-612A-4F3F-A401-CB046DB48E7C}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41F4B30E-7857-4A66-B466-0BD610956722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41F4B30E-7857-4A66-B466-0BD610956722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41F4B30E-7857-4A66-B466-0BD610956722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41F4B30E-7857-4A66-B466-0BD610956722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C817F1A3-56F4-4031-8E7A-1709B299EFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C817F1A3-56F4-4031-8E7A-1709B299EFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C817F1A3-56F4-4031-8E7A-1709B299EFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C817F1A3-56F4-4031-8E7A-1709B299EFAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86CE57A7-1F07-4150-9B21-E1E50D51053B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86CE57A7-1F07-4150-9B21-E1E50D51053B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86CE57A7-1F07-4150-9B21-E1E50D51053B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86CE57A7-1F07-4150-9B21-E1E50D51053B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{234EBD6A-4158-44D5-B2E4-593C3585C2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{234EBD6A-4158-44D5-B2E4-593C3585C2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{234EBD6A-4158-44D5-B2E4-593C3585C2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{234EBD6A-4158-44D5-B2E4-593C3585C2B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A636F218-5B94-4897-B273-DDD9A63C4F78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A636F218-5B94-4897-B273-DDD9A63C4F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A636F218-5B94-4897-B273-DDD9A63C4F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A636F218-5B94-4897-B273-DDD9A63C4F78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A37645-1C7F-42FC-8505-2834B4BA414A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A37645-1C7F-42FC-8505-2834B4BA414A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A37645-1C7F-42FC-8505-2834B4BA414A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A37645-1C7F-42FC-8505-2834B4BA414A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBF3042C-612A-4F3F-A401-CB046DB48E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBF3042C-612A-4F3F-A401-CB046DB48E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBF3042C-612A-4F3F-A401-CB046DB48E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBF3042C-612A-4F3F-A401-CB046DB48E7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
