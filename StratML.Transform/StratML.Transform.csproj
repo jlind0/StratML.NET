@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StratML.Core\StratML.Core.csproj" />
+    <ProjectReference Include="..\StratML.Transform.Core\StratML.Transform.Core.csproj" />
+  </ItemGroup>
+
+</Project>

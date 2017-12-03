@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Web", "StartML.Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Data.Tests", "StratML.Data.Tests\StratML.Data.Tests.csproj", "{EBF3042C-612A-4F3F-A401-CB046DB48E7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Transform.Core", "StratML.Transform.Core\StratML.Transform.Core.csproj", "{A896BDDD-F547-4601-95FD-B3948732AB60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Transform", "StratML.Transform\StratML.Transform.csproj", "{22DF3E74-22B3-4C64-98A7-014D8D8E89A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{EBF3042C-612A-4F3F-A401-CB046DB48E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBF3042C-612A-4F3F-A401-CB046DB48E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBF3042C-612A-4F3F-A401-CB046DB48E7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A896BDDD-F547-4601-95FD-B3948732AB60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A896BDDD-F547-4601-95FD-B3948732AB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A896BDDD-F547-4601-95FD-B3948732AB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A896BDDD-F547-4601-95FD-B3948732AB60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22DF3E74-22B3-4C64-98A7-014D8D8E89A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22DF3E74-22B3-4C64-98A7-014D8D8E89A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22DF3E74-22B3-4C64-98A7-014D8D8E89A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22DF3E74-22B3-4C64-98A7-014D8D8E89A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
