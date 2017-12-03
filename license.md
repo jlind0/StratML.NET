@@ -1,7 +1,7 @@
-##Copyfree Open Innovation License
+Copyfree Open Innovation License
 This is version 0.5 of the Copyfree Open Innovation License.
 
-###Terms and Conditions
+Terms and Conditions
 Redistributions, modified or unmodified, in whole or in part, must retain applicable copyright or other legal privilege notices, these conditions, and the following license terms and disclaimer. Subject to these conditions, the holder(s) of copyright or other legal privileges, author(s) or assembler(s), and contributors of this work hereby grant to any person who obtains a copy of this work in any form:
 
 Permission to reproduce, modify, distribute, publish, sell, sublicense, use, and/or otherwise deal in the licensed material without restriction.
