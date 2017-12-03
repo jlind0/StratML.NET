@@ -20,12 +20,9 @@ namespace StratML.Web.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id, CancellationToken token = default(CancellationToken))
+        public Task<Corporation> Get(string id, CancellationToken token = default(CancellationToken))
         {
-            var corp = await this.CorpLogic.GetCorporation(id, token);
-            if (corp != null)
-                return Ok(corp);
-            return this.NoContent();
+            return this.CorpLogic.GetCorporation(id, token);
         }
     }
 }

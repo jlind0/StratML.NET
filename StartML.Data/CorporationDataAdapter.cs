@@ -21,6 +21,7 @@ namespace StratML.Data
             List<Corporation> corporations = new List<Corporation>();
             await UseClient(async client =>
             {
+                string flattenedId = string.Join(',', id);
                 var query = CreateQuery<Corporation>(client, new FeedOptions() { MaxItemCount = 1 }).AsDocumentQuery();
 
                 while (query.HasMoreResults)

@@ -16,6 +16,7 @@ using StratML.Data;
 using StratML.Business;
 using System.IO;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using StratML.Web.Formatters;
 
 namespace StratML.Web
 {
@@ -45,16 +46,17 @@ namespace StratML.Web
             services.AddSingleton(token);
             services.AddTransient<ICorporationAdapater, CorporationDataAdapter>();
             services.AddTransient<ICorporationLogic, CorporationLogic>();
-
+            
             services.AddMvc(options =>
             {
 
                 options.OutputFormatters.Clear();
-                options.InputFormatters.Clear();
+                //options.InputFormatters.Clear();
 
-                options.InputFormatters.Add(new XmlSerializerInputFormatter());
+                //options.InputFormatters.Add(new XmlSerializerInputFormatter());
 
-                options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+                options.OutputFormatters.Add(new StratMLOutputFormatter());
+                
 
                 options.FormatterMappings.SetMediaTypeMappingForFormat("xml", "application/xml");
             });
