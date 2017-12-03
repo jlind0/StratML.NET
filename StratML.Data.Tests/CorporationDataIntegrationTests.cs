@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using StratML.Data;
 using StratML.Data.Core;
 using StratML.Core;
-
+using StratML.Core.Custom;
+using StratML.Core.Three;
 namespace StratML.Data.Tests
 {
     [TestClass]

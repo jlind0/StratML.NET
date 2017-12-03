@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using StratML.Core;
+using StratML.Core.Three;
+using StratML.Core.Custom;
 using System.Threading;
 using System.Threading.Tasks;
 

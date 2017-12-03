@@ -4,6 +4,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using StratML.Core;
+using StratML.Core.Three;
+using StratML.Core.Custom;
 using StratML.Data.Core;
 using System.Linq;
 using Microsoft.Azure.Documents;
@@ -21,8 +23,9 @@ namespace StratML.Data
             List<Corporation> corporations = new List<Corporation>();
             await UseClient(async client =>
             {
-                string flattenedId = string.Join(',', id);
-                var query = CreateQuery<Corporation>(client, new FeedOptions() { MaxItemCount = 1 }).AsDocumentQuery();
+                
+                var query = CreateQuery<Corporation>(client, new FeedOptions() { MaxItemCount = 1 }).Where(
+                    c => c.NameDescription.Identifier[0] == id[0]).AsDocumentQuery();
 
                 while (query.HasMoreResults)
                 {
@@ -30,7 +33,7 @@ namespace StratML.Data
                 }
 
             });
-            return corporations.FirstOrDefault();
+            return corporations.SingleOrDefault();
         }
 
         public async Task<ICollection<NameDescriptionType>> GetCorporations(CancellationToken token = default(CancellationToken))
