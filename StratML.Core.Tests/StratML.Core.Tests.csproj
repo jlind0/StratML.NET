@@ -7,11 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="PMOAI.xml" />
     <None Remove="SMLC2011.xml" />
     <None Remove="StratTest.xml" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="PMOAI.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SMLC2011.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

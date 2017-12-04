@@ -71,6 +71,11 @@ namespace StratML.Web.Services
                 appconfig["CosmosDB:Key"],
                 appconfig["CosmosDB:Database"],
                 appconfig["CosmosDB:Collections:Two"]);
+            var oneToken = new CosmosDataToken(
+                new Uri(appconfig["CosmosDB:Path"]),
+                appconfig["CosmosDB:Key"],
+                appconfig["CosmosDB:Database"],
+                appconfig["CosmosDB:Collections:One"]);
             services.AddSwaggerGen(gen =>
             {
                 gen.CustomSchemaIds(x => x.FullName);
@@ -82,13 +87,17 @@ namespace StratML.Web.Services
             container.Configure(config =>
             {
                 config.For<CosmosDataToken>().Add(customToken).Named("Custom");
-
                 config.For<ICorporationAdapater>().Use<CorporationDataAdapter>().Ctor<CosmosDataToken>().IsNamedInstance("Custom");
                 config.For<ICorporationLogic>().Use<CorporationLogic>();
 
                 config.For<CosmosDataToken>().Add(twoToken).Named("Two");
                 config.For<IPartTwoDataAdapter>().Use<PartTwoDataAdapter>().Ctor<CosmosDataToken>().IsNamedInstance("Two");
                 config.For<IPartTwoLogic>().Use<PartTwoLogic>();
+
+                config.For<CosmosDataToken>().Add(oneToken).Named("One");
+                config.For<IPartOneDataAdapter>().Use<PartOneDataAdapter>().Ctor<CosmosDataToken>().IsNamedInstance("One");
+                config.For<IPartOneLogic>().Use<PartOneLogic>();
+
                 config.For<ITransformOneToTwo>().Use<TransformOneToTwo>();
                 config.For<ITransformTwoToOne>().Use<TransformTwoToOne>();
                 

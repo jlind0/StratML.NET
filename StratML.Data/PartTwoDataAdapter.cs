@@ -9,6 +9,7 @@ using System.Linq;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
+using StratML.Core;
 
 namespace StratML.Data
 {

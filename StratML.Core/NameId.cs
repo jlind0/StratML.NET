@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StratML.Core.Two
+namespace StratML.Core
 {
     public class NameId
     {

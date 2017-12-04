@@ -42,9 +42,21 @@ namespace StratML.Core
                     if (targetProperty.PropertyType != property.PropertyType)
                     {
                         var collection = value as IEnumerable;
-                        if (collection != null)
+                        if (property.PropertyType != typeof(string) && collection != null)
                         {
-                            if (targetProperty.PropertyType.HasInterface(typeof(IList)))
+                            if (targetProperty.PropertyType.IsArray)
+                            {
+                                var elementType = targetProperty.PropertyType.GetElementType();
+                                var array = Array.CreateInstance(elementType, collection.OfType<object>().Count());
+                                int i = 0;
+                                foreach (var val in collection)
+                                {
+                                    array.SetValue(val.CreateRelatedInstance(elementType), i);
+                                    i++;
+                                }
+                                value = array;
+                            }
+                            else if (targetProperty.PropertyType.HasInterface(typeof(IList)))
                             {
                                 IList targetCollection = Activator.CreateInstance(targetProperty.PropertyType) as IList;
                                 Type targetCollectionElementType = targetProperty.PropertyType.GetCollectionValueType();
@@ -52,22 +64,16 @@ namespace StratML.Core
                                 {
                                     var v = val.CreateRelatedInstance(targetCollectionElementType);
                                     targetCollection.Add(v);
-                                    
+
                                 }
                                 value = targetCollection;
                             }
-                            else if(targetProperty.PropertyType.HasElementType)
-                            {
-                                var elementType = targetProperty.PropertyType.GetElementType();
-                                List<object> values = new List<object>();
-                                foreach(var val in collection)
-                                {
-                                    var v = val.CreateRelatedInstance(elementType);
-                                    values.Add(v);
-                                }
-                                value = values.ToArray();
-                            }
+
                         }
+                        else if (targetProperty.PropertyType == typeof(string) && property.PropertyType == typeof(DateTime))
+                            value = ((DateTime)value).ToString("yyyy-dd-MM HH:mm:ss");
+                        else if (targetProperty.PropertyType == typeof(DateTime) && property.PropertyType == typeof(string))
+                            value = DateTime.Parse((string)value); //TODO: Make sure it doesn't throw exception
                         else
                             value = value.CreateRelatedInstance(targetProperty.PropertyType);
                     }

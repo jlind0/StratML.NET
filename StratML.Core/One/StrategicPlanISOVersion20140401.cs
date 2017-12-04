@@ -618,6 +618,8 @@ namespace StratML.Core.One {
                 this.administrativeInformationField = value;
             }
         }
+        [XmlIgnore]
+        public string id { get; set; }
     }
     
     /// <remarks/>

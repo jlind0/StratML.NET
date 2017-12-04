@@ -4,25 +4,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StratML.Business.Core;
-using StratML.Core.Two;
-using System.Threading;
 using StratML.Core.One;
-using StratML.Transform.Core;
+using StratML.Business.Core;
+using System.Threading;
 using StratML.Core;
+
 
 namespace StratML.Web.Services.Controllers
 {
-    [Route("api/PartTwo")]
-    public class PartTwoController : Controller
+    [Route("api/PartOne")]
+    public class PartOneController : Controller
     {
-        protected IPartTwoLogic Logic { get; private set; }
-        public PartTwoController(IPartTwoLogic logic)
+        protected IPartOneLogic Logic { get; private set; }
+        public PartOneController(IPartOneLogic logic)
         {
             this.Logic = logic;
         }
         [HttpPost]
-        public async Task<IActionResult> Save([FromBody] PerformancePlanOrReport plan, CancellationToken token = default(CancellationToken))
+        public async Task<IActionResult> Save([FromBody] StrategicPlan plan, CancellationToken token = default(CancellationToken))
         {
             await this.Logic.Save(plan, token);
             return Ok();
@@ -33,10 +32,9 @@ namespace StratML.Web.Services.Controllers
             return this.Logic.GetStrategies(token);
         }
         [HttpGet("{id}")]
-        public Task<PerformancePlanOrReport> GetStrategy(string id, CancellationToken token = default(CancellationToken))
+        public Task<StrategicPlan> GetStrategy(string id, CancellationToken token = default(CancellationToken))
         {
             return this.Logic.GetStrategy(id, token);
         }
-        
     }
 }
