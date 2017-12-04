@@ -1,0 +1,1022 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<stratml:PerformancePlanOrReport xmlns:stratml="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport" Type="Performance_Report">
+  <stratml:Name>2011 Annual Report</stratml:Name>
+  <stratml:Description>This report covers the activities of the Strategy Markup Language (StratML) Committee during 2011.  It is cumulative in the sense that it also documents results achieved previously. In addition, it begins to outline objectives to be pursued in the months and years ahead.</stratml:Description>
+  <stratml:OtherInformation>Please let us know if you have proposed additions or corrections.  Comments and suggestions with respect to prospective goals and objectives are also welcome, particularly if you would like to participate in specifying Part 3 and/or developing StratML tools, applications, and services.</stratml:OtherInformation>
+  <stratml:StrategicPlanCore>
+    <stratml:Organization>
+      <stratml:Name>Strategy Markup Language Committee</stratml:Name>
+      <stratml:Acronym>SMLC</stratml:Acronym>
+      <stratml:Identifier>78901c50-230a-4997-a95e-eeaf289a484e</stratml:Identifier>
+      <stratml:Description></stratml:Description>
+      <stratml:Stakeholder>
+        <stratml:Name>AIIM</stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name></stratml:Name>
+          <stratml:Description>ANSI-Accredited Standards Development Organization</stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Stakeholder>
+        <stratml:Name>Owen Ambur</stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name>Co-Chair</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+        <stratml:Role>
+          <stratml:Name>AIIM Professional Member</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:RoleType>Beneficiary</stratml:RoleType>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Stakeholder>
+        <stratml:Name>Adam Schwartz</stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name>Co-Chair</stratml:Name>
+          <stratml:Description>With the completion and approval of Part 2 as an ANSI/AIIM standard, Adam deemed his work on the committee to have been completed and resigned his role as co-chair in 2011.</stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Stakeholder>
+        <stratml:Name>Betsy Fanning</stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name>AIIM's Director of Standards</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Stakeholder>
+        <stratml:Name>Sylvia Webb</stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name>Member of the StratML Committee</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+        <stratml:Role>
+          <stratml:Name>Leader of NIEM Task Group</stratml:Name>
+          <stratml:Description>Sylvia is leading a task group to develop a NIEM implementation profile for StratML</stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Stakeholder>
+        <stratml:Name>Andre Cusson</stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name>Member of the StratML Committee</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+        <stratml:Role>
+          <stratml:Name>Developer of StratML Portal</stratml:Name>
+          <stratml:Description>Andre is developing a StratML portal, including an XSLT form enabling the drafting and editing of StratML documents.  (This report is being drafted and edited using his form.)</stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Stakeholder>
+        <stratml:Name>Allyson Ugarte</stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name>Member of the StratML Committee</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+        <stratml:Role>
+          <stratml:Name>Member of the NIEM Task Group</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Stakeholder>
+        <stratml:Name>Art Colman</stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name>Schema Maintenance</stratml:Name>
+          <stratml:Description>Art maintains the official copies of the schema while under development, prior to approval and publication at stratml.net.</stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+        <stratml:Role>
+          <stratml:Name>Data Dictionary Producer</stratml:Name>
+          <stratml:Description>Art also automatically generates user-friendly data dictionaries (in MS Word format) from the StratML schemas.</stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+        <stratml:Role>
+          <stratml:Name>Member of the StratML Committee</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Stakeholder>
+        <stratml:Name>Danny Dohrmann</stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name>Member of the StratML Committee</stratml:Name>
+          <stratml:Description></stratml:Description>
+        </stratml:Role>
+        <stratml:Role>
+          <stratml:Name>Member of the NIEM Task Group</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Stakeholder>
+        <stratml:Name>William Glascoe</stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name>Member of the StratML Committee</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+        <stratml:Role>
+          <stratml:Name>Member of the NIEM Task Group</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:RoleType>Performer</stratml:RoleType>
+        </stratml:Role>
+      </stratml:Stakeholder>
+    </stratml:Organization>
+    <stratml:Vision>
+      <stratml:Description>A worldwide web of intentions, stakeholders, and results.</stratml:Description>
+      <stratml:Identifier>efe1e1dc-51be-43ca-82fe-5444a471a822</stratml:Identifier>
+    </stratml:Vision>
+    <stratml:Mission>
+      <stratml:Description>To specify an XML-based voluntary consensus standard for the information commonly contained in strategic and performance plans and reports.</stratml:Description>
+      <stratml:Identifier>161b7a63-5951-475e-aca8-961906a64596</stratml:Identifier>
+    </stratml:Mission>
+    <stratml:Value>
+      <stratml:Name>Openness</stratml:Name>
+      <stratml:Description></stratml:Description>
+    </stratml:Value>
+    <stratml:Value>
+      <stratml:Name>Standards</stratml:Name>
+      <stratml:Description></stratml:Description>
+    </stratml:Value>
+    <stratml:Value>
+      <stratml:Name>Machine Readability</stratml:Name>
+      <stratml:Description></stratml:Description>
+    </stratml:Value>
+    <stratml:Value>
+      <stratml:Name>Performance</stratml:Name>
+      <stratml:Description></stratml:Description>
+    </stratml:Value>
+    <stratml:Value>
+      <stratml:Name>Results</stratml:Name>
+      <stratml:Description></stratml:Description>
+    </stratml:Value>
+    <stratml:Goal>
+      <stratml:Name>Strategic Plans</stratml:Name>
+      <stratml:Description>Specify and foster usage of an XML standard for the information commonly contained in strategic plans.</stratml:Description>
+      <stratml:Identifier>a578ae20-e023-4135-8961-3f775bee3412</stratml:Identifier>
+      <stratml:SequenceIndicator>Part 1</stratml:SequenceIndicator>
+      <stratml:OtherInformation></stratml:OtherInformation>
+      <stratml:Stakeholder>
+        <stratml:Name></stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name></stratml:Name>
+          <stratml:Description></stratml:Description>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Objective>
+        <stratml:Name>ANSI/AIIM Publication</stratml:Name>
+        <stratml:Description>Publish Part 1, Strategic Plans, as an American (ANSI/AIIM) national standard.</stratml:Description>
+        <stratml:Identifier>aa83925e-f243-4930-9c35-32febd204b76</stratml:Identifier>
+        <stratml:SequenceIndicator>1.1</stratml:SequenceIndicator>
+        <stratml:OtherInformation></stratml:OtherInformation>
+        <stratml:Stakeholder>
+          <stratml:Name>ANSI</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+            <stratml:RoleType>Beneficiary</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:PerformanceIndicator ValueChainStage="Outcome" IndicatorType="Qualitative">
+          <stratml:Identifier>8c60e70d-55b5-4ee6-9db3-3a0e202179f2</stratml:Identifier>
+          <stratml:MeasurementDimension></stratml:MeasurementDimension>
+          <stratml:UnitOfMeasurement></stratml:UnitOfMeasurement>
+          <stratml:OtherInformation></stratml:OtherInformation>
+          <stratml:Relationship >
+            <stratml:Identifier></stratml:Identifier>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+          </stratml:Relationship>
+          <stratml:MeasurementInstance>
+            <stratml:TargetResult>
+              <stratml:Description>Publication of Part 1.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:TargetResult>
+            <stratml:ActualResult>
+              <stratml:Description>Part 1 was approved and published as ANSI/AIIM 21:2009.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate>2009-12-17</stratml:EndDate>
+            </stratml:ActualResult>
+          </stratml:MeasurementInstance>
+        </stratml:PerformanceIndicator>
+      </stratml:Objective>
+      <stratml:Objective>
+        <stratml:Name>StratML Part 1 Files</stratml:Name>
+        <stratml:Description>Convert strategic plans into StratML format to demonstrate and prove the elements of the standard.</stratml:Description>
+        <stratml:Identifier>b7f9c1cb-5ae8-4848-ae70-018facfed433</stratml:Identifier>
+        <stratml:SequenceIndicator>1.2</stratml:SequenceIndicator>
+        <stratml:OtherInformation></stratml:OtherInformation>
+        <stratml:Stakeholder>
+          <stratml:Name></stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:PerformanceIndicator ValueChainStage="Output" IndicatorType="Quantitative">
+          <stratml:Identifier>8c60e70d-55b5-4ee6-9db3-3a0e202179f2</stratml:Identifier>
+          <stratml:MeasurementDimension>Plans Converted</stratml:MeasurementDimension>
+          <stratml:UnitOfMeasurement>Number</stratml:UnitOfMeasurement>
+          <stratml:OtherInformation></stratml:OtherInformation>
+          <stratml:Relationship >
+            <stratml:Identifier></stratml:Identifier>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+          </stratml:Relationship>
+          <stratml:MeasurementInstance>
+            <stratml:TargetResult>
+              <stratml:Description></stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:TargetResult>
+            <stratml:ActualResult>
+              <stratml:Description>More than 800 plans have been converted to StratML Part 1 format, all of which are available at http://xml.gov/stratml/drybridge/index.htm.  For the current number, see http://stratml.hyperbase.com/statistics.html, where other statistics are provided as well, including the number of goals, objectives, and stakeholders.</stratml:Description>
+              <stratml:NumberOfUnits>829</stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate>2012-01-26</stratml:EndDate>
+            </stratml:ActualResult>
+          </stratml:MeasurementInstance>
+        </stratml:PerformanceIndicator>
+      </stratml:Objective>
+      <stratml:Objective>
+        <stratml:Name>Tools, Applications &amp; Services</stratml:Name>
+        <stratml:Description>Foster the development of tools, applications, and services supporting and leveraging the StratML standard for the benefit of various communities of interest.</stratml:Description>
+        <stratml:Identifier>ec6744fe-3001-47ca-9812-291e39574d6a</stratml:Identifier>
+        <stratml:SequenceIndicator>1.3</stratml:SequenceIndicator>
+        <stratml:OtherInformation></stratml:OtherInformation>
+        <stratml:Stakeholder>
+          <stratml:Name>Andre Cusson</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>StratML Portal Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#Cusson</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+          <stratml:Role>
+            <stratml:Name>XSLT Form Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#Forms</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Sylvia Webb</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Schema Development Support</stratml:Name>
+            <stratml:Description>Provided a schema development tools and expertise to support compilation of the schema for Part 1.</stratml:Description>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Joe Carmel</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>XForms Form Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#Forms</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+          <stratml:Role>
+            <stratml:Name>Atom Demonstration Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#Carmel</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Art Colman</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>StratML File Converter</stratml:Name>
+            <stratml:Description>Converted hundreds of StratML files to conform to the final version of the schema for StratML Part 1.  http://xml.gov/stratml/drybridge/index.htm</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Ari Knausenberger</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>StratML Tag Cloud Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#Ari</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Keith Matthew</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>StratML Editorial Portal Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#XMLSimplicity</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Shashi Muduniri</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>StratML Search Service Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#MarkLogic</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Pooyan Zamanian</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>StratML Portal Developer</stratml:Name>
+            <stratml:Description>Available in Farsi and English.  http://xml.gov/stratml/index.htm#Pooyan</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Pradeep Jain</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>MS Word Quick Start Guide Drafter</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#ICTect</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Vivian Dey</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>MS Word Quick Start Guide Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#ICTect</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Ken Holman</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>StratML Stylesheet Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#Crane</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Erick Mackay</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>StratML Developer Support</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#LiquidTechnologies</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Priscilla Walmsley</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Schema Central Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#Datypic</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Adam Schwartz</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Strategic Plan Converter</stratml:Name>
+            <stratml:Description>Converted a number of strategic plans to StratML format for inclusion in the prototypical collection compiled to demonstrate and prove that the elements of the schema capture the types of information commonly occurring in strategic plans.</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+          <stratml:Role>
+            <stratml:Name>Graphics Developer</stratml:Name>
+            <stratml:Description>Compiled a graphical depiction of the schema for Part 1.</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Owen Ambur</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>InfoPath Form Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/index.htm#Forms</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+          <stratml:Role>
+            <stratml:Name>Strategic Plan Converter</stratml:Name>
+            <stratml:Description>Converting strategic plans from non-standard, non-machine-readable formats, like PDF, into open, standard, machine-readable StratML format.  http://xml.gov/stratml/drybridge/index.htm</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+          <stratml:Role>
+            <stratml:Name>StratML Search Service Provider</stratml:Name>
+            <stratml:Description>Maintaining a Google site-specific search capability for the StratML collection at http://xml.gov/stratml/index.htm#Google</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Ken Sall</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Glossary Schema &amp; Stylesheet Developer</stratml:Name>
+            <stratml:Description>Compiled a schema and stylesheet for the StratML glossary.</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Ronald Reck</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Glossary Schema &amp; Stylesheet Developer</stratml:Name>
+            <stratml:Description>Compiled a schema and stylesheet for the StratML glossary.</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Betty Harvey</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Schema Development Support</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/history.htm</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Christopher Maden</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Stylesheet Developer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/history.htm</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Jim Disbrow</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Award Nominator</stratml:Name>
+            <stratml:Description>Submitted StratML as a nominee for the President's Save Award program.  http://xml.gov/stratml/history.htm</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>John Chickering</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Performance Plan/Report Task Group Member</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/history.htm</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Jim St. Clair</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Performance Plan/Report Task Group Member</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/history.htm</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Oliver Recklies</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Vocabulary &amp; Schema Reviewer</stratml:Name>
+            <stratml:Description>http://xml.gov/stratml/20080312Recklies.pdf</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Carl Frappaolo</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Article Publisher</stratml:Name>
+            <stratml:Description>Published an article referencing StratML in relation to the findability of information.  See http://xml.gov/stratml/history.htm or, more specifically, http://www.takingaiim.com/2008/05/aiimqa-findab-1.html</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Amin Hassam</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Business Case Developer</stratml:Name>
+            <stratml:Description>Served a highly active and key role in helping to compile the business case for StratML.</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>David Webber</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>CAM Interactive Developer</stratml:Name>
+            <stratml:Description>Developed a CAM interactive view of the schema for StratML Part 1.  See http://xml.gov/stratml/history.htm and, more specifically, http://xml.gov/stratml/references/StratML-interactive.html</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Ed Chase</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>PDF Fillable Form Developer</stratml:Name>
+            <stratml:Description>Developed a PDF Fillable form for StratML Part 1.  See http://xml.gov/stratml/index.htm#Forms and, more specifically, http://xml.gov/stratml/forms/StrategicPlan.pdf</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Laurens van den Oever</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Xopus Forms Developer</stratml:Name>
+            <stratml:Description>Developed an Xopus form for StratML Part 1, in English and Spanish.  See http://xml.gov/stratml/index.htm#Forms and, more specifically, http://xopus.com/Demo/stratml</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Allyson Ugarte</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Spanish Translator</stratml:Name>
+            <stratml:Description>Provided assistance in translating to Spanish the English labels in Xopus' form.</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+          <stratml:Role>
+            <stratml:Name>XBRL Liaison</stratml:Name>
+            <stratml:Description>Served as an expert liaison to the XBRL community.</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Alice Marshall</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Article Publisher</stratml:Name>
+            <stratml:Description>Published an article on StratML.  See http://xml.gov/stratml/index.htm#SeeAlso and, more specifically, http://www.examiner.com/technology-culture-in-washington-dc/owen-ambur-talks-about-the-work-of-the-stratml-committee</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>KC Morris</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Validation Service Provider</stratml:Name>
+            <stratml:Description>Provided a validation service for StratML Part 1 files.  See http://xml.gov/stratml/index.htm#NISTservice</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:PerformanceIndicator ValueChainStage="Output_Processing" IndicatorType="Quantitative">
+          <stratml:Identifier>8c60e70d-55b5-4ee6-9db3-3a0e202179f2</stratml:Identifier>
+          <stratml:MeasurementDimension>Tools, Applications &amp; Services</stratml:MeasurementDimension>
+          <stratml:UnitOfMeasurement>Number</stratml:UnitOfMeasurement>
+          <stratml:OtherInformation></stratml:OtherInformation>
+          <stratml:Relationship >
+            <stratml:Identifier></stratml:Identifier>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+          </stratml:Relationship>
+          <stratml:MeasurementInstance>
+            <stratml:TargetResult>
+              <stratml:Description>Development of prototypical tools, applications, and services.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:TargetResult>
+            <stratml:ActualResult>
+              <stratml:Description>A couple dozen prototypical tools, applications, and services have been developed.  They are documented and links are provided at http://xml.gov/stratml/index.htm#Forms &amp; http://xml.gov/stratml/index.htm#Services.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate>2012-01-26</stratml:EndDate>
+            </stratml:ActualResult>
+          </stratml:MeasurementInstance>
+        </stratml:PerformanceIndicator>
+      </stratml:Objective>
+      <stratml:Objective>
+        <stratml:Name>ISO Standard</stratml:Name>
+        <stratml:Description>Obtain approval and publication of Part 1 as an international (ISO) voluntary consensus standard, for potential use by all organizations worldwide.</stratml:Description>
+        <stratml:Identifier>69df127a-641e-404e-a16e-4d4aa134664b</stratml:Identifier>
+        <stratml:SequenceIndicator>1.4</stratml:SequenceIndicator>
+        <stratml:OtherInformation></stratml:OtherInformation>
+        <stratml:Stakeholder>
+          <stratml:Name>ISO</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+            <stratml:RoleType>Beneficiary</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:PerformanceIndicator ValueChainStage="Outcome" IndicatorType="Qualitative">
+          <stratml:Identifier>8c60e70d-55b5-4ee6-9db3-3a0e202179f2</stratml:Identifier>
+          <stratml:MeasurementDimension>ISO Standard</stratml:MeasurementDimension>
+          <stratml:UnitOfMeasurement>Publication</stratml:UnitOfMeasurement>
+          <stratml:OtherInformation></stratml:OtherInformation>
+          <stratml:Relationship >
+            <stratml:Identifier></stratml:Identifier>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+          </stratml:Relationship>
+          <stratml:MeasurementInstance>
+            <stratml:TargetResult>
+              <stratml:Description>Publication of Part 1 as an ISO standard.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:TargetResult>
+            <stratml:ActualResult>
+              <stratml:Description>StratML Part 1 has been registered at ISO and assigned number ISO/NP 17469-1. Five nations -- Canada, South Africa, China, and Korea in addition to the U.S. -- have agreed to work on the international standard.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:ActualResult>
+          </stratml:MeasurementInstance>
+        </stratml:PerformanceIndicator>
+      </stratml:Objective>
+    </stratml:Goal>
+    <stratml:Goal>
+      <stratml:Name>Performance Plans and Reports</stratml:Name>
+      <stratml:Description>Specify and foster usage of an XML standard extending Part 1 to include the additional information commonly contained in performance plans and reports.</stratml:Description>
+      <stratml:Identifier>67596d83-ed64-4e76-861d-d4db753df0e5</stratml:Identifier>
+      <stratml:SequenceIndicator>Part 2</stratml:SequenceIndicator>
+      <stratml:OtherInformation></stratml:OtherInformation>
+      <stratml:Stakeholder>
+        <stratml:Name></stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name></stratml:Name>
+          <stratml:Description></stratml:Description>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Objective>
+        <stratml:Name>ANSI/AIIM Publication</stratml:Name>
+        <stratml:Description>Publish Part 2, Performance Plans and Reports, as an American (ANSI/AIIM) national standard.</stratml:Description>
+        <stratml:Identifier>2b14c12d-ac36-4872-87a5-793a1f87e904</stratml:Identifier>
+        <stratml:SequenceIndicator>2.1</stratml:SequenceIndicator>
+        <stratml:OtherInformation></stratml:OtherInformation>
+        <stratml:Stakeholder>
+          <stratml:Name>ANSI</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+            <stratml:RoleType>Beneficiary</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:PerformanceIndicator ValueChainStage="Outcome" IndicatorType="Qualitative">
+          <stratml:Identifier>8c60e70d-55b5-4ee6-9db3-3a0e202179f2</stratml:Identifier>
+          <stratml:MeasurementDimension>Approval &amp; Publication</stratml:MeasurementDimension>
+          <stratml:UnitOfMeasurement></stratml:UnitOfMeasurement>
+          <stratml:OtherInformation></stratml:OtherInformation>
+          <stratml:Relationship >
+            <stratml:Identifier></stratml:Identifier>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+          </stratml:Relationship>
+          <stratml:MeasurementInstance>
+            <stratml:TargetResult>
+              <stratml:Description>Publication of Part 2.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:TargetResult>
+            <stratml:ActualResult>
+              <stratml:Description>Part 2 was approved and published as ANSI/AIIM 22:2011.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate>2011-08-08</stratml:EndDate>
+            </stratml:ActualResult>
+          </stratml:MeasurementInstance>
+        </stratml:PerformanceIndicator>
+        <stratml:PerformanceIndicator ValueChainStage="Input_Processing" IndicatorType="Qualitative">
+          <stratml:Identifier>fb567af3-1079-4063-84b8-75ac597fc7f0</stratml:Identifier>
+          <stratml:MeasurementDimension>Teleconferences</stratml:MeasurementDimension>
+          <stratml:UnitOfMeasurement>Number</stratml:UnitOfMeasurement>
+          <stratml:OtherInformation></stratml:OtherInformation>
+          <stratml:Relationship >
+            <stratml:Identifier></stratml:Identifier>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+          </stratml:Relationship>
+          <stratml:MeasurementInstance>
+            <stratml:TargetResult>
+              <stratml:Description>Conduct regular teleconferences to receive input and discuss the additional elements to be included in Part 2.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate>2011-01-01</stratml:StartDate>
+              <stratml:EndDate>2011-12-31</stratml:EndDate>
+            </stratml:TargetResult>
+            <stratml:ActualResult>
+              <stratml:Description>The StratML Committee conducted eight teleconferences on the following dates: January 5, March 22, August 24, September 22, October 6, October 20, November 3 and December 1.</stratml:Description>
+              <stratml:NumberOfUnits>8</stratml:NumberOfUnits>
+              <stratml:StartDate>2011-01-01</stratml:StartDate>
+              <stratml:EndDate>2011-12-31</stratml:EndDate>
+            </stratml:ActualResult>
+          </stratml:MeasurementInstance>
+        </stratml:PerformanceIndicator>
+      </stratml:Objective>
+      <stratml:Objective>
+        <stratml:Name>StratML Part 2 Files</stratml:Name>
+        <stratml:Description>Convert performance plans and reports into StratML format to demonstrate and prove the elements of the standard.</stratml:Description>
+        <stratml:Identifier>111332cd-3e70-49cb-9c2f-90d60c3dddbf</stratml:Identifier>
+        <stratml:SequenceIndicator>2.2</stratml:SequenceIndicator>
+        <stratml:OtherInformation></stratml:OtherInformation>
+        <stratml:Stakeholder>
+          <stratml:Name></stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+            <stratml:RoleType>Beneficiary</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:PerformanceIndicator ValueChainStage="Output" IndicatorType="Quantitative">
+          <stratml:Identifier>0527aefb-9ee3-423d-acff-af0912441260</stratml:Identifier>
+          <stratml:MeasurementDimension>Plans &amp; Reports Converted</stratml:MeasurementDimension>
+          <stratml:UnitOfMeasurement>Number</stratml:UnitOfMeasurement>
+          <stratml:OtherInformation></stratml:OtherInformation>
+          <stratml:Relationship >
+            <stratml:Identifier></stratml:Identifier>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+          </stratml:Relationship>
+          <stratml:MeasurementInstance>
+            <stratml:TargetResult>
+              <stratml:Description></stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:TargetResult>
+            <stratml:ActualResult>
+              <stratml:Description>Thirteen performance plans and reports have been converted to StratML Part 2 format and are available at http://xml.gov/stratml/index.htm#Part2.</stratml:Description>
+              <stratml:NumberOfUnits>13</stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate>2012-01-26</stratml:EndDate>
+            </stratml:ActualResult>
+          </stratml:MeasurementInstance>
+        </stratml:PerformanceIndicator>
+      </stratml:Objective>
+      <stratml:Objective>
+        <stratml:Name>Tools, Applications &amp; Services</stratml:Name>
+        <stratml:Description>Foster the development of tools, applications, and services supporting and leveraging the StratML standard for the benefit of various communities of interest.</stratml:Description>
+        <stratml:Identifier>3f84f98f-d313-40e0-84ca-ed5e45c27e07</stratml:Identifier>
+        <stratml:SequenceIndicator>2.3</stratml:SequenceIndicator>
+        <stratml:OtherInformation></stratml:OtherInformation>
+        <stratml:Stakeholder>
+          <stratml:Name>Andre Cusson</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Portal Developer</stratml:Name>
+            <stratml:Description>Andre has developed a StratML portal for both Part 1 &amp; Part 2 files.</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+            <stratml:RoleType>Beneficiary</stratml:RoleType>
+          </stratml:Role>
+          <stratml:Role>
+            <stratml:Name>XSLT Form Developer</stratml:Name>
+            <stratml:Description>Andre has developed an XSLT form for both Part 1 &amp; Part 2.</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Owen Ambur</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>InfoPath Form Developer</stratml:Name>
+            <stratml:Description>Owen has created InfoPath forms for Part 1 &amp; Part 2.</stratml:Description>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Carlos E. Jimenez</stratml:Name>
+          <stratml:Description>Eng., MSc.</stratml:Description>
+            <stratml:Role>
+              <stratml:Name>Chair, IEEE Technology Management Council</stratml:Name>
+              <stratml:Description></stratml:Description>
+              <stratml:RoleType>Performer</stratml:RoleType>
+            </stratml:Role>
+            <stratml:Role>
+              <stratml:Name>StratML Course Developer</stratml:Name>
+              <stratml:Description>Carlos is developing a training course for StratML.</stratml:Description>
+              <stratml:RoleType>Performer</stratml:RoleType>
+            </stratml:Role>
+          </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Matt MacKenzie</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>StratML Query Service Developer</stratml:Name>
+            <stratml:Description>Matt is working on a JSON/MongoDB-based StratML indexing/browsing/query service.  See http://xml.gov/stratml/index.htm#Uberity and, more specifically, http://uberity.com/stratml/</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Duane Nickull</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>StratML Query Service Developer</stratml:Name>
+            <stratml:Description>Duane is working with Matt MacKenzie on a JSON/MongoDB-based StratML indexing/browsing/query service.  See http://xml.gov/stratml/index.htm#Uberity and, more specifically, http://uberity.com/stratml/</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:Stakeholder>
+          <stratml:Name>Ivan Pedruzzi</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Schema Development Tool Support</stratml:Name>
+            <stratml:Description>Ivan made available the enterprise edition of Stylus Studio to support development of the schema for StratML Part 3.</stratml:Description>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:PerformanceIndicator ValueChainStage="Output" IndicatorType="Quantitative">
+          <stratml:Identifier>0527aefb-9ee3-423d-acff-af0912441260</stratml:Identifier>
+          <stratml:MeasurementDimension>Part 2 Forms</stratml:MeasurementDimension>
+          <stratml:UnitOfMeasurement>Number Available</stratml:UnitOfMeasurement>
+          <stratml:OtherInformation></stratml:OtherInformation>
+          <stratml:Relationship >
+            <stratml:Identifier></stratml:Identifier>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+          </stratml:Relationship>
+          <stratml:MeasurementInstance>
+            <stratml:TargetResult>
+              <stratml:Description>Forms are readily available online for the creation and editing of StratML Part 2 files.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:TargetResult>
+            <stratml:ActualResult>
+              <stratml:Description>An XSLT form and an InfoPath form are available.</stratml:Description>
+              <stratml:NumberOfUnits>2</stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate>2012-01-28</stratml:EndDate>
+            </stratml:ActualResult>
+          </stratml:MeasurementInstance>
+        </stratml:PerformanceIndicator>
+      </stratml:Objective>
+      <stratml:Objective>
+        <stratml:Name>NIEM Implementation Profile</stratml:Name>
+        <stratml:Description>Create an implementation profile for inclusion of StratML into a new Planning and Accountability domain in the National Information Exchange Model (NIEM).</stratml:Description>
+        <stratml:Identifier>999403c6-52a7-415d-b883-5689ad607112</stratml:Identifier>
+        <stratml:SequenceIndicator>2.4</stratml:SequenceIndicator>
+        <stratml:OtherInformation></stratml:OtherInformation>
+        <stratml:Stakeholder>
+          <stratml:Name>Sylvia Webb</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Task Leader</stratml:Name>
+            <stratml:Description></stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:PerformanceIndicator ValueChainStage="Output" IndicatorType="Qualitative">
+          <stratml:Identifier>e7bca1a5-8f43-4f31-9b90-ca8e33ebf3a3</stratml:Identifier>
+          <stratml:MeasurementDimension>NIEM Implementation Profile</stratml:MeasurementDimension>
+          <stratml:UnitOfMeasurement>Creation</stratml:UnitOfMeasurement>
+          <stratml:OtherInformation></stratml:OtherInformation>
+          <stratml:Relationship >
+            <stratml:Identifier></stratml:Identifier>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+          </stratml:Relationship>
+          <stratml:MeasurementInstance>
+            <stratml:TargetResult>
+              <stratml:Description>Creation of an implementation profile to support incorporation of the StratML standard into NIEM.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:TargetResult>
+            <stratml:ActualResult>
+              <stratml:Description>Sylvia Webb is leading a task group developing the NIEM profile.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate>2012-12-31</stratml:EndDate>
+            </stratml:ActualResult>
+          </stratml:MeasurementInstance>
+        </stratml:PerformanceIndicator>
+      </stratml:Objective>
+    </stratml:Goal>
+    <stratml:Goal>
+      <stratml:Name>Additional Elements</stratml:Name>
+      <stratml:Description>Specify and foster usage of an XML standard extending Parts 1 and 2 to include the additional information deemed to be worthy of consideration for inclusion in strategic and performance plans and reports.</stratml:Description>
+      <stratml:Identifier>76de8a12-a272-464c-a62b-5dca4e6d0afe</stratml:Identifier>
+      <stratml:SequenceIndicator>Part 3</stratml:SequenceIndicator>
+      <stratml:OtherInformation></stratml:OtherInformation>
+      <stratml:Stakeholder>
+        <stratml:Name></stratml:Name>
+        <stratml:Description></stratml:Description>
+        <stratml:Role>
+          <stratml:Name></stratml:Name>
+          <stratml:Description></stratml:Description>
+        </stratml:Role>
+      </stratml:Stakeholder>
+      <stratml:Objective>
+        <stratml:Name>GPRAMA</stratml:Name>
+        <stratml:Description>Include additional elements required to more fully address data requirements implicit in the GPRA Modernization Act (GPRAMA).</stratml:Description>
+        <stratml:Identifier>c9851818-fbba-4b1d-b02c-1eb237a8174b</stratml:Identifier>
+        <stratml:SequenceIndicator>3.1</stratml:SequenceIndicator>
+        <stratml:OtherInformation></stratml:OtherInformation>
+        <stratml:Stakeholder>
+          <stratml:Name>U.S. Federal Agencies</stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name>Implementation</stratml:Name>
+            <stratml:Description>U.S. federal agencies are required by section 10 of the GPRAMA to publish their strategic and performance plans and reports in machine-readable format, like StratML.</stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+            <stratml:RoleType>Beneficiary</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:PerformanceIndicator ValueChainStage="Outcome" IndicatorType="Qualitative">
+          <stratml:Identifier>8c60e70d-55b5-4ee6-9db3-3a0e202179f2</stratml:Identifier>
+          <stratml:MeasurementDimension>Performance.gov</stratml:MeasurementDimension>
+          <stratml:UnitOfMeasurement>Usage</stratml:UnitOfMeasurement>
+          <stratml:OtherInformation></stratml:OtherInformation>
+          <stratml:Relationship >
+            <stratml:Identifier></stratml:Identifier>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+          </stratml:Relationship>
+          <stratml:MeasurementInstance>
+            <stratml:TargetResult>
+              <stratml:Description>Incorporation of StratML into the Performance.gov site.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:TargetResult>
+            <stratml:ActualResult>
+              <stratml:Description>Elements of the StratML standard have been documented in an entity relationship diagram depicting the elements of the Performance.gov site, as shown at http://xml.gov/stratml/omb/PDSERD20111206.pdf.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:ActualResult>
+          </stratml:MeasurementInstance>
+        </stratml:PerformanceIndicator>
+      </stratml:Objective>
+      <stratml:Objective>
+        <stratml:Name>Other Elements</stratml:Name>
+        <stratml:Description>Incorporate elements for geospatial referencing, strategic planning frameworks, categorizations, relationships, and/or other purposes.</stratml:Description>
+        <stratml:Identifier>48b580d6-98d0-4cd0-bfd0-acf050a511ba</stratml:Identifier>
+        <stratml:SequenceIndicator>3.2</stratml:SequenceIndicator>
+        <stratml:OtherInformation></stratml:OtherInformation>
+        <stratml:Stakeholder>
+          <stratml:Name></stratml:Name>
+          <stratml:Description></stratml:Description>
+          <stratml:Role>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+            <stratml:RoleType>Performer</stratml:RoleType>
+            <stratml:RoleType>Beneficiary</stratml:RoleType>
+          </stratml:Role>
+        </stratml:Stakeholder>
+        <stratml:PerformanceIndicator ValueChainStage="Output" IndicatorType="Qualitative">
+          <stratml:Identifier>fc255c40-7849-4bd3-b302-1e5cf03548f7</stratml:Identifier>
+          <stratml:MeasurementDimension>Part 3 Schema</stratml:MeasurementDimension>
+          <stratml:UnitOfMeasurement>Consensus</stratml:UnitOfMeasurement>
+          <stratml:OtherInformation></stratml:OtherInformation>
+          <stratml:Relationship >
+            <stratml:Identifier></stratml:Identifier>
+            <stratml:Name></stratml:Name>
+            <stratml:Description></stratml:Description>
+          </stratml:Relationship>
+          <stratml:MeasurementInstance>
+            <stratml:TargetResult>
+              <stratml:Description>Consensus on additional elements to be included, such as those listed at http://xml.gov/stratml/index.htm#Part3.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:TargetResult>
+            <stratml:ActualResult>
+              <stratml:Description>To be determined.</stratml:Description>
+              <stratml:NumberOfUnits></stratml:NumberOfUnits>
+              <stratml:StartDate></stratml:StartDate>
+              <stratml:EndDate></stratml:EndDate>
+            </stratml:ActualResult>
+          </stratml:MeasurementInstance>
+        </stratml:PerformanceIndicator>
+      </stratml:Objective>
+    </stratml:Goal>
+  </stratml:StrategicPlanCore>
+  <stratml:AdministrativeInformation>
+    <stratml:StartDate>2011-01-01</stratml:StartDate>
+    <stratml:EndDate>2011-12-31</stratml:EndDate>
+    <stratml:PublicationDate>2012-01-31</stratml:PublicationDate>
+    <stratml:Source>http://www.xml.gov/stratml/cusson/SMLC2011.xml</stratml:Source>
+  </stratml:AdministrativeInformation>
+  <stratml:Submitter>
+    <stratml:FirstName>Owen</stratml:FirstName>
+    <stratml:LastName>Ambur</stratml:LastName>
+    <stratml:PhoneNumber></stratml:PhoneNumber>
+    <stratml:EmailAddress>Owen.Ambur@verizon.net</stratml:EmailAddress>
+  </stratml:Submitter>
+</stratml:PerformancePlanOrReport>

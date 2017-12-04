@@ -108,6 +108,8 @@ namespace StratML.Core.Two {
                 this.typeField = value;
             }
         }
+        [XmlIgnore]
+        public string id { get; set; }
     }
     
     /// <remarks/>

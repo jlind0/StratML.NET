@@ -7,6 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="SMLC2011.xml" />
+    <None Remove="StratTest.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="SMLC2011.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="StratTest.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0-preview-20170628-02" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.1.18" />
     <PackageReference Include="MSTest.TestFramework" Version="1.1.18" />
@@ -14,8 +28,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StratML.Core\StratML.Core.csproj" />
-    <ProjectReference Include="..\StratML.Data.Core\StratML.Data.Core.csproj" />
-    <ProjectReference Include="..\StratML.Data\StratML.Data.csproj" />
   </ItemGroup>
 
 </Project>
