@@ -40,7 +40,7 @@ namespace StratML.Web.Services
         {
             services.AddMvc(options =>
             {
-
+                
                 options.OutputFormatters.Clear();
                 options.InputFormatters.Clear();
 
@@ -113,7 +113,14 @@ namespace StratML.Web.Services
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}"
+               );
+
+            });
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
