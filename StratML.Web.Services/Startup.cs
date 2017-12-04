@@ -49,7 +49,12 @@ namespace StratML.Web.Services
                 options.OutputFormatters.Add(new XMLHelperOutputFormatter());
 
             }).AddControllersAsServices();
-            
+            services.AddCors(options =>
+                    options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+                                                        .AllowAnyMethod()
+                                                        .AllowCredentials()
+                                                        .AllowAnyHeader()));
+
             var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json");
@@ -99,7 +104,6 @@ namespace StratML.Web.Services
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseMvc();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
