@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StartML.Data\StratML.Data.csproj" />
     <ProjectReference Include="..\StratML.Core\StratML.Core.csproj" />
     <ProjectReference Include="..\StratML.Data.Core\StratML.Data.Core.csproj" />
   </ItemGroup>

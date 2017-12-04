@@ -22,11 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StartML.Data\StratML.Data.csproj" />
     <ProjectReference Include="..\StratML.Business.Core\StratML.Business.Core.csproj" />
     <ProjectReference Include="..\StratML.Business\StratML.Business.csproj" />
     <ProjectReference Include="..\StratML.Core\StratML.Core.csproj" />
     <ProjectReference Include="..\StratML.Data.Core\StratML.Data.Core.csproj" />
+    <ProjectReference Include="..\StratML.Data\StratML.Data.csproj" />
+    <ProjectReference Include="..\StratML.Transform.Core\StratML.Transform.Core.csproj" />
+    <ProjectReference Include="..\StratML.Transform\StratML.Transform.csproj" />
   </ItemGroup>
 
 </Project>

@@ -55,7 +55,6 @@ namespace StratML.Core
                                     
                                 }
                                 value = targetCollection;
-                                continue;
                             }
                             else if(targetProperty.PropertyType.HasElementType)
                             {
@@ -67,10 +66,10 @@ namespace StratML.Core
                                     values.Add(v);
                                 }
                                 value = values.ToArray();
-                                continue;
                             }
                         }
-                        value = value.CreateRelatedInstance(targetProperty.PropertyType);
+                        else
+                            value = value.CreateRelatedInstance(targetProperty.PropertyType);
                     }
 
                     targetProperty.SetValue(target, value);
