@@ -16,9 +16,9 @@ using StratML.Data;
 using StratML.Business;
 using System.IO;
 using Microsoft.AspNetCore.Mvc.Formatters;
-using StratML.Web.Formatters;
+using StructureMap;
 
-namespace StratML.Web
+namespace StratML.Web.Services
 {
     public class Startup
     {
@@ -30,36 +30,40 @@ namespace StratML.Web
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(options =>
+            {
+
+                options.OutputFormatters.Clear();
+                options.InputFormatters.Clear();
+
+                options.InputFormatters.Add(new XmlSerializerInputFormatter());
+
+                options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+
+            }).AddControllersAsServices();
             var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json");
 
             var appconfig = builder.Build();
 
-            var token = new CosmosDataToken(
+            var customToken = new CosmosDataToken(
                 new Uri(appconfig["CosmosDB:Path"]),
                 appconfig["CosmosDB:Key"],
                 appconfig["CosmosDB:Database"],
-                appconfig["CosmosDB:Collection"]);
-            services.AddSingleton(token);
-            services.AddTransient<ICorporationAdapater, CorporationDataAdapter>();
-            services.AddTransient<ICorporationLogic, CorporationLogic>();
-            
-            services.AddMvc(options =>
+                appconfig["CosmosDB:Collections:Custom"]);
+            Container container = new Container();
+            container.Configure(config =>
             {
-
-                options.OutputFormatters.Clear();
-                //options.InputFormatters.Clear();
-
-                //options.InputFormatters.Add(new XmlSerializerInputFormatter());
-
-                options.OutputFormatters.Add(new StratMLOutputFormatter());
+                config.For<CosmosDataToken>().Add(customToken).Named("Custom");
+                config.For<ICorporationAdapater>().Use<CorporationDataAdapter>().Named("Custom");
+                config.For<ICorporationLogic>().Use<CorporationLogic>().Named("Custom");
                 
-
-                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", "application/xml");
+                config.Populate(services);
             });
+            return container.GetInstance<IServiceProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

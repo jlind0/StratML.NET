@@ -9,7 +9,7 @@ using StratML.Business.Core;
 using System.Threading;
 using StratML.Core.Custom;
 
-namespace StratML.Web.Controllers
+namespace StratML.Web.Services.Controllers
 {
     [Route("api/Corporation")]
     public class CorporationController : Controller

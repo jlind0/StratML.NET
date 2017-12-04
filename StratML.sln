@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Business.Core", "St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Business", "StratML.Business\StratML.Business.csproj", "{A636F218-5B94-4897-B273-DDD9A63C4F78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Web", "StartML.Web\StratML.Web.csproj", "{86A37645-1C7F-42FC-8505-2834B4BA414A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Web.Services", "StartML.Web\StratML.Web.Services.csproj", "{86A37645-1C7F-42FC-8505-2834B4BA414A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Data.Tests", "StratML.Data.Tests\StratML.Data.Tests.csproj", "{EBF3042C-612A-4F3F-A401-CB046DB48E7C}"
 EndProject
