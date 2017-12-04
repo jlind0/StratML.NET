@@ -54,6 +54,7 @@ namespace StratML.Web.Services
                 appconfig["CosmosDB:Key"],
                 appconfig["CosmosDB:Database"],
                 appconfig["CosmosDB:Collections:Custom"]);
+        
             Container container = new Container();
             container.Configure(config =>
             {

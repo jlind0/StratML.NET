@@ -42,17 +42,34 @@ namespace StratML.Core
                     if (targetProperty.PropertyType != property.PropertyType)
                     {
                         var collection = value as IEnumerable;
-                        if (collection != null && targetProperty.PropertyType.HasInterface(typeof(IList)))
+                        if (collection != null)
                         {
-                            IList targetCollection = Activator.CreateInstance(targetProperty.PropertyType) as IList;
-                            Type targetCollectionElementType = targetProperty.PropertyType.GetCollectionValueType();
-                            foreach (var val in collection)
+                            if (targetProperty.PropertyType.HasInterface(typeof(IList)))
                             {
-                                var v = val.CreateRelatedInstance(targetCollectionElementType);
-                                targetCollection.Add(v);
+                                IList targetCollection = Activator.CreateInstance(targetProperty.PropertyType) as IList;
+                                Type targetCollectionElementType = targetProperty.PropertyType.GetCollectionValueType();
+                                foreach (var val in collection)
+                                {
+                                    var v = val.CreateRelatedInstance(targetCollectionElementType);
+                                    targetCollection.Add(v);
+                                    
+                                }
+                                value = targetCollection;
+                                continue;
+                            }
+                            else if(targetProperty.PropertyType.HasElementType)
+                            {
+                                var elementType = targetProperty.PropertyType.GetElementType();
+                                List<object> values = new List<object>();
+                                foreach(var val in collection)
+                                {
+                                    var v = val.CreateRelatedInstance(elementType);
+                                    values.Add(v);
+                                }
+                                value = values.ToArray();
+                                continue;
                             }
                         }
-
                         value = value.CreateRelatedInstance(targetProperty.PropertyType);
                     }
 
