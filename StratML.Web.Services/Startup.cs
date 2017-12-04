@@ -20,6 +20,9 @@ using StructureMap;
 using StratML.Transform;
 using StratML.Transform.Core;
 using StratML.Web.Services.Formatters;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace StratML.Web.Services
 {
@@ -46,6 +49,7 @@ namespace StratML.Web.Services
                 options.OutputFormatters.Add(new XMLHelperOutputFormatter());
 
             }).AddControllersAsServices();
+            
             var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json");
@@ -62,7 +66,13 @@ namespace StratML.Web.Services
                 appconfig["CosmosDB:Key"],
                 appconfig["CosmosDB:Database"],
                 appconfig["CosmosDB:Collections:Two"]);
-
+            services.AddSwaggerGen(gen =>
+            {
+                gen.CustomSchemaIds(x => x.FullName);
+                gen.SwaggerDoc("v0.1", new Info() { Title = "StratML API" , Version = "v0.1"});
+                
+            });
+            
             Container container = new Container();
             container.Configure(config =>
             {
@@ -91,6 +101,12 @@ namespace StratML.Web.Services
             }
 
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("v0.1/swagger.json", " StratML API");
+               
+            });
         }
     }
 }
