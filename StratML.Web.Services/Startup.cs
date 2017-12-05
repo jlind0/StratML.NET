@@ -23,6 +23,12 @@ using StratML.Web.Services.Formatters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using Microsoft.AspNetCore.Authentication.MicrosoftAccount;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Rewrite;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace StratML.Web.Services
 {
@@ -41,12 +47,13 @@ namespace StratML.Web.Services
             services.AddMvc(options =>
             {
                 
-                options.OutputFormatters.Clear();
-                options.InputFormatters.Clear();
+                //options.OutputFormatters.Clear();
+                //options.InputFormatters.Clear();
 
                 options.InputFormatters.Add(new XMLHelperInputFormatter());
 
                 options.OutputFormatters.Add(new XMLHelperOutputFormatter());
+                options.Filters.Add(new RequireHttpsAttribute());
 
             }).AddControllersAsServices();
             services.AddCors(options =>
@@ -54,35 +61,39 @@ namespace StratML.Web.Services
                                                         .AllowAnyMethod()
                                                         .AllowCredentials()
                                                         .AllowAnyHeader()));
-
-            var builder = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json");
-
-            var appconfig = builder.Build();
-
+            
             var customToken = new CosmosDataToken(
-                new Uri(appconfig["CosmosDB:Path"]),
-                appconfig["CosmosDB:Key"],
-                appconfig["CosmosDB:Database"],
-                appconfig["CosmosDB:Collections:Custom"]);
+                new Uri(Configuration["CosmosDB:Path"]),
+                Configuration["CosmosDB:Key"],
+                Configuration["CosmosDB:Database"],
+                Configuration["CosmosDB:Collections:Custom"]);
             var twoToken = new CosmosDataToken(
-                new Uri(appconfig["CosmosDB:Path"]),
-                appconfig["CosmosDB:Key"],
-                appconfig["CosmosDB:Database"],
-                appconfig["CosmosDB:Collections:Two"]);
+                new Uri(Configuration["CosmosDB:Path"]),
+                Configuration["CosmosDB:Key"],
+                Configuration["CosmosDB:Database"],
+               Configuration["CosmosDB:Collections:Two"]);
             var oneToken = new CosmosDataToken(
-                new Uri(appconfig["CosmosDB:Path"]),
-                appconfig["CosmosDB:Key"],
-                appconfig["CosmosDB:Database"],
-                appconfig["CosmosDB:Collections:One"]);
+                new Uri(Configuration["CosmosDB:Path"]),
+                Configuration["CosmosDB:Key"],
+                Configuration["CosmosDB:Database"],
+                Configuration["CosmosDB:Collections:One"]);
             services.AddSwaggerGen(gen =>
             {
                 gen.CustomSchemaIds(x => x.FullName);
                 gen.SwaggerDoc("v0.1", new Info() { Title = "StratML API" , Version = "v0.1"});
                 
             });
-            
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = MicrosoftAccountDefaults.AuthenticationScheme;
+            }).AddMicrosoftAccount(microsoftOptions =>
+            {
+                microsoftOptions.ClientId = Configuration["Authentication:AppId"];
+                microsoftOptions.ClientSecret = Configuration["Authentication:Key"];
+                microsoftOptions.CallbackPath = new PathString("/.auth/login/microsoftaccount/callback");
+                
+            });
             Container container = new Container();
             container.Configure(config =>
             {
@@ -127,6 +138,8 @@ namespace StratML.Web.Services
                 c.SwaggerEndpoint("v0.1/swagger.json", " StratML API");
                
             });
+            var options = new RewriteOptions().AddRedirectToHttps();
+            app.UseRewriter(options);
         }
     }
 }

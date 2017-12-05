@@ -12,5 +12,10 @@ namespace StratML.Web.Services.Controllers
         {
             return RedirectPermanent("/swagger");
         }
+        [HttpGet]
+        public IActionResult IdentityName()
+        {
+            return Content(this.User.Identity.Name);
+        }
     }
 }
