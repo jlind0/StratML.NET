@@ -2,6 +2,10 @@
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/StratML.Web.Services",
+      "sslPort": 0
+    },
     "iisExpress": {
       "applicationUrl": "https://localhost:44337/",
       "sslPort": 44337
@@ -11,7 +15,6 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/values",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

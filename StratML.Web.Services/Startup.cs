@@ -29,6 +29,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StratML.Web.Services
 {
@@ -47,12 +48,10 @@ namespace StratML.Web.Services
             services.AddMvc(options =>
             {
                 
-                //options.OutputFormatters.Clear();
-                //options.InputFormatters.Clear();
 
-                options.InputFormatters.Add(new XMLHelperInputFormatter());
+                options.InputFormatters.Insert(0, new XMLHelperInputFormatter());
 
-                options.OutputFormatters.Add(new XMLHelperOutputFormatter());
+                options.OutputFormatters.Insert(0, new XMLHelperOutputFormatter());
                 options.Filters.Add(new RequireHttpsAttribute());
 
             }).AddControllersAsServices();
@@ -87,11 +86,13 @@ namespace StratML.Web.Services
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = MicrosoftAccountDefaults.AuthenticationScheme;
+            }).AddCookie(option =>
+            {
+                option.Cookie.Name = ".myAuth"; //optional setting
             }).AddMicrosoftAccount(microsoftOptions =>
             {
                 microsoftOptions.ClientId = Configuration["Authentication:AppId"];
                 microsoftOptions.ClientSecret = Configuration["Authentication:Key"];
-                microsoftOptions.CallbackPath = new PathString("/.auth/login/microsoftaccount/callback");
                 
             });
             Container container = new Container();
@@ -140,6 +141,7 @@ namespace StratML.Web.Services
             });
             var options = new RewriteOptions().AddRedirectToHttps();
             app.UseRewriter(options);
+            app.UseAuthentication();
         }
     }
 }
