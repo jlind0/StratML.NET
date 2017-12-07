@@ -104,11 +104,14 @@ namespace StratML.Web.Services
 
                 config.For<CosmosDataToken>().Add(twoToken).Named("Two");
                 config.For<IPartTwoDataAdapter>().Use<PartTwoDataAdapter>().Ctor<CosmosDataToken>().IsNamedInstance("Two");
+                config.For<IIRS990DataAdapter>().Use<IRS990DataAdapter>().Ctor<CosmosDataToken>().IsNamedInstance("Two");
                 config.For<IPartTwoLogic>().Use<PartTwoLogic>();
-
+                config.For<IIRS990Logic>().Use<IRS990Logic>();
+                
                 config.For<CosmosDataToken>().Add(oneToken).Named("One");
                 config.For<IPartOneDataAdapter>().Use<PartOneDataAdapter>().Ctor<CosmosDataToken>().IsNamedInstance("One");
                 config.For<IPartOneLogic>().Use<PartOneLogic>();
+
 
                 config.For<ITransformOneToTwo>().Use<TransformOneToTwo>();
                 config.For<ITransformTwoToOne>().Use<TransformTwoToOne>();
