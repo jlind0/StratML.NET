@@ -19,6 +19,7 @@ namespace StratML.Data.Core
     public interface IIRS990DataAdapter
     {
         Task<IEnumerable<IRS990DollarPoints>> GetDollarPoints(string orgId = null, CancellationToken token = default(CancellationToken));
+        Task<IEnumerable<NameId>> GetOrganizations(CancellationToken token = default(CancellationToken));
     }
     
 }

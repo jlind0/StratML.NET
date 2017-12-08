@@ -1,0 +1,36 @@
+{
+  "name": "bootstrap-solarized-theme",
+  "description": "Bootstrap theme using the Solarized color palette",
+  "version": "1.0.3",
+  "author": {
+    "name": "Thijs Kok",
+    "email": "mail@thijskok.nl",
+    "url": "https://github.com/thijskok"
+  },
+  "dependencies": {
+    "bootstrap-sass": "3.*"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "3.*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "gulp-cssmin": "*",
+    "gulp-header": "*",
+    "gulp-sass": "*",
+    "gulp-sass-lint": "^1.2.0",
+    "gulp-util": "*"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "homepage": "https://github.com/thijskok/bootstrap-solarized-theme",
+  "keywords": [
+    "bootstrap",
+    "theme",
+    "solarized"
+  ],
+  "license": "MIT",
+  "main": "./dist/css/solarized-dark-theme.min.css",
+  "repository": "thijskok/bootstrap-solarized-theme"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "knockout-money",
+  "version": "1.0.1",
+  "main": "knockout.money.js",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "knockout": "~3.1.0",
+    "accounting": "~0.3.2"
+  },
+  "homepage": "https://github.com/ArchonInfoSys/knockout-money",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "9640779bf73ea50fbf92f7d909109fa8924d9c35"
+  },
+  "_source": "https://github.com/ArchonInfoSys/knockout-money.git",
+  "_target": "v1.0.1",
+  "_originalSource": "knockout-money",
+  "_direct": true
+}

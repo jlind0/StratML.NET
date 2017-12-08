@@ -1,0 +1,39 @@
+﻿@model System.Uri
+@{
+    ViewData["Title"] = "Index";
+}
+<div id="form990">
+
+
+    <select data-bind="options: Organizations,
+        optionsText: 'name',
+        optionsValue: 'id',
+        value: SelectedId"></select>
+    <div class="box-content box-table">
+        <table id="sample-table" class="table table-hover table-bordered tablesorter">
+            <thead>
+                <tr>
+                    <th>Organization</th>
+                    <th>Income</th>
+                    <th>Income as of Date</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: Income">
+                <tr>
+                    <td data-bind="text: Name"></td>
+                    <td data-bind="text: Amount"></td>
+                    <td data-bind="text: AsOfDate"></td>
+                </tr>
+            </tbody>
+         
+        </table>
+    </div>
+</div>
+@section Scripts{ 
+    <script type="text/javascript">
+            var serviceLocation = '@Model.ToString()';
+    </script>
+    <script type="text/javascript" src="~/js/Form990Services.js"></script>
+    <script type="text/javascript" src="~/js/Form990ViewModel.js"></script>
+    
+}

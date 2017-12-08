@@ -28,5 +28,10 @@ namespace StratML.Web.Services.Controllers
         {
             return this.Logic.GetDollarPoints(id, token);
         }
+        [HttpGet("organizations")]
+        public Task<IEnumerable<NameId>> GetOrgnaizations(CancellationToken token = default(CancellationToken))
+        {
+            return this.Logic.GetOrganizations(token);
+        }
     }
 }

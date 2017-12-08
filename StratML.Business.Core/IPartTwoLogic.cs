@@ -25,5 +25,6 @@ namespace StratML.Business.Core
     public interface IIRS990Logic
     {
         Task<IEnumerable<IRS990DollarPoints>> GetDollarPoints(string orgId = null, CancellationToken token = default(CancellationToken));
+        Task<IEnumerable<NameId>> GetOrganizations(CancellationToken token = default(CancellationToken));
     }
 }

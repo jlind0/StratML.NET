@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - www.StratML.services</title>
+
+        <link rel="stylesheet" href="~/lib/bootstrap-clean-dashboard-theme/css/customize-template.css" />
+
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="~/" class="brand"><i class="icon-leaf">www.StratML.services</i></a>
+                <div id="app-nav-top-bar" class="nav-collapse">
+                    <ul class="nav">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Domain Specific
+                                <b class="caret hidden-phone"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    @Html.ActionLink("Form 990", "Index", "Form990")
+                                </li>
+                            </ul>
+                        </li>
+                      
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="body-container">
+        <div id="body-content">
+            @RenderBody()
+        </div>
+    </div>
+
+    <div id="spinner" class="spinner" style="display:none;">
+        Loading&hellip;
+    </div>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/jquery/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/jquery/jquery-chosen.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/jquery/jquery-tablesorter.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/jquery/virtual-tour.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-transition.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-alert.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-modal.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-dropdown.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-scrollspy.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-tab.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-tooltip.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-popover.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-button.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-collapse.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-carousel.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-typeahead.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-affix.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap-clean-dashboard-theme/js/bootstrap/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="~/lib/accounting/accounting.js" type="text/javascript"></script>
+    <script src="~/lib/knockout/dist/knockout.js" type="text/javascript"></script>
+    <script src="~/lib/linq4js/dist/linq4js.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var exports = {};
+        $(function () {
+            $('#sample-table').tablesorter();
+            $('#datepicker').datepicker();
+            $(".chosen").chosen();
+        });
+      </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "bootstrap-clean-dashboard-theme",
+  "homepage": "https://github.com/keaplogik/Bootstrap-Clean-Dashboard-Theme",
+  "_release": "cfb1536836",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "cfb1536836b15bab88afc7f5ffaba11aec8859d8"
+  },
+  "_source": "https://github.com/keaplogik/Bootstrap-Clean-Dashboard-Theme.git",
+  "_target": "*",
+  "_originalSource": "bootstrap-clean-dashboard-theme",
+  "_direct": true
+}

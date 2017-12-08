@@ -35,6 +35,7 @@ namespace StratML.Data
                 points.AddRange(proc.Response.GroupBy(p => p.OrganizationId).Select(g => new IRS990DollarPoints()
                 {
                     OrgId = g.Key,
+                    Name = g.First().Name,
                     Assets = g.SelectMany(p => p.MeasurementInstance).SelectMany(mi => mi.ActualResult).Where(
                         ar => ar.Description.Contains("ASSET AMOUNT")).Select(ar =>
                     {
@@ -68,6 +69,19 @@ namespace StratML.Data
                 }));
             });
             return points;
+        }
+
+        public async Task<IEnumerable<NameId>> GetOrganizations(CancellationToken token = default(CancellationToken))
+        {
+            Dictionary<string, NameId> nameIds = new Dictionary<string, NameId>();
+            await UseClient(async client =>
+            {
+                var query = CreateQuery<PerformancePlanOrReport>(client).Where(c => c.Name == "Model Performance Report for Charitable Organizations").Select(c => c.StrategicPlanCore.Organization[0]).Select(o => new NameId() { Id = o.Identifier, Name = o.Name }).OrderBy(ni => ni.Name).AsDocumentQuery();
+                while (query.HasMoreResults)
+                    foreach (var ni in await query.ExecuteNextAsync<NameId>(token))
+                        nameIds.TryAdd(ni.Id, ni);
+            });
+            return nameIds.Values.ToArray();
         }
     }
 }

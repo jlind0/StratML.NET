@@ -47,7 +47,7 @@ namespace StratML.Web.Services
         {
             services.AddMvc(options =>
             {
-                
+
 
                 options.InputFormatters.Insert(0, new XMLHelperInputFormatter());
 
@@ -56,10 +56,12 @@ namespace StratML.Web.Services
 
             }).AddControllersAsServices();
             services.AddCors(options =>
-                    options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
-                                                        .AllowAnyMethod()
-                                                        .AllowCredentials()
-                                                        .AllowAnyHeader()));
+            {
+                
+                options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+                                                    .AllowAnyMethod()
+                                                    .AllowAnyHeader());
+            });
             
             var customToken = new CosmosDataToken(
                 new Uri(Configuration["CosmosDB:Path"]),
@@ -82,19 +84,19 @@ namespace StratML.Web.Services
                 gen.SwaggerDoc("v0.1", new Info() { Title = "StratML API" , Version = "v0.1"});
                 
             });
-            services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = MicrosoftAccountDefaults.AuthenticationScheme;
-            }).AddCookie(option =>
-            {
-                option.Cookie.Name = ".myAuth"; //optional setting
-            }).AddMicrosoftAccount(microsoftOptions =>
-            {
-                microsoftOptions.ClientId = Configuration["Authentication:AppId"];
-                microsoftOptions.ClientSecret = Configuration["Authentication:Key"];
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = MicrosoftAccountDefaults.AuthenticationScheme;
+            //}).AddCookie(option =>
+            //{
+            //    option.Cookie.Name = ".myAuth"; //optional setting
+            //}).AddMicrosoftAccount(microsoftOptions =>
+            //{
+            //    microsoftOptions.ClientId = Configuration["Authentication:AppId"];
+            //    microsoftOptions.ClientSecret = Configuration["Authentication:Key"];
                 
-            });
+            //});
             Container container = new Container();
             container.Configure(config =>
             {
@@ -136,6 +138,7 @@ namespace StratML.Web.Services
                );
 
             });
+            app.UseCors("AllowAll");
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -144,7 +147,7 @@ namespace StratML.Web.Services
             });
             var options = new RewriteOptions().AddRedirectToHttps();
             app.UseRewriter(options);
-            app.UseAuthentication();
+            //app.UseAuthentication();
         }
     }
 }

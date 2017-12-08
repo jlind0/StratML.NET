@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratML.Web.Services", "Str
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratML.Data", "StratML.Data\StratML.Data.csproj", "{39C918BC-061D-4845-BB9E-1125A4E403E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Core.Tests", "StratML.Core.Tests\StratML.Core.Tests.csproj", "{DED1F8D1-0404-4EDA-857F-9E5B38F9BFE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratML.Core.Tests", "StratML.Core.Tests\StratML.Core.Tests.csproj", "{DED1F8D1-0404-4EDA-857F-9E5B38F9BFE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Web", "StratML.Web\StratML.Web.csproj", "{3DDFB890-B6A0-420E-B8E7-3E2B20E9EB3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{DED1F8D1-0404-4EDA-857F-9E5B38F9BFE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DED1F8D1-0404-4EDA-857F-9E5B38F9BFE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DED1F8D1-0404-4EDA-857F-9E5B38F9BFE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DDFB890-B6A0-420E-B8E7-3E2B20E9EB3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DDFB890-B6A0-420E-B8E7-3E2B20E9EB3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DDFB890-B6A0-420E-B8E7-3E2B20E9EB3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DDFB890-B6A0-420E-B8E7-3E2B20E9EB3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

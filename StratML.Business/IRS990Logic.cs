@@ -22,5 +22,10 @@ namespace StratML.Business
         {
             return this.DataAdapter.GetDollarPoints(orgId, token);
         }
+
+        public Task<IEnumerable<NameId>> GetOrganizations(CancellationToken token = default(CancellationToken))
+        {
+            return this.DataAdapter.GetOrganizations(token);
+        }
     }
 }
