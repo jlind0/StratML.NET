@@ -9,6 +9,10 @@
     <Content Remove="wwwroot\js\Form990ViewModel.ts" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\www-stratml - Web Deploy.pubxml" />
+  </ItemGroup>
+
   
 
   <ItemGroup>
@@ -37,6 +41,10 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </TypeScriptCompile>
     
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
 </Project>

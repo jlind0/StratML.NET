@@ -22,7 +22,7 @@ export namespace ViewModels {
             //this.GetData();
             this.LoadOrganizations();
         }
-        Organizations: KnockoutObservableArray<NameId> = ko.observableArray<NameId>([{ id: null, name: " All" }]);
+        Organizations: KnockoutObservableArray<NameId> = ko.observableArray<NameId>([{ id: "", name: " All" }]);
         SelectedId: KnockoutObservable<string> = ko.observable(null);
         Assets: KnockoutObservableArray<IFlattenedDataPoint> = ko.observableArray<IFlattenedDataPoint>();
         Income: KnockoutObservableArray<IFlattenedDataPoint> = ko.observableArray<IFlattenedDataPoint>();
@@ -32,56 +32,70 @@ export namespace ViewModels {
                 this.Assets.removeAll();
                 this.Income.removeAll();
                 this.Revenue.removeAll();
-                for (var i = 0; i < data.length; i++)
-                {
+                for (var i = 0; i < data.length; i++) {
                     var assets = data[i].assets.OrderByDescending(d => d.asOfDate);
                     assets.forEach(val => this.Assets.push({
                         OrgId: data[i].orgId,
                         Name: data[i].name,
                         Amount: accounting.formatMoney(val.amount),
-                        AsOfDate: val.asOfDate.toString(),
+                        AsOfDate: val.asOfDate,
                         Type: DataPointType.Asset
-                    }))
+                    }));
                     var income = data[i].income.OrderByDescending(d => d.asOfDate);
                     income.forEach(val => this.Income.push({
                         OrgId: data[i].orgId,
                         Name: data[i].name,
                         Amount: accounting.formatMoney(val.amount),
-                        AsOfDate: val.asOfDate.toString(),
+                        AsOfDate: val.asOfDate,
                         Type: DataPointType.Income
-                    }))
+                    }));
                     var revenue = data[i].revenue.OrderByDescending(d => d.asOfDate);
                     revenue.forEach(val => this.Revenue.push({
                         OrgId: data[i].orgId,
                         Name: data[i].name,
                         Amount: accounting.formatMoney(val.amount),
-                        AsOfDate: val.asOfDate.toString(),
+                        AsOfDate: val.asOfDate,
                         Type: DataPointType.Revenue
-                    }))
+                    }));
 
-                    //this.Assets().Union(this.Income()).Union(this.Revenue()).GroupBy(
-                    //    g => { g.AsOfDate, g.OrgId }).Select(g =>
-                    //        g.sel)
-                    
+                    this.CalculauteIncomeOverAssets();
                 }
-            }).fail((err, msg) =>
-                alert(msg));
+            });
+        }
+        public IncomeOverAssets: KnockoutObservableArray<IFlattenedDataPoint> = ko.observableArray<IFlattenedDataPoint>();
+        public CalculauteIncomeOverAssets(): void {
+            this.IncomeOverAssets.removeAll();
+            this.Assets().forEach(a => {
+                var income = this.Income().Where(i => i.OrgId == a.OrgId && i.AsOfDate == a.AsOfDate).FirstOrDefault();
+                if (income != null) {
+                    var assets = accounting.unformat(a.Amount);
+                    var i = accounting.unformat(income.Amount);
+                    if (assets > 0)
+                        this.IncomeOverAssets.push({
+                            OrgId: income.OrgId,
+                            Name: income.Name,
+                            Type: DataPointType.IncomeOverAsset,
+                            AsOfDate: income.AsOfDate,
+                            Amount: accounting.formatNumber(i / assets, 4)
+                        })
+                }
+            });
         }
         public LoadOrganizations(): void {
 
             this.Service.GetOrganizations().done(orgs => {
                 this.Organizations.removeAll();
-                this.Organizations.push({ id: null, name: "All" });
+                this.Organizations.push({ id: "", name: "All" });
                 for (var i = 0; i < orgs.length; i++)
                     this.Organizations.push(orgs[i]);
-            }).fail((err, msg, ) =>
-                alert(msg));;
+            });
         }
     }
     export enum DataPointType {
         Asset,
         Income,
-        Revenue
+        Revenue,
+        IncomeOverAsset
     }
     export interface IFlattenedDataPoint {
         OrgId: string,

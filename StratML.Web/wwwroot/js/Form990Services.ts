@@ -13,10 +13,11 @@ namespace Services {
                     }
                 });
             }
-            GetData(orgId?: string): JQuery.jqXHR<IRSDollarPoints[]> {
+            GetData(orgId: string): JQuery.jqXHR<IRSDollarPoints[]> {
+                
                 return <JQuery.jqXHR<IRSDollarPoints[]>>$.ajax({
                     type: "GET",
-                    url: this.serviceLocation + 'IRS990/',
+                    url: this.serviceLocation + 'IRS990/' + orgId,
                     dataType: "json",
                     headers: {
                         "accept": "application/json"
@@ -37,7 +38,7 @@ namespace Services {
             revenue: DollarPoint[]
         }
         export interface DollarPoint {
-            asOfDate?: Date,
+            asOfDate?: string,
             amount: number
         }
 }

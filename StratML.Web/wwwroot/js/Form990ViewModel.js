@@ -9,11 +9,12 @@ var ViewModels;
     var Form990VM = (function () {
         function Form990VM() {
             var _this = this;
-            this.Organizations = ko.observableArray([{ id: null, name: " All" }]);
+            this.Organizations = ko.observableArray([{ id: "", name: " All" }]);
             this.SelectedId = ko.observable(null);
             this.Assets = ko.observableArray();
             this.Income = ko.observableArray();
             this.Revenue = ko.observableArray();
+            this.IncomeOverAssets = ko.observableArray();
             this.SelectedId.subscribe(function (val) { return _this.GetData(); });
             this.Service = new Services.Form990Service(serviceLocation);
             //this.GetData();
@@ -31,7 +32,7 @@ var ViewModels;
                         OrgId: data[i].orgId,
                         Name: data[i].name,
                         Amount: accounting.formatMoney(val.amount),
-                        AsOfDate: val.asOfDate.toString(),
+                        AsOfDate: val.asOfDate,
                         Type: DataPointType.Asset
                     }); });
                     var income = data[i].income.OrderByDescending(function (d) { return d.asOfDate; });
@@ -39,7 +40,7 @@ var ViewModels;
                         OrgId: data[i].orgId,
                         Name: data[i].name,
                         Amount: accounting.formatMoney(val.amount),
-                        AsOfDate: val.asOfDate.toString(),
+                        AsOfDate: val.asOfDate,
                         Type: DataPointType.Income
                     }); });
                     var revenue = data[i].revenue.OrderByDescending(function (d) { return d.asOfDate; });
@@ -47,28 +48,40 @@ var ViewModels;
                         OrgId: data[i].orgId,
                         Name: data[i].name,
                         Amount: accounting.formatMoney(val.amount),
-                        AsOfDate: val.asOfDate.toString(),
+                        AsOfDate: val.asOfDate,
                         Type: DataPointType.Revenue
                     }); });
-                    //this.Assets().Union(this.Income()).Union(this.Revenue()).GroupBy(
-                    //    g => { g.AsOfDate, g.OrgId }).Select(g =>
-                    //        g.sel)
+                    _this.CalculauteIncomeOverAssets();
                 }
-            }).fail(function (err, msg) {
-                return alert(msg);
+            });
+        };
+        Form990VM.prototype.CalculauteIncomeOverAssets = function () {
+            var _this = this;
+            this.IncomeOverAssets.removeAll();
+            this.Assets().forEach(function (a) {
+                var income = _this.Income().Where(function (i) { return i.OrgId == a.OrgId && i.AsOfDate == a.AsOfDate; }).FirstOrDefault();
+                if (income != null) {
+                    var assets = accounting.unformat(a.Amount);
+                    var i = accounting.unformat(income.Amount);
+                    if (assets > 0)
+                        _this.IncomeOverAssets.push({
+                            OrgId: income.OrgId,
+                            Name: income.Name,
+                            Type: DataPointType.IncomeOverAsset,
+                            AsOfDate: income.AsOfDate,
+                            Amount: accounting.formatNumber(i / assets, 4)
+                        });
+                }
             });
         };
         Form990VM.prototype.LoadOrganizations = function () {
             var _this = this;
             this.Service.GetOrganizations().done(function (orgs) {
                 _this.Organizations.removeAll();
-                _this.Organizations.push({ id: null, name: "All" });
+                _this.Organizations.push({ id: "", name: "All" });
                 for (var i = 0; i < orgs.length; i++)
                     _this.Organizations.push(orgs[i]);
-            }).fail(function (err, msg) {
-                return alert(msg);
             });
-            ;
         };
         return Form990VM;
     }());
@@ -78,5 +91,6 @@ var ViewModels;
         DataPointType[DataPointType["Asset"] = 0] = "Asset";
         DataPointType[DataPointType["Income"] = 1] = "Income";
         DataPointType[DataPointType["Revenue"] = 2] = "Revenue";
+        DataPointType[DataPointType["IncomeOverAsset"] = 3] = "IncomeOverAsset";
     })(DataPointType = ViewModels.DataPointType || (ViewModels.DataPointType = {}));
 })(ViewModels = exports.ViewModels || (exports.ViewModels = {}));

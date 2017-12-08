@@ -10,12 +10,12 @@
         optionsValue: 'id',
         value: SelectedId"></select>
     <div class="box-content box-table">
-        <table id="sample-table" class="table table-hover table-bordered tablesorter">
+        <table class="table table-hover table-bordered">
             <thead>
                 <tr>
                     <th>Organization</th>
                     <th>Income</th>
-                    <th>Income as of Date</th>
+                    <th>As of Date</th>
                 </tr>
             </thead>
             <tbody data-bind="foreach: Income">
@@ -26,6 +26,57 @@
                 </tr>
             </tbody>
          
+        </table>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Organization</th>
+                    <th>Revenue</th>
+                    <th>As of Date</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: Revenue">
+                <tr>
+                    <td data-bind="text: Name"></td>
+                    <td data-bind="text: Amount"></td>
+                    <td data-bind="text: AsOfDate"></td>
+                </tr>
+            </tbody>
+
+        </table>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Organization</th>
+                    <th>Assets</th>
+                    <th>As of Date</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: Assets">
+                <tr>
+                    <td data-bind="text: Name"></td>
+                    <td data-bind="text: Amount"></td>
+                    <td data-bind="text: AsOfDate"></td>
+                </tr>
+            </tbody>
+
+        </table>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Organization</th>
+                    <th>Income/Assets</th>
+                    <th>As of Date</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: IncomeOverAssets">
+                <tr>
+                    <td data-bind="text: Name"></td>
+                    <td data-bind="text: Amount"></td>
+                    <td data-bind="text: AsOfDate"></td>
+                </tr>
+            </tbody>
+
         </table>
     </div>
 </div>

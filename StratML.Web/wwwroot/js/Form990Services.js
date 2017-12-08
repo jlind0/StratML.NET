@@ -18,7 +18,7 @@ var Services;
         Form990Service.prototype.GetData = function (orgId) {
             return $.ajax({
                 type: "GET",
-                url: this.serviceLocation + 'IRS990/',
+                url: this.serviceLocation + 'IRS990/' + orgId,
                 dataType: "json",
                 headers: {
                     "accept": "application/json"
