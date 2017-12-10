@@ -1,7 +1,7 @@
 ///<reference path="jquery.ts"/>
 var Services;
 (function (Services) {
-    var Form990Service = (function () {
+    var Form990Service = /** @class */ (function () {
         function Form990Service(serviceLocation) {
             this.serviceLocation = serviceLocation;
         }

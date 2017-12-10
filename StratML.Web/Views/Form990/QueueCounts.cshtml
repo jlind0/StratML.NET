@@ -1,0 +1,24 @@
+﻿@model System.Collections.Generic.List<StratML.Web.Models.QueueViewModel>
+@{
+    ViewData["Title"] = "QueueCounts";
+}
+<h2>QueueCounts</h2>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Count
+        </th>
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.Name</td>
+            <td>@m.Count</td>
+        </tr>
+    }
+
+</table>
+@Model.Where(m => m.Name != "irs990urls").Sum(m => m.Count)

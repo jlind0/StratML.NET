@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>2.9</ProductVersion>
+    <ProjectGuid>33f3ed6c-22ee-4be0-b26e-23d623f424c9</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StratML.Cloud.Services.Form990</RootNamespace>
+    <AssemblyName>StratML.Cloud.Services.Form990</AssemblyName>
+    <StartDevelopmentStorage>True</StartDevelopmentStorage>
+    <Name>StratML.Cloud.Services.Form990</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- Items for the project -->
+  <ItemGroup>
+    <ServiceDefinition Include="ServiceDefinition.csdef" />
+    <ServiceConfiguration Include="ServiceConfiguration.Local.cscfg" />
+    <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StratML.Cloud.Services.Form990.AWSEnqueue\StratML.Cloud.Services.Form990.AWSEnqueue.csproj">
+      <Name>StratML.Cloud.Services.Form990.AWSEnqueue</Name>
+      <Project>{b2eb22de-7a37-47b2-bc93-75877932401c}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>StratML.Cloud.Services.Form990.AWSEnqueue</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\StratML.Cloud.Services.Form990.Categorizer\StratML.Cloud.Services.Form990.Categorizer.csproj">
+      <Name>StratML.Cloud.Services.Form990.Categorizer</Name>
+      <Project>{93f71852-4bb7-4dff-a924-29dadf43394f}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>StratML.Cloud.Services.Form990.Categorizer</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\StratML.Cloud.Services.Form990.Version2009v13\StratML.Cloud.Services.Form990.Version2009v13.csproj">
+      <Name>StratML.Cloud.Services.Form990.Version2009v13</Name>
+      <Project>{96eea1ab-a4eb-4b57-a33e-340d4e655d02}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>StratML.Cloud.Services.Form990.Version2009v13</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Profiles" />
+    <Folder Include="StratML.Cloud.Services.Form990.AWSEnqueueContent\" />
+    <Folder Include="StratML.Cloud.Services.Form990.CategorizerContent\" />
+    <Folder Include="StratML.Cloud.Services.Form990.Version2009v13Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <DiagnosticsConfiguration Include="StratML.Cloud.Services.Form990.AWSEnqueueContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="StratML.Cloud.Services.Form990.CategorizerContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="StratML.Cloud.Services.Form990.Version2009v13Content\diagnostics.wadcfgx" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishProfile Include="Profiles\stratmlcloudservicesProduction.azurePubxml" />
+  </ItemGroup>
+  <!-- Import the target files for this project template -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <CloudExtensionsDir Condition=" '$(CloudExtensionsDir)' == '' ">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Windows Azure Tools\2.9\</CloudExtensionsDir>
+  </PropertyGroup>
+  <Import Project="$(CloudExtensionsDir)Microsoft.WindowsAzure.targets" />
+</Project>

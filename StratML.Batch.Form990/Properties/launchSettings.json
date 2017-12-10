@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Application": {
+      "commandName": "Project",
+      "commandLineArgs": "\"eo1.csv\""
+    }
+  }
+}

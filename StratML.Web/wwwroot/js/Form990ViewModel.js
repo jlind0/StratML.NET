@@ -6,7 +6,7 @@ $(function () {
 });
 var ViewModels;
 (function (ViewModels) {
-    var Form990VM = (function () {
+    var Form990VM = /** @class */ (function () {
         function Form990VM() {
             var _this = this;
             this.Organizations = ko.observableArray([{ id: "", name: " All" }]);

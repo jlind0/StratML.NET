@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="StratML.Cloud.Services.Form990" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="5" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="StratML.Cloud.Services.Form990.Categorizer">
+    <Instances count="5" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=stratmlform990worker;AccountKey=$(_stratmlform990worker.key_)" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="599315b0-2572-4f96-a7f9-41fe5d3aa717" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="jlind0" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEC+jWevH3+OsS3KF8O7DGlMwDQYJKoZIhvcNAQEBBQAEggEAITkqj4hI4nDGeZLRHCr+qPJerbCLtNNJ+asLjuCg0/e10frPcbxrml0tYZ0Tija0hOWaNDS1FKPXfFmqFbdfe3F063cIM4GL56MKaqvODqJvRWpI+U1QQkVD0M/rL8KTR3QMOZA3mY6x4+YchMZnu1HvQkUU53BljbjBV6yD0yOQwO13Dfy2CIsameZfEReI060cyk9HW/hd8XTqeoT4WLP1Z/LUxsNanwTLn18YlEBWihu60/Q5PDth7S6UrltZFCkBmJe7hMvK+BHmXOXUSjP37z0xCqN2+lx44GOdw8czTMw0WeKP5Ro/IQHCLBbzoj4NXjuwVHswQgS2S0sBWTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECINsvKHaXNqlgBD+5Mqvr3eNVVZThGLMoBG1" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2018-12-10T23:59:59.0000000-06:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="7D1996E7635FA4FCBD10B610F5C57ABC5D287C3C" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+  <Role name="StratML.Cloud.Services.Form990.Version2009v13">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=stratmlform990worker;AccountKey=$(_stratmlform990worker.key_)" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="jlind0" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEC+jWevH3+OsS3KF8O7DGlMwDQYJKoZIhvcNAQEBBQAEggEAITkqj4hI4nDGeZLRHCr+qPJerbCLtNNJ+asLjuCg0/e10frPcbxrml0tYZ0Tija0hOWaNDS1FKPXfFmqFbdfe3F063cIM4GL56MKaqvODqJvRWpI+U1QQkVD0M/rL8KTR3QMOZA3mY6x4+YchMZnu1HvQkUU53BljbjBV6yD0yOQwO13Dfy2CIsameZfEReI060cyk9HW/hd8XTqeoT4WLP1Z/LUxsNanwTLn18YlEBWihu60/Q5PDth7S6UrltZFCkBmJe7hMvK+BHmXOXUSjP37z0xCqN2+lx44GOdw8czTMw0WeKP5Ro/IQHCLBbzoj4NXjuwVHswQgS2S0sBWTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECINsvKHaXNqlgBD+5Mqvr3eNVVZThGLMoBG1" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2018-12-10T23:59:59.0000000-06:00" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="7D1996E7635FA4FCBD10B610F5C57ABC5D287C3C" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+  <Role name="StratML.Cloud.Services.Form990.AWSEnqueue">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=stratmlform990worker;AccountKey=$(_stratmlform990worker.key_)" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="jlind0" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEC+jWevH3+OsS3KF8O7DGlMwDQYJKoZIhvcNAQEBBQAEggEAITkqj4hI4nDGeZLRHCr+qPJerbCLtNNJ+asLjuCg0/e10frPcbxrml0tYZ0Tija0hOWaNDS1FKPXfFmqFbdfe3F063cIM4GL56MKaqvODqJvRWpI+U1QQkVD0M/rL8KTR3QMOZA3mY6x4+YchMZnu1HvQkUU53BljbjBV6yD0yOQwO13Dfy2CIsameZfEReI060cyk9HW/hd8XTqeoT4WLP1Z/LUxsNanwTLn18YlEBWihu60/Q5PDth7S6UrltZFCkBmJe7hMvK+BHmXOXUSjP37z0xCqN2+lx44GOdw8czTMw0WeKP5Ro/IQHCLBbzoj4NXjuwVHswQgS2S0sBWTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECINsvKHaXNqlgBD+5Mqvr3eNVVZThGLMoBG1" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2018-12-10T23:59:59.0000000-06:00" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="7D1996E7635FA4FCBD10B610F5C57ABC5D287C3C" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

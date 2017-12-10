@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratML.Core", "StratML.Core\StratML.Core.csproj", "{41F4B30E-7857-4A66-B466-0BD610956722}"
 EndProject
@@ -23,7 +23,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratML.Data", "StratML.Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratML.Core.Tests", "StratML.Core.Tests\StratML.Core.Tests.csproj", "{DED1F8D1-0404-4EDA-857F-9E5B38F9BFE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Web", "StratML.Web\StratML.Web.csproj", "{3DDFB890-B6A0-420E-B8E7-3E2B20E9EB3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StratML.Web", "StratML.Web\StratML.Web.csproj", "{3DDFB890-B6A0-420E-B8E7-3E2B20E9EB3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Cloud.Services.Form990.Categorizer", "StratML.Cloud.Services.Form990.Categorizer\StratML.Cloud.Services.Form990.Categorizer.csproj", "{93F71852-4BB7-4DFF-A924-29DADF43394F}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "StratML.Cloud.Services.Form990", "StratML.Cloud.Services.Form990\StratML.Cloud.Services.Form990.ccproj", "{33F3ED6C-22EE-4BE0-B26E-23D623F424C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Cloud.Services.Form990.Version2009v13", "StratML.Cloud.Services.Form990.Version2009v13\StratML.Cloud.Services.Form990.Version2009v13.csproj", "{96EEA1AB-A4EB-4B57-A33E-340D4E655D02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratML.Cloud.Services.Form990.AWSEnqueue", "StratML.Cloud.Services.Form990.AWSEnqueue\StratML.Cloud.Services.Form990.AWSEnqueue.csproj", "{B2EB22DE-7A37-47B2-BC93-75877932401C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +83,22 @@ Global
 		{3DDFB890-B6A0-420E-B8E7-3E2B20E9EB3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DDFB890-B6A0-420E-B8E7-3E2B20E9EB3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DDFB890-B6A0-420E-B8E7-3E2B20E9EB3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93F71852-4BB7-4DFF-A924-29DADF43394F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93F71852-4BB7-4DFF-A924-29DADF43394F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93F71852-4BB7-4DFF-A924-29DADF43394F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93F71852-4BB7-4DFF-A924-29DADF43394F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33F3ED6C-22EE-4BE0-B26E-23D623F424C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F3ED6C-22EE-4BE0-B26E-23D623F424C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33F3ED6C-22EE-4BE0-B26E-23D623F424C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33F3ED6C-22EE-4BE0-B26E-23D623F424C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96EEA1AB-A4EB-4B57-A33E-340D4E655D02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96EEA1AB-A4EB-4B57-A33E-340D4E655D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96EEA1AB-A4EB-4B57-A33E-340D4E655D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96EEA1AB-A4EB-4B57-A33E-340D4E655D02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2EB22DE-7A37-47B2-BC93-75877932401C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2EB22DE-7A37-47B2-BC93-75877932401C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2EB22DE-7A37-47B2-BC93-75877932401C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2EB22DE-7A37-47B2-BC93-75877932401C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

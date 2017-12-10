@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StratML35"
+    targetNamespace="http://schemas.stratml.us/3.5"
+    elementFormDefault="qualified"
+    xmlns="http://schemas.stratml.us/3.5"
+    xmlns:stratml="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:import namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport" 
+             schemaLocation="..\Two\PerformancePlanOrReport20160216.xsd"/>
+
+  <xs:element name="StrategyDocument">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="NameIdentifier">
+          <xs:sequence>
+            <xs:element name="Organization" type="Organization" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="Person" type="Person" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="Goal" type="Goal" maxOccurs="unbounded" minOccurs="1"/>
+            <xs:element name="Map" type="Map" maxOccurs="unbounded" minOccurs="0"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlanDocument">
+    
+  </xs:element>
+  <xs:complexType name="Artifact">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Value">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
+        
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Objective">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
+
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Goal">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
+
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Actor">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        <xs:sequence>
+          <xs:element name="Role" type="Role" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Person">
+    <xs:complexContent>
+      <xs:extension base="Actor">
+        <xs:sequence>
+          <xs:element name="GivenName" type="xs:string" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Surname" type="xs:string" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Contact" type="ContactInformation" maxOccurs="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Organization">
+    <xs:complexContent>
+      <xs:extension base="Actor">
+        <xs:sequence>
+          <xs:element name="Contact" type="ContactInformation" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Organization" type="Organization" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Person" type="Person" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Map">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        <xs:sequence>
+          <xs:element name="Type" type="MapType" default="Relationship" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Weight" type="xs:double" maxOccurs="1" minOccurs="0" default="1"/>
+          <xs:element name="MappedIdentifier" type="xs:ID" maxOccurs="unbounded" minOccurs="2"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+
+  </xs:complexType>
+  <xs:simpleType name="MapType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Relationship"/>
+      <xs:enumeration value="Conflict"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ContactInformation">
+    <xs:sequence>
+      <xs:element name="Identifier" type="xs:ID" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="PhoneNumber" type="xs:string" id="uuid-160fe527-9d1d-423a-bc95-ad48f3257276" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="EmailAddress" type="xs:string" id="uuid-9e408a3b-034a-486f-b045-7cc74505b44d" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Role">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        <xs:sequence>
+          <xs:element name="RoleType" type="RoleType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="RoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Performer"/>
+      <xs:enumeration value="Beneficiary"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NameIdentifier">
+    <xs:sequence>
+      <xs:element name="Identifer" type="xs:ID" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
