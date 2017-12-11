@@ -264,3 +264,7 @@ __pycache__/
 /StratML.Cloud.Services.Form990.Version2009v13/app.config
 /StratML.Cloud.Services.Form990.Categorizer/app.config
 /StratML.Cloud.Services.Form990.AWSEnqueue/app.config
+
+> git rm --cached /StratML.Cloud.Services.Form990.Version2009v13/app.config
+> git rm --cached /StratML.Cloud.Services.Form990.Categorizer/app.config
+> git rm --cached /StratML.Cloud.Services.Form990.AWSEnqueue/app.config
