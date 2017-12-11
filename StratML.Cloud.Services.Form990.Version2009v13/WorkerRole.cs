@@ -22,6 +22,7 @@ using Microsoft.Azure.Management.ServiceBus.Models;
 using StratML.Core.Two;
 using StratML.Core;
 using Microsoft.Azure;
+using Microsoft.Azure.KeyVault;
 namespace StratML.Cloud.Services.Form990.Version2009v13
 {
     public class WorkerRole : RoleEntryPoint
@@ -196,12 +197,24 @@ namespace StratML.Cloud.Services.Form990.Version2009v13
                 {
                     if (version != null)
                     {
+                        var cerificateThumbprint = CloudConfigurationManager.GetSetting("KeyVaultAuthCertThumbprint");
+                        var authenticationClientId = CloudConfigurationManager.GetSetting("KeyVaultAuthClientId");
+                        var cert = CertificateHelper.FindCertificateByThumbprint(cerificateThumbprint);
+                        var assertionCert = new ClientAssertionCertificate(authenticationClientId, cert);
+                        string connectionStirng = null;
+                        string subscriptionID = null;
+                        using (var vault = new KeyVaultClient(async (authority, resource, scope) =>
+                        {
+                            var authenticationContext = new AuthenticationContext(authority);
+                            var result = await authenticationContext.AcquireTokenAsync(resource, assertionCert);
+                            return result.AccessToken;
+                        }))
+                        {
+                            connectionStirng = (await vault.GetSecretAsync("https://stratml-keys.vault.azure.net/secrets/ServiceBusConnectionString/", cancellationToken)).Value;
+                            subscriptionID = (await vault.GetSecretAsync("https://stratml-keys.vault.azure.net/secrets/SubscriptionID/", cancellationToken)).Value;
+                        }
                         if (hasExpired < DateTime.UtcNow.AddMinutes(-2))
                         {
-                            var cerificateThumbprint = CloudConfigurationManager.GetSetting("KeyVaultAuthCertThumbprint");
-                            var authenticationClientId = CloudConfigurationManager.GetSetting("KeyVaultAuthClientId");
-                            var cert = CertificateHelper.FindCertificateByThumbprint(cerificateThumbprint);
-                            var assertionCert = new ClientAssertionCertificate(authenticationClientId, cert);
                             var loginContext = new AuthenticationContext("https://login.microsoftonline.com/88c25c7a-38aa-45d5-bd8d-e939dd68c4f2");
                             var result = await loginContext.AcquireTokenAsync(
                                 "https://management.core.windows.net/", assertionCert
@@ -214,12 +227,13 @@ namespace StratML.Cloud.Services.Form990.Version2009v13
                         TokenCredentials creds = new TokenCredentials(accessToken);
                         using (ServiceBusManagementClient sb = new ServiceBusManagementClient(creds)
                         {
-                            SubscriptionId = ConfigurationManager.AppSettings["SubscriptionID"]
+                            SubscriptionId = subscriptionID
                         })
                         {
                             await sb.Queues.CreateOrUpdateAsync("stratml", "stratml", version + "-errors", new SBQueue());
-                            var q = new QueueClient(ConfigurationManager.AppSettings["connectionString"], version + "-errors");
+                            var q = new QueueClient(connectionStirng, version + "-errors");
                             await q.SendAsync(new Message(Encoding.UTF8.GetBytes($"{{'url':'{url}','ex':'{ex.ToString()}'}}")));
+                            await q.CloseAsync();
                         }
                     }
 
