@@ -259,3 +259,8 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+#Cloud App Configs
+StratML.Cloud.Services.Form990.Categorizer/app.config
+StratML.Cloud.Services.Form990.AWSEnqueue/app.config
+StratML.Cloud.Services.Form990.Version2009v13/app.config
