@@ -14,6 +14,9 @@ using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.WindowsAzure.Storage;
 using System.Net;
+using Microsoft.Azure;
+using Microsoft.Azure.KeyVault;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 namespace StratML.Cloud.Services.Form990.AWSEnqueue
 {
@@ -65,8 +68,24 @@ namespace StratML.Cloud.Services.Form990.AWSEnqueue
 
         private async Task RunAsync(CancellationToken cancellationToken)
         {
+            var cerificateThumbprint = CloudConfigurationManager.GetSetting("KeyVaultAuthCertThumbprint");
+            var authenticationClientId = CloudConfigurationManager.GetSetting("KeyVaultAuthClientId");
+            var cert = CertificateHelper.FindCertificateByThumbprint(cerificateThumbprint);
+            var assertionCert = new ClientAssertionCertificate(authenticationClientId, cert);
+            string connectionStirng = null;
+            string fileConnectionString = null;
+            using (var vault = new KeyVaultClient(async (authority, resource, scope) =>
+             {
+                 var context = new AuthenticationContext(authority);
+                 var result = await context.AcquireTokenAsync(resource, assertionCert);
+                 return result.AccessToken;
+             }))
+            {
+                connectionStirng = (await vault.GetSecretAsync("https://stratml-keys.vault.azure.net/secrets/ServiceBusConnectionString/", cancellationToken)).Value;
+                fileConnectionString = (await vault.GetSecretAsync("https://stratml-keys.vault.azure.net/secrets/FileConnectionString/", cancellationToken)).Value;
+            }
             string lastKey = null;
-            CloudStorageAccount acct = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["fileConnectionString"]);
+            CloudStorageAccount acct = CloudStorageAccount.Parse(fileConnectionString);
             var fileClient = acct.CreateCloudFileClient();
             var awsfiles = fileClient.GetShareReference("aws990");
             var root = awsfiles.GetRootDirectoryReference();
@@ -78,7 +97,7 @@ namespace StratML.Cloud.Services.Form990.AWSEnqueue
                     lastKey = (await streamReader.ReadToEndAsync()).Trim('\0');
                 }
             }
-            var queue = new QueueClient(ConfigurationManager.AppSettings["connectionString"],
+            var queue = new QueueClient(connectionStirng,
                 ConfigurationManager.AppSettings["queueName"]);
             using (var client = new AmazonS3Client(new AnonymousAWSCredentials(),
                 Amazon.RegionEndpoint.USEast1))
@@ -92,18 +111,22 @@ namespace StratML.Cloud.Services.Form990.AWSEnqueue
                         StartAfter = string.IsNullOrWhiteSpace(lastKey) ? null : lastKey
                     };
                     ListObjectsV2Response response;
-                    do
+                    while (!cancellationToken.IsCancellationRequested)
                     {
-                        response = await client.ListObjectsV2Async(request, cancellationToken);
-
-                        foreach (var obj in response.S3Objects)
+                        do
                         {
-                            await queue.SendAsync(new Message(Encoding.UTF8.GetBytes(obj.Key)));
-                            lastKey = obj.Key;
+                            response = await client.ListObjectsV2Async(request, cancellationToken);
+
+                            foreach (var obj in response.S3Objects)
+                            {
+                                await queue.SendAsync(new Message(Encoding.UTF8.GetBytes(obj.Key)));
+                                lastKey = obj.Key;
+                            }
+                            request.ContinuationToken = response.NextContinuationToken;
                         }
-                        request.ContinuationToken = response.NextContinuationToken;
+                        while (response.IsTruncated);
+                        await Task.Delay(60000, cancellationToken);
                     }
-                    while (response.IsTruncated);
                 }
                 catch { throw; }
                 finally
@@ -121,6 +144,7 @@ namespace StratML.Cloud.Services.Form990.AWSEnqueue
                         }
                     }
                 }
+                await Task.Delay(60000, cancellationToken);
             }
         }
     }

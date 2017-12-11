@@ -4,26 +4,48 @@
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
       <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" />
+      <Setting name="StorageAccountName"  />
+      <Setting name="StorageAccountKeySecretUrl"  />
+      <Setting name="KeyVaultAuthCertThumbprint"  />
+      <Setting name="KeyVaultAuthClientId" />
     </ConfigurationSettings>
     <Imports>
       <Import moduleName="RemoteAccess" />
       <Import moduleName="RemoteForwarder" />
     </Imports>
+    <Certificates>
+      <Certificate name="KeyVaultAuthCert" storeLocation="LocalMachine" storeName="My"/>
+    </Certificates>
+
   </WorkerRole>
   <WorkerRole name="StratML.Cloud.Services.Form990.Version2009v13" vmsize="ExtraSmall">
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="StorageAccountName"  />
+      <Setting name="StorageAccountKeySecretUrl"  />
+      <Setting name="KeyVaultAuthCertThumbprint"  />
+      <Setting name="KeyVaultAuthClientId" />
     </ConfigurationSettings>
     <Imports>
       <Import moduleName="RemoteAccess" />
     </Imports>
+    <Certificates>
+      <Certificate name="KeyVaultAuthCert" storeLocation="LocalMachine" storeName="My"/>
+    </Certificates>
   </WorkerRole>
   <WorkerRole name="StratML.Cloud.Services.Form990.AWSEnqueue" vmsize="ExtraSmall">
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="StorageAccountName"  />
+      <Setting name="StorageAccountKeySecretUrl"  />
+      <Setting name="KeyVaultAuthCertThumbprint"  />
+      <Setting name="KeyVaultAuthClientId" />
     </ConfigurationSettings>
     <Imports>
       <Import moduleName="RemoteAccess" />
     </Imports>
+    <Certificates>
+      <Certificate name="KeyVaultAuthCert" storeLocation="LocalMachine" storeName="My"/>
+    </Certificates>
   </WorkerRole>
 </ServiceDefinition>

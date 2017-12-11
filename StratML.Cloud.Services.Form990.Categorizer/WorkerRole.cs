@@ -19,7 +19,9 @@ using RestSharp;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.Rest;
 using Microsoft.Rest.Azure;
+using Microsoft.Azure;
 using Microsoft.Azure.Management.ServiceBus.Models;
+using Microsoft.Azure.KeyVault;
 namespace StratML.Cloud.Services.Form990.Categorizer
 {
     public class WorkerRole : RoleEntryPoint
@@ -62,26 +64,39 @@ namespace StratML.Cloud.Services.Form990.Categorizer
 
             this.cancellationTokenSource.Cancel();
             this.runCompleteEvent.WaitOne();
-            this.Client?.CloseAsync().Wait();
             base.OnStop();
 
             Trace.TraceInformation("StratML.Cloud.Services.Form990.Categorizer has stopped");
         }
-        private QueueClient Client { get; set; }
         private List<string> Queues { get; set; } = new List<string>();
         DateTimeOffset hasExpired = DateTimeOffset.MinValue;
         string accessToken = null;
         private async Task RunAsync(CancellationToken cancellationToken)
         {
-
-            Client = new QueueClient(ConfigurationManager.AppSettings["connectionString"],
+            var cerificateThumbprint = CloudConfigurationManager.GetSetting("KeyVaultAuthCertThumbprint");
+            var authenticationClientId = CloudConfigurationManager.GetSetting("KeyVaultAuthClientId");
+            var cert = CertificateHelper.FindCertificateByThumbprint(cerificateThumbprint);
+            var assertionCert = new ClientAssertionCertificate(authenticationClientId, cert);
+            string connectionStirng = null;
+            string subscriptionID = null;
+            using (var vault = new KeyVaultClient(async (authority, resource, scope) =>
+            {
+                var context = new AuthenticationContext(authority);
+                var result = await context.AcquireTokenAsync(resource, assertionCert);
+                return result.AccessToken;
+            }))
+            {
+                connectionStirng = (await vault.GetSecretAsync("https://stratml-keys.vault.azure.net/secrets/ServiceBusConnectionString/", cancellationToken)).Value;
+                subscriptionID = (await vault.GetSecretAsync("https://stratml-keys.vault.azure.net/secrets/SubscriptionID/", cancellationToken)).Value;
+            }
+            var client = new QueueClient(connectionStirng,
               ConfigurationManager.AppSettings["queueName"]);
 
             this.Queues.Clear();
             
             using (ServiceBusManagementClient sb = new ServiceBusManagementClient(await GetCreds())
             {
-                SubscriptionId = "8deda4de-adfb-46c8-bc73-a20c32edc81a"
+                SubscriptionId = subscriptionID
             })
             {
                 IPage<SBQueue> qPage = null;
@@ -92,7 +107,7 @@ namespace StratML.Cloud.Services.Form990.Categorizer
                 }
                 while (qPage?.NextPageLink != null);
             }
-            Client.RegisterMessageHandler(async (msg, token) =>
+            client.RegisterMessageHandler(async (msg, token) =>
             {
 
            
@@ -108,33 +123,36 @@ namespace StratML.Cloud.Services.Form990.Categorizer
                 {
                     using (ServiceBusManagementClient sb = new ServiceBusManagementClient(await GetCreds())
                     {
-                        SubscriptionId = ConfigurationManager.AppSettings["SubscriptionID"]
+                        SubscriptionId = subscriptionID
                     })
                     {
                         await sb.Queues.CreateOrUpdateAsync("stratml", "stratml", queueName, new SBQueue(), token);
                         Queues.Add(queueName);
                     }
                 } 
-                var q = new QueueClient(ConfigurationManager.AppSettings["connectionString"], queueName);
+                var q = new QueueClient(connectionStirng, queueName);
                 await q.SendAsync(new Message(Encoding.UTF8.GetBytes(url)));
-                    await q.CloseAsync();
+                await q.CloseAsync();
             },
             new MessageHandlerOptions(evt => Task.FromException(evt.Exception))
             { MaxConcurrentCalls = Environment.ProcessorCount*10, AutoComplete = true });
-            while (true)
+            while (!cancellationToken.IsCancellationRequested)
             {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Task.Delay(60000);
+                await Task.Delay(60000, cancellationToken);
             }
+            await client.CloseAsync();
         }
         protected async Task<TokenCredentials> GetCreds()
         {
             if (hasExpired < DateTime.UtcNow.AddMinutes(-2))
             {
+                var cerificateThumbprint = CloudConfigurationManager.GetSetting("KeyVaultAuthCertThumbprint");
+                var authenticationClientId = CloudConfigurationManager.GetSetting("KeyVaultAuthClientId");
+                var cert = CertificateHelper.FindCertificateByThumbprint(cerificateThumbprint);
+                var assertionCert = new ClientAssertionCertificate(authenticationClientId, cert);
                 var context = new AuthenticationContext("https://login.microsoftonline.com/88c25c7a-38aa-45d5-bd8d-e939dd68c4f2");
                 var result = await context.AcquireTokenAsync(
-                    "https://management.core.windows.net/",
-                    new ClientCredential(ConfigurationManager.AppSettings["ClientID"], ConfigurationManager.AppSettings["ClientSecret"])
+                    "https://management.core.windows.net/", assertionCert
                 );
                 accessToken = result.AccessToken;
                 hasExpired = result.ExpiresOn;

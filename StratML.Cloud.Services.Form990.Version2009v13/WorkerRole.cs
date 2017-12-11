@@ -21,6 +21,7 @@ using Microsoft.Rest;
 using Microsoft.Azure.Management.ServiceBus.Models;
 using StratML.Core.Two;
 using StratML.Core;
+using Microsoft.Azure;
 namespace StratML.Cloud.Services.Form990.Version2009v13
 {
     public class WorkerRole : RoleEntryPoint
@@ -197,9 +198,13 @@ namespace StratML.Cloud.Services.Form990.Version2009v13
                     {
                         if (hasExpired < DateTime.UtcNow.AddMinutes(-2))
                         {
-                            var result = await context.AcquireTokenAsync(
-                                "https://management.core.windows.net/",
-                                new ClientCredential(ConfigurationManager.AppSettings["ClientID"], ConfigurationManager.AppSettings["ClientSecret"])
+                            var cerificateThumbprint = CloudConfigurationManager.GetSetting("KeyVaultAuthCertThumbprint");
+                            var authenticationClientId = CloudConfigurationManager.GetSetting("KeyVaultAuthClientId");
+                            var cert = CertificateHelper.FindCertificateByThumbprint(cerificateThumbprint);
+                            var assertionCert = new ClientAssertionCertificate(authenticationClientId, cert);
+                            var loginContext = new AuthenticationContext("https://login.microsoftonline.com/88c25c7a-38aa-45d5-bd8d-e939dd68c4f2");
+                            var result = await loginContext.AcquireTokenAsync(
+                                "https://management.core.windows.net/", assertionCert
                             );
                             accessToken = result.AccessToken;
                             hasExpired = result.ExpiresOn;
@@ -221,11 +226,10 @@ namespace StratML.Cloud.Services.Form990.Version2009v13
                 }
             },
             new MessageHandlerOptions(evt => Task.FromException(evt.Exception))
-            { MaxConcurrentCalls = 2, AutoComplete = true });
-            while (true)
+            { MaxConcurrentCalls = 4, AutoComplete = true });
+            while(!cancellationToken.IsCancellationRequested)
             {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Task.Delay(100000);
+                await Task.Delay(60000, cancellationToken);
             }
             await queue.CloseAsync();
         }
