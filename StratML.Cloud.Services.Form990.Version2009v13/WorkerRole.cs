@@ -199,7 +199,7 @@ namespace StratML.Cloud.Services.Form990.Version2009v13
                         {
                             var result = await context.AcquireTokenAsync(
                                 "https://management.core.windows.net/",
-                                new ClientCredential("0f64de74-f77a-4d1b-b234-5fd8a7d7a1ce", "TzO7firWSuqqjhNh5GpULtxHZQy8AP5g0vWYl8OUtik=")
+                                new ClientCredential(ConfigurationManager.AppSettings["ClientID"], ConfigurationManager.AppSettings["ClientSecret"])
                             );
                             accessToken = result.AccessToken;
                             hasExpired = result.ExpiresOn;
@@ -209,7 +209,7 @@ namespace StratML.Cloud.Services.Form990.Version2009v13
                         TokenCredentials creds = new TokenCredentials(accessToken);
                         using (ServiceBusManagementClient sb = new ServiceBusManagementClient(creds)
                         {
-                            SubscriptionId = "8deda4de-adfb-46c8-bc73-a20c32edc81a"
+                            SubscriptionId = ConfigurationManager.AppSettings["SubscriptionID"]
                         })
                         {
                             await sb.Queues.CreateOrUpdateAsync("stratml", "stratml", version + "-errors", new SBQueue());

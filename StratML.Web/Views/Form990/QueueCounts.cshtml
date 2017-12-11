@@ -15,7 +15,7 @@
     @foreach (var m in Model)
     {
         <tr>
-            <td>@m.Name</td>
+            <td><a href="/Form990/Peek/@m.Name">@m.Name</a></td>
             <td>@m.Count</td>
         </tr>
     }
