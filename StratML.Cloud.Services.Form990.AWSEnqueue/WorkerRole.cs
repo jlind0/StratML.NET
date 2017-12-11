@@ -144,7 +144,6 @@ namespace StratML.Cloud.Services.Form990.AWSEnqueue
                         }
                     }
                 }
-                await Task.Delay(60000, cancellationToken);
             }
         }
     }
