@@ -10,6 +10,7 @@ using Microsoft.Azure.Management.ServiceBus;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.Rest;
 using StratML.Web.Models;
+using Microsoft.Extensions.Configuration;
 
 
 namespace StratML.Web.Controllers
@@ -18,9 +19,11 @@ namespace StratML.Web.Controllers
     public class Form990Controller : Controller
     {
         protected Uri ServicesURI { get; private set; }
-        public Form990Controller(Uri servicesUri)
+        protected IConfiguration Config { get; private set; }
+        public Form990Controller(Uri servicesUri, IConfiguration config)
         {
             this.ServicesURI = servicesUri;
+            this.Config = config;
         }
         public IActionResult Index()
         {
@@ -30,7 +33,7 @@ namespace StratML.Web.Controllers
         public async Task<IActionResult> PeekAtQueue(string version, CancellationToken cToken = default(CancellationToken))
         {
 
-            var queue = new QueueClient(@"Endpoint=sb://stratml.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=VsGdifu7wtG1xIGNkqvFQMe9af4t91ou0AbomJOL1A4=",
+            var queue = new QueueClient(Config["ServiceBusConnectionString"],
               version);
             Message message = null;
             var slim = new SemaphoreSlim(0);
@@ -46,7 +49,7 @@ namespace StratML.Web.Controllers
         [Route("Form990/PeekDead/{version}")]
         public async Task<IActionResult> PeekAtQueueDeadLetter(string version, CancellationToken cToken = default(CancellationToken))
         {
-            var queue = new QueueClient(@"Endpoint=sb://stratml.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=VsGdifu7wtG1xIGNkqvFQMe9af4t91ou0AbomJOL1A4=",
+            var queue = new QueueClient(Config["ServiceBusConnectionString"],
               EntityNameHelper.FormatDeadLetterPath(version));
             Message message = null;
             var slim = new SemaphoreSlim(0);
@@ -62,11 +65,14 @@ namespace StratML.Web.Controllers
         [Route("Queues")]
         public async Task<IActionResult> QueueCounts(CancellationToken token = default(CancellationToken))
         {
-            var context = new AuthenticationContext("https://login.microsoftonline.com/88c25c7a-38aa-45d5-bd8d-e939dd68c4f2");
-            var result = await context.AcquireTokenAsync(
-                       "https://management.core.windows.net/",
-                       new ClientCredential("0f64de74-f77a-4d1b-b234-5fd8a7d7a1ce", "TzO7firWSuqqjhNh5GpULtxHZQy8AP5g0vWYl8OUtik=")
-                   );
+            var cerificateThumbprint = Config["KeyVaultAuthCertThumbprint"];
+            var authenticationClientId = Config["KeyVaultAuthClientId"];
+            var cert = CertificateHelper.FindCertificateByThumbprint(cerificateThumbprint);
+            var assertionCert = new ClientAssertionCertificate(authenticationClientId, cert);
+            var loginContext = new AuthenticationContext("https://login.microsoftonline.com/88c25c7a-38aa-45d5-bd8d-e939dd68c4f2");
+            var result = await loginContext.AcquireTokenAsync(
+                "https://management.core.windows.net/", assertionCert
+            );
             var accessToken = result.AccessToken;
             TokenCredentials creds = new TokenCredentials(accessToken);
             List<QueueViewModel> queues = new List<QueueViewModel>();
