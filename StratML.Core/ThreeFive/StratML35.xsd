@@ -36,7 +36,8 @@
             <xs:element name="Vision" type="Vision" maxOccurs="1" minOccurs="0"/>
             <xs:element name="Value" type="Value" maxOccurs="unbounded" minOccurs="0"/>
             <xs:element name="Goal" type="Goal" maxOccurs="unbounded" minOccurs="0"/>
-            <xs:element name="Map" type="Map" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="DrivingForce" type="DrivingForce" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="Framework" type="StrategyFramework" maxOccurs="unbounded" minOccurs="0"/>
           </xs:sequence>
         </xs:sequence>
       </xs:extension>
@@ -70,6 +71,7 @@
           <xs:element name="SequenceIndicator" type="xs:string" maxOccurs="1" minOccurs="0"/>
           <xs:element name="StakeholderPerson" type="StakeholderPerson" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="StakeholderOrganization" type="StakeholderOrganization" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="StakeholderGroup" type="StakeholderGroup" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="OtherInformation" type="xs:string" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
@@ -111,6 +113,15 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="StakeholderGroup">
+    <xs:complexContent>
+      <xs:extension base="Group">
+        <xs:sequence>
+          <xs:element name="Relationship" type="Relationship" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="Objective">
     <xs:complexContent>
       <xs:extension base="Artifact">
@@ -125,6 +136,9 @@
       <xs:extension base="Artifact">
         <xs:sequence>
           <xs:element name="Objective" type="Objective" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="Authority" type="Authority" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="Place" type="PhysicalAddress" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="SuccessFactor" type="SuccessFactor" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -197,6 +211,13 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="Authority">
+    <xs:complexContent>
+      <xs:extension base="Actor">
+        
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="Person">
     <xs:complexContent>
       <xs:extension base="Actor">
@@ -207,17 +228,39 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Organization">
+  <xs:complexType name="Group">
     <xs:complexContent>
       <xs:extension base="Actor">
         <xs:sequence>
-          <xs:element name="Strategy" type="Strategy" maxOccurs="1" minOccurs="0"/>
-          
-          <xs:element name="Organization" type="Organization" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Person" type="Person" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Acronym" type="xs:string" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
-        <xs:attribute name="IsVirtual" type="xs:boolean" default="false"/>
+        
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Organization">
+    <xs:complexContent>
+      <xs:extension base="Group">
+        <xs:sequence>
+          <xs:element name="Strategy" type="Strategy" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Organization" type="Organization" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StrategyFramework">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        <xs:sequence>
+          <xs:element name="Data" maxOccurs="1" minOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any maxOccurs="1" minOccurs="1" processContents="strict" namespace="http://schemas.stratml.us/3.5/strategy/framework"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -321,6 +364,46 @@
       <xs:element name="Identifer" type="xs:ID" minOccurs="1" maxOccurs="1"/>
       <xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Map" type="Map" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:simpleType name="InternalOrExternal">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Internal"/>
+      <xs:enumeration value="External"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="InhibitingOrEnabling">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Enabling"/>
+      <xs:enumeration value="Inhibiting"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DrivingForce">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        <xs:sequence>
+          <xs:element name="InhibitingOrEnabling" type="InhibitingOrEnabling" maxOccurs="1" minOccurs="1"/>
+          <xs:element name="InternalOrExternal" type="InternalOrExternal" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SuccessFactor">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        <xs:sequence>
+          <xs:element name="Criticality" type="Criticality" maxOccurs="1" minOccurs="1"/>
+          <xs:element name="InternalOrExternal" type="InternalOrExternal" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="Criticality">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Critical"/>
+      <xs:enumeration value="Contributory"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
+
