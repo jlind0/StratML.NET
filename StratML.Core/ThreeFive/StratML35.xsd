@@ -191,6 +191,7 @@
     <xs:complexContent>
       <xs:extension base="NameIdentifier">
         <xs:sequence>
+          <xs:element name="Contact" type="ContactInformation" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Role" type="Role" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
       </xs:extension>
@@ -202,7 +203,6 @@
         <xs:sequence>
           <xs:element name="GivenName" type="xs:string" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Surname" type="xs:string" maxOccurs="1" minOccurs="0"/>
-          <xs:element name="Contact" type="ContactInformation" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -212,7 +212,7 @@
       <xs:extension base="Actor">
         <xs:sequence>
           <xs:element name="Strategy" type="Strategy" maxOccurs="1" minOccurs="0"/>
-          <xs:element name="Contact" type="ContactInformation" maxOccurs="1" minOccurs="0"/>
+          
           <xs:element name="Organization" type="Organization" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Person" type="Person" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Acronym" type="xs:string" minOccurs="0" maxOccurs="1"/>

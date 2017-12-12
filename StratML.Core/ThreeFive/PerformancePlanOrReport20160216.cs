@@ -73,8 +73,6 @@ namespace StratML.Core.ThreeFive {
         
         private Strategy strategyField;
         
-        private ContactInformation contactField;
-        
         private Organization[] organization1Field;
         
         private Person[] personField;
@@ -94,16 +92,6 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.strategyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ContactInformation Contact {
-            get {
-                return this.contactField;
-            }
-            set {
-                this.contactField = value;
             }
         }
         
@@ -363,12 +351,12 @@ namespace StratML.Core.ThreeFive {
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Map))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Relationship))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Role))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContactMechanism))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(WebAddress))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Email))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PhoneNumber))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PhysicalAddress))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Role))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Actor))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(StakeholderOrganization))]
@@ -1024,7 +1012,19 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class Actor : NameIdentifier {
         
+        private ContactInformation contactField;
+        
         private Role[] roleField;
+        
+        /// <remarks/>
+        public ContactInformation Contact {
+            get {
+                return this.contactField;
+            }
+            set {
+                this.contactField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Role")]
@@ -1051,8 +1051,6 @@ namespace StratML.Core.ThreeFive {
         
         private string surnameField;
         
-        private ContactInformation contactField;
-        
         /// <remarks/>
         public string GivenName {
             get {
@@ -1070,16 +1068,6 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.surnameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ContactInformation Contact {
-            get {
-                return this.contactField;
-            }
-            set {
-                this.contactField = value;
             }
         }
     }
