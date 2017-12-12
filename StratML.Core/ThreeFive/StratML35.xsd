@@ -83,7 +83,7 @@
         <xs:sequence>
           <xs:element name="ReferentIdentifier" type="xs:ID" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="RelationshipType" type="RelationshipType" default="Peer"/>
+        <xs:attribute name="RelationshipType" type="RelationshipType" default="Peer_To"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -91,6 +91,9 @@
     <xs:union memberTypes="stratml:RelationshipTypeType">
       <xs:simpleType>
         <xs:restriction base="xs:string">
+          <xs:enumeration value="Broader_Than"/>
+          <xs:enumeration value="Peer_To"/>
+          <xs:enumeration value="Narrower_Than"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:union>
@@ -126,7 +129,19 @@
     <xs:complexContent>
       <xs:extension base="Artifact">
         <xs:sequence>
+          <xs:element name="Categorization" type="CategoryGroup" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ManagementChallenge" type="ManagementChallenge" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="PerformanceIndicator" type="PerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ManagementChallenge">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        <xs:sequence>
+          <xs:element name="Probability" type="Priority" maxOccurs="1" minOccurs="1"/>
+          <xs:element name="Impact" type="Priority" maxOccurs="1" minOccurs="1"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -139,6 +154,7 @@
           <xs:element name="Authority" type="Authority" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="Place" type="PhysicalAddress" maxOccurs="1" minOccurs="0"/>
           <xs:element name="SuccessFactor" type="SuccessFactor" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Priority" type="Priority" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -165,6 +181,9 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
+          <xs:element name="Categorization" type="CategoryGroup" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="Keyness" type="Keyness" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="ValueChainStage" type="ValueChainStageType" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -270,6 +289,7 @@
         <xs:sequence>
           <xs:element name="Type" type="MapType" default="Relationship" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Weight" type="xs:double" maxOccurs="1" minOccurs="1" default="1"/>
+          <xs:element name="PublicationDate" type="xs:date" maxOccurs="1" minOccurs="0"/>
           <xs:element name="MappedIdentifier" type="xs:ID" maxOccurs="unbounded" minOccurs="2"/>
         </xs:sequence>
       </xs:extension>
@@ -403,6 +423,52 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="Critical"/>
       <xs:enumeration value="Contributory"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Priority">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="To_Be_Determined"/>
+      <xs:enumeration value="High"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="Low"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="CategoryGroup">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        <xs:sequence>
+          <xs:element name="Category" type="Category" maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Category">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        <xs:sequence>
+          <xs:element name="Website" type="WebAddress" maxOccurs="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="Keyness">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="To_Be_Determined"/>
+      <xs:enumeration value="Key"/>
+      <xs:enumeration value="Secondary"/>
+      <xs:enumeration value="Ancillary"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValueChainStageType">
+    <xs:annotation>
+      <xs:documentation source="documentation" xml:lang="EN">An element enabling the designation of a performance indicator as being of one of five enumerated types.  When combined in serial order, the five types comprise the full chain for the delivery of value to stakeholders.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Outcome"/>
+      <xs:enumeration value="Output_Processing"/>
+      <xs:enumeration value="Output"/>
+      <xs:enumeration value="Input_Processing"/>
+      <xs:enumeration value="Input"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

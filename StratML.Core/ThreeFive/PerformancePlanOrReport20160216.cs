@@ -303,7 +303,7 @@ namespace StratML.Core.ThreeFive {
         private string relationshipTypeField;
         
         public Relationship() {
-            this.relationshipTypeField = "Peer";
+            this.relationshipTypeField = "Peer_To";
         }
         
         /// <remarks/>
@@ -319,7 +319,7 @@ namespace StratML.Core.ThreeFive {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute("Peer")]
+        [System.ComponentModel.DefaultValueAttribute("Peer_To")]
         public string RelationshipType {
             get {
                 return this.relationshipTypeField;
@@ -334,6 +334,9 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(StrategyFramework))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DrivingForce))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SuccessFactor))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ManagementChallenge))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Category))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CategoryGroup))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Relationship))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Role))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContactMechanism))]
@@ -428,6 +431,10 @@ namespace StratML.Core.ThreeFive {
         
         private double weightField;
         
+        private System.DateTime publicationDateField;
+        
+        private bool publicationDateFieldSpecified;
+        
         private string[] mappedIdentifierField;
         
         public Map() {
@@ -453,6 +460,28 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.weightField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime PublicationDate {
+            get {
+                return this.publicationDateField;
+            }
+            set {
+                this.publicationDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PublicationDateSpecified {
+            get {
+                return this.publicationDateFieldSpecified;
+            }
+            set {
+                this.publicationDateFieldSpecified = value;
             }
         }
         
@@ -1086,6 +1115,101 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class ManagementChallenge : NameIdentifier {
+        
+        private Priority probabilityField;
+        
+        private Priority impactField;
+        
+        /// <remarks/>
+        public Priority Probability {
+            get {
+                return this.probabilityField;
+            }
+            set {
+                this.probabilityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Priority Impact {
+            get {
+                return this.impactField;
+            }
+            set {
+                this.impactField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public enum Priority {
+        
+        /// <remarks/>
+        To_Be_Determined,
+        
+        /// <remarks/>
+        High,
+        
+        /// <remarks/>
+        Medium,
+        
+        /// <remarks/>
+        Low,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Category : NameIdentifier {
+        
+        private WebAddress websiteField;
+        
+        /// <remarks/>
+        public WebAddress Website {
+            get {
+                return this.websiteField;
+            }
+            set {
+                this.websiteField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class CategoryGroup : NameIdentifier {
+        
+        private Category[] categoryField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Category")]
+        public Category[] Category {
+            get {
+                return this.categoryField;
+            }
+            set {
+                this.categoryField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class Role : NameIdentifier {
         
         private RoleType roleTypeField;
@@ -1308,6 +1432,10 @@ namespace StratML.Core.ThreeFive {
         
         private SuccessFactor successFactorField;
         
+        private Priority priorityField;
+        
+        private bool priorityFieldSpecified;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Objective")]
         public Objective[] Objective {
@@ -1349,6 +1477,27 @@ namespace StratML.Core.ThreeFive {
                 this.successFactorField = value;
             }
         }
+        
+        /// <remarks/>
+        public Priority Priority {
+            get {
+                return this.priorityField;
+            }
+            set {
+                this.priorityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrioritySpecified {
+            get {
+                return this.priorityFieldSpecified;
+            }
+            set {
+                this.priorityFieldSpecified = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1359,7 +1508,33 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class Objective : Artifact {
         
+        private CategoryGroup[] categorizationField;
+        
+        private ManagementChallenge[] managementChallengeField;
+        
         private PerformanceIndicator[] performanceIndicatorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Categorization")]
+        public CategoryGroup[] Categorization {
+            get {
+                return this.categorizationField;
+            }
+            set {
+                this.categorizationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ManagementChallenge")]
+        public ManagementChallenge[] ManagementChallenge {
+            get {
+                return this.managementChallengeField;
+            }
+            set {
+                this.managementChallengeField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("PerformanceIndicator")]
@@ -1388,6 +1563,16 @@ namespace StratML.Core.ThreeFive {
         private PerformanceIndicatorTargetResults targetResultsField;
         
         private PerformanceIndicatorActualResults actualResultsField;
+        
+        private CategoryGroup[] categorizationField;
+        
+        private Keyness keynessField;
+        
+        private bool keynessFieldSpecified;
+        
+        private ValueChainStageType valueChainStageField;
+        
+        private bool valueChainStageFieldSpecified;
         
         /// <remarks/>
         public NameIdentifier MeasurementDimension {
@@ -1426,6 +1611,59 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.actualResultsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Categorization")]
+        public CategoryGroup[] Categorization {
+            get {
+                return this.categorizationField;
+            }
+            set {
+                this.categorizationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Keyness Keyness {
+            get {
+                return this.keynessField;
+            }
+            set {
+                this.keynessField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool KeynessSpecified {
+            get {
+                return this.keynessFieldSpecified;
+            }
+            set {
+                this.keynessFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ValueChainStageType ValueChainStage {
+            get {
+                return this.valueChainStageField;
+            }
+            set {
+                this.valueChainStageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ValueChainStageSpecified {
+            get {
+                return this.valueChainStageFieldSpecified;
+            }
+            set {
+                this.valueChainStageFieldSpecified = value;
             }
         }
     }
@@ -1498,6 +1736,47 @@ namespace StratML.Core.ThreeFive {
                 this.descriptorResultField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public enum Keyness {
+        
+        /// <remarks/>
+        To_Be_Determined,
+        
+        /// <remarks/>
+        Key,
+        
+        /// <remarks/>
+        Secondary,
+        
+        /// <remarks/>
+        Ancillary,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public enum ValueChainStageType {
+        
+        /// <remarks/>
+        Outcome,
+        
+        /// <remarks/>
+        Output_Processing,
+        
+        /// <remarks/>
+        Output,
+        
+        /// <remarks/>
+        Input_Processing,
+        
+        /// <remarks/>
+        Input,
     }
     
     /// <remarks/>
@@ -2155,7 +2434,7 @@ namespace StratML.Core.ThreeFive {
         
         private string otherInformationField;
         
-        private ValueChainStageType valueChainStageField;
+        private ValueChainStageType1 valueChainStageField;
         
         private bool valueChainStageFieldSpecified;
         
@@ -2238,7 +2517,7 @@ namespace StratML.Core.ThreeFive {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ValueChainStageType ValueChainStage {
+        public ValueChainStageType1 ValueChainStage {
             get {
                 return this.valueChainStageField;
             }
@@ -2596,8 +2875,8 @@ namespace StratML.Core.ThreeFive {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    public enum ValueChainStageType {
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="ValueChainStageType", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
+    public enum ValueChainStageType1 {
         
         /// <remarks/>
         Outcome,
