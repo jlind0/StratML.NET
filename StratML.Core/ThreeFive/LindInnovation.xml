@@ -4,6 +4,11 @@
   <stratml35:Organization>
     <stratml35:Identifer>uid-lind-i</stratml35:Identifer>
     <stratml35:Name>Lind Innovation</stratml35:Name>
+    <stratml35:Map>
+      <stratml35:Type>Supports</stratml35:Type>
+      <stratml35:Weight>1</stratml35:Weight>
+      <stratml35:MappedIdentifier>uid-nexdevices </stratml35:MappedIdentifier>
+    </stratml35:Map>
     <stratml35:Contact>
       <stratml35:Identifier>uid-conact-lind-i</stratml35:Identifier>
       <stratml35:PhoneNumber>
@@ -24,6 +29,7 @@
         <stratml35:WebAddress>http://www.lind-i.com</stratml35:WebAddress>
       </stratml35:Website>
     </stratml35:Contact>
+    
     <stratml35:Individual>
       <stratml35:Identifer>uid-jason-lind</stratml35:Identifer>
       
@@ -76,8 +82,10 @@
       </stratml35:Role>
       <stratml35:Competency>Core</stratml35:Competency>
     </stratml35:Individual>
+    
     <stratml35:Acronym>LIND-I</stratml35:Acronym>
     <stratml35:Type>Board_of_Directors</stratml35:Type>
+    
     <stratml35:Strategy>
       <stratml35:Identifer>uid-strat-lind-i-execs</stratml35:Identifer>
       <stratml35:Mission>
@@ -129,11 +137,11 @@
         <stratml35:SequenceIndicator>1.1</stratml35:SequenceIndicator>
       </stratml35:Value>
     </stratml35:Strategy>
+    
     <stratml35:Organization>
       <stratml35:Identifer>uid-nexdevices</stratml35:Identifer>
       <stratml35:Name>NexDevices</stratml35:Name>
     </stratml35:Organization>
-    
   </stratml35:Organization>
   <stratml35:Submitter>
     <stratml35:ReferenceIdentifier>uid-jason-lind</stratml35:ReferenceIdentifier>
