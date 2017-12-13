@@ -68,10 +68,12 @@
             </xs:complexType>
           </xs:element>
           <xs:element name="OtherInformation" type="xs:string" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Risk" type="Risk" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  
   <xs:complexType name="Artifact" abstract="true">
     <xs:complexContent>
       <xs:extension base="ArtifactBase">
@@ -79,6 +81,13 @@
           <xs:element name="SequenceIndicator" type="xs:string" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Perspective" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Risk">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
+        
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>

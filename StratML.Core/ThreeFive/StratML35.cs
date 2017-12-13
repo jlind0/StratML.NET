@@ -278,6 +278,7 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Value))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Responsibility))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Right))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -288,6 +289,8 @@ namespace StratML.Core.ThreeFive {
         private ArtifactBaseStakeholders stakeholdersField;
         
         private string otherInformationField;
+        
+        private Risk[] riskField;
         
         /// <remarks/>
         public ArtifactBaseStakeholders Stakeholders {
@@ -306,6 +309,17 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.otherInformationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Risk")]
+        public Risk[] Risk {
+            get {
+                return this.riskField;
+            }
+            set {
+                this.riskField = value;
             }
         }
     }
@@ -484,6 +498,7 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Value))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Responsibility))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Right))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Strategy))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Map))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
@@ -1621,6 +1636,7 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Value))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Responsibility))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Right))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2334,6 +2350,15 @@ namespace StratML.Core.ThreeFive {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class Responsibility : Artifact {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Risk : Artifact {
     }
     
     /// <remarks/>
