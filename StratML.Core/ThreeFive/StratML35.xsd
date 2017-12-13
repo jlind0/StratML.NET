@@ -35,7 +35,7 @@
   </xs:complexType>
   <xs:complexType name="Strategy">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:sequence>
             <xs:element name="Mission" type="Mission" maxOccurs="1" minOccurs="0"/>
@@ -72,7 +72,7 @@
   </xs:complexType>
   <xs:complexType name="ArtifactBase">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Stakeholders" maxOccurs="1" minOccurs="0">
             <xs:complexType>
@@ -89,7 +89,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Artifact">
+  <xs:complexType name="Artifact" abstract="true">
     <xs:complexContent>
       <xs:extension base="ArtifactBase">
         <xs:sequence>
@@ -101,7 +101,7 @@
   </xs:complexType>
   <xs:complexType name="Relationship">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="ReferentIdentifier" type="xs:IDREF" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
@@ -158,7 +158,7 @@
   </xs:complexType>
   <xs:complexType name="ManagementChallenge">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Probability" type="Priority" maxOccurs="1" minOccurs="1"/>
           <xs:element name="Impact" type="Priority" maxOccurs="1" minOccurs="1"/>
@@ -183,7 +183,7 @@
     <xs:complexContent>
       <xs:extension base="Artifact">
         <xs:sequence>
-          <xs:element name="MeasurementDimension" type="NameIdentifier" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="MeasurementDimension" type="Base" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Categorization" type="CategoryGroup" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="Keyness" type="Keyness" maxOccurs="1" minOccurs="0"/>
           <xs:element name="ValueChainStage" type="ValueChainStageType" maxOccurs="1" minOccurs="0"/>
@@ -195,7 +195,7 @@
     <xs:complexContent>
       <xs:extension base="PerformanceIndicatorBase">
         <xs:sequence>
-          <xs:element name="UnitOfMeasurement" type="NameIdentifier" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="UnitOfMeasurement" type="Base" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Actual" maxOccurs="1" minOccurs="0">
             <xs:complexType>
               <xs:sequence>
@@ -262,7 +262,7 @@
   </xs:complexType>
   <xs:complexType name="RatingSet">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Score" type="Score" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
@@ -271,7 +271,7 @@
   </xs:complexType>
   <xs:complexType name="Score">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Weight" type="xs:positiveInteger" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
@@ -319,14 +319,14 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Actor">
+  <xs:complexType name="Actor" abstract="true">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Contact" type="ContactInformation" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Role" type="Role" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Competency" type="Competency" maxOccurs="unbounded" minOccurs="0"/>
-          <xs:element name="ValueProposition" type="NameIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ValueProposition" type="Base" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -373,7 +373,7 @@
   </xs:complexType>
   <xs:complexType name="StrategyFramework">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Data" maxOccurs="1" minOccurs="1">
             <xs:complexType>
@@ -388,7 +388,7 @@
   </xs:complexType>
   <xs:complexType name="Map">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Type" type="MapType" default="Relationship" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Weight" type="xs:double" maxOccurs="1" minOccurs="1" default="1"/>
@@ -417,7 +417,7 @@
   </xs:complexType>
   <xs:complexType name="ContactMechanism">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Type" type="xs:string" maxOccurs="1" minOccurs="0" default="Primary"/>
         </xs:sequence>
@@ -469,7 +469,7 @@
   </xs:complexType>
   <xs:complexType name="Role">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="RoleType" type="RoleType" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
@@ -482,7 +482,7 @@
       <xs:enumeration value="Beneficiary"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="NameIdentifier">
+  <xs:complexType name="Base">
     <xs:sequence>
       <xs:element name="Identifer" type="xs:ID" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ReferenceIdentifier" type="xs:IDREF" minOccurs="0" maxOccurs="1"/>
@@ -505,7 +505,7 @@
   </xs:simpleType>
   <xs:complexType name="DrivingForce">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="InhibitingOrEnabling" type="InhibitingOrEnabling" maxOccurs="1" minOccurs="1"/>
           <xs:element name="InternalOrExternal" type="InternalOrExternal" maxOccurs="1" minOccurs="1"/>
@@ -515,7 +515,7 @@
   </xs:complexType>
   <xs:complexType name="SuccessFactor">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Criticality" type="Criticality" maxOccurs="1" minOccurs="1"/>
           <xs:element name="InternalOrExternal" type="InternalOrExternal" maxOccurs="1" minOccurs="1"/>
@@ -539,7 +539,7 @@
   </xs:simpleType>
   <xs:complexType name="CategoryGroup">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Category" type="Category" maxOccurs="unbounded" minOccurs="1"/>
         </xs:sequence>
@@ -548,7 +548,7 @@
   </xs:complexType>
   <xs:complexType name="Category">
     <xs:complexContent>
-      <xs:extension base="NameIdentifier">
+      <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Website" type="WebAddress" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>

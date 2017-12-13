@@ -102,7 +102,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Strategy : NameIdentifier {
+    public partial class Strategy : Base {
         
         private Mission missionField;
         
@@ -205,7 +205,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class ArtifactBase : NameIdentifier {
+    public partial class ArtifactBase : Base {
         
         private ArtifactBaseStakeholders stakeholdersField;
         
@@ -308,7 +308,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Relationship : NameIdentifier {
+    public partial class Relationship : Base {
         
         private string[] referentIdentifierField;
         
@@ -400,7 +400,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class NameIdentifier {
+    public partial class Base {
         
         private string identiferField;
         
@@ -472,7 +472,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Map : NameIdentifier {
+    public partial class Map : Base {
         
         private MapType typeField;
         
@@ -792,7 +792,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Score : NameIdentifier {
+    public partial class Score : Base {
         
         private string weightField;
         
@@ -934,7 +934,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class ContactMechanism : NameIdentifier {
+    public partial class ContactMechanism : Base {
         
         private string typeField;
         
@@ -1109,7 +1109,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class StrategyFramework : NameIdentifier {
+    public partial class StrategyFramework : Base {
         
         private System.Xml.XmlElement dataField;
         
@@ -1130,7 +1130,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class DrivingForce : NameIdentifier {
+    public partial class DrivingForce : Base {
         
         private InhibitingOrEnabling inhibitingOrEnablingField;
         
@@ -1189,7 +1189,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class SuccessFactor : NameIdentifier {
+    public partial class SuccessFactor : Base {
         
         private Criticality criticalityField;
         
@@ -1235,7 +1235,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class RatingSet : NameIdentifier {
+    public partial class RatingSet : Base {
         
         private Score[] scoreField;
         
@@ -1257,7 +1257,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class ManagementChallenge : NameIdentifier {
+    public partial class ManagementChallenge : Base {
         
         private Priority probabilityField;
         
@@ -1309,7 +1309,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Category : NameIdentifier {
+    public partial class Category : Base {
         
         private WebAddress websiteField;
         
@@ -1330,7 +1330,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class CategoryGroup : NameIdentifier {
+    public partial class CategoryGroup : Base {
         
         private Category[] categoryField;
         
@@ -1352,7 +1352,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Role : NameIdentifier {
+    public partial class Role : Base {
         
         private RoleType roleTypeField;
         
@@ -1406,7 +1406,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Actor : NameIdentifier {
+    public abstract partial class Actor : Base {
         
         private ContactInformation contactField;
         
@@ -1414,7 +1414,7 @@ namespace StratML.Core.ThreeFive {
         
         private Competency[] competencyField;
         
-        private NameIdentifier[] valuePropositionField;
+        private Base[] valuePropositionField;
         
         /// <remarks/>
         public ContactInformation Contact {
@@ -1450,7 +1450,7 @@ namespace StratML.Core.ThreeFive {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("ValueProposition")]
-        public NameIdentifier[] ValueProposition {
+        public Base[] ValueProposition {
             get {
                 return this.valuePropositionField;
             }
@@ -1696,7 +1696,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Artifact : ArtifactBase {
+    public abstract partial class Artifact : ArtifactBase {
         
         private string sequenceIndicatorField;
         
@@ -1807,11 +1807,11 @@ namespace StratML.Core.ThreeFive {
         
         private ManagementChallenge[] managementChallengeField;
         
-        private UnitPerformanceIndicator[] unitPerformanceIndicatorField;
+        private UnitPerformanceIndicator[] quantitativePerformanceIndicatorField;
         
-        private DescriptorPerformanceIndicator[] descriptorPerformanceIndicatorField;
+        private DescriptorPerformanceIndicator[] qualitativePerformanceIndicatorField;
         
-        private ScoredPerformanceIndicator[] scoredPerformanceIndicatorField;
+        private ScoredPerformanceIndicator[] qualitativeScoredPerformanceIndicatorField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Categorization")]
@@ -1836,35 +1836,35 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("UnitPerformanceIndicator")]
-        public UnitPerformanceIndicator[] UnitPerformanceIndicator {
+        [System.Xml.Serialization.XmlElementAttribute("QuantitativePerformanceIndicator")]
+        public UnitPerformanceIndicator[] QuantitativePerformanceIndicator {
             get {
-                return this.unitPerformanceIndicatorField;
+                return this.quantitativePerformanceIndicatorField;
             }
             set {
-                this.unitPerformanceIndicatorField = value;
+                this.quantitativePerformanceIndicatorField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("DescriptorPerformanceIndicator")]
-        public DescriptorPerformanceIndicator[] DescriptorPerformanceIndicator {
+        [System.Xml.Serialization.XmlElementAttribute("QualitativePerformanceIndicator")]
+        public DescriptorPerformanceIndicator[] QualitativePerformanceIndicator {
             get {
-                return this.descriptorPerformanceIndicatorField;
+                return this.qualitativePerformanceIndicatorField;
             }
             set {
-                this.descriptorPerformanceIndicatorField = value;
+                this.qualitativePerformanceIndicatorField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ScoredPerformanceIndicator")]
-        public ScoredPerformanceIndicator[] ScoredPerformanceIndicator {
+        [System.Xml.Serialization.XmlElementAttribute("QualitativeScoredPerformanceIndicator")]
+        public ScoredPerformanceIndicator[] QualitativeScoredPerformanceIndicator {
             get {
-                return this.scoredPerformanceIndicatorField;
+                return this.qualitativeScoredPerformanceIndicatorField;
             }
             set {
-                this.scoredPerformanceIndicatorField = value;
+                this.qualitativeScoredPerformanceIndicatorField = value;
             }
         }
     }
@@ -1877,14 +1877,14 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class UnitPerformanceIndicator : PerformanceIndicatorBase {
         
-        private NameIdentifier unitOfMeasurementField;
+        private Base unitOfMeasurementField;
         
         private MeasurementResultUnits[] actualField;
         
         private MeasurementResultUnits[] targetField;
         
         /// <remarks/>
-        public NameIdentifier UnitOfMeasurement {
+        public Base UnitOfMeasurement {
             get {
                 return this.unitOfMeasurementField;
             }
@@ -1927,7 +1927,7 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class PerformanceIndicatorBase : Artifact {
         
-        private NameIdentifier measurementDimensionField;
+        private Base measurementDimensionField;
         
         private CategoryGroup[] categorizationField;
         
@@ -1940,7 +1940,7 @@ namespace StratML.Core.ThreeFive {
         private bool valueChainStageFieldSpecified;
         
         /// <remarks/>
-        public NameIdentifier MeasurementDimension {
+        public Base MeasurementDimension {
             get {
                 return this.measurementDimensionField;
             }
