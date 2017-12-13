@@ -307,7 +307,7 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ReferentIdentifier", DataType="ID")]
+        [System.Xml.Serialization.XmlElementAttribute("ReferentIdentifier", DataType="IDREF")]
         public string[] ReferentIdentifier {
             get {
                 return this.referentIdentifierField;
@@ -370,6 +370,8 @@ namespace StratML.Core.ThreeFive {
         
         private string identiferField;
         
+        private string referenceIdentifierField;
+        
         private string nameField;
         
         private string descriptionField;
@@ -384,6 +386,17 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.identiferField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="IDREF")]
+        public string ReferenceIdentifier {
+            get {
+                return this.referenceIdentifierField;
+            }
+            set {
+                this.referenceIdentifierField = value;
             }
         }
         
@@ -486,7 +499,7 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("MappedIdentifier", DataType="ID")]
+        [System.Xml.Serialization.XmlElementAttribute("MappedIdentifier", DataType="IDREF")]
         public string[] MappedIdentifier {
             get {
                 return this.mappedIdentifierField;
@@ -824,6 +837,7 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
+        [System.ComponentModel.DefaultValueAttribute("Primary")]
         public string Type {
             get {
                 return this.typeField;

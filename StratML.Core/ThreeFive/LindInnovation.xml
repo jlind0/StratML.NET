@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<stratml35:OrganizationalStrategyDocument xmlns:stratml35="http://schemas.stratml.us/3.5">
+  <stratml35:Identifer>uid-corelind-i-plan</stratml35:Identifer>
+  <stratml35:Organization>
+    <stratml35:Identifer>uid-lind-i</stratml35:Identifer>
+    <stratml35:Contact>
+      <stratml35:Identifier>uid-conact-lind-i</stratml35:Identifier>
+      <stratml35:PhoneNumber>
+        <stratml35:Identifer>uid-phone-jason-lind</stratml35:Identifer>
+        <stratml35:Number>4147882820</stratml35:Number>
+      </stratml35:PhoneNumber>
+      <stratml35:Address>
+        <stratml35:Identifer>uid-contact-address-lind-compound</stratml35:Identifer>
+        <stratml35:Name>Lind Family Compound</stratml35:Name>
+        <stratml35:Street>W2773 County Rd HH</stratml35:Street>
+        <stratml35:Locality>Cambria</stratml35:Locality>
+        <stratml35:Region>Wisconsin</stratml35:Region>
+        <stratml35:PostalCode>53923</stratml35:PostalCode>
+        <stratml35:Country>USA</stratml35:Country>
+      </stratml35:Address>
+      <stratml35:Website>
+        <stratml35:Identifer>uid-contact-web-lind-i</stratml35:Identifer>
+        <stratml35:WebAddress>http://www.lind-i.com</stratml35:WebAddress>
+      </stratml35:Website>
+    </stratml35:Contact>
+    <stratml35:Person>
+      <stratml35:Identifer>uid-jason-lind</stratml35:Identifer>
+      <stratml35:Contact>
+        <stratml35:Identifier>uid-contact-shakers</stratml35:Identifier>
+        <stratml35:PhoneNumber>
+          <stratml35:ReferenceIdentifier>uid-phone-jason-lind</stratml35:ReferenceIdentifier>
+        </stratml35:PhoneNumber>
+        <stratml35:EmailAddress>
+          <stratml35:Identifer>uid-email-jason-lind</stratml35:Identifer>
+          <stratml35:Email>jason@lind-i.com</stratml35:Email>
+        </stratml35:EmailAddress>
+        <stratml35:Address>
+          <stratml35:Name>Shakers</stratml35:Name>
+          <stratml35:Street>422 S Second St.</stratml35:Street>
+          <stratml35:Locality>Milwaukee</stratml35:Locality>
+          <stratml35:Region>Wisconsin</stratml35:Region>
+          <stratml35:PostalCode>53204</stratml35:PostalCode>
+          <stratml35:Country>USA</stratml35:Country>
+        </stratml35:Address>
+      </stratml35:Contact>
+    </stratml35:Person>
+    <stratml35:Acronym>LIND-I</stratml35:Acronym>
+    
+  </stratml35:Organization>
+  <stratml35:Submitter>
+    <stratml35:ReferenceIdentifier>uid-jason-lind</stratml35:ReferenceIdentifier>
+  </stratml35:Submitter>
+  <AdministrativeInformation xmlns="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport">
+    <Identifier>uid-corelind-i-plan-2017-12-12</Identifier>
+    <StartDate>2018-01-01</StartDate>
+    <EndDate>2018-12-31</EndDate>
+    <PublicationDate>2017-12-12</PublicationDate>
+  </AdministrativeInformation>
+</stratml35:OrganizationalStrategyDocument>
