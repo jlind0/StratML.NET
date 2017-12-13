@@ -3,11 +3,8 @@
     targetNamespace="http://schemas.stratml.us/3.5"
     elementFormDefault="qualified"
     xmlns="http://schemas.stratml.us/3.5"
-    xmlns:stratml="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
-  <xs:import namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport" 
-             schemaLocation="..\Two\PerformancePlanOrReport20160216.xsd"/>
 
   <xs:element name="OrganizationalStrategyDocument">
     <xs:complexType>
@@ -23,10 +20,19 @@
   </xs:element>
   <xs:group name="DocumentMetaData">
     <xs:sequence>
-      <xs:element name="Submitter" type="Person" minOccurs="1" maxOccurs="1"/>
-      <xs:element ref="stratml:AdministrativeInformation" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Submitter" type="Individual" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="AdministrativeInformation" type="AdministrativeInformation" maxOccurs="1" minOccurs="1"/>
     </xs:sequence>
   </xs:group>
+  <xs:complexType name="AdministrativeInformation" id="uuid-32864389-230a-4f77-9c09-c083386fcad9">
+    <xs:sequence>
+      <xs:element name="Identifier" type="xs:ID"  minOccurs="1" maxOccurs="1"/>
+      <xs:element name="StartDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="EndDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PublicationDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Source" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="Strategy">
     <xs:complexContent>
       <xs:extension base="NameIdentifier">
@@ -45,14 +51,14 @@
   </xs:complexType>
   <xs:complexType name="Mission">
     <xs:complexContent>
-      <xs:extension base="Artifact">
+      <xs:extension base="ArtifactBase">
         
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="Vision">
     <xs:complexContent>
-      <xs:extension base="Artifact">
+      <xs:extension base="ArtifactBase">
 
       </xs:extension>
     </xs:complexContent>
@@ -64,15 +70,31 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Artifact">
+  <xs:complexType name="ArtifactBase">
     <xs:complexContent>
       <xs:extension base="NameIdentifier">
         <xs:sequence>
-          <xs:element name="SequenceIndicator" type="xs:string" maxOccurs="1" minOccurs="0"/>
-          <xs:element name="StakeholderPerson" type="StakeholderPerson" maxOccurs="unbounded" minOccurs="0"/>
-          <xs:element name="StakeholderOrganization" type="StakeholderOrganization" maxOccurs="unbounded" minOccurs="0"/>
-          <xs:element name="StakeholderGroup" type="StakeholderGroup" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="Stakeholders" maxOccurs="1" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Individual" type="IndividualStakeholder" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element name="Organization" type="OrganizationStakeholder" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element name="Group" type="GroupStakeholder" maxOccurs="unbounded" minOccurs="0"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+         
           <xs:element name="OtherInformation" type="xs:string" maxOccurs="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Artifact">
+    <xs:complexContent>
+      <xs:extension base="ArtifactBase">
+        <xs:sequence>
+          <xs:element name="SequenceIndicator" type="xs:string" maxOccurs="1" minOccurs="0"/>
+          
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -88,26 +110,22 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:simpleType name="RelationshipType">
-    <xs:union memberTypes="stratml:RelationshipTypeType">
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:enumeration value="Broader_Than"/>
-          <xs:enumeration value="Peer_To"/>
-          <xs:enumeration value="Narrower_Than"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:union>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Broader_Than"/>
+      <xs:enumeration value="Peer_To"/>
+      <xs:enumeration value="Narrower_Than"/>
+    </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="StakeholderPerson">
+  <xs:complexType name="IndividualStakeholder">
     <xs:complexContent>
-      <xs:extension base="Person">
+      <xs:extension base="Individual">
         <xs:sequence>
           <xs:element name="Relationship" type="Relationship" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="StakeholderOrganization">
+  <xs:complexType name="OrganizationStakeholder">
     <xs:complexContent>
       <xs:extension base="Organization">
         <xs:sequence>
@@ -116,7 +134,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="StakeholderGroup">
+  <xs:complexType name="GroupStakeholder">
     <xs:complexContent>
       <xs:extension base="Group">
         <xs:sequence>
@@ -170,6 +188,7 @@
               <xs:sequence>
                 <xs:element name="UnitResult" type="MeasurementResultUnits" maxOccurs="unbounded" minOccurs="0"/>
                 <xs:element name="DescriptorResult" type="MeasurementResultDescriptor" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element name="ScoredResult" type="MeasurementResultScore" maxOccurs="unbounded" minOccurs="0"/>
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -178,12 +197,31 @@
               <xs:sequence>
                 <xs:element name="UnitResult" type="MeasurementResultUnits" maxOccurs="unbounded" minOccurs="0"/>
                 <xs:element name="DescriptorResult" type="MeasurementResultDescriptor" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element name="ScoredResult" type="MeasurementResultScore" maxOccurs="unbounded" minOccurs="0"/>
               </xs:sequence>
             </xs:complexType>
           </xs:element>
           <xs:element name="Categorization" type="CategoryGroup" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="Keyness" type="Keyness" maxOccurs="1" minOccurs="0"/>
           <xs:element name="ValueChainStage" type="ValueChainStageType" maxOccurs="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RatingSet">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        <xs:sequence>
+          <xs:element name="Score" type="Score" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Score">
+    <xs:complexContent>
+      <xs:extension base="NameIdentifier">
+        <xs:sequence>
+          <xs:element name="Weight" type="xs:positiveInteger" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -200,6 +238,16 @@
       <xs:extension base="MeasurementResult">
         <xs:sequence>
           <xs:element name="NumberOfUnits" type="xs:double" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MeasurementResultScore">
+    <xs:complexContent>
+      <xs:extension base="MeasurementResult">
+        <xs:sequence>
+          <xs:element name="RatingSet" type="RatingSet" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="Score" type="Score" maxOccurs="1" minOccurs="1"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -226,6 +274,8 @@
         <xs:sequence>
           <xs:element name="Contact" type="ContactInformation" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Role" type="Role" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Competency" type="Competency" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="ValueProposition" type="NameIdentifier" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -237,7 +287,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Person">
+  <xs:complexType name="Individual">
     <xs:complexContent>
       <xs:extension base="Actor">
         <xs:sequence>
@@ -251,8 +301,9 @@
     <xs:complexContent>
       <xs:extension base="Actor">
         <xs:sequence>
-          <xs:element name="Person" type="Person" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Individual" type="Individual" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Acronym" type="xs:string" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Type" type="SpecialOrganizationType" minOccurs="0" maxOccurs="1"/>          
         </xs:sequence>
         
       </xs:extension>
@@ -264,6 +315,7 @@
         <xs:sequence>
           <xs:element name="Strategy" type="Strategy" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Organization" type="Organization" minOccurs="0" maxOccurs="unbounded"/>
+          
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -290,7 +342,7 @@
           <xs:element name="Type" type="MapType" default="Relationship" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Weight" type="xs:double" maxOccurs="1" minOccurs="1" default="1"/>
           <xs:element name="PublicationDate" type="xs:date" maxOccurs="1" minOccurs="0"/>
-          <xs:element name="MappedIdentifier" type="xs:IDREF" maxOccurs="unbounded" minOccurs="2"/>
+          <xs:element name="MappedIdentifier" type="xs:IDREF" maxOccurs="unbounded" minOccurs="1"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -470,6 +522,34 @@
       <xs:enumeration value="Output"/>
       <xs:enumeration value="Input_Processing"/>
       <xs:enumeration value="Input"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Competency">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Core"/>
+      <xs:enumeration value="Supporting"/>
+      <xs:enumeration value="Ancillary"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpecialOrganizationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Board_of_Directors"/>
+      <xs:enumeration value="Committee"/>
+      <xs:enumeration value="Conference"/>
+      <xs:enumeration value="Consortium"/>
+      <xs:enumeration value="Cooperative"/>
+      <xs:enumeration value="Exposition"/>
+      <xs:enumeration value="Family"/>
+      <xs:enumeration value="Individual"/>
+      <xs:enumeration value="Initiative"/>
+      <xs:enumeration value="Investment"/>
+      <xs:enumeration value="Program"/>
+      <xs:enumeration value="Project"/>
+      <xs:enumeration value="Student"/>
+      <xs:enumeration value="System"/>
+      <xs:enumeration value="Virtual"/>
+      <xs:enumeration value="Work_Group"/>
+      <xs:enumeration value="Other"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

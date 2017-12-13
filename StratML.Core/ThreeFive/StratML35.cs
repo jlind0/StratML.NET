@@ -26,9 +26,9 @@ namespace StratML.Core.ThreeFive {
         
         private Organization organizationField;
         
-        private Person submitterField;
+        private Individual submitterField;
         
-        private AdministrativeInformationType administrativeInformationField;
+        private AdministrativeInformation administrativeInformationField;
         
         /// <remarks/>
         public Organization Organization {
@@ -41,7 +41,7 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        public Person Submitter {
+        public Individual Submitter {
             get {
                 return this.submitterField;
             }
@@ -51,8 +51,7 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-        public AdministrativeInformationType AdministrativeInformation {
+        public AdministrativeInformation AdministrativeInformation {
             get {
                 return this.administrativeInformationField;
             }
@@ -63,7 +62,7 @@ namespace StratML.Core.ThreeFive {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StakeholderOrganization))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationStakeholder))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -187,10 +186,11 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Mission : Artifact {
+    public partial class Mission : ArtifactBase {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Artifact))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Goal))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceIndicator))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Objective))]
@@ -202,58 +202,19 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Artifact : NameIdentifier {
+    public partial class ArtifactBase : NameIdentifier {
         
-        private string sequenceIndicatorField;
-        
-        private StakeholderPerson[] stakeholderPersonField;
-        
-        private StakeholderOrganization[] stakeholderOrganizationField;
-        
-        private StakeholderGroup[] stakeholderGroupField;
+        private ArtifactBaseStakeholders stakeholdersField;
         
         private string otherInformationField;
         
         /// <remarks/>
-        public string SequenceIndicator {
+        public ArtifactBaseStakeholders Stakeholders {
             get {
-                return this.sequenceIndicatorField;
+                return this.stakeholdersField;
             }
             set {
-                this.sequenceIndicatorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("StakeholderPerson")]
-        public StakeholderPerson[] StakeholderPerson {
-            get {
-                return this.stakeholderPersonField;
-            }
-            set {
-                this.stakeholderPersonField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("StakeholderOrganization")]
-        public StakeholderOrganization[] StakeholderOrganization {
-            get {
-                return this.stakeholderOrganizationField;
-            }
-            set {
-                this.stakeholderOrganizationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("StakeholderGroup")]
-        public StakeholderGroup[] StakeholderGroup {
-            get {
-                return this.stakeholderGroupField;
-            }
-            set {
-                this.stakeholderGroupField = value;
+                this.stakeholdersField = value;
             }
         }
         
@@ -273,8 +234,56 @@ namespace StratML.Core.ThreeFive {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://schemas.stratml.us/3.5")]
+    public partial class ArtifactBaseStakeholders {
+        
+        private IndividualStakeholder[] individualField;
+        
+        private OrganizationStakeholder[] organizationField;
+        
+        private GroupStakeholder[] groupField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Individual")]
+        public IndividualStakeholder[] Individual {
+            get {
+                return this.individualField;
+            }
+            set {
+                this.individualField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Organization")]
+        public OrganizationStakeholder[] Organization {
+            get {
+                return this.organizationField;
+            }
+            set {
+                this.organizationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Group")]
+        public GroupStakeholder[] Group {
+            get {
+                return this.groupField;
+            }
+            set {
+                this.groupField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class StakeholderPerson : Person {
+    public partial class IndividualStakeholder : Individual {
         
         private Relationship[] relationshipField;
         
@@ -300,10 +309,10 @@ namespace StratML.Core.ThreeFive {
         
         private string[] referentIdentifierField;
         
-        private string relationshipTypeField;
+        private RelationshipType relationshipTypeField;
         
         public Relationship() {
-            this.relationshipTypeField = "Peer_To";
+            this.relationshipTypeField = RelationshipType.Peer_To;
         }
         
         /// <remarks/>
@@ -319,8 +328,8 @@ namespace StratML.Core.ThreeFive {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute("Peer_To")]
-        public string RelationshipType {
+        [System.ComponentModel.DefaultValueAttribute(RelationshipType.Peer_To)]
+        public RelationshipType RelationshipType {
             get {
                 return this.relationshipTypeField;
             }
@@ -331,9 +340,27 @@ namespace StratML.Core.ThreeFive {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public enum RelationshipType {
+        
+        /// <remarks/>
+        Broader_Than,
+        
+        /// <remarks/>
+        Peer_To,
+        
+        /// <remarks/>
+        Narrower_Than,
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(StrategyFramework))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DrivingForce))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SuccessFactor))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Score))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RatingSet))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ManagementChallenge))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Category))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CategoryGroup))]
@@ -347,11 +374,12 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Actor))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Group))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StakeholderOrganization))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StakeholderGroup))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Person))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StakeholderPerson))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationStakeholder))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GroupStakeholder))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Individual))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndividualStakeholder))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Authority))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ArtifactBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Artifact))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Goal))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceIndicator))]
@@ -531,17 +559,20 @@ namespace StratML.Core.ThreeFive {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("AdministrativeInformation", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class AdministrativeInformationType {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class AdministrativeInformation {
         
         private string identifierField;
         
-        private string startDateField;
+        private System.DateTime startDateField;
         
-        private string endDateField;
+        private bool startDateFieldSpecified;
         
-        private string publicationDateField;
+        private System.DateTime endDateField;
+        
+        private bool endDateFieldSpecified;
+        
+        private System.DateTime publicationDateField;
         
         private string sourceField;
         
@@ -557,7 +588,8 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        public string StartDate {
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime StartDate {
             get {
                 return this.startDateField;
             }
@@ -567,7 +599,19 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        public string EndDate {
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StartDateSpecified {
+            get {
+                return this.startDateFieldSpecified;
+            }
+            set {
+                this.startDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime EndDate {
             get {
                 return this.endDateField;
             }
@@ -577,7 +621,19 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        public string PublicationDate {
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool EndDateSpecified {
+            get {
+                return this.endDateFieldSpecified;
+            }
+            set {
+                this.endDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime PublicationDate {
             get {
                 return this.publicationDateField;
             }
@@ -600,6 +656,7 @@ namespace StratML.Core.ThreeFive {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeasurementResultDescriptor))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeasurementResultScore))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeasurementResultUnits))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
@@ -698,6 +755,83 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.valueField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class MeasurementResultScore : MeasurementResult {
+        
+        private RatingSet ratingSetField;
+        
+        private Score scoreField;
+        
+        /// <remarks/>
+        public RatingSet RatingSet {
+            get {
+                return this.ratingSetField;
+            }
+            set {
+                this.ratingSetField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Score Score {
+            get {
+                return this.scoreField;
+            }
+            set {
+                this.scoreField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class RatingSet : NameIdentifier {
+        
+        private Score[] scoreField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Score")]
+        public Score[] Score {
+            get {
+                return this.scoreField;
+            }
+            set {
+                this.scoreField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Score : NameIdentifier {
+        
+        private string weightField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="positiveInteger")]
+        public string Weight {
+            get {
+                return this.weightField;
+            }
+            set {
+                this.weightField = value;
             }
         }
     }
@@ -1268,10 +1402,10 @@ namespace StratML.Core.ThreeFive {
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Group))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StakeholderOrganization))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StakeholderGroup))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Person))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StakeholderPerson))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationStakeholder))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GroupStakeholder))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Individual))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndividualStakeholder))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Authority))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
@@ -1283,6 +1417,10 @@ namespace StratML.Core.ThreeFive {
         private ContactInformation contactField;
         
         private Role[] roleField;
+        
+        private Competency[] competencyField;
+        
+        private NameIdentifier[] valuePropositionField;
         
         /// <remarks/>
         public ContactInformation Contact {
@@ -1304,12 +1442,50 @@ namespace StratML.Core.ThreeFive {
                 this.roleField = value;
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Competency")]
+        public Competency[] Competency {
+            get {
+                return this.competencyField;
+            }
+            set {
+                this.competencyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ValueProposition")]
+        public NameIdentifier[] ValueProposition {
+            get {
+                return this.valuePropositionField;
+            }
+            set {
+                this.valuePropositionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public enum Competency {
+        
+        /// <remarks/>
+        Core,
+        
+        /// <remarks/>
+        Supporting,
+        
+        /// <remarks/>
+        Ancillary,
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StakeholderOrganization))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StakeholderGroup))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationStakeholder))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GroupStakeholder))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1317,18 +1493,22 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class Group : Actor {
         
-        private Person[] personField;
+        private Individual[] individualField;
         
         private string acronymField;
         
+        private SpecialOrganizationType typeField;
+        
+        private bool typeFieldSpecified;
+        
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Person")]
-        public Person[] Person {
+        [System.Xml.Serialization.XmlElementAttribute("Individual")]
+        public Individual[] Individual {
             get {
-                return this.personField;
+                return this.individualField;
             }
             set {
-                this.personField = value;
+                this.individualField = value;
             }
         }
         
@@ -1341,16 +1521,37 @@ namespace StratML.Core.ThreeFive {
                 this.acronymField = value;
             }
         }
+        
+        /// <remarks/>
+        public SpecialOrganizationType Type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeFieldSpecified;
+            }
+            set {
+                this.typeFieldSpecified = value;
+            }
+        }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StakeholderPerson))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndividualStakeholder))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Person : Actor {
+    public partial class Individual : Actor {
         
         private string givenNameField;
         
@@ -1380,10 +1581,68 @@ namespace StratML.Core.ThreeFive {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public enum SpecialOrganizationType {
+        
+        /// <remarks/>
+        Board_of_Directors,
+        
+        /// <remarks/>
+        Committee,
+        
+        /// <remarks/>
+        Conference,
+        
+        /// <remarks/>
+        Consortium,
+        
+        /// <remarks/>
+        Cooperative,
+        
+        /// <remarks/>
+        Exposition,
+        
+        /// <remarks/>
+        Family,
+        
+        /// <remarks/>
+        Individual,
+        
+        /// <remarks/>
+        Initiative,
+        
+        /// <remarks/>
+        Investment,
+        
+        /// <remarks/>
+        Program,
+        
+        /// <remarks/>
+        Project,
+        
+        /// <remarks/>
+        Student,
+        
+        /// <remarks/>
+        System,
+        
+        /// <remarks/>
+        Virtual,
+        
+        /// <remarks/>
+        Work_Group,
+        
+        /// <remarks/>
+        Other,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class StakeholderGroup : Group {
+    public partial class GroupStakeholder : Group {
         
         private Relationship[] relationshipField;
         
@@ -1414,7 +1673,7 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class StakeholderOrganization : Organization {
+    public partial class OrganizationStakeholder : Organization {
         
         private Relationship[] relationshipField;
         
@@ -1426,6 +1685,31 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.relationshipField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Goal))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Objective))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Value))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Artifact : ArtifactBase {
+        
+        private string sequenceIndicatorField;
+        
+        /// <remarks/>
+        public string SequenceIndicator {
+            get {
+                return this.sequenceIndicatorField;
+            }
+            set {
+                this.sequenceIndicatorField = value;
             }
         }
     }
@@ -1694,6 +1978,8 @@ namespace StratML.Core.ThreeFive {
         
         private MeasurementResultDescriptor[] descriptorResultField;
         
+        private MeasurementResultScore[] scoredResultField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("UnitResult")]
         public MeasurementResultUnits[] UnitResult {
@@ -1713,6 +1999,17 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.descriptorResultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ScoredResult")]
+        public MeasurementResultScore[] ScoredResult {
+            get {
+                return this.scoredResultField;
+            }
+            set {
+                this.scoredResultField = value;
             }
         }
     }
@@ -1729,6 +2026,8 @@ namespace StratML.Core.ThreeFive {
         
         private MeasurementResultDescriptor[] descriptorResultField;
         
+        private MeasurementResultScore[] scoredResultField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("UnitResult")]
         public MeasurementResultUnits[] UnitResult {
@@ -1748,6 +2047,17 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.descriptorResultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ScoredResult")]
+        public MeasurementResultScore[] ScoredResult {
+            get {
+                return this.scoredResultField;
+            }
+            set {
+                this.scoredResultField = value;
             }
         }
     }
@@ -1808,1286 +2118,6 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Vision : Artifact {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class PerformancePlanOrReport {
-        
-        private string nameField;
-        
-        private string descriptionField;
-        
-        private string otherInformationField;
-        
-        private StrategicPlanCore strategicPlanCoreField;
-        
-        private AdministrativeInformationType administrativeInformationField;
-        
-        private ContactInformationType submitterField;
-        
-        private PerformancePlanOrReportType typeField;
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string OtherInformation {
-            get {
-                return this.otherInformationField;
-            }
-            set {
-                this.otherInformationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public StrategicPlanCore StrategicPlanCore {
-            get {
-                return this.strategicPlanCoreField;
-            }
-            set {
-                this.strategicPlanCoreField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public AdministrativeInformationType AdministrativeInformation {
-            get {
-                return this.administrativeInformationField;
-            }
-            set {
-                this.administrativeInformationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ContactInformationType Submitter {
-            get {
-                return this.submitterField;
-            }
-            set {
-                this.submitterField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public PerformancePlanOrReportType Type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class StrategicPlanCore {
-        
-        private Organization1[] organizationField;
-        
-        private Vision1 visionField;
-        
-        private Mission1 missionField;
-        
-        private Value1[] valueField;
-        
-        private Goal1[] goalField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Organization")]
-        public Organization1[] Organization {
-            get {
-                return this.organizationField;
-            }
-            set {
-                this.organizationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Vision1 Vision {
-            get {
-                return this.visionField;
-            }
-            set {
-                this.visionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Mission1 Mission {
-            get {
-                return this.missionField;
-            }
-            set {
-                this.missionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Value")]
-        public Value1[] Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Goal")]
-        public Goal1[] Goal {
-            get {
-                return this.goalField;
-            }
-            set {
-                this.goalField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("Organization", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class Organization1 {
-        
-        private string nameField;
-        
-        private string acronymField;
-        
-        private string identifierField;
-        
-        private string descriptionField;
-        
-        private Stakeholder[] stakeholderField;
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Acronym {
-            get {
-                return this.acronymField;
-            }
-            set {
-                this.acronymField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
-        public string Identifier {
-            get {
-                return this.identifierField;
-            }
-            set {
-                this.identifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Stakeholder")]
-        public Stakeholder[] Stakeholder {
-            get {
-                return this.stakeholderField;
-            }
-            set {
-                this.stakeholderField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class Stakeholder {
-        
-        private string nameField;
-        
-        private string descriptionField;
-        
-        private Role1[] roleField;
-        
-        private StakeholderStakeholderTypeType stakeholderTypeTypeField;
-        
-        private bool stakeholderTypeTypeFieldSpecified;
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Role")]
-        public Role1[] Role {
-            get {
-                return this.roleField;
-            }
-            set {
-                this.roleField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public StakeholderStakeholderTypeType StakeholderTypeType {
-            get {
-                return this.stakeholderTypeTypeField;
-            }
-            set {
-                this.stakeholderTypeTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool StakeholderTypeTypeSpecified {
-            get {
-                return this.stakeholderTypeTypeFieldSpecified;
-            }
-            set {
-                this.stakeholderTypeTypeFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("Role", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class Role1 {
-        
-        private string nameField;
-        
-        private string descriptionField;
-        
-        private RoleType1[] roleTypeField;
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("RoleType")]
-        public RoleType1[] RoleType {
-            get {
-                return this.roleTypeField;
-            }
-            set {
-                this.roleTypeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("RoleType", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public enum RoleType1 {
-        
-        /// <remarks/>
-        Performer,
-        
-        /// <remarks/>
-        Beneficiary,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    public enum StakeholderStakeholderTypeType {
-        
-        /// <remarks/>
-        Person,
-        
-        /// <remarks/>
-        Organization,
-        
-        /// <remarks/>
-        Generic_Group,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("Vision", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class Vision1 {
-        
-        private string descriptionField;
-        
-        private string identifierField;
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
-        public string Identifier {
-            get {
-                return this.identifierField;
-            }
-            set {
-                this.identifierField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("Mission", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class Mission1 {
-        
-        private string descriptionField;
-        
-        private string identifierField;
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
-        public string Identifier {
-            get {
-                return this.identifierField;
-            }
-            set {
-                this.identifierField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("Value", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class Value1 {
-        
-        private string nameField;
-        
-        private string descriptionField;
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("Goal", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class Goal1 : GoalType {
-        
-        private ObjectiveType[] objectiveField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Objective")]
-        public ObjectiveType[] Objective {
-            get {
-                return this.objectiveField;
-            }
-            set {
-                this.objectiveField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("Objective", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class ObjectiveType {
-        
-        private string nameField;
-        
-        private string descriptionField;
-        
-        private string identifierField;
-        
-        private string sequenceIndicatorField;
-        
-        private Stakeholder[] stakeholderField;
-        
-        private string otherInformationField;
-        
-        private PerformanceIndicator1[] performanceIndicatorField;
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
-        public string Identifier {
-            get {
-                return this.identifierField;
-            }
-            set {
-                this.identifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SequenceIndicator {
-            get {
-                return this.sequenceIndicatorField;
-            }
-            set {
-                this.sequenceIndicatorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Stakeholder")]
-        public Stakeholder[] Stakeholder {
-            get {
-                return this.stakeholderField;
-            }
-            set {
-                this.stakeholderField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string OtherInformation {
-            get {
-                return this.otherInformationField;
-            }
-            set {
-                this.otherInformationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("PerformanceIndicator")]
-        public PerformanceIndicator1[] PerformanceIndicator {
-            get {
-                return this.performanceIndicatorField;
-            }
-            set {
-                this.performanceIndicatorField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("PerformanceIndicator", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class PerformanceIndicator1 {
-        
-        private string sequenceIndicatorField;
-        
-        private string measurementDimensionField;
-        
-        private string unitOfMeasurementField;
-        
-        private string identifierField;
-        
-        private Relationship1[] relationshipField;
-        
-        private MeasurementInstance[] measurementInstanceField;
-        
-        private string otherInformationField;
-        
-        private ValueChainStageType1 valueChainStageField;
-        
-        private bool valueChainStageFieldSpecified;
-        
-        private PerformanceIndicatorTypeType performanceIndicatorTypeField;
-        
-        private bool performanceIndicatorTypeFieldSpecified;
-        
-        /// <remarks/>
-        public string SequenceIndicator {
-            get {
-                return this.sequenceIndicatorField;
-            }
-            set {
-                this.sequenceIndicatorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string MeasurementDimension {
-            get {
-                return this.measurementDimensionField;
-            }
-            set {
-                this.measurementDimensionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string UnitOfMeasurement {
-            get {
-                return this.unitOfMeasurementField;
-            }
-            set {
-                this.unitOfMeasurementField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
-        public string Identifier {
-            get {
-                return this.identifierField;
-            }
-            set {
-                this.identifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Relationship")]
-        public Relationship1[] Relationship {
-            get {
-                return this.relationshipField;
-            }
-            set {
-                this.relationshipField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("MeasurementInstance")]
-        public MeasurementInstance[] MeasurementInstance {
-            get {
-                return this.measurementInstanceField;
-            }
-            set {
-                this.measurementInstanceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string OtherInformation {
-            get {
-                return this.otherInformationField;
-            }
-            set {
-                this.otherInformationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ValueChainStageType1 ValueChainStage {
-            get {
-                return this.valueChainStageField;
-            }
-            set {
-                this.valueChainStageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ValueChainStageSpecified {
-            get {
-                return this.valueChainStageFieldSpecified;
-            }
-            set {
-                this.valueChainStageFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public PerformanceIndicatorTypeType PerformanceIndicatorType {
-            get {
-                return this.performanceIndicatorTypeField;
-            }
-            set {
-                this.performanceIndicatorTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool PerformanceIndicatorTypeSpecified {
-            get {
-                return this.performanceIndicatorTypeFieldSpecified;
-            }
-            set {
-                this.performanceIndicatorTypeFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("Relationship", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class Relationship1 {
-        
-        private string identifierField;
-        
-        private string[] referentIdentifierField;
-        
-        private string nameField;
-        
-        private string descriptionField;
-        
-        private RelationshipTypeType relationshipTypeField;
-        
-        private bool relationshipTypeFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
-        public string Identifier {
-            get {
-                return this.identifierField;
-            }
-            set {
-                this.identifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ReferentIdentifier")]
-        public string[] ReferentIdentifier {
-            get {
-                return this.referentIdentifierField;
-            }
-            set {
-                this.referentIdentifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public RelationshipTypeType RelationshipType {
-            get {
-                return this.relationshipTypeField;
-            }
-            set {
-                this.relationshipTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool RelationshipTypeSpecified {
-            get {
-                return this.relationshipTypeFieldSpecified;
-            }
-            set {
-                this.relationshipTypeFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    public enum RelationshipTypeType {
-        
-        /// <remarks/>
-        Broader_Than,
-        
-        /// <remarks/>
-        Peer_To,
-        
-        /// <remarks/>
-        Narrower_Than,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class MeasurementInstance {
-        
-        private TargetResult[] targetResultField;
-        
-        private ActualResult[] actualResultField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("TargetResult")]
-        public TargetResult[] TargetResult {
-            get {
-                return this.targetResultField;
-            }
-            set {
-                this.targetResultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ActualResult")]
-        public ActualResult[] ActualResult {
-            get {
-                return this.actualResultField;
-            }
-            set {
-                this.actualResultField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class TargetResult {
-        
-        private string startDateField;
-        
-        private string endDateField;
-        
-        private string numberOfUnitsField;
-        
-        private Descriptor descriptorField;
-        
-        private string descriptionField;
-        
-        /// <remarks/>
-        public string StartDate {
-            get {
-                return this.startDateField;
-            }
-            set {
-                this.startDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string EndDate {
-            get {
-                return this.endDateField;
-            }
-            set {
-                this.endDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string NumberOfUnits {
-            get {
-                return this.numberOfUnitsField;
-            }
-            set {
-                this.numberOfUnitsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Descriptor Descriptor {
-            get {
-                return this.descriptorField;
-            }
-            set {
-                this.descriptorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class Descriptor {
-        
-        private string descriptorNameField;
-        
-        private string descriptorValueField;
-        
-        /// <remarks/>
-        public string DescriptorName {
-            get {
-                return this.descriptorNameField;
-            }
-            set {
-                this.descriptorNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DescriptorValue {
-            get {
-                return this.descriptorValueField;
-            }
-            set {
-                this.descriptorValueField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class ActualResult {
-        
-        private string startDateField;
-        
-        private string endDateField;
-        
-        private string numberOfUnitsField;
-        
-        private Descriptor descriptorField;
-        
-        private string descriptionField;
-        
-        /// <remarks/>
-        public string StartDate {
-            get {
-                return this.startDateField;
-            }
-            set {
-                this.startDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string EndDate {
-            get {
-                return this.endDateField;
-            }
-            set {
-                this.endDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string NumberOfUnits {
-            get {
-                return this.numberOfUnitsField;
-            }
-            set {
-                this.numberOfUnitsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Descriptor Descriptor {
-            get {
-                return this.descriptorField;
-            }
-            set {
-                this.descriptorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="ValueChainStageType", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    public enum ValueChainStageType1 {
-        
-        /// <remarks/>
-        Outcome,
-        
-        /// <remarks/>
-        Output_Processing,
-        
-        /// <remarks/>
-        Output,
-        
-        /// <remarks/>
-        Input_Processing,
-        
-        /// <remarks/>
-        Input,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    public enum PerformanceIndicatorTypeType {
-        
-        /// <remarks/>
-        Quantitative,
-        
-        /// <remarks/>
-        Qualitative,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    public partial class GoalType {
-        
-        private string nameField;
-        
-        private string descriptionField;
-        
-        private string identifierField;
-        
-        private string sequenceIndicatorField;
-        
-        private Stakeholder[] stakeholderField;
-        
-        private string otherInformationField;
-        
-        /// <remarks/>
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
-        public string Identifier {
-            get {
-                return this.identifierField;
-            }
-            set {
-                this.identifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SequenceIndicator {
-            get {
-                return this.sequenceIndicatorField;
-            }
-            set {
-                this.sequenceIndicatorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Stakeholder")]
-        public Stakeholder[] Stakeholder {
-            get {
-                return this.stakeholderField;
-            }
-            set {
-                this.stakeholderField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string OtherInformation {
-            get {
-                return this.otherInformationField;
-            }
-            set {
-                this.otherInformationField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    [System.Xml.Serialization.XmlRootAttribute("Submitter", Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport", IsNullable=false)]
-    public partial class ContactInformationType {
-        
-        private string identifierField;
-        
-        private string givenNameField;
-        
-        private string surnameField;
-        
-        private string phoneNumberField;
-        
-        private string emailAddressField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
-        public string Identifier {
-            get {
-                return this.identifierField;
-            }
-            set {
-                this.identifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string GivenName {
-            get {
-                return this.givenNameField;
-            }
-            set {
-                this.givenNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Surname {
-            get {
-                return this.surnameField;
-            }
-            set {
-                this.surnameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PhoneNumber {
-            get {
-                return this.phoneNumberField;
-            }
-            set {
-                this.phoneNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string EmailAddress {
-            get {
-                return this.emailAddressField;
-            }
-            set {
-                this.emailAddressField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport")]
-    public enum PerformancePlanOrReportType {
-        
-        /// <remarks/>
-        Strategic_Plan,
-        
-        /// <remarks/>
-        Performance_Plan,
-        
-        /// <remarks/>
-        Performance_Report,
+    public partial class Vision : ArtifactBase {
     }
 }

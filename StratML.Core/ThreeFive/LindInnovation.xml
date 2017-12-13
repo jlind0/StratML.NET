@@ -3,6 +3,7 @@
   <stratml35:Identifer>uid-corelind-i-plan</stratml35:Identifer>
   <stratml35:Organization>
     <stratml35:Identifer>uid-lind-i</stratml35:Identifer>
+    <stratml35:Name>Lind Innovation</stratml35:Name>
     <stratml35:Contact>
       <stratml35:Identifier>uid-conact-lind-i</stratml35:Identifier>
       <stratml35:PhoneNumber>
@@ -23,8 +24,9 @@
         <stratml35:WebAddress>http://www.lind-i.com</stratml35:WebAddress>
       </stratml35:Website>
     </stratml35:Contact>
-    <stratml35:Person>
+    <stratml35:Individual>
       <stratml35:Identifer>uid-jason-lind</stratml35:Identifer>
+      
       <stratml35:Contact>
         <stratml35:Identifier>uid-contact-shakers</stratml35:Identifier>
         <stratml35:PhoneNumber>
@@ -43,17 +45,104 @@
           <stratml35:Country>USA</stratml35:Country>
         </stratml35:Address>
       </stratml35:Contact>
-    </stratml35:Person>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-co-founder</stratml35:Identifer>
+        <stratml35:Name>Co-Founder</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-evp</stratml35:Identifer>
+        <stratml35:Name>Executive Vice President</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-cso</stratml35:Identifer>
+        <stratml35:Name>Chief Strategy Officer</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Competency>Core</stratml35:Competency>
+      <stratml35:GivenName>Jason</stratml35:GivenName>
+      <stratml35:Surname>Lind</stratml35:Surname>
+    </stratml35:Individual>
+    <stratml35:Individual>
+      <stratml35:Identifer>uid-jack-driscoll</stratml35:Identifer>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-cos</stratml35:Identifer>
+        <stratml35:Name>Chief of Staff</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Competency>Core</stratml35:Competency>
+    </stratml35:Individual>
     <stratml35:Acronym>LIND-I</stratml35:Acronym>
+    <stratml35:Type>Board_of_Directors</stratml35:Type>
+    <stratml35:Strategy>
+      <stratml35:Identifer>uid-strat-lind-i-execs</stratml35:Identifer>
+      <stratml35:Mission>
+        <stratml35:Identifer>uid-mission-lind-i</stratml35:Identifer>
+        <stratml35:Name>To be a beacon of Innovation in an increasingly risk adverse climate</stratml35:Name>
+        <stratml35:Stakeholders>
+          <stratml35:Individual>
+            <stratml35:Identifer>uid-execstakeholder-jason-lind</stratml35:Identifer>
+            <stratml35:ReferenceIdentifier>uid-jason-lind</stratml35:ReferenceIdentifier>
+          </stratml35:Individual>                          
+        </stratml35:Stakeholders>
+      </stratml35:Mission>
+      <stratml35:Value>
+        <stratml35:Identifer>uid-values-lind-i-wemakechange</stratml35:Identifer>
+        <stratml35:Name>We Make Change!</stratml35:Name>
+        <stratml35:Description>Everything Lind Innovation does, in its reserarch and development, to "Make Change" at a global scale.</stratml35:Description>
+        <stratml35:Stakeholders>
+          <stratml35:Individual>
+            <stratml35:Identifer>uid-stakeholder-teresa-morden</stratml35:Identifer>
+            <stratml35:Map>
+              <stratml35:Type>Conflict</stratml35:Type>
+              <stratml35:Weight>100</stratml35:Weight>
+              <stratml35:MappedIdentifier>uid-jason-lind</stratml35:MappedIdentifier>
+            </stratml35:Map>
+            <stratml35:Role>
+              <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
+            </stratml35:Role>
+            <stratml35:Competency>Ancillary</stratml35:Competency>
+            <stratml35:GivenName>Teresa</stratml35:GivenName>
+            <stratml35:Surname>Morden</stratml35:Surname>
+          </stratml35:Individual>
+          <stratml35:Individual>
+            <stratml35:ReferenceIdentifier>uid-jason-lind</stratml35:ReferenceIdentifier>
+          </stratml35:Individual>
+          <stratml35:Individual>
+            <stratml35:ReferenceIdentifier>uid-jack-driscoll</stratml35:ReferenceIdentifier>
+          </stratml35:Individual>
+        </stratml35:Stakeholders>
+        <stratml35:SequenceIndicator>1.0</stratml35:SequenceIndicator>
+      </stratml35:Value>
+      <stratml35:Value>
+        <stratml35:Identifer>uid-value-lind-i-foster-development-of-exchange</stratml35:Identifer>
+        <stratml35:Name>Foster the Key Elements of the Exchange</stratml35:Name>
+        <stratml35:Stakeholders>
+          <stratml35:Individual>
+            <stratml35:ReferenceIdentifier>uid-jason-lind</stratml35:ReferenceIdentifier>
+          </stratml35:Individual>
+        </stratml35:Stakeholders>
+        <stratml35:SequenceIndicator>1.1</stratml35:SequenceIndicator>
+      </stratml35:Value>
+    </stratml35:Strategy>
+    <stratml35:Organization>
+      <stratml35:Identifer>uid-nexdevices</stratml35:Identifer>
+      <stratml35:Name>NexDevices</stratml35:Name>
+    </stratml35:Organization>
     
   </stratml35:Organization>
   <stratml35:Submitter>
     <stratml35:ReferenceIdentifier>uid-jason-lind</stratml35:ReferenceIdentifier>
   </stratml35:Submitter>
-  <AdministrativeInformation xmlns="urn:ISO:std:iso:17469:tech:xsd:PerformancePlanOrReport">
-    <Identifier>uid-corelind-i-plan-2017-12-12</Identifier>
-    <StartDate>2018-01-01</StartDate>
-    <EndDate>2018-12-31</EndDate>
-    <PublicationDate>2017-12-12</PublicationDate>
-  </AdministrativeInformation>
+  <stratml35:AdministrativeInformation>
+    <stratml35:Identifier>uid-corelind-i-plan-2017-12-12</stratml35:Identifier>
+    <stratml35:StartDate>2018-01-01</stratml35:StartDate>
+    <stratml35:EndDate>2018-12-31</stratml35:EndDate>
+    <stratml35:PublicationDate>2017-12-12</stratml35:PublicationDate>
+  </stratml35:AdministrativeInformation>
+
 </stratml35:OrganizationalStrategyDocument>
