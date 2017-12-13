@@ -149,9 +149,9 @@
         <xs:sequence>
           <xs:element name="Categorization" type="CategoryGroup" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="ManagementChallenge" type="ManagementChallenge" minOccurs="0" maxOccurs="unbounded"/>
-          <xs:element name="UnitPerformanceIndicator" type="UnitPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
-          <xs:element name="DescriptorPerformanceIndicator" type="DescriptorPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
-          <xs:element name="ScoredPerformanceIndicator" type="ScoredPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="QuantitativePerformanceIndicator" type="UnitPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="QualitativePerformanceIndicator" type="DescriptorPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="QualitativeScoredPerformanceIndicator" type="ScoredPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
