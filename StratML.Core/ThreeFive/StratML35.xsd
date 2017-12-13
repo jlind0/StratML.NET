@@ -149,7 +149,9 @@
         <xs:sequence>
           <xs:element name="Categorization" type="CategoryGroup" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="ManagementChallenge" type="ManagementChallenge" minOccurs="0" maxOccurs="unbounded"/>
-          <xs:element name="PerformanceIndicator" type="PerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="UnitPerformanceIndicator" type="UnitPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="DescriptorPerformanceIndicator" type="DescriptorPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="ScoredPerformanceIndicator" type="ScoredPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -177,34 +179,84 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="PerformanceIndicator">
+  <xs:complexType name="PerformanceIndicatorBase">
     <xs:complexContent>
       <xs:extension base="Artifact">
         <xs:sequence>
           <xs:element name="MeasurementDimension" type="NameIdentifier" maxOccurs="1" minOccurs="0"/>
-          <xs:element name="UnitOfMeasurement" type="NameIdentifier" maxOccurs="1" minOccurs="0"/>
-          <xs:element name="TargetResults">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="UnitResult" type="MeasurementResultUnits" maxOccurs="unbounded" minOccurs="0"/>
-                <xs:element name="DescriptorResult" type="MeasurementResultDescriptor" maxOccurs="unbounded" minOccurs="0"/>
-                <xs:element name="ScoredResult" type="MeasurementResultScore" maxOccurs="unbounded" minOccurs="0"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="ActualResults">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="UnitResult" type="MeasurementResultUnits" maxOccurs="unbounded" minOccurs="0"/>
-                <xs:element name="DescriptorResult" type="MeasurementResultDescriptor" maxOccurs="unbounded" minOccurs="0"/>
-                <xs:element name="ScoredResult" type="MeasurementResultScore" maxOccurs="unbounded" minOccurs="0"/>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
           <xs:element name="Categorization" type="CategoryGroup" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="Keyness" type="Keyness" maxOccurs="1" minOccurs="0"/>
           <xs:element name="ValueChainStage" type="ValueChainStageType" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UnitPerformanceIndicator">
+    <xs:complexContent>
+      <xs:extension base="PerformanceIndicatorBase">
+        <xs:sequence>
+          <xs:element name="UnitOfMeasurement" type="NameIdentifier" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Actual" maxOccurs="1" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Result" type="MeasurementResultUnits" maxOccurs="unbounded" minOccurs="1"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Target" maxOccurs="1" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Result" type="MeasurementResultUnits" maxOccurs="unbounded" minOccurs="1"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DescriptorPerformanceIndicator">
+    <xs:complexContent>
+      <xs:extension base="PerformanceIndicatorBase">
+        <xs:sequence>
+          <xs:element name="Actual" maxOccurs="1" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Result" type="MeasurementResultDescriptor" maxOccurs="unbounded" minOccurs="1"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Target" maxOccurs="1" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Result" type="MeasurementResultDescriptor" maxOccurs="unbounded" minOccurs="1"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ScoredPerformanceIndicator">
+    <xs:complexContent>
+      <xs:extension base="PerformanceIndicatorBase">
+        <xs:sequence>
+          <xs:element name="RatingSet" type="RatingSet" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Actual" maxOccurs="1" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Result" type="MeasurementResultScore" maxOccurs="unbounded" minOccurs="1"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Target" maxOccurs="1" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Result" type="MeasurementResultScore" maxOccurs="unbounded" minOccurs="1"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -246,7 +298,6 @@
     <xs:complexContent>
       <xs:extension base="MeasurementResult">
         <xs:sequence>
-          <xs:element name="RatingSet" type="RatingSet" minOccurs="1" maxOccurs="1"/>
           <xs:element name="Score" type="Score" maxOccurs="1" minOccurs="1"/>
         </xs:sequence>
       </xs:extension>

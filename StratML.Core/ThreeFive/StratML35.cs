@@ -192,7 +192,10 @@ namespace StratML.Core.ThreeFive {
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Artifact))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Goal))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceIndicatorBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ScoredPerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptorPerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UnitPerformanceIndicator))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Objective))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Value))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Vision))]
@@ -359,8 +362,8 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(StrategyFramework))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DrivingForce))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SuccessFactor))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Score))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RatingSet))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Score))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ManagementChallenge))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Category))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CategoryGroup))]
@@ -382,7 +385,10 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ArtifactBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Artifact))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Goal))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceIndicatorBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ScoredPerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptorPerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UnitPerformanceIndicator))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Objective))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Value))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Vision))]
@@ -767,44 +773,10 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class MeasurementResultScore : MeasurementResult {
         
-        private RatingSet ratingSetField;
-        
         private Score scoreField;
         
         /// <remarks/>
-        public RatingSet RatingSet {
-            get {
-                return this.ratingSetField;
-            }
-            set {
-                this.ratingSetField = value;
-            }
-        }
-        
-        /// <remarks/>
         public Score Score {
-            get {
-                return this.scoreField;
-            }
-            set {
-                this.scoreField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class RatingSet : NameIdentifier {
-        
-        private Score[] scoreField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Score")]
-        public Score[] Score {
             get {
                 return this.scoreField;
             }
@@ -1263,6 +1235,28 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class RatingSet : NameIdentifier {
+        
+        private Score[] scoreField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Score")]
+        public Score[] Score {
+            get {
+                return this.scoreField;
+            }
+            set {
+                this.scoreField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class ManagementChallenge : NameIdentifier {
         
         private Priority probabilityField;
@@ -1691,7 +1685,10 @@ namespace StratML.Core.ThreeFive {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Goal))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceIndicatorBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ScoredPerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptorPerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UnitPerformanceIndicator))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Objective))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Value))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
@@ -1810,7 +1807,11 @@ namespace StratML.Core.ThreeFive {
         
         private ManagementChallenge[] managementChallengeField;
         
-        private PerformanceIndicator[] performanceIndicatorField;
+        private UnitPerformanceIndicator[] unitPerformanceIndicatorField;
+        
+        private DescriptorPerformanceIndicator[] descriptorPerformanceIndicatorField;
+        
+        private ScoredPerformanceIndicator[] scoredPerformanceIndicatorField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Categorization")]
@@ -1835,13 +1836,35 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("PerformanceIndicator")]
-        public PerformanceIndicator[] PerformanceIndicator {
+        [System.Xml.Serialization.XmlElementAttribute("UnitPerformanceIndicator")]
+        public UnitPerformanceIndicator[] UnitPerformanceIndicator {
             get {
-                return this.performanceIndicatorField;
+                return this.unitPerformanceIndicatorField;
             }
             set {
-                this.performanceIndicatorField = value;
+                this.unitPerformanceIndicatorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("DescriptorPerformanceIndicator")]
+        public DescriptorPerformanceIndicator[] DescriptorPerformanceIndicator {
+            get {
+                return this.descriptorPerformanceIndicatorField;
+            }
+            set {
+                this.descriptorPerformanceIndicatorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ScoredPerformanceIndicator")]
+        public ScoredPerformanceIndicator[] ScoredPerformanceIndicator {
+            get {
+                return this.scoredPerformanceIndicatorField;
+            }
+            set {
+                this.scoredPerformanceIndicatorField = value;
             }
         }
     }
@@ -1852,15 +1875,59 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class PerformanceIndicator : Artifact {
-        
-        private NameIdentifier measurementDimensionField;
+    public partial class UnitPerformanceIndicator : PerformanceIndicatorBase {
         
         private NameIdentifier unitOfMeasurementField;
         
-        private PerformanceIndicatorTargetResults targetResultsField;
+        private MeasurementResultUnits[] actualField;
         
-        private PerformanceIndicatorActualResults actualResultsField;
+        private MeasurementResultUnits[] targetField;
+        
+        /// <remarks/>
+        public NameIdentifier UnitOfMeasurement {
+            get {
+                return this.unitOfMeasurementField;
+            }
+            set {
+                this.unitOfMeasurementField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Result", IsNullable=false)]
+        public MeasurementResultUnits[] Actual {
+            get {
+                return this.actualField;
+            }
+            set {
+                this.actualField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Result", IsNullable=false)]
+        public MeasurementResultUnits[] Target {
+            get {
+                return this.targetField;
+            }
+            set {
+                this.targetField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ScoredPerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptorPerformanceIndicator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UnitPerformanceIndicator))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class PerformanceIndicatorBase : Artifact {
+        
+        private NameIdentifier measurementDimensionField;
         
         private CategoryGroup[] categorizationField;
         
@@ -1879,36 +1946,6 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.measurementDimensionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public NameIdentifier UnitOfMeasurement {
-            get {
-                return this.unitOfMeasurementField;
-            }
-            set {
-                this.unitOfMeasurementField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public PerformanceIndicatorTargetResults TargetResults {
-            get {
-                return this.targetResultsField;
-            }
-            set {
-                this.targetResultsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public PerformanceIndicatorActualResults ActualResults {
-            get {
-                return this.actualResultsField;
-            }
-            set {
-                this.actualResultsField = value;
             }
         }
         
@@ -1969,102 +2006,6 @@ namespace StratML.Core.ThreeFive {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://schemas.stratml.us/3.5")]
-    public partial class PerformanceIndicatorTargetResults {
-        
-        private MeasurementResultUnits[] unitResultField;
-        
-        private MeasurementResultDescriptor[] descriptorResultField;
-        
-        private MeasurementResultScore[] scoredResultField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("UnitResult")]
-        public MeasurementResultUnits[] UnitResult {
-            get {
-                return this.unitResultField;
-            }
-            set {
-                this.unitResultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("DescriptorResult")]
-        public MeasurementResultDescriptor[] DescriptorResult {
-            get {
-                return this.descriptorResultField;
-            }
-            set {
-                this.descriptorResultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ScoredResult")]
-        public MeasurementResultScore[] ScoredResult {
-            get {
-                return this.scoredResultField;
-            }
-            set {
-                this.scoredResultField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://schemas.stratml.us/3.5")]
-    public partial class PerformanceIndicatorActualResults {
-        
-        private MeasurementResultUnits[] unitResultField;
-        
-        private MeasurementResultDescriptor[] descriptorResultField;
-        
-        private MeasurementResultScore[] scoredResultField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("UnitResult")]
-        public MeasurementResultUnits[] UnitResult {
-            get {
-                return this.unitResultField;
-            }
-            set {
-                this.unitResultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("DescriptorResult")]
-        public MeasurementResultDescriptor[] DescriptorResult {
-            get {
-                return this.descriptorResultField;
-            }
-            set {
-                this.descriptorResultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ScoredResult")]
-        public MeasurementResultScore[] ScoredResult {
-            get {
-                return this.scoredResultField;
-            }
-            set {
-                this.scoredResultField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public enum Keyness {
         
@@ -2101,6 +2042,88 @@ namespace StratML.Core.ThreeFive {
         
         /// <remarks/>
         Input,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class ScoredPerformanceIndicator : PerformanceIndicatorBase {
+        
+        private RatingSet ratingSetField;
+        
+        private MeasurementResultScore[] actualField;
+        
+        private MeasurementResultScore[] targetField;
+        
+        /// <remarks/>
+        public RatingSet RatingSet {
+            get {
+                return this.ratingSetField;
+            }
+            set {
+                this.ratingSetField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Result", IsNullable=false)]
+        public MeasurementResultScore[] Actual {
+            get {
+                return this.actualField;
+            }
+            set {
+                this.actualField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Result", IsNullable=false)]
+        public MeasurementResultScore[] Target {
+            get {
+                return this.targetField;
+            }
+            set {
+                this.targetField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class DescriptorPerformanceIndicator : PerformanceIndicatorBase {
+        
+        private MeasurementResultDescriptor[] actualField;
+        
+        private MeasurementResultDescriptor[] targetField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Result", IsNullable=false)]
+        public MeasurementResultDescriptor[] Actual {
+            get {
+                return this.actualField;
+            }
+            set {
+                this.actualField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Result", IsNullable=false)]
+        public MeasurementResultDescriptor[] Target {
+            get {
+                return this.targetField;
+            }
+            set {
+                this.targetField = value;
+            }
+        }
     }
     
     /// <remarks/>
