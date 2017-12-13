@@ -9,7 +9,7 @@
   <xs:element name="OrganizationalStrategyDocument">
     <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="Strategy">
+        <xs:extension base="Base">
           <xs:sequence>
             <xs:element name="Organization" type="Organization" maxOccurs="1" minOccurs="1"/>
             <xs:group ref="DocumentMetaData" maxOccurs="1" minOccurs="1"/>
@@ -44,29 +44,13 @@
             <xs:element name="Goal" type="Goal" maxOccurs="unbounded" minOccurs="0"/>
             <xs:element name="DrivingForce" type="DrivingForce" maxOccurs="1" minOccurs="0"/>
             <xs:element name="Framework" type="StrategyFramework" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="Decision" type="Decision" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="Process" type="Process" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="Assets" type="AssetCollection" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="Family" type="Family" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="Proposition" type="Proposition" maxOccurs="unbounded" minOccurs="0"/>
           </xs:sequence>
         </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Mission">
-    <xs:complexContent>
-      <xs:extension base="ArtifactBase">
-        
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Vision">
-    <xs:complexContent>
-      <xs:extension base="ArtifactBase">
-
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Value">
-    <xs:complexContent>
-      <xs:extension base="Artifact">
-
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -83,7 +67,6 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-         
           <xs:element name="OtherInformation" type="xs:string" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
@@ -94,74 +77,136 @@
       <xs:extension base="ArtifactBase">
         <xs:sequence>
           <xs:element name="SequenceIndicator" type="xs:string" maxOccurs="1" minOccurs="0"/>
-          
+          <xs:element name="Perspective" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Relationship">
+  <xs:complexType name="Right">
     <xs:complexContent>
-      <xs:extension base="Base">
-        <xs:sequence>
-          <xs:element name="ReferentIdentifier" type="xs:IDREF" minOccurs="1" maxOccurs="unbounded"/>
-        </xs:sequence>
-        <xs:attribute name="RelationshipType" type="RelationshipType" default="Peer_To"/>
+      <xs:extension base="Artifact">
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:simpleType name="RelationshipType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Broader_Than"/>
-      <xs:enumeration value="Peer_To"/>
-      <xs:enumeration value="Narrower_Than"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="IndividualStakeholder">
+  <xs:complexType name="Responsibility">
     <xs:complexContent>
-      <xs:extension base="Individual">
-        <xs:sequence>
-          <xs:element name="Relationship" type="Relationship" maxOccurs="unbounded" minOccurs="0"/>
-        </xs:sequence>
+      <xs:extension base="Artifact">
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="OrganizationStakeholder">
+  <xs:complexType name="Mission">
     <xs:complexContent>
-      <xs:extension base="Organization">
-        <xs:sequence>
-          <xs:element name="Relationship" type="Relationship" maxOccurs="unbounded" minOccurs="0"/>
-        </xs:sequence>
+      <xs:extension base="ArtifactBase">
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="GroupStakeholder">
+  <xs:complexType name="Vision">
     <xs:complexContent>
-      <xs:extension base="Group">
-        <xs:sequence>
-          <xs:element name="Relationship" type="Relationship" maxOccurs="unbounded" minOccurs="0"/>
-        </xs:sequence>
+      <xs:extension base="ArtifactBase">
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="Objective">
+  <xs:complexType name="Value">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Proposition">
     <xs:complexContent>
       <xs:extension base="Artifact">
         <xs:sequence>
-          <xs:element name="Categorization" type="CategoryGroup" minOccurs="0" maxOccurs="unbounded"/>
-          <xs:element name="ManagementChallenge" type="ManagementChallenge" minOccurs="0" maxOccurs="unbounded"/>
-          <xs:element name="QuantitativePerformanceIndicator" type="UnitPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
-          <xs:element name="QualitativePerformanceIndicator" type="DescriptorPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
-          <xs:element name="QualitativeScoredPerformanceIndicator" type="ScoredPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="Attribute" type="Attribute" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="ManagementChallenge">
+  <xs:complexType name="Attribute">
     <xs:complexContent>
-      <xs:extension base="Base">
+      <xs:extension base="ArtifactBase">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Decision">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
         <xs:sequence>
-          <xs:element name="Probability" type="Priority" maxOccurs="1" minOccurs="1"/>
-          <xs:element name="Impact" type="Priority" maxOccurs="1" minOccurs="1"/>
+          <xs:element name="CaseTrue" type="Decision" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="CaseFalse" type="Decision" maxOccurs="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Process">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
+        <xs:sequence>
+          <xs:element name="Framework" type="StrategyFramework" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="Primary" type="PrimaryActivity" maxOccurs="unbounded" minOccurs="1"/>
+          <xs:element name="Supporting" type="SupportingActivity" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ActivityBase">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PrimaryActivity">
+    <xs:complexContent>
+      <xs:extension base="ActivityBase">
+        <xs:sequence>
+          <xs:element name="Supporting" type="SupportingActivity" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SupportingActivity">
+    <xs:complexContent>
+      <xs:extension base="ActivityBase">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Perspective">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Family">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AssetCollection">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
+        <xs:sequence>
+          <xs:element name="Family" type="Family" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="Asset" type="Asset" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Asset">
+    <xs:complexContent>
+      <xs:extension base="ArtifactBase">
+        <xs:sequence>
+          <xs:element name="Type" maxOccurs="1" minOccurs="1">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="Tangible"/>
+                <xs:enumeration value="Intangible"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -179,7 +224,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="PerformanceIndicatorBase">
+  <xs:complexType name="PerformanceIndicatorBase" abstract="true">
     <xs:complexContent>
       <xs:extension base="Artifact">
         <xs:sequence>
@@ -256,10 +301,79 @@
             </xs:complexType>
           </xs:element>
         </xs:sequence>
-        
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  
+  <xs:complexType name="Relationship">
+    <xs:complexContent>
+      <xs:extension base="Base">
+        <xs:sequence>
+          <xs:element name="ReferentIdentifier" type="xs:IDREF" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="RelationshipType" type="RelationshipType" default="Peer_To"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="RelationshipType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Broader_Than"/>
+      <xs:enumeration value="Peer_To"/>
+      <xs:enumeration value="Narrower_Than"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="IndividualStakeholder">
+    <xs:complexContent>
+      <xs:extension base="Individual">
+        <xs:sequence>
+          <xs:element name="Relationship" type="Relationship" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OrganizationStakeholder">
+    <xs:complexContent>
+      <xs:extension base="Organization">
+        <xs:sequence>
+          <xs:element name="Relationship" type="Relationship" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GroupStakeholder">
+    <xs:complexContent>
+      <xs:extension base="Group">
+        <xs:sequence>
+          <xs:element name="Relationship" type="Relationship" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Objective">
+    <xs:complexContent>
+      <xs:extension base="Artifact">
+        <xs:sequence>
+          <xs:element name="Categorization" type="CategoryGroup" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ManagementChallenge" type="ManagementChallenge" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="QuantitativePerformanceIndicator" type="UnitPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="QualitativePerformanceIndicator" type="DescriptorPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="QualitativeScoredPerformanceIndicator" type="ScoredPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ManagementChallenge">
+    <xs:complexContent>
+      <xs:extension base="Base">
+        <xs:sequence>
+          <xs:element name="Probability" type="Priority" maxOccurs="1" minOccurs="1"/>
+          <xs:element name="Impact" type="Priority" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  
   <xs:complexType name="RatingSet">
     <xs:complexContent>
       <xs:extension base="Base">
@@ -319,6 +433,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  
   <xs:complexType name="Actor" abstract="true">
     <xs:complexContent>
       <xs:extension base="Base">
@@ -327,6 +442,8 @@
           <xs:element name="Role" type="Role" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Competency" type="Competency" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="ValueProposition" type="Base" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Right" type="Right" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Responsiblity" type="Responsibility" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
