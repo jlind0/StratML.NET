@@ -595,15 +595,12 @@ namespace StratML.Core.ThreeFive {
         
         private double weightField;
         
-        private System.DateTime publicationDateField;
-        
-        private bool publicationDateFieldSpecified;
+        private bool weightFieldSpecified;
         
         private string[] mappedIdentifierField;
         
         public Map() {
             this.typeField = MapType.Relationship;
-            this.weightField = 1D;
         }
         
         /// <remarks/>
@@ -618,7 +615,6 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        [System.ComponentModel.DefaultValueAttribute(1D)]
         public double Weight {
             get {
                 return this.weightField;
@@ -629,24 +625,13 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
-        public System.DateTime PublicationDate {
-            get {
-                return this.publicationDateField;
-            }
-            set {
-                this.publicationDateField = value;
-            }
-        }
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool PublicationDateSpecified {
+        public bool WeightSpecified {
             get {
-                return this.publicationDateFieldSpecified;
+                return this.weightFieldSpecified;
             }
             set {
-                this.publicationDateFieldSpecified = value;
+                this.weightFieldSpecified = value;
             }
         }
         
@@ -1447,7 +1432,11 @@ namespace StratML.Core.ThreeFive {
         
         private Priority probabilityField;
         
+        private bool probabilityFieldSpecified;
+        
         private Priority impactField;
+        
+        private bool impactFieldSpecified;
         
         /// <remarks/>
         public Priority Probability {
@@ -1460,12 +1449,34 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ProbabilitySpecified {
+            get {
+                return this.probabilityFieldSpecified;
+            }
+            set {
+                this.probabilityFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
         public Priority Impact {
             get {
                 return this.impactField;
             }
             set {
                 this.impactField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ImpactSpecified {
+            get {
+                return this.impactFieldSpecified;
+            }
+            set {
+                this.impactFieldSpecified = value;
             }
         }
     }
@@ -2510,7 +2521,23 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class Asset : ArtifactBase {
         
+        private Base dimensionField;
+        
         private AssetType typeField;
+        
+        private double valuationField;
+        
+        private bool valuationFieldSpecified;
+        
+        /// <remarks/>
+        public Base Dimension {
+            get {
+                return this.dimensionField;
+            }
+            set {
+                this.dimensionField = value;
+            }
+        }
         
         /// <remarks/>
         public AssetType Type {
@@ -2519,6 +2546,27 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.typeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double Valuation {
+            get {
+                return this.valuationField;
+            }
+            set {
+                this.valuationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ValuationSpecified {
+            get {
+                return this.valuationFieldSpecified;
+            }
+            set {
+                this.valuationFieldSpecified = value;
             }
         }
     }

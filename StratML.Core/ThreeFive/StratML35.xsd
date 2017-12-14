@@ -213,6 +213,7 @@
     <xs:complexContent>
       <xs:extension base="ArtifactBase">
         <xs:sequence>
+          <xs:element name="Dimension" type="Base" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Type" maxOccurs="1" minOccurs="1">
             <xs:simpleType>
               <xs:restriction base="xs:string">
@@ -221,6 +222,7 @@
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
+          <xs:element name="Valuation" type="xs:double" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -417,8 +419,8 @@
     <xs:complexContent>
       <xs:extension base="Base">
         <xs:sequence>
-          <xs:element name="Probability" type="Priority" maxOccurs="1" minOccurs="1"/>
-          <xs:element name="Impact" type="Priority" maxOccurs="1" minOccurs="1"/>
+          <xs:element name="Probability" type="Priority" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Impact" type="Priority" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -561,8 +563,7 @@
       <xs:extension base="Base">
         <xs:sequence>
           <xs:element name="Type" type="MapType" default="Relationship" maxOccurs="1" minOccurs="0"/>
-          <xs:element name="Weight" type="xs:double" maxOccurs="1" minOccurs="0" default="1"/>
-          <xs:element name="PublicationDate" type="xs:date" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Weight" type="xs:double" maxOccurs="1" minOccurs="0"/>
           <xs:element name="MappedIdentifier" type="xs:IDREF" maxOccurs="unbounded" minOccurs="1"/>
         </xs:sequence>
       </xs:extension>
