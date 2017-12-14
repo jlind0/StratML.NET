@@ -519,7 +519,7 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class Base {
         
-        private string identiferField;
+        private string identifierField;
         
         private string referenceIdentifierField;
         
@@ -531,12 +531,12 @@ namespace StratML.Core.ThreeFive {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
-        public string Identifer {
+        public string Identifier {
             get {
-                return this.identiferField;
+                return this.identifierField;
             }
             set {
-                this.identiferField = value;
+                this.identifierField = value;
             }
         }
         

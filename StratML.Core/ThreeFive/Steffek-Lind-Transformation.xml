@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <stratml35:OrganizationalStrategyDocument xmlns:stratml35="http://schemas.stratml.us/3.5">
-  <stratml35:Identifer>uid-coreslt-plan</stratml35:Identifer>
+  <stratml35:Identifier>uid-coreslt-plan</stratml35:Identifier>
   <stratml35:Organization>
-    <stratml35:Identifer>uid-slt</stratml35:Identifer>
+    <stratml35:Identifier>uid-slt</stratml35:Identifier>
     <stratml35:Name>Steffek/Lind&lt;Transformation&gt;</stratml35:Name>
     <stratml35:Contact>
       <stratml35:Identifier>uid-conact-slt</stratml35:Identifier>
       <stratml35:PhoneNumber>
-        <stratml35:Identifer>uid-phone-jason-lind</stratml35:Identifer>
+        <stratml35:Identifier>uid-phone-jason-lind</stratml35:Identifier>
         <stratml35:Number>4147882820</stratml35:Number>
       </stratml35:PhoneNumber>
       <stratml35:Address>
-        <stratml35:Identifer>uid-contact-address-lind-compound</stratml35:Identifer>
+        <stratml35:Identifier>uid-contact-address-lind-compound</stratml35:Identifier>
         <stratml35:Name>Lind Family Compound</stratml35:Name>
         <stratml35:Street>W2773 County Rd HH</stratml35:Street>
         <stratml35:Locality>Cambria</stratml35:Locality>
@@ -20,13 +20,13 @@
         <stratml35:Country>USA</stratml35:Country>
       </stratml35:Address>
       <stratml35:Website>
-        <stratml35:Identifer>uid-contact-web-slt</stratml35:Identifer>
+        <stratml35:Identifier>uid-contact-web-slt</stratml35:Identifier>
         <stratml35:WebAddress>http://slt.one</stratml35:WebAddress>
       </stratml35:Website>
     </stratml35:Contact>
 
     <stratml35:Individual>
-      <stratml35:Identifer>uid-jason-lind</stratml35:Identifer>
+      <stratml35:Identifier>uid-jason-lind</stratml35:Identifier>
 
       <stratml35:Contact>
         <stratml35:Identifier>uid-contact-shakers</stratml35:Identifier>
@@ -34,11 +34,11 @@
           <stratml35:ReferenceIdentifier>uid-phone-jason-lind</stratml35:ReferenceIdentifier>
         </stratml35:PhoneNumber>
         <stratml35:EmailAddress>
-          <stratml35:Identifer>uid-email-jason-lind</stratml35:Identifer>
+          <stratml35:Identifier>uid-email-jason-lind</stratml35:Identifier>
           <stratml35:Email>jason@lind-i.com</stratml35:Email>
         </stratml35:EmailAddress>
         <stratml35:Address>
-          <stratml35:Identifer>uid-address-shakers</stratml35:Identifer>
+          <stratml35:Identifier>uid-address-shakers</stratml35:Identifier>
           <stratml35:Name>Shakers</stratml35:Name>
           <stratml35:Street>422 S Second St.</stratml35:Street>
           <stratml35:Locality>Milwaukee</stratml35:Locality>
@@ -48,27 +48,27 @@
         </stratml35:Address>
       </stratml35:Contact>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-member</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-member</stratml35:Identifier>
         <stratml35:Name>Member</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-co-founder</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-co-founder</stratml35:Identifier>
         <stratml35:Name>Co-Founder</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-evp</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-evp</stratml35:Identifier>
         <stratml35:Name>Executive Vice President</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-transformation</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-transformation</stratml35:Identifier>
         <stratml35:Name>Transformation</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-board-member</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-board-member</stratml35:Identifier>
         <stratml35:Name>Board Member</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
@@ -77,17 +77,17 @@
       <stratml35:Surname>Lind</stratml35:Surname>
     </stratml35:Individual>
     <stratml35:Individual>
-      <stratml35:Identifer>uid-jack-driscoll</stratml35:Identifer>
+      <stratml35:Identifier>uid-jack-driscoll</stratml35:Identifier>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-svp</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-svp</stratml35:Identifier>
         <stratml35:Name>Senior Vice President</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-engineering</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-engineering</stratml35:Identifier>
         <stratml35:Name>Engineering</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
@@ -97,12 +97,12 @@
       <stratml35:Competency>Core</stratml35:Competency>
     </stratml35:Individual>
     <stratml35:Individual>
-      <stratml35:Identifer>uid-amy-steffek</stratml35:Identifer>
+      <stratml35:Identifier>uid-amy-steffek</stratml35:Identifier>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-president</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-president</stratml35:Identifier>
         <stratml35:Name>President</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
@@ -117,7 +117,7 @@
       <stratml35:Surname>Steffek</stratml35:Surname>
     </stratml35:Individual>
     <stratml35:Individual>
-      <stratml35:Identifer>uid-alexandria-yale</stratml35:Identifer>
+      <stratml35:Identifier>uid-alexandria-yale</stratml35:Identifier>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
       </stratml35:Role>
@@ -128,7 +128,7 @@
         <stratml35:ReferenceIdentifier>uid-role-member</stratml35:ReferenceIdentifier>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-operations</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-operations</stratml35:Identifier>
         <stratml35:Name>Operations</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
@@ -137,12 +137,12 @@
       <stratml35:Surname>Yale</stratml35:Surname>
     </stratml35:Individual>
     <stratml35:Individual>
-      <stratml35:Identifer>uid-luke-baewer</stratml35:Identifer>
+      <stratml35:Identifier>uid-luke-baewer</stratml35:Identifier>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-cos</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-cos</stratml35:Identifier>
         <stratml35:Name>Chief of Staff</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
         <stratml35:Responsibility>
@@ -165,7 +165,7 @@
       <stratml35:Surname>Baewer</stratml35:Surname>
     </stratml35:Individual>
     <stratml35:Individual>
-      <stratml35:Identifer>uid-melissa-flinn</stratml35:Identifer>
+      <stratml35:Identifier>uid-melissa-flinn</stratml35:Identifier>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
       </stratml35:Role>
@@ -176,7 +176,7 @@
         <stratml35:ReferenceIdentifier>uid-role-member</stratml35:ReferenceIdentifier>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-marketing</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-marketing</stratml35:Identifier>
         <stratml35:Name>Marketing</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
         <stratml35:Responsibility>
@@ -204,14 +204,14 @@
       <stratml35:Surname>Flinn</stratml35:Surname>
     </stratml35:Individual>
     <stratml35:Individual>
-      <stratml35:Identifer>uid-andy-patch</stratml35:Identifer>
+      <stratml35:Identifier>uid-andy-patch</stratml35:Identifier>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-vp</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-vp</stratml35:Identifier>
         <stratml35:Name>Vice President</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-art</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-art</stratml35:Identifier>
         <stratml35:Name>Art</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
@@ -223,12 +223,12 @@
       <stratml35:Surname>Patch</stratml35:Surname>
     </stratml35:Individual>
     <stratml35:Individual>
-      <stratml35:Identifer>uid-leszek-zychowski</stratml35:Identifer>
+      <stratml35:Identifier>uid-leszek-zychowski</stratml35:Identifier>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-vp</stratml35:ReferenceIdentifier>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-software</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-software</stratml35:Identifier>
         <stratml35:Name>Software</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
@@ -240,12 +240,12 @@
       <stratml35:Surname>Zychowski</stratml35:Surname>
     </stratml35:Individual>
     <stratml35:Individual>
-      <stratml35:Identifer>uid-stephanie-gatas</stratml35:Identifer>
+      <stratml35:Identifier>uid-stephanie-gatas</stratml35:Identifier>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-vp</stratml35:ReferenceIdentifier>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-human-capital</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-human-capital</stratml35:Identifier>
         <stratml35:Name>Human Capital</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
@@ -257,7 +257,7 @@
       <stratml35:Surname>Gatas</stratml35:Surname>
     </stratml35:Individual>
     <stratml35:Individual>
-      <stratml35:Identifer>uid-todd-huynh</stratml35:Identifer>
+      <stratml35:Identifier>uid-todd-huynh</stratml35:Identifier>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
       </stratml35:Role>
@@ -265,7 +265,7 @@
         <stratml35:ReferenceIdentifier>uid-role-vp</stratml35:ReferenceIdentifier>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-finance</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-finance</stratml35:Identifier>
         <stratml35:Name>Finance</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
@@ -277,7 +277,7 @@
       <stratml35:Surname>Huynh</stratml35:Surname>
     </stratml35:Individual>
     <stratml35:Individual>
-      <stratml35:Identifer>uid-kimberly-victorine</stratml35:Identifer>
+      <stratml35:Identifier>uid-kimberly-victorine</stratml35:Identifier>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
       </stratml35:Role>
@@ -285,7 +285,7 @@
         <stratml35:ReferenceIdentifier>uid-role-vp</stratml35:ReferenceIdentifier>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-health</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-health</stratml35:Identifier>
         <stratml35:Name>Health</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
@@ -314,7 +314,7 @@
     <stratml35:Strategy>
       
       <stratml35:Goal>
-        <stratml35:Identifer>uid-goal-member-incentives</stratml35:Identifer>
+        <stratml35:Identifier>uid-goal-member-incentives</stratml35:Identifier>
         <stratml35:Name>Member Incentivies</stratml35:Name>
         <stratml35:Stakeholders>
           <stratml35:Individual>
@@ -349,7 +349,7 @@
           </stratml35:Individual>
         </stratml35:Stakeholders>
         <stratml35:Perspective>
-          <stratml35:Identifer>uid-perspective-internal</stratml35:Identifer>
+          <stratml35:Identifier>uid-perspective-internal</stratml35:Identifier>
           <stratml35:Name>Internal</stratml35:Name>
           <stratml35:SequenceIndicator>0</stratml35:SequenceIndicator>
         </stratml35:Perspective>
@@ -361,7 +361,7 @@
             <stratml35:Impact>High</stratml35:Impact>
           </stratml35:ManagementChallenge>
           <stratml35:QuantitativePerformanceIndicator>
-            <stratml35:Identifer>uid-performance-revenue-from-jason-lind</stratml35:Identifer>
+            <stratml35:Identifier>uid-performance-revenue-from-jason-lind</stratml35:Identifier>
             <stratml35:Map>
               <stratml35:Type>Input</stratml35:Type>
               <stratml35:MappedIdentifier>uid-assets-revenue-jason-lind</stratml35:MappedIdentifier>
@@ -370,7 +370,7 @@
               <stratml35:ReferenceIdentifier>uid-dimension-time-monthly</stratml35:ReferenceIdentifier>
             </stratml35:MeasurementDimension>
             <stratml35:UnitOfMeasurement>
-              <stratml35:Identifer>uid-ofm-percent</stratml35:Identifer>
+              <stratml35:Identifier>uid-ofm-percent</stratml35:Identifier>
               <stratml35:Name>Percent</stratml35:Name>
             </stratml35:UnitOfMeasurement>
             <stratml35:Target>
@@ -423,7 +423,7 @@
         <stratml35:Priority>High</stratml35:Priority>
       </stratml35:Goal>
       <stratml35:Decision>
-        <stratml35:Identifer>uid-decision-nominate</stratml35:Identifer>
+        <stratml35:Identifier>uid-decision-nominate</stratml35:Identifier>
         <stratml35:Name>Nominate a New Member</stratml35:Name>
         <stratml35:Description>Seconded by an Executive Officer or Co-Founder</stratml35:Description>
         <stratml35:Map>
@@ -433,7 +433,7 @@
           <stratml35:MappedIdentifier>uid-role-president</stratml35:MappedIdentifier>
         </stratml35:Map>
         <stratml35:CaseTrue>
-          <stratml35:Identifer>uid-decision-nominate-vote</stratml35:Identifer>
+          <stratml35:Identifier>uid-decision-nominate-vote</stratml35:Identifier>
           <stratml35:Name>Weighted Ballot</stratml35:Name>
           <stratml35:Description>2/3 majority</stratml35:Description>
           <stratml35:Map>
@@ -464,7 +464,7 @@
           </stratml35:CaseFalse>
         </stratml35:CaseTrue>
         <stratml35:CaseFalse>
-          <stratml35:Identifer>uid-decision-nominate-boardapproval</stratml35:Identifer>
+          <stratml35:Identifier>uid-decision-nominate-boardapproval</stratml35:Identifier>
           <stratml35:Name>Require Board Approval</stratml35:Name>
           <stratml35:Description>Majority Approval of Board</stratml35:Description>
           <stratml35:Map>
@@ -480,7 +480,7 @@
         </stratml35:CaseFalse>
       </stratml35:Decision>
       <stratml35:Assets>
-        <stratml35:Identifer>uid-assets-revenue-jason-lind</stratml35:Identifer>
+        <stratml35:Identifier>uid-assets-revenue-jason-lind</stratml35:Identifier>
         <stratml35:Name>Jason Lind's Revenue</stratml35:Name>
         <stratml35:Stakeholders>
           <stratml35:Individual>
@@ -488,7 +488,7 @@
           </stratml35:Individual>
         </stratml35:Stakeholders>
         <stratml35:Asset>
-          <stratml35:Identifer>uid-asset-groupbobaloo-hours</stratml35:Identifer>
+          <stratml35:Identifier>uid-asset-groupbobaloo-hours</stratml35:Identifier>
           <stratml35:Name>Groupbobaloo Hours Per Month</stratml35:Name>
           <stratml35:Map>
             <stratml35:Type>Input</stratml35:Type>
@@ -507,7 +507,7 @@
           <stratml35:Valuation>20</stratml35:Valuation>
         </stratml35:Asset>
         <stratml35:Asset>
-          <stratml35:Identifer>uid-asset-groupbobaloo-revenue</stratml35:Identifer>
+          <stratml35:Identifier>uid-asset-groupbobaloo-revenue</stratml35:Identifier>
           <stratml35:Name>Groupbobaloo Revenue Per Month</stratml35:Name>
           <stratml35:Map>
             <stratml35:Type>Input</stratml35:Type>
@@ -524,7 +524,7 @@
             <stratml35:Weight>5</stratml35:Weight>
           </stratml35:Risk>
           <stratml35:Dimension>
-            <stratml35:Identifer>uid-dimension-time-monthly</stratml35:Identifer>
+            <stratml35:Identifier>uid-dimension-time-monthly</stratml35:Identifier>
             <stratml35:Name>Monthly</stratml35:Name>
           </stratml35:Dimension>
           <stratml35:Type>Tangible</stratml35:Type>
@@ -535,17 +535,17 @@
       
     </stratml35:Strategy>
     <stratml35:Organization>
-      <stratml35:Identifer>uid-groupbobaloo</stratml35:Identifer>
+      <stratml35:Identifier>uid-groupbobaloo</stratml35:Identifier>
       <stratml35:Name>Group Bobaloo</stratml35:Name>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-client</stratml35:Identifer>
+        <stratml35:Identifier>uid-role-client</stratml35:Identifier>
         <stratml35:Name>Client</stratml35:Name>
         <stratml35:RoleType>Client</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Individual>
         <stratml35:ReferenceIdentifier>uid-jason-lind</stratml35:ReferenceIdentifier>
         <stratml35:Role>
-          <stratml35:Identifer>uid-role-cte</stratml35:Identifer>
+          <stratml35:Identifier>uid-role-cte</stratml35:Identifier>
           <stratml35:Name>Chief Transformation Engineer</stratml35:Name>
           <stratml35:Map>
             <stratml35:Type>Relationship</stratml35:Type>
@@ -555,10 +555,10 @@
         </stratml35:Role>
       </stratml35:Individual>
       <stratml35:Individual>
-        <stratml35:Identifer>uid-bob-weiss</stratml35:Identifer>
+        <stratml35:Identifier>uid-bob-weiss</stratml35:Identifier>
         <stratml35:Name>Bobaloo</stratml35:Name>
         <stratml35:Role>
-          <stratml35:Identifer>uid-role-chairman</stratml35:Identifer>
+          <stratml35:Identifier>uid-role-chairman</stratml35:Identifier>
           <stratml35:Name>Chairman</stratml35:Name>
           <stratml35:RoleType>Performer</stratml35:RoleType>
         </stratml35:Role>
