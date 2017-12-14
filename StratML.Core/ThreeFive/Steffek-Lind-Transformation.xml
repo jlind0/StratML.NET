@@ -132,9 +132,6 @@
         <stratml35:Name>Operations</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
-      <stratml35:Role>
-        <stratml35:ReferenceIdentifier>uid-role-board-member</stratml35:ReferenceIdentifier>
-      </stratml35:Role>
       <stratml35:Competency>Core</stratml35:Competency>
       <stratml35:GivenName>Alex</stratml35:GivenName>
       <stratml35:Surname>Yale</stratml35:Surname>
