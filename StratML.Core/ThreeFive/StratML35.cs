@@ -276,7 +276,6 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Value))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Responsibility))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Right))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Perspective))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
@@ -379,7 +378,20 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class IndividualStakeholder : Individual {
         
+        private string extendsField;
+        
         private Relationship[] relationshipField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="IDREF")]
+        public string Extends {
+            get {
+                return this.extendsField;
+            }
+            set {
+                this.extendsField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Relationship")]
@@ -451,7 +463,9 @@ namespace StratML.Core.ThreeFive {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DrivingForce))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Relationship))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Payoff))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SuccessFactor))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RatingSet))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Score))]
@@ -495,7 +509,6 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Value))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Responsibility))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Right))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Perspective))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Strategy))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Map))]
@@ -605,6 +618,7 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
+        [System.ComponentModel.DefaultValueAttribute(1D)]
         public double Weight {
             get {
                 return this.weightField;
@@ -662,6 +676,12 @@ namespace StratML.Core.ThreeFive {
         
         /// <remarks/>
         Supports,
+        
+        /// <remarks/>
+        Input,
+        
+        /// <remarks/>
+        Output,
     }
     
     /// <remarks/>
@@ -779,7 +799,13 @@ namespace StratML.Core.ThreeFive {
         
         private System.DateTime startDateField;
         
+        private bool startDateFieldSpecified;
+        
         private System.DateTime endDateField;
+        
+        private bool endDateFieldSpecified;
+        
+        private Map[] mapField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
@@ -804,6 +830,17 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StartDateSpecified {
+            get {
+                return this.startDateFieldSpecified;
+            }
+            set {
+                this.startDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
         public System.DateTime EndDate {
             get {
@@ -811,6 +848,28 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.endDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool EndDateSpecified {
+            get {
+                return this.endDateFieldSpecified;
+            }
+            set {
+                this.endDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Map")]
+        public Map[] Map {
+            get {
+                return this.mapField;
+            }
+            set {
+                this.mapField = value;
             }
         }
     }
@@ -1272,6 +1331,50 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Risk : Base {
+        
+        private int[] weightField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Weight")]
+        public int[] Weight {
+            get {
+                return this.weightField;
+            }
+            set {
+                this.weightField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Payoff : Base {
+        
+        private int[] weightField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Weight")]
+        public int[] Weight {
+            get {
+                return this.weightField;
+            }
+            set {
+                this.weightField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class SuccessFactor : Base {
         
         private Criticality criticalityField;
@@ -1462,6 +1565,12 @@ namespace StratML.Core.ThreeFive {
         
         private bool roleTypeFieldSpecified;
         
+        private Right[] rightField;
+        
+        private Responsibility[] responsibilityField;
+        
+        private Payoff[] payoffField;
+        
         /// <remarks/>
         public RoleType RoleType {
             get {
@@ -1482,90 +1591,6 @@ namespace StratML.Core.ThreeFive {
                 this.roleTypeFieldSpecified = value;
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public enum RoleType {
-        
-        /// <remarks/>
-        Performer,
-        
-        /// <remarks/>
-        Beneficiary,
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Group))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationStakeholder))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GroupStakeholder))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Individual))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndividualStakeholder))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Authority))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public abstract partial class Actor : Base {
-        
-        private ContactInformation contactField;
-        
-        private Role[] roleField;
-        
-        private Competency[] competencyField;
-        
-        private Base[] valuePropositionField;
-        
-        private Right[] rightField;
-        
-        private Responsibility[] responsiblityField;
-        
-        /// <remarks/>
-        public ContactInformation Contact {
-            get {
-                return this.contactField;
-            }
-            set {
-                this.contactField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Role")]
-        public Role[] Role {
-            get {
-                return this.roleField;
-            }
-            set {
-                this.roleField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Competency")]
-        public Competency[] Competency {
-            get {
-                return this.competencyField;
-            }
-            set {
-                this.competencyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ValueProposition")]
-        public Base[] ValueProposition {
-            get {
-                return this.valuePropositionField;
-            }
-            set {
-                this.valuePropositionField = value;
-            }
-        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Right")]
@@ -1579,13 +1604,24 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Responsiblity")]
-        public Responsibility[] Responsiblity {
+        [System.Xml.Serialization.XmlElementAttribute("Responsibility")]
+        public Responsibility[] Responsibility {
             get {
-                return this.responsiblityField;
+                return this.responsibilityField;
             }
             set {
-                this.responsiblityField = value;
+                this.responsibilityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Payoff")]
+        public Payoff[] Payoff {
+            get {
+                return this.payoffField;
+            }
+            set {
+                this.payoffField = value;
             }
         }
     }
@@ -1594,16 +1630,19 @@ namespace StratML.Core.ThreeFive {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public enum Competency {
+    public enum RoleType {
         
         /// <remarks/>
-        Core,
+        Performer,
         
         /// <remarks/>
-        Supporting,
+        Beneficiary,
         
         /// <remarks/>
-        Ancillary,
+        Competitor,
+        
+        /// <remarks/>
+        Client,
     }
     
     /// <remarks/>
@@ -1633,7 +1672,6 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Value))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Responsibility))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Right))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Perspective))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
@@ -2101,6 +2139,326 @@ namespace StratML.Core.ThreeFive {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Group))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationStakeholder))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GroupStakeholder))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Individual))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndividualStakeholder))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Authority))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public abstract partial class Actor : Base {
+        
+        private ContactInformation contactField;
+        
+        private Role[] roleField;
+        
+        private Competency[] competencyField;
+        
+        private Base[] valuePropositionField;
+        
+        private Right[] rightField;
+        
+        private Responsibility[] responsiblityField;
+        
+        private Payoff[] payoffField;
+        
+        /// <remarks/>
+        public ContactInformation Contact {
+            get {
+                return this.contactField;
+            }
+            set {
+                this.contactField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Role")]
+        public Role[] Role {
+            get {
+                return this.roleField;
+            }
+            set {
+                this.roleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Competency")]
+        public Competency[] Competency {
+            get {
+                return this.competencyField;
+            }
+            set {
+                this.competencyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ValueProposition")]
+        public Base[] ValueProposition {
+            get {
+                return this.valuePropositionField;
+            }
+            set {
+                this.valuePropositionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Right")]
+        public Right[] Right {
+            get {
+                return this.rightField;
+            }
+            set {
+                this.rightField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Responsiblity")]
+        public Responsibility[] Responsiblity {
+            get {
+                return this.responsiblityField;
+            }
+            set {
+                this.responsiblityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Payoff")]
+        public Payoff[] Payoff {
+            get {
+                return this.payoffField;
+            }
+            set {
+                this.payoffField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public enum Competency {
+        
+        /// <remarks/>
+        Core,
+        
+        /// <remarks/>
+        Supporting,
+        
+        /// <remarks/>
+        Ancillary,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Responsibility : Artifact {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationStakeholder))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GroupStakeholder))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Group : Actor {
+        
+        private Individual[] individualField;
+        
+        private string acronymField;
+        
+        private SpecialOrganizationType typeField;
+        
+        private bool typeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Individual")]
+        public Individual[] Individual {
+            get {
+                return this.individualField;
+            }
+            set {
+                this.individualField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Acronym {
+            get {
+                return this.acronymField;
+            }
+            set {
+                this.acronymField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SpecialOrganizationType Type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeFieldSpecified;
+            }
+            set {
+                this.typeFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndividualStakeholder))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Individual : Actor {
+        
+        private string givenNameField;
+        
+        private string surnameField;
+        
+        /// <remarks/>
+        public string GivenName {
+            get {
+                return this.givenNameField;
+            }
+            set {
+                this.givenNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Surname {
+            get {
+                return this.surnameField;
+            }
+            set {
+                this.surnameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public enum SpecialOrganizationType {
+        
+        /// <remarks/>
+        Board_of_Directors,
+        
+        /// <remarks/>
+        Committee,
+        
+        /// <remarks/>
+        Conference,
+        
+        /// <remarks/>
+        Consortium,
+        
+        /// <remarks/>
+        Cooperative,
+        
+        /// <remarks/>
+        Exposition,
+        
+        /// <remarks/>
+        Family,
+        
+        /// <remarks/>
+        Individual,
+        
+        /// <remarks/>
+        Initiative,
+        
+        /// <remarks/>
+        Investment,
+        
+        /// <remarks/>
+        Program,
+        
+        /// <remarks/>
+        Project,
+        
+        /// <remarks/>
+        Student,
+        
+        /// <remarks/>
+        System,
+        
+        /// <remarks/>
+        Virtual,
+        
+        /// <remarks/>
+        Work_Group,
+        
+        /// <remarks/>
+        Other,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class GroupStakeholder : Group {
+        
+        private string extendsField;
+        
+        private Relationship[] relationshipField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="IDREF")]
+        public string Extends {
+            get {
+                return this.extendsField;
+            }
+            set {
+                this.extendsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Relationship")]
+        public Relationship[] Relationship {
+            get {
+                return this.relationshipField;
+            }
+            set {
+                this.relationshipField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2338,203 +2696,22 @@ namespace StratML.Core.ThreeFive {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Responsibility : Artifact {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Risk : Artifact {
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationStakeholder))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GroupStakeholder))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Group : Actor {
-        
-        private Individual[] individualField;
-        
-        private string acronymField;
-        
-        private SpecialOrganizationType typeField;
-        
-        private bool typeFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Individual")]
-        public Individual[] Individual {
-            get {
-                return this.individualField;
-            }
-            set {
-                this.individualField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Acronym {
-            get {
-                return this.acronymField;
-            }
-            set {
-                this.acronymField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public SpecialOrganizationType Type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TypeSpecified {
-            get {
-                return this.typeFieldSpecified;
-            }
-            set {
-                this.typeFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndividualStakeholder))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Individual : Actor {
-        
-        private string givenNameField;
-        
-        private string surnameField;
-        
-        /// <remarks/>
-        public string GivenName {
-            get {
-                return this.givenNameField;
-            }
-            set {
-                this.givenNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Surname {
-            get {
-                return this.surnameField;
-            }
-            set {
-                this.surnameField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public enum SpecialOrganizationType {
-        
-        /// <remarks/>
-        Board_of_Directors,
-        
-        /// <remarks/>
-        Committee,
-        
-        /// <remarks/>
-        Conference,
-        
-        /// <remarks/>
-        Consortium,
-        
-        /// <remarks/>
-        Cooperative,
-        
-        /// <remarks/>
-        Exposition,
-        
-        /// <remarks/>
-        Family,
-        
-        /// <remarks/>
-        Individual,
-        
-        /// <remarks/>
-        Initiative,
-        
-        /// <remarks/>
-        Investment,
-        
-        /// <remarks/>
-        Program,
-        
-        /// <remarks/>
-        Project,
-        
-        /// <remarks/>
-        Student,
-        
-        /// <remarks/>
-        System,
-        
-        /// <remarks/>
-        Virtual,
-        
-        /// <remarks/>
-        Work_Group,
-        
-        /// <remarks/>
-        Other,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class GroupStakeholder : Group {
-        
-        private Relationship[] relationshipField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Relationship")]
-        public Relationship[] Relationship {
-            get {
-                return this.relationshipField;
-            }
-            set {
-                this.relationshipField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class OrganizationStakeholder : Organization {
         
+        private string extendsField;
+        
         private Relationship[] relationshipField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="IDREF")]
+        public string Extends {
+            get {
+                return this.extendsField;
+            }
+            set {
+                this.extendsField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Relationship")]

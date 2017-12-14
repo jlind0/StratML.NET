@@ -1,16 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <stratml35:OrganizationalStrategyDocument xmlns:stratml35="http://schemas.stratml.us/3.5">
-  <stratml35:Identifer>uid-corelind-i-plan</stratml35:Identifer>
+  <stratml35:Identifer>uid-coreslt-plan</stratml35:Identifer>
   <stratml35:Organization>
-    <stratml35:Identifer>uid-lind-i</stratml35:Identifer>
-    <stratml35:Name>Lind Innovation</stratml35:Name>
-    <stratml35:Map>
-      <stratml35:Type>Supports</stratml35:Type>
-      <stratml35:Weight>1</stratml35:Weight>
-      <stratml35:MappedIdentifier>uid-nexdevices </stratml35:MappedIdentifier>
-    </stratml35:Map>
+    <stratml35:Identifer>uid-slt</stratml35:Identifer>
+    <stratml35:Name>Steffek/Lind&lt;Transformation&gt;</stratml35:Name>
     <stratml35:Contact>
-      <stratml35:Identifier>uid-conact-lind-i</stratml35:Identifier>
+      <stratml35:Identifier>uid-conact-slt</stratml35:Identifier>
       <stratml35:PhoneNumber>
         <stratml35:Identifer>uid-phone-jason-lind</stratml35:Identifer>
         <stratml35:Number>4147882820</stratml35:Number>
@@ -25,14 +20,14 @@
         <stratml35:Country>USA</stratml35:Country>
       </stratml35:Address>
       <stratml35:Website>
-        <stratml35:Identifer>uid-contact-web-lind-i</stratml35:Identifer>
-        <stratml35:WebAddress>http://www.lind-i.com</stratml35:WebAddress>
+        <stratml35:Identifer>uid-contact-web-slt</stratml35:Identifer>
+        <stratml35:WebAddress>http://slt.one</stratml35:WebAddress>
       </stratml35:Website>
     </stratml35:Contact>
-    
+
     <stratml35:Individual>
       <stratml35:Identifer>uid-jason-lind</stratml35:Identifer>
-      
+
       <stratml35:Contact>
         <stratml35:Identifier>uid-contact-shakers</stratml35:Identifier>
         <stratml35:PhoneNumber>
@@ -43,6 +38,7 @@
           <stratml35:Email>jason@lind-i.com</stratml35:Email>
         </stratml35:EmailAddress>
         <stratml35:Address>
+          <stratml35:Identifer>uid-address-shakers</stratml35:Identifer>
           <stratml35:Name>Shakers</stratml35:Name>
           <stratml35:Street>422 S Second St.</stratml35:Street>
           <stratml35:Locality>Milwaukee</stratml35:Locality>
@@ -62,8 +58,8 @@
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:Identifer>uid-role-cso</stratml35:Identifer>
-        <stratml35:Name>Chief Strategy Officer</stratml35:Name>
+        <stratml35:Identifer>uid-role-transformation</stratml35:Identifer>
+        <stratml35:Name>Transformation</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Competency>Core</stratml35:Competency>
@@ -76,71 +72,318 @@
         <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
       </stratml35:Role>
       <stratml35:Role>
+        <stratml35:Identifer>uid-role-svp</stratml35:Identifer>
+        <stratml35:Name>Senior Vice President</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-engineering</stratml35:Identifer>
+        <stratml35:Name>Engineering</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Competency>Core</stratml35:Competency>
+    </stratml35:Individual>
+    <stratml35:Individual>
+      <stratml35:Identifer>uid-amy-steffek</stratml35:Identifer>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-president</stratml35:Identifer>
+        <stratml35:Name>President</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Competency>Core</stratml35:Competency>
+      <stratml35:GivenName>Amy</stratml35:GivenName>
+      <stratml35:Surname>Steffek</stratml35:Surname>
+    </stratml35:Individual>
+    <stratml35:Individual>
+      <stratml35:Identifer>uid-alexandria-yale</stratml35:Identifer>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-evp</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-operations</stratml35:Identifer>
+        <stratml35:Name>Operations</stratml35:Name>
+
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Competency>Core</stratml35:Competency>
+      <stratml35:GivenName>Alex</stratml35:GivenName>
+      <stratml35:Surname>Yale</stratml35:Surname>
+    </stratml35:Individual>
+    <stratml35:Individual>
+      <stratml35:Identifer>uid-luke-baewer</stratml35:Identifer>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
         <stratml35:Identifer>uid-role-cos</stratml35:Identifer>
         <stratml35:Name>Chief of Staff</stratml35:Name>
         <stratml35:RoleType>Performer</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Competency>Core</stratml35:Competency>
+      <stratml35:GivenName>Luke</stratml35:GivenName>
+      <stratml35:Surname>Baewer</stratml35:Surname>
+    </stratml35:Individual>
+    <stratml35:Individual>
+      <stratml35:Identifer>uid-melissa-flinn</stratml35:Identifer>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-svp</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-marketing</stratml35:Identifer>
+        <stratml35:Name>Marketing</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Competency>Core</stratml35:Competency>
+      <stratml35:GivenName>Melissa</stratml35:GivenName>
+      <stratml35:Surname>Flinn</stratml35:Surname>
+    </stratml35:Individual>
+    <stratml35:Individual>
+      <stratml35:Identifer>uid-andy-patch</stratml35:Identifer>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-vp</stratml35:Identifer>
+        <stratml35:Name>Vice President</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-art</stratml35:Identifer>
+        <stratml35:Name>Art</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Competency>Supporting</stratml35:Competency>
+      <stratml35:GivenName>Andy</stratml35:GivenName>
+      <stratml35:Surname>Patch</stratml35:Surname>
+    </stratml35:Individual>
+    <stratml35:Individual>
+      <stratml35:Identifer>uid-leszek-zychowski</stratml35:Identifer>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-vp</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-software</stratml35:Identifer>
+        <stratml35:Name>Software</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Competency>Supporting</stratml35:Competency>
+      <stratml35:GivenName>Leszek</stratml35:GivenName>
+      <stratml35:Surname>Zychowski</stratml35:Surname>
+    </stratml35:Individual>
+    <stratml35:Individual>
+      <stratml35:Identifer>uid-stephanie-gatas</stratml35:Identifer>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-vp</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-human-capital</stratml35:Identifer>
+        <stratml35:Name>Human Capital</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Competency>Supporting</stratml35:Competency>
+      <stratml35:GivenName>Stephanie</stratml35:GivenName>
+      <stratml35:Surname>Gatas</stratml35:Surname>
+    </stratml35:Individual>
+    <stratml35:Individual>
+      <stratml35:Identifer>uid-todd-huynh</stratml35:Identifer>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-vp</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-finance</stratml35:Identifer>
+        <stratml35:Name>Finance</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Competency>Supporting</stratml35:Competency>
+      <stratml35:GivenName>Todd</stratml35:GivenName>
+      <stratml35:Surname>Huynh</stratml35:Surname>
+    </stratml35:Individual>
+    <stratml35:Individual>
+      <stratml35:Identifer>uid-kimberly-victorine</stratml35:Identifer>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:ReferenceIdentifier>uid-role-vp</stratml35:ReferenceIdentifier>
+      </stratml35:Role>
+      <stratml35:Role>
+        <stratml35:Identifer>uid-role-health</stratml35:Identifer>
+        <stratml35:Name>Health</stratml35:Name>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Competency>Supporting</stratml35:Competency>
+      <stratml35:GivenName>Kimberly</stratml35:GivenName>
+      <stratml35:Surname>Victorine</stratml35:Surname>
     </stratml35:Individual>
     
-    <stratml35:Acronym>LIND-I</stratml35:Acronym>
-    <stratml35:Type>Board_of_Directors</stratml35:Type>
+    
+    <stratml35:Acronym>S/L&lt;T&gt;</stratml35:Acronym>
     
     <stratml35:Strategy>
-      <stratml35:Identifer>uid-strat-lind-i-execs</stratml35:Identifer>
-      <stratml35:Mission>
-        <stratml35:Identifer>uid-mission-lind-i</stratml35:Identifer>
-        <stratml35:Name>To be a beacon of Innovation in an increasingly risk adverse climate</stratml35:Name>
+      
+      <stratml35:Goal>
+        <stratml35:Identifer>uid-goal-member-incentives</stratml35:Identifer>
+        <stratml35:Name>Member Incentivies</stratml35:Name>
         <stratml35:Stakeholders>
           <stratml35:Individual>
-            <stratml35:Identifer>uid-execstakeholder-jason-lind</stratml35:Identifer>
-            <stratml35:ReferenceIdentifier>uid-jason-lind</stratml35:ReferenceIdentifier>
-          </stratml35:Individual>                          
+            <stratml35:Extends>uid-jack-driscoll</stratml35:Extends>
+          </stratml35:Individual>
+          <stratml35:Individual>
+            <stratml35:Extends>uid-amy-steffek</stratml35:Extends>
+          </stratml35:Individual>
+          <stratml35:Individual>
+            <stratml35:Extends>uid-alexandria-yale</stratml35:Extends>
+          </stratml35:Individual>
+          <stratml35:Individual>
+            <stratml35:Extends>uid-luke-baewer</stratml35:Extends>
+          </stratml35:Individual>
+          <stratml35:Individual>
+            <stratml35:Extends>uid-melissa-flinn</stratml35:Extends>
+          </stratml35:Individual>
+          <stratml35:Individual>
+            <stratml35:Extends>uid-andy-patch</stratml35:Extends>
+          </stratml35:Individual>
+          <stratml35:Individual>
+            <stratml35:Extends>uid-leszek-zychowski</stratml35:Extends>
+          </stratml35:Individual>
+          <stratml35:Individual>
+            <stratml35:Extends>uid-stephanie-gatas</stratml35:Extends>
+          </stratml35:Individual>
+          <stratml35:Individual>
+            <stratml35:Extends>uid-todd-huynh</stratml35:Extends>
+          </stratml35:Individual>
+          <stratml35:Individual>
+            <stratml35:Extends>uid-kimberly-victorine</stratml35:Extends>
+          </stratml35:Individual>
         </stratml35:Stakeholders>
-      </stratml35:Mission>
-      <stratml35:Value>
-        <stratml35:Identifer>uid-values-lind-i-wemakechange</stratml35:Identifer>
-        <stratml35:Name>We Make Change!</stratml35:Name>
-        <stratml35:Description>Everything Lind Innovation does, in its reserarch and development, to "Make Change" at a global scale.</stratml35:Description>
-        <stratml35:Stakeholders>
-          <stratml35:Individual>
-            <stratml35:Identifer>uid-stakeholder-teresa-morden</stratml35:Identifer>
+        <stratml35:Perspective>
+          <stratml35:Identifer>uid-perspective-internal</stratml35:Identifer>
+          <stratml35:Name>Internal</stratml35:Name>
+          <stratml35:SequenceIndicator>0</stratml35:SequenceIndicator>
+        </stratml35:Perspective>
+        <stratml35:Objective>
+          <stratml35:Name>Revenue Sharing</stratml35:Name>
+          <stratml35:QuantitativePerformanceIndicator>
+            <stratml35:Identifer>uid-performance-revenue</stratml35:Identifer>
             <stratml35:Map>
-              <stratml35:Type>Conflict</stratml35:Type>
-              <stratml35:Weight>100</stratml35:Weight>
-              <stratml35:MappedIdentifier>uid-jason-lind</stratml35:MappedIdentifier>
+              <stratml35:Type>Input</stratml35:Type>
+              <stratml35:MappedIdentifier>uid-assets-revenue-jason-lind</stratml35:MappedIdentifier>
             </stratml35:Map>
-            <stratml35:Role>
-              <stratml35:ReferenceIdentifier>uid-role-co-founder</stratml35:ReferenceIdentifier>
-            </stratml35:Role>
-            <stratml35:Competency>Ancillary</stratml35:Competency>
-            <stratml35:GivenName>Teresa</stratml35:GivenName>
-            <stratml35:Surname>Morden</stratml35:Surname>
-          </stratml35:Individual>
-          <stratml35:Individual>
-            <stratml35:ReferenceIdentifier>uid-jason-lind</stratml35:ReferenceIdentifier>
-          </stratml35:Individual>
-          <stratml35:Individual>
-            <stratml35:ReferenceIdentifier>uid-jack-driscoll</stratml35:ReferenceIdentifier>
-          </stratml35:Individual>
-        </stratml35:Stakeholders>
-        <stratml35:SequenceIndicator>1.0</stratml35:SequenceIndicator>
-      </stratml35:Value>
-      <stratml35:Value>
-        <stratml35:Identifer>uid-value-lind-i-foster-development-of-exchange</stratml35:Identifer>
-        <stratml35:Name>Foster the Key Elements of the Exchange</stratml35:Name>
+            <stratml35:UnitOfMeasurement>
+              <stratml35:Identifer>uid-ofm-percent</stratml35:Identifer>
+              <stratml35:Name>Percent</stratml35:Name>
+            </stratml35:UnitOfMeasurement>
+            <stratml35:Target>
+              <stratml35:Result>
+                <stratml35:Map>
+                  <stratml35:Type>Output</stratml35:Type>
+                  <stratml35:MappedIdentifier>uid-role-president</stratml35:MappedIdentifier>
+                </stratml35:Map>
+                <stratml35:NumberOfUnits>5</stratml35:NumberOfUnits>
+              </stratml35:Result>
+              <stratml35:Result>
+                <stratml35:Map>
+                  <stratml35:Type>Output</stratml35:Type>
+                  <stratml35:MappedIdentifier>uid-role-cos</stratml35:MappedIdentifier>
+                </stratml35:Map>
+                <stratml35:NumberOfUnits>5</stratml35:NumberOfUnits>
+              </stratml35:Result>
+              <stratml35:Result>
+                <stratml35:Map>
+                  <stratml35:Type>Output</stratml35:Type>
+                  <stratml35:MappedIdentifier>uid-role-evp</stratml35:MappedIdentifier>
+                </stratml35:Map>
+                <stratml35:NumberOfUnits>10</stratml35:NumberOfUnits>
+              </stratml35:Result>
+              <stratml35:Result>
+                <stratml35:Map>
+                  <stratml35:Type>Output</stratml35:Type>
+                  <stratml35:MappedIdentifier>uid-role-svp</stratml35:MappedIdentifier>
+                </stratml35:Map>
+                <stratml35:NumberOfUnits>15</stratml35:NumberOfUnits>
+              </stratml35:Result>
+              <stratml35:Result>
+                <stratml35:Map>
+                  <stratml35:Type>Output</stratml35:Type>
+                  <stratml35:MappedIdentifier>uid-role-vp</stratml35:MappedIdentifier>
+                </stratml35:Map>
+                <stratml35:NumberOfUnits>10</stratml35:NumberOfUnits>
+              </stratml35:Result>
+            </stratml35:Target>
+          </stratml35:QuantitativePerformanceIndicator>
+        </stratml35:Objective>
+        
+        <stratml35:Priority>High</stratml35:Priority>
+      </stratml35:Goal>
+      
+      <stratml35:Assets>
+        <stratml35:Identifer>uid-assets-revenue-jason-lind</stratml35:Identifer>
+        <stratml35:Name>Jason Lind's Revenue</stratml35:Name>
         <stratml35:Stakeholders>
           <stratml35:Individual>
-            <stratml35:ReferenceIdentifier>uid-jason-lind</stratml35:ReferenceIdentifier>
+            <stratml35:Extends>uid-jason-lind</stratml35:Extends>
           </stratml35:Individual>
         </stratml35:Stakeholders>
-        <stratml35:SequenceIndicator>1.1</stratml35:SequenceIndicator>
-      </stratml35:Value>
+        <stratml35:Asset>
+          <stratml35:Identifer>uid-asset-groupbobaloo-hours</stratml35:Identifer>
+          <stratml35:Name>Groupbobaloo Hours Per Month</stratml35:Name>
+          <stratml35:Map>
+            <stratml35:Type>Input</stratml35:Type>
+            <stratml35:MappedIdentifier>uid-jason-lind</stratml35:MappedIdentifier>
+          </stratml35:Map>
+          <stratml35:Stakeholders>
+            <stratml35:Organization>
+              <stratml35:Extends>uid-groupbobaloo</stratml35:Extends>
+            </stratml35:Organization>
+          </stratml35:Stakeholders>
+          <stratml35:Type>Intangible</stratml35:Type>
+        </stratml35:Asset>
+        <stratml35:Asset>
+          <stratml35:Identifer>uid-asset-groupbobaloo-revenue</stratml35:Identifer>
+          <stratml35:Name>Groupbobaloo Revenue Per Month</stratml35:Name>
+          <stratml35:Map>
+            <stratml35:Type>Input</stratml35:Type>
+            <stratml35:MappedIdentifier>uid-groupbobaloo</stratml35:MappedIdentifier>
+          </stratml35:Map>
+          <stratml35:Map>
+            <stratml35:Type>Output</stratml35:Type>
+            <stratml35:MappedIdentifier>uid-slt</stratml35:MappedIdentifier>
+          </stratml35:Map>
+          <stratml35:Stakeholders>
+            <stratml35:Organization>
+              <stratml35:Extends>uid-groupbobaloo</stratml35:Extends>
+            </stratml35:Organization>
+          </stratml35:Stakeholders>
+          <stratml35:Type>Tangible</stratml35:Type>
+        </stratml35:Asset>
+        
+      </stratml35:Assets>
+      
     </stratml35:Strategy>
-    
     <stratml35:Organization>
-      <stratml35:Identifer>uid-nexdevices</stratml35:Identifer>
-      <stratml35:Name>NexDevices</stratml35:Name>
+      <stratml35:Identifer>uid-groupbobaloo</stratml35:Identifer>
+      <stratml35:Name>Groupbobaloo</stratml35:Name>
+      <stratml35:Individual>
+        <stratml35:ReferenceIdentifier>uid-jason-lind</stratml35:ReferenceIdentifier>
+        <stratml35:Role>
+          <stratml35:Identifer>uid-role-cte</stratml35:Identifer>
+          <stratml35:Name>Chief Transformation Engineer</stratml35:Name>
+          <stratml35:Map>
+            <stratml35:Type>Relationship</stratml35:Type>
+            <stratml35:Weight>1</stratml35:Weight>
+            <stratml35:MappedIdentifier>uid-role-transformation</stratml35:MappedIdentifier>
+          </stratml35:Map>
+        </stratml35:Role>
+      </stratml35:Individual>
     </stratml35:Organization>
   </stratml35:Organization>
   <stratml35:Submitter>
@@ -152,5 +395,4 @@
     <stratml35:EndDate>2018-12-31</stratml35:EndDate>
     <stratml35:PublicationDate>2017-12-12</stratml35:PublicationDate>
   </stratml35:AdministrativeInformation>
-
 </stratml35:OrganizationalStrategyDocument>
