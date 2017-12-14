@@ -149,7 +149,7 @@
           <stratml35:Name>Nominate Members</stratml35:Name>
           <stratml35:Map>
             <stratml35:Type>Input</stratml35:Type>
-            <stratml35:MappedIdentifier>uid-role-humancapital</stratml35:MappedIdentifier>
+            <stratml35:MappedIdentifier>uid-role-human-capital</stratml35:MappedIdentifier>
           </stratml35:Map>
           <stratml35:Map>
             <stratml35:Type>Output</stratml35:Type>
