@@ -258,7 +258,6 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Vision))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Mission))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Asset))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Attribute))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Artifact))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceIndicatorBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ScoredPerformanceIndicator))]
@@ -268,7 +267,6 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Goal))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetCollection))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Family))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Perspective))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActivityBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupportingActivity))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrimaryActivity))]
@@ -279,6 +277,7 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Responsibility))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Right))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Perspective))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -455,11 +454,11 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Relationship))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SuccessFactor))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RatingSet))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Score))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ManagementChallenge))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Category))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CategoryGroup))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(StrategyFramework))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Score))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Role))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContactMechanism))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(WebAddress))]
@@ -478,7 +477,6 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Vision))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Mission))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Asset))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Attribute))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Artifact))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceIndicatorBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ScoredPerformanceIndicator))]
@@ -488,7 +486,6 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Goal))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetCollection))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Family))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Perspective))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActivityBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupportingActivity))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrimaryActivity))]
@@ -499,6 +496,7 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Responsibility))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Right))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Perspective))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Strategy))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Map))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
@@ -667,6 +665,106 @@ namespace StratML.Core.ThreeFive {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class AdministrativeInformation {
+        
+        private string identifierField;
+        
+        private System.DateTime startDateField;
+        
+        private bool startDateFieldSpecified;
+        
+        private System.DateTime endDateField;
+        
+        private bool endDateFieldSpecified;
+        
+        private System.DateTime publicationDateField;
+        
+        private string sourceField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
+        public string Identifier {
+            get {
+                return this.identifierField;
+            }
+            set {
+                this.identifierField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime StartDate {
+            get {
+                return this.startDateField;
+            }
+            set {
+                this.startDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StartDateSpecified {
+            get {
+                return this.startDateFieldSpecified;
+            }
+            set {
+                this.startDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime EndDate {
+            get {
+                return this.endDateField;
+            }
+            set {
+                this.endDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool EndDateSpecified {
+            get {
+                return this.endDateFieldSpecified;
+            }
+            set {
+                this.endDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime PublicationDate {
+            get {
+                return this.publicationDateField;
+            }
+            set {
+                this.publicationDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="anyURI")]
+        public string Source {
+            get {
+                return this.sourceField;
+            }
+            set {
+                this.sourceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeasurementResultDescriptor))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeasurementResultScore))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeasurementResultUnits))]
@@ -831,106 +929,6 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.numberOfUnitsField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class AdministrativeInformation {
-        
-        private string identifierField;
-        
-        private System.DateTime startDateField;
-        
-        private bool startDateFieldSpecified;
-        
-        private System.DateTime endDateField;
-        
-        private bool endDateFieldSpecified;
-        
-        private System.DateTime publicationDateField;
-        
-        private string sourceField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
-        public string Identifier {
-            get {
-                return this.identifierField;
-            }
-            set {
-                this.identifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
-        public System.DateTime StartDate {
-            get {
-                return this.startDateField;
-            }
-            set {
-                this.startDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool StartDateSpecified {
-            get {
-                return this.startDateFieldSpecified;
-            }
-            set {
-                this.startDateFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
-        public System.DateTime EndDate {
-            get {
-                return this.endDateField;
-            }
-            set {
-                this.endDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool EndDateSpecified {
-            get {
-                return this.endDateFieldSpecified;
-            }
-            set {
-                this.endDateFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
-        public System.DateTime PublicationDate {
-            get {
-                return this.publicationDateField;
-            }
-            set {
-                this.publicationDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="anyURI")]
-        public string Source {
-            get {
-                return this.sourceField;
-            }
-            set {
-                this.sourceField = value;
             }
         }
     }
@@ -1626,7 +1624,6 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Goal))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AssetCollection))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Family))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Perspective))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActivityBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupportingActivity))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrimaryActivity))]
@@ -1637,6 +1634,7 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Responsibility))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Right))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Perspective))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1646,7 +1644,7 @@ namespace StratML.Core.ThreeFive {
         
         private string sequenceIndicatorField;
         
-        private object perspectiveField;
+        private Perspective perspectiveField;
         
         /// <remarks/>
         public string SequenceIndicator {
@@ -1659,7 +1657,7 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
-        public object Perspective {
+        public Perspective Perspective {
             get {
                 return this.perspectiveField;
             }
@@ -1667,6 +1665,15 @@ namespace StratML.Core.ThreeFive {
                 this.perspectiveField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Perspective : Artifact {
     }
     
     /// <remarks/>
@@ -2172,15 +2179,6 @@ namespace StratML.Core.ThreeFive {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Perspective : Artifact {
-    }
-    
-    /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupportingActivity))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrimaryActivity))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
@@ -2311,27 +2309,18 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class Proposition : Artifact {
         
-        private Attribute[] attributeField;
+        private Value[] valueField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Attribute")]
-        public Attribute[] Attribute {
+        [System.Xml.Serialization.XmlElementAttribute("Value")]
+        public Value[] Value {
             get {
-                return this.attributeField;
+                return this.valueField;
             }
             set {
-                this.attributeField = value;
+                this.valueField = value;
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Attribute : ArtifactBase {
     }
     
     /// <remarks/>

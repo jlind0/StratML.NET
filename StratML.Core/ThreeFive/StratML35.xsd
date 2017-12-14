@@ -95,7 +95,7 @@
       <xs:extension base="ArtifactBase">
         <xs:sequence>
           <xs:element name="SequenceIndicator" type="xs:string" maxOccurs="1" minOccurs="0"/>
-          <xs:element name="Perspective" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Perspective" type="Perspective" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -141,14 +141,8 @@
     <xs:complexContent>
       <xs:extension base="Artifact">
         <xs:sequence>
-          <xs:element name="Attribute" type="Attribute" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="Value" type="Value" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="Attribute">
-    <xs:complexContent>
-      <xs:extension base="ArtifactBase">
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -166,6 +160,7 @@
     <xs:complexContent>
       <xs:extension base="Artifact">
         <xs:sequence>
+          
           <xs:element name="Framework" type="StrategyFramework" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="Primary" type="PrimaryActivity" maxOccurs="unbounded" minOccurs="1"/>
           <xs:element name="Supporting" type="SupportingActivity" maxOccurs="unbounded" minOccurs="0"/>
