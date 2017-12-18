@@ -78,14 +78,6 @@
         <stratml35:MappedIdentifier>uid-role-digital</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-strategy</stratml35:MappedIdentifier>
       </stratml35:Map>
-      <stratml35:Map>
-        <stratml35:Name>Tangentially Supports</stratml35:Name>
-        <stratml35:Type>Supports</stratml35:Type>
-        <stratml35:Weight>0.5</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-econ</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-politics</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-legal</stratml35:MappedIdentifier>
-      </stratml35:Map>
       <stratml35:Status>Approved</stratml35:Status>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-member</stratml35:ReferenceIdentifier>
@@ -539,6 +531,7 @@
     
     <stratml35:PrototypeIndividual>
       <stratml35:Identifier>uid-proto-evp-management</stratml35:Identifier>
+      <stratml35:Name>TBN EVP/Management</stratml35:Name>
       <stratml35:Map>
         <stratml35:Name>Direct Supports</stratml35:Name>
         <stratml35:Type>Supports</stratml35:Type>
@@ -570,6 +563,7 @@
 
     <stratml35:PrototypeIndividual>
       <stratml35:Identifier>uid-proto-svp-security</stratml35:Identifier>
+      <stratml35:Name>TBN: SVP/Security</stratml35:Name>
       <stratml35:Map>
         <stratml35:Name>Direct Supports</stratml35:Name>
         <stratml35:Type>Supports</stratml35:Type>
@@ -597,6 +591,7 @@
     
     <stratml35:PrototypeIndividual>
       <stratml35:Identifier>uid-proto-vp-finance</stratml35:Identifier>
+      <stratml35:Name>TBN: VP/Finance</stratml35:Name>
       <stratml35:Map>
         <stratml35:Name>Direct Supports</stratml35:Name>
         <stratml35:Type>Supports</stratml35:Type>
@@ -622,6 +617,7 @@
 
     <stratml35:PrototypeIndividual>
       <stratml35:Identifier>uid-proto-vp-legal</stratml35:Identifier>
+      <stratml35:Name>TBN: VP/Legal</stratml35:Name>
       <stratml35:Map>
         <stratml35:Name>Direct Supports</stratml35:Name>
         <stratml35:Type>Supports</stratml35:Type>
@@ -648,6 +644,7 @@
     </stratml35:PrototypeIndividual>
     <stratml35:PrototypeIndividual>
       <stratml35:Identifier>uid-proto-vp-math</stratml35:Identifier>
+      <stratml35:Name>TBN: VP/Mathematics</stratml35:Name>
       <stratml35:Map>
         <stratml35:Name>Direct Supports</stratml35:Name>
         <stratml35:Type>Supports</stratml35:Type>
@@ -674,6 +671,7 @@
     </stratml35:PrototypeIndividual>
     <stratml35:PrototypeIndividual>
       <stratml35:Identifier>uid-proto-vp-physics</stratml35:Identifier>
+      <stratml35:Name>TBN: VP/Physics</stratml35:Name>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-member</stratml35:ReferenceIdentifier>
       </stratml35:Role>
