@@ -42,10 +42,9 @@
   </xs:group>
   <xs:complexType name="AdministrativeInformation" id="uuid-32864389-230a-4f77-9c09-c083386fcad9">
     <xs:sequence>
-      <xs:element name="Identifier" type="xs:ID"  minOccurs="1" maxOccurs="1"/>
       <xs:element name="StartDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
       <xs:element name="EndDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="PublicationDate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="PublicationDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Source" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
@@ -77,9 +76,11 @@
           <xs:element name="Stakeholders" maxOccurs="1" minOccurs="0">
             <xs:complexType>
               <xs:sequence>
-                <xs:element name="Individual" type="IndividualStakeholder" maxOccurs="unbounded" minOccurs="0"/>
-                <xs:element name="Organization" type="OrganizationStakeholder" maxOccurs="unbounded" minOccurs="0"/>
-                <xs:element name="Group" type="GroupStakeholder" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element name="Individual" type="Individual" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element name="PrototypeIndividual" type="PrototypeIndividual" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element name="Group" type="Group" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element name="Organization" type="Organization" maxOccurs="unbounded" minOccurs="0"/>
+                
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -369,39 +370,7 @@
       <xs:enumeration value="Narrower_Than"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:group name="Stakeholder">
-    <xs:sequence>
-      <xs:element name="Extends" type="xs:IDREF" maxOccurs="1" minOccurs="0"/>
-      <xs:element name="Relationship" type="Relationship" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:complexType name="IndividualStakeholder">
-    <xs:complexContent>
-      <xs:extension base="Individual">
-        <xs:sequence>
-          <xs:group ref="Stakeholder"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="OrganizationStakeholder">
-    <xs:complexContent>
-      <xs:extension base="Organization">
-        <xs:sequence>
-          <xs:group ref="Stakeholder"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="GroupStakeholder">
-    <xs:complexContent>
-      <xs:extension base="Group">
-        <xs:sequence>
-          <xs:group ref="Stakeholder"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+ 
   <xs:complexType name="Objective">
     <xs:complexContent>
       <xs:extension base="Artifact">
@@ -494,6 +463,7 @@
         <xs:sequence>
           <xs:element name="Contact" type="ContactInformation" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Role" type="Role" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Relationship" type="Relationship" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="Competency" type="Competency" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="ValueProposition" type="Base" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Right" type="Right" minOccurs="0" maxOccurs="unbounded"/>
@@ -520,13 +490,21 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="PrototypeIndividual">
+    <xs:complexContent>
+      <xs:extension base="Actor">
+        
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="Group">
     <xs:complexContent>
       <xs:extension base="Actor">
         <xs:sequence>
-          <xs:element name="Individual" type="Individual" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Acronym" type="xs:string" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="Type" type="SpecialOrganizationType" minOccurs="0" maxOccurs="1"/>          
+          <xs:element name="SpecialType" type="SpecialOrganizationType" minOccurs="0" maxOccurs="1"/> 
+          <xs:element name="Individual" type="Individual" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="PrototypeIndividual" type="PrototypeIndividual" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         
       </xs:extension>
@@ -536,9 +514,8 @@
     <xs:complexContent>
       <xs:extension base="Group">
         <xs:sequence>
-          <xs:element name="Strategy" type="Strategy" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Organization" type="Organization" minOccurs="0" maxOccurs="unbounded"/>
-          
+          <xs:element name="Strategy" type="Strategy" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -562,7 +539,7 @@
     <xs:complexContent>
       <xs:extension base="Base">
         <xs:sequence>
-          <xs:element name="Type" type="MapType" default="Relationship" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Type" type="MapType" default="Relationship" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="Weight" type="xs:double" maxOccurs="1" minOccurs="0"/>
           <xs:element name="MappedIdentifier" type="xs:IDREF" maxOccurs="unbounded" minOccurs="1"/>
         </xs:sequence>
@@ -644,7 +621,7 @@
     <xs:complexContent>
       <xs:extension base="Base">
         <xs:sequence>
-          <xs:element name="RoleType" type="RoleType" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="RoleType" type="RoleType" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Right" type="Right" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Responsibility" type="Responsibility" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="Payoff" type="Payoff" maxOccurs="unbounded" minOccurs="0"/>
@@ -667,6 +644,7 @@
       <xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Map" type="Map" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="Status" type="Status" maxOccurs="1" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="InternalOrExternal">
@@ -781,5 +759,14 @@
       <xs:enumeration value="Other"/>
     </xs:restriction>
   </xs:simpleType>
+<xs:simpleType name="Status">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="Implemented"/>
+    <xs:enumeration value="Approved"/>
+    <xs:enumeration value="Validated"/>
+    <xs:enumeration value="Mandatory"/>
+    <xs:enumeration value="Proposed"/>
+  </xs:restriction>
+</xs:simpleType>
 </xs:schema>
 
