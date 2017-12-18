@@ -725,7 +725,7 @@
     </stratml35:PrototypeIndividual>
     
     <stratml35:Organization>
-      <stratml35:Identifier>uid-role-org-groupbobaloo</stratml35:Identifier>
+      <stratml35:Identifier>uid-org-groupbobaloo</stratml35:Identifier>
       <stratml35:Name>Group Bobaloo</stratml35:Name>
       <stratml35:Status>Implemented</stratml35:Status>
       <stratml35:Role>
@@ -753,7 +753,174 @@
         </stratml35:Role>
       </stratml35:Individual>
     </stratml35:Organization>
-    
+    <stratml35:Organization>
+      <stratml35:Identifier>uid-org-leidos</stratml35:Identifier>
+      <stratml35:Name>Leidos</stratml35:Name>
+      <stratml35:Status>Validated</stratml35:Status>
+      <stratml35:Role>
+        <stratml35:RoleType>Client</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Individual>
+        <stratml35:ReferenceIdentifier>uid-ind-jason-lind</stratml35:ReferenceIdentifier>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-deputy-chief</stratml35:Identifier>
+          <stratml35:Name>Deputy Chief</stratml35:Name>
+          <stratml35:RoleType>Performer</stratml35:RoleType>
+        </stratml35:Role>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-tech-and-strat</stratml35:Identifier>
+          <stratml35:Name>Technology and Strategy</stratml35:Name>
+          <stratml35:RoleType>Performer</stratml35:RoleType>
+        </stratml35:Role>
+      </stratml35:Individual>
+    </stratml35:Organization>
+    <stratml35:Strategy>
+      <stratml35:Mission>
+        <stratml35:Description>Transform.run is a collective organization in the style of A Lind Innovation (http://wwidew.net/omega/GoalStruct.pdf) and aims to foster transformation, directly and indirectly, in all aspects of society and science through funding and directing research and development to enable true freedom, independence and happiness to one and all.</stratml35:Description>
+      </stratml35:Mission>
+      <stratml35:Goal>
+        <stratml35:Identifier>uid-goal-membership-incentives</stratml35:Identifier>
+        <stratml35:Name>Membership Incentivies</stratml35:Name>
+        <stratml35:Stakeholders>
+          <stratml35:Role>
+            <stratml35:ReferenceIdentifier>uid-role-member</stratml35:ReferenceIdentifier>
+          </stratml35:Role>
+        <stratml35:Role>
+            <stratml35:ReferenceIdentifier>uid-role-board-member</stratml35:ReferenceIdentifier>
+          </stratml35:Role>
+        </stratml35:Stakeholders>
+        <stratml35:Perspective>
+          <stratml35:Identifier>uid-persp-incentivies</stratml35:Identifier>
+          <stratml35:Name>Incentivies</stratml35:Name>
+        </stratml35:Perspective>
+        <stratml35:Objective>
+          <stratml35:Identifier>uid-obj-revenue-sharing</stratml35:Identifier>
+          <stratml35:Name>Revenue Sharing</stratml35:Name>
+        <stratml35:QuantitativePerformanceIndicator>
+          <stratml35:Map>
+            <stratml35:Type>Input</stratml35:Type>
+            <stratml35:Weight>0.5</stratml35:Weight>
+            <stratml35:MappedIdentifier>uid-assets-revenue</stratml35:MappedIdentifier>
+          </stratml35:Map>
+          <stratml35:MeasurementDimension>
+            <stratml35:ReferenceIdentifier>uid-dim-monthly</stratml35:ReferenceIdentifier>
+          </stratml35:MeasurementDimension>
+          <stratml35:UnitOfMeasurement>
+            <stratml35:Identifier>uid-unit-percent</stratml35:Identifier>
+            <stratml35:Name>Percent</stratml35:Name>
+          </stratml35:UnitOfMeasurement>
+        <stratml35:Target>
+          <stratml35:Result>
+            <stratml35:Map>
+              <stratml35:Type>Output</stratml35:Type>
+              <stratml35:MappedIdentifier>uid-role-board-member</stratml35:MappedIdentifier>
+            </stratml35:Map>
+            <stratml35:NumberOfUnits>10</stratml35:NumberOfUnits>
+          </stratml35:Result>
+          <stratml35:Result>
+            <stratml35:Map>
+              <stratml35:Type>Output</stratml35:Type>
+              <stratml35:MappedIdentifier>uid-role-staff</stratml35:MappedIdentifier>
+            </stratml35:Map>
+            <stratml35:NumberOfUnits>10</stratml35:NumberOfUnits>
+          </stratml35:Result>
+          <stratml35:Result>
+            <stratml35:Map>
+              <stratml35:Type>Output</stratml35:Type>
+              <stratml35:MappedIdentifier>uid-role-evp</stratml35:MappedIdentifier>
+            </stratml35:Map>
+            <stratml35:NumberOfUnits>30</stratml35:NumberOfUnits>
+          </stratml35:Result>
+          <stratml35:Result>
+            <stratml35:Map>
+              <stratml35:Type>Output</stratml35:Type>
+              <stratml35:MappedIdentifier>uid-role-svp</stratml35:MappedIdentifier>
+            </stratml35:Map>
+            <stratml35:NumberOfUnits>30</stratml35:NumberOfUnits>
+          </stratml35:Result>
+          <stratml35:Result>
+            <stratml35:Map>
+              <stratml35:Type>Output</stratml35:Type>
+              <stratml35:MappedIdentifier>uid-role-vp</stratml35:MappedIdentifier>
+            </stratml35:Map>
+            <stratml35:NumberOfUnits>20</stratml35:NumberOfUnits>
+          </stratml35:Result>
+        </stratml35:Target>
+        </stratml35:QuantitativePerformanceIndicator>
+        </stratml35:Objective>
+        <stratml35:SuccessFactor>
+          <stratml35:Criticality>Critical</stratml35:Criticality>
+          <stratml35:InternalOrExternal>Internal</stratml35:InternalOrExternal>
+        </stratml35:SuccessFactor>
+        <stratml35:Priority>High</stratml35:Priority>
+      </stratml35:Goal>
+      <stratml35:Assets>
+        <stratml35:Identifier>uid-assets-revenue</stratml35:Identifier>
+        <stratml35:Name>Monthly Revenue</stratml35:Name>
+        <stratml35:Perspective>
+          <stratml35:Identifier>uid-persp-finance</stratml35:Identifier>
+          <stratml35:Name>Financials</stratml35:Name>
+        </stratml35:Perspective>
+        <stratml35:Family>
+          <stratml35:Identifier>uid-fam-cashflow</stratml35:Identifier>
+          <stratml35:Name>Cash Flow</stratml35:Name>
+        </stratml35:Family>
+        <stratml35:Asset>
+          <stratml35:Identifier>udi-asset-revenue-groupbobaloo</stratml35:Identifier>
+          <stratml35:Name>Monthly Revenue from Group Bobaloo</stratml35:Name>
+          <stratml35:Map>
+            <stratml35:Type>Input</stratml35:Type>
+            <stratml35:MappedIdentifier>uid-org-groupbobaloo</stratml35:MappedIdentifier>
+          </stratml35:Map>
+          <stratml35:Status>Proposed</stratml35:Status>
+          <stratml35:Stakeholders>
+            <stratml35:Individual>
+              <stratml35:ReferenceIdentifier>uid-ind-jason-lind</stratml35:ReferenceIdentifier>
+            </stratml35:Individual>
+          </stratml35:Stakeholders>
+          <stratml35:Risk>
+            <stratml35:Weight>6</stratml35:Weight>
+            <stratml35:Weight>8</stratml35:Weight>
+          </stratml35:Risk>
+          <stratml35:Dimension>
+            <stratml35:Identifier>uid-dim-monthly</stratml35:Identifier>
+            <stratml35:Name>Monthly</stratml35:Name>
+          </stratml35:Dimension>
+          <stratml35:Units>
+            <stratml35:Identifier>uid-dim-usd</stratml35:Identifier>
+            <stratml35:Name>USD</stratml35:Name>
+          </stratml35:Units>
+          <stratml35:Type>Tangible</stratml35:Type>
+          <stratml35:Valuation>1000</stratml35:Valuation>
+        </stratml35:Asset>
+        <stratml35:Asset>
+          <stratml35:Identifier>uid-asset-revenue-leidos</stratml35:Identifier>
+          <stratml35:Name>Monthly Revenue from Leidos</stratml35:Name>
+          <stratml35:Map>
+            <stratml35:Type>Input</stratml35:Type>
+            <stratml35:MappedIdentifier>uid-org-leidos</stratml35:MappedIdentifier>
+          </stratml35:Map>
+          <stratml35:Status>Proposed</stratml35:Status>
+          <stratml35:Stakeholders>
+            <stratml35:Individual>
+              <stratml35:ReferenceIdentifier>uid-ind-jason-lind</stratml35:ReferenceIdentifier>
+            </stratml35:Individual>
+          </stratml35:Stakeholders>
+          <stratml35:Risk>
+            <stratml35:Weight>4</stratml35:Weight>
+            <stratml35:Weight>7</stratml35:Weight>
+          </stratml35:Risk>
+          <stratml35:Dimension>
+            <stratml35:ReferenceIdentifier>uid-dim-monthly</stratml35:ReferenceIdentifier>
+          </stratml35:Dimension>
+          <stratml35:Units>
+            <stratml35:ReferenceIdentifier>uid-dim-usd</stratml35:ReferenceIdentifier>
+          </stratml35:Units>
+          <stratml35:Type>Tangible</stratml35:Type>
+          <stratml35:Valuation>16000</stratml35:Valuation>
+        </stratml35:Asset>
+      </stratml35:Assets>
+    </stratml35:Strategy>
   </stratml35:Organization>
   <stratml35:Submitter>
     <stratml35:Identifier>uid-ind-jason-lind</stratml35:Identifier>

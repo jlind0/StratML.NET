@@ -80,7 +80,7 @@
                 <xs:element name="PrototypeIndividual" type="PrototypeIndividual" maxOccurs="unbounded" minOccurs="0"/>
                 <xs:element name="Group" type="Group" maxOccurs="unbounded" minOccurs="0"/>
                 <xs:element name="Organization" type="Organization" maxOccurs="unbounded" minOccurs="0"/>
-                
+                <xs:element name="Role" type="Role" maxOccurs="unbounded" minOccurs="0"/>
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -215,7 +215,8 @@
       <xs:extension base="ArtifactBase">
         <xs:sequence>
           <xs:element name="Dimension" type="Base" maxOccurs="1" minOccurs="0"/>
-          <xs:element name="Type" maxOccurs="1" minOccurs="1">
+          <xs:element name="Units" type="Base" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Type" maxOccurs="1" minOccurs="0" default="Intangible">
             <xs:simpleType>
               <xs:restriction base="xs:string">
                 <xs:enumeration value="Tangible"/>

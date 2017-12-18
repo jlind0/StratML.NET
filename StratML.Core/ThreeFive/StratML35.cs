@@ -337,6 +337,8 @@ namespace StratML.Core.ThreeFive {
         
         private Organization[] organizationField;
         
+        private Role[] roleField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Individual")]
         public Individual[] Individual {
@@ -378,6 +380,17 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.organizationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Role")]
+        public Role[] Role {
+            get {
+                return this.roleField;
+            }
+            set {
+                this.roleField = value;
             }
         }
     }
@@ -2339,11 +2352,17 @@ namespace StratML.Core.ThreeFive {
         
         private Base dimensionField;
         
+        private Base unitsField;
+        
         private AssetType typeField;
         
         private double valuationField;
         
         private bool valuationFieldSpecified;
+        
+        public Asset() {
+            this.typeField = AssetType.Intangible;
+        }
         
         /// <remarks/>
         public Base Dimension {
@@ -2356,6 +2375,17 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
+        public Base Units {
+            get {
+                return this.unitsField;
+            }
+            set {
+                this.unitsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.ComponentModel.DefaultValueAttribute(AssetType.Intangible)]
         public AssetType Type {
             get {
                 return this.typeField;
