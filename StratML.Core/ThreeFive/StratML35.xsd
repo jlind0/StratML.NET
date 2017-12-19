@@ -73,6 +73,7 @@
     <xs:complexContent>
       <xs:extension base="Base">
         <xs:sequence>
+          <xs:element name="Extends" type="xs:IDREF" minOccurs="0" maxOccurs="1"/>
           <xs:element name="Stakeholders" maxOccurs="1" minOccurs="0">
             <xs:complexType>
               <xs:sequence>
@@ -457,33 +458,63 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:simpleType name="ClearTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Map"/>
+      <xs:enumeration value="Right"/>
+      <xs:enumeration value="Responsiblity"/>
+      <xs:enumeration value="Risk"/>
+      <xs:enumeration value="Relationship"/>
+      <xs:enumeration value="Competency"/>
+      <xs:enumeration value="ValueProposition"/>
+      <xs:enumeration value="Role"/>
+      <xs:enumeration value="Contact"/>
+      <xs:enumeration value="Stakeholder"/>
+    </xs:restriction>
+  </xs:simpleType>
   
-  <xs:complexType name="Actor" abstract="true">
+  <xs:complexType name="StakeholderBase" abstract="true">
     <xs:complexContent>
       <xs:extension base="Base">
         <xs:sequence>
-          <xs:element name="Contact" type="ContactInformation" maxOccurs="1" minOccurs="0"/>
-          <xs:element name="Role" type="Role" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Right" type="Right" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Responsiblity" type="Responsibility" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Risk" type="Risk" maxOccurs="unbounded" minOccurs="0"/>
+          <xs:element name="Payoff" type="Payoff" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Relationship" type="Relationship" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="Competency" type="Competency" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="ValueProposition" type="Base" minOccurs="0" maxOccurs="unbounded"/>
-          <xs:element name="Right" type="Right" minOccurs="0" maxOccurs="unbounded"/>
-          <xs:element name="Responsiblity" type="Responsibility" minOccurs="0" maxOccurs="unbounded"/>
-          <xs:element name="Payoff" type="Payoff" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Stakeholder" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="StakeholderBase">
+        <xs:sequence>
+          <xs:element name="Contact" type="ContactInformation" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Role" type="Role" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="Authority">
     <xs:complexContent>
-      <xs:extension base="Actor">
+      <xs:extension base="Stakeholder">
+        
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IndividualBase">
+    <xs:complexContent>
+      <xs:extension base="Stakeholder">
         
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="Individual">
     <xs:complexContent>
-      <xs:extension base="Actor">
+      <xs:extension base="IndividualBase">
         <xs:sequence>
           <xs:element name="GivenName" type="xs:string" maxOccurs="1" minOccurs="0"/>
           <xs:element name="Surname" type="xs:string" maxOccurs="1" minOccurs="0"/>
@@ -493,14 +524,14 @@
   </xs:complexType>
   <xs:complexType name="PrototypeIndividual">
     <xs:complexContent>
-      <xs:extension base="Actor">
+      <xs:extension base="IndividualBase">
         
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="Group">
     <xs:complexContent>
-      <xs:extension base="Actor">
+      <xs:extension base="Stakeholder">
         <xs:sequence>
           <xs:element name="Acronym" type="xs:string" minOccurs="0" maxOccurs="1"/>
           <xs:element name="SpecialType" type="SpecialOrganizationType" minOccurs="0" maxOccurs="1"/> 
@@ -620,12 +651,10 @@
   </xs:complexType>
   <xs:complexType name="Role">
     <xs:complexContent>
-      <xs:extension base="Base">
+      <xs:extension base="StakeholderBase">
         <xs:sequence>
+          <xs:element name="Extends" type="xs:IDREF" minOccurs="0" maxOccurs="1"/>
           <xs:element name="RoleType" type="RoleType" minOccurs="0" maxOccurs="unbounded"/>
-          <xs:element name="Right" type="Right" minOccurs="0" maxOccurs="unbounded"/>
-          <xs:element name="Responsibility" type="Responsibility" maxOccurs="unbounded" minOccurs="0"/>
-          <xs:element name="Payoff" type="Payoff" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -644,6 +673,14 @@
       <xs:element name="ReferenceIdentifier" type="xs:IDREF" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Name" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Clear" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Type" type="ClearTypes" maxOccurs="1" minOccurs="1"/>
+            <xs:element name="Identifier" type="xs:IDREF" maxOccurs="unbounded" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="Map" type="Map" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element name="Status" type="Status" maxOccurs="1" minOccurs="0"/>
     </xs:sequence>

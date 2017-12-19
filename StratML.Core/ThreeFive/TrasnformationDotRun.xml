@@ -12,24 +12,9 @@
     <stratml35:Individual>
       <stratml35:ReferenceIdentifier>uid-ind-jason-lind</stratml35:ReferenceIdentifier>
       <stratml35:Map>
-        <stratml35:Name>Direct Supports</stratml35:Name>
-        <stratml35:Type>Supports</stratml35:Type>
-        <stratml35:Weight>1</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-engineering</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-strategy</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-digital</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-research</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-politics</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-security</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-math</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-phil</stratml35:MappedIdentifier>
-      </stratml35:Map>
-
-      <stratml35:Map>
         <stratml35:Name>Tangentially Supports</stratml35:Name>
         <stratml35:Type>Supports</stratml35:Type>
         <stratml35:Weight>0.5</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-operations</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-finance</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-econ</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-marketing</stratml35:MappedIdentifier>
@@ -38,7 +23,6 @@
         <stratml35:MappedIdentifier>uid-role-psych</stratml35:MappedIdentifier>
       </stratml35:Map>
       <stratml35:Status>Approved</stratml35:Status>
-
       <stratml35:Role>
         <stratml35:Identifier>uid-role-member</stratml35:Identifier>
         <stratml35:Name>Member</stratml35:Name>
@@ -46,7 +30,30 @@
         <stratml35:RoleType>Beneficiary</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Role>
-        <stratml35:ReferenceIdentifier>uid-role-board-member</stratml35:ReferenceIdentifier>
+        <stratml35:Identifier>uid-role-board-member</stratml35:Identifier>
+        <stratml35:Name>Board Member</stratml35:Name>
+        <stratml35:Map>
+          <stratml35:Type>Supports</stratml35:Type>
+          <stratml35:Weight>7</stratml35:Weight>
+          <stratml35:MappedIdentifier>uid-role-chief</stratml35:MappedIdentifier>
+        </stratml35:Map>
+        <stratml35:Map>
+          <stratml35:Type>Supports</stratml35:Type>
+          <stratml35:Weight>5</stratml35:Weight>
+          <stratml35:MappedIdentifier>uid-role-evp</stratml35:MappedIdentifier>
+        </stratml35:Map>
+        <stratml35:Map>
+          <stratml35:Type>Supports</stratml35:Type>
+          <stratml35:Weight>3</stratml35:Weight>
+          <stratml35:MappedIdentifier>uid-role-svp</stratml35:MappedIdentifier>
+        </stratml35:Map>
+        <stratml35:Map>
+          <stratml35:Type>Supports</stratml35:Type>
+          <stratml35:Weight>1</stratml35:Weight>
+          <stratml35:MappedIdentifier>uid-role-vp</stratml35:MappedIdentifier>
+        </stratml35:Map>
+        <stratml35:RoleType>Performer</stratml35:RoleType>
+        <stratml35:RoleType>Beneficiary</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Role>
         <stratml35:Identifier>uid-role-co-founder</stratml35:Identifier>
@@ -56,12 +63,38 @@
       <stratml35:Role>
         <stratml35:Identifier>uid-role-evp</stratml35:Identifier>
         <stratml35:Name>Executive Vice President</stratml35:Name>
+        <stratml35:Map>
+          <stratml35:Type>Supports</stratml35:Type>
+          <stratml35:Weight>5</stratml35:Weight>
+          <stratml35:MappedIdentifier>uid-role-svp</stratml35:MappedIdentifier>
+        </stratml35:Map>
+        <stratml35:Map>
+          <stratml35:Type>Supports</stratml35:Type>
+          <stratml35:Weight>3</stratml35:Weight>
+          <stratml35:MappedIdentifier>uid-role-vp</stratml35:MappedIdentifier>
+        </stratml35:Map>
         <stratml35:RoleType>Performer</stratml35:RoleType>
         <stratml35:RoleType>Beneficiary</stratml35:RoleType>
       </stratml35:Role>
       <stratml35:Role>
         <stratml35:Identifier>uid-role-transformation</stratml35:Identifier>
         <stratml35:Name>Transformation</stratml35:Name>
+        <stratml35:Map>
+          <stratml35:Name>Direct Supports</stratml35:Name>
+          <stratml35:Type>Supports</stratml35:Type>
+          <stratml35:Weight>1</stratml35:Weight>
+          <stratml35:MappedIdentifier>uid-role-engineering</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-strategy</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-digital</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-research</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-politics</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-security</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-math</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-operations</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-creative</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-management</stratml35:MappedIdentifier>
+        </stratml35:Map>
+        <stratml35:Extends>uid-role-member</stratml35:Extends>
         <stratml35:RoleType>Performer</stratml35:RoleType>
         <stratml35:RoleType>Beneficiary</stratml35:RoleType>
       </stratml35:Role>
@@ -70,18 +103,8 @@
 
     <stratml35:Individual>
       <stratml35:Identifier>uid-ind-scott-ginter</stratml35:Identifier>
-      <stratml35:Map>
-        <stratml35:Name>Direct Supports</stratml35:Name>
-        <stratml35:Type>Supports</stratml35:Type>
-        <stratml35:Weight>1</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-marketing</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-digital</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-strategy</stratml35:MappedIdentifier>
-      </stratml35:Map>
+     
       <stratml35:Status>Approved</stratml35:Status>
-      <stratml35:Role>
-        <stratml35:ReferenceIdentifier>uid-role-member</stratml35:ReferenceIdentifier>
-      </stratml35:Role>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-board-member</stratml35:ReferenceIdentifier>
       </stratml35:Role>
@@ -94,6 +117,16 @@
       <stratml35:Role>
         <stratml35:Identifier>uid-role-creative</stratml35:Identifier>
         <stratml35:Name>Creative</stratml35:Name>
+         <stratml35:Map>
+          <stratml35:Name>Direct Supports</stratml35:Name>
+          <stratml35:Type>Supports</stratml35:Type>
+          <stratml35:Weight>1</stratml35:Weight>
+          <stratml35:MappedIdentifier>uid-role-marketing</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-digital</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-strategy</stratml35:MappedIdentifier>
+         <stratml35:MappedIdentifier>uid-role-transformation</stratml35:MappedIdentifier>
+        </stratml35:Map>
+        <stratml35:Extends>uid-role-member</stratml35:Extends>
         <stratml35:RoleType>Performer</stratml35:RoleType>
         <stratml35:RoleType>Beneficiary</stratml35:RoleType>
       </stratml35:Role>
@@ -103,76 +136,36 @@
     
     <stratml35:Individual>
       <stratml35:Identifier>uid-ind-bob-weiss</stratml35:Identifier>
-      <stratml35:Map>
-        <stratml35:Name>Direct Supports</stratml35:Name>
-        <stratml35:Type>Supports</stratml35:Type>
-        <stratml35:Weight>1</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-management</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-creative</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-transformation</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-marketing</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-security</stratml35:MappedIdentifier>
-      </stratml35:Map>
-      <stratml35:Map>
-        <stratml35:Name>Tangentially Supports</stratml35:Name>
-        <stratml35:Type>Supports</stratml35:Type>
-        <stratml35:Weight>0.5</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-operations</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-legal</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-finance</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-politics</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-phil</stratml35:MappedIdentifier>
-      </stratml35:Map>
       <stratml35:Status>Proposed</stratml35:Status>
-      
-      <stratml35:Role>
-        <stratml35:Identifier>uid-role-board-member</stratml35:Identifier>
-        <stratml35:Name>Board Member</stratml35:Name>
-        <stratml35:Map>
-          <stratml35:Type>Supports</stratml35:Type>
-          <stratml35:Weight>0.25</stratml35:Weight>
-          <stratml35:MappedIdentifier>uid-role-member</stratml35:MappedIdentifier>
-        </stratml35:Map>
-        <stratml35:RoleType>Performer</stratml35:RoleType>
-        <stratml35:RoleType>Beneficiary</stratml35:RoleType>
-      </stratml35:Role>
-      <stratml35:Role>
-        <stratml35:Identifier>uid-role-chair</stratml35:Identifier>
-        <stratml35:Name>Chairman</stratml35:Name>
-        <stratml35:RoleType>Performer</stratml35:RoleType>
-        <stratml35:RoleType>Beneficiary</stratml35:RoleType>
-      </stratml35:Role>
-      <stratml35:GivenName>Bob</stratml35:GivenName>
-      <stratml35:Surname>Weiss</stratml35:Surname>
-    </stratml35:Individual>
-    <stratml35:Individual>
-      <stratml35:Identifier>uid-ind-richard-starbird</stratml35:Identifier>
-      <stratml35:Map>
-        <stratml35:Name>Direct Supports</stratml35:Name>
-        <stratml35:Type>Supports</stratml35:Type>
-        <stratml35:Weight>1</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-management</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-transformation</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-operations</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-transformation</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-strategy</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-security</stratml35:MappedIdentifier>
-      </stratml35:Map>
-      <stratml35:Map>
-        <stratml35:Name>Tangentially Supports</stratml35:Name>
-        <stratml35:Type>Supports</stratml35:Type>
-        <stratml35:Weight>0.5</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-operations</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-legal</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-finance</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-politics</stratml35:MappedIdentifier>
-      </stratml35:Map>
-      <stratml35:Status>Proposed</stratml35:Status>
-      <stratml35:Role>
-        <stratml35:ReferenceIdentifier>uid-role-board-member</stratml35:ReferenceIdentifier>
-      </stratml35:Role>
-      <stratml35:GivenName>Richard</stratml35:GivenName>
-      <stratml35:Surname>Starbird</stratml35:Surname>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-chair</stratml35:Identifier>
+          <stratml35:Name>Chairman</stratml35:Name>
+           <stratml35:Map>
+            <stratml35:Name>Direct Supports</stratml35:Name>
+            <stratml35:Type>Supports</stratml35:Type>
+            <stratml35:Weight>1</stratml35:Weight>
+            <stratml35:MappedIdentifier>uid-role-management</stratml35:MappedIdentifier>
+            <stratml35:MappedIdentifier>uid-role-creative</stratml35:MappedIdentifier>
+            <stratml35:MappedIdentifier>uid-role-transformation</stratml35:MappedIdentifier>
+            <stratml35:MappedIdentifier>uid-role-marketing</stratml35:MappedIdentifier>
+            <stratml35:MappedIdentifier>uid-role-security</stratml35:MappedIdentifier>
+          </stratml35:Map>
+          <stratml35:Map>
+            <stratml35:Name>Tangentially Supports</stratml35:Name>
+            <stratml35:Type>Supports</stratml35:Type>
+            <stratml35:Weight>0.5</stratml35:Weight>
+            <stratml35:MappedIdentifier>uid-role-operations</stratml35:MappedIdentifier>
+            <stratml35:MappedIdentifier>uid-role-legal</stratml35:MappedIdentifier>
+            <stratml35:MappedIdentifier>uid-role-finance</stratml35:MappedIdentifier>
+            <stratml35:MappedIdentifier>uid-role-politics</stratml35:MappedIdentifier>
+          </stratml35:Map>
+          
+          <stratml35:Extends>uid-role-board-member</stratml35:Extends>
+          <stratml35:RoleType>Performer</stratml35:RoleType>
+          <stratml35:RoleType>Beneficiary</stratml35:RoleType>
+        </stratml35:Role>
+        <stratml35:GivenName>Bob</stratml35:GivenName>
+        <stratml35:Surname>Weiss</stratml35:Surname>
     </stratml35:Individual>
     
     <stratml35:Individual>
@@ -181,25 +174,9 @@
         <stratml35:Name>Direct Supports</stratml35:Name>
         <stratml35:Type>Supports</stratml35:Type>
         <stratml35:Weight>1</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-digital</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-research</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-transformation</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-security</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-phil</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-psych</stratml35:MappedIdentifier>
       </stratml35:Map>
-      <stratml35:Map>
-        <stratml35:Name>Tangentially Supports</stratml35:Name>
-        <stratml35:Type>Supports</stratml35:Type>
-        <stratml35:Weight>0.5</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-marketing</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-management</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-creative</stratml35:MappedIdentifier>
-      </stratml35:Map>
       <stratml35:Status>Approved</stratml35:Status>
-      <stratml35:Role>
-        <stratml35:ReferenceIdentifier>uid-role-member</stratml35:ReferenceIdentifier>
-      </stratml35:Role>
       <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-svp</stratml35:ReferenceIdentifier>
       </stratml35:Role>
@@ -212,6 +189,15 @@
       <stratml35:Role>
         <stratml35:Identifier>uid-role-engineering</stratml35:Identifier>
         <stratml35:Name>Engineering</stratml35:Name>
+        <stratml35:Map>
+          <stratml35:Name>Direct Supports</stratml35:Name>
+          <stratml35:Type>Supports</stratml35:Type>
+          <stratml35:Weight>1</stratml35:Weight>
+          <stratml35:MappedIdentifier>uid-role-digital</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-research</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-transformation</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-security</stratml35:MappedIdentifier>
+        </stratml35:Map>
         <stratml35:RoleType>Performer</stratml35:RoleType>
         <stratml35:RoleType>Beneficiary</stratml35:RoleType>
       </stratml35:Role>
@@ -265,7 +251,6 @@
         <stratml35:MappedIdentifier>uid-role-management</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-politics</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-legal</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-phil</stratml35:MappedIdentifier>
       </stratml35:Map>
       <stratml35:Status>Proposed</stratml35:Status>
       <stratml35:Role>
@@ -293,7 +278,6 @@
         <stratml35:MappedIdentifier>uid-role-engineering</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-transformation</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-medicine</stratml35:MappedIdentifier>
-        <stratml35:MappedIdentifier>uid-role-phil</stratml35:MappedIdentifier>
       </stratml35:Map>
       <stratml35:Map>
         <stratml35:Name>Tangentially Supports</stratml35:Name>
@@ -398,7 +382,6 @@
         <stratml35:Name>Direct Supports</stratml35:Name>
         <stratml35:Type>Supports</stratml35:Type>
         <stratml35:Weight>1</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-phil</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-operations</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-management</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-strategy</stratml35:MappedIdentifier>
@@ -427,7 +410,6 @@
         <stratml35:Name>Direct Supports</stratml35:Name>
         <stratml35:Type>Supports</stratml35:Type>
         <stratml35:Weight>1</stratml35:Weight>
-        <stratml35:MappedIdentifier>uid-role-phil</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-psych</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-research</stratml35:MappedIdentifier>
         <stratml35:MappedIdentifier>uid-role-marketing</stratml35:MappedIdentifier>
@@ -694,9 +676,6 @@
         <stratml35:MappedIdentifier>uid-role-member</stratml35:MappedIdentifier>
       </stratml35:Map>
       <stratml35:Role>
-        <stratml35:ReferenceIdentifier>uid-role-member</stratml35:ReferenceIdentifier>
-      </stratml35:Role>
-      <stratml35:Role>
         <stratml35:ReferenceIdentifier>uid-role-vp</stratml35:ReferenceIdentifier>
       </stratml35:Role>
       <stratml35:Role>
@@ -706,19 +685,12 @@
         <stratml35:RoleType>Beneficiary</stratml35:RoleType>
       </stratml35:Role>
     </stratml35:PrototypeIndividual>
+    
     <stratml35:PrototypeIndividual>
-      <stratml35:Identifier>uid-proto-vp-phil</stratml35:Identifier>
+      <stratml35:Identifier>uid-proto-at-large-board-member</stratml35:Identifier>
+      <stratml35:Name>TBN: At Large Board Member</stratml35:Name>
       <stratml35:Role>
-        <stratml35:ReferenceIdentifier>uid-role-member</stratml35:ReferenceIdentifier>
-      </stratml35:Role>
-      <stratml35:Role>
-        <stratml35:ReferenceIdentifier>uid-role-vp</stratml35:ReferenceIdentifier>
-      </stratml35:Role>
-      <stratml35:Role>
-        <stratml35:Identifier>uid-role-phil</stratml35:Identifier>
-        <stratml35:Name>Philosophy</stratml35:Name>
-        <stratml35:RoleType>Performer</stratml35:RoleType>
-        <stratml35:RoleType>Beneficiary</stratml35:RoleType>
+        <stratml35:ReferenceIdentifier>uid-role-board-member</stratml35:ReferenceIdentifier>
       </stratml35:Role>
     </stratml35:PrototypeIndividual>
     
@@ -731,13 +703,22 @@
       </stratml35:Role>
       <stratml35:Individual>
         <stratml35:ReferenceIdentifier>uid-ind-bob-weiss</stratml35:ReferenceIdentifier>
+        <stratml35:Clear>
+          <stratml35:Type>Role</stratml35:Type>
+        </stratml35:Clear>
         <stratml35:Status>Implemented</stratml35:Status>
         <stratml35:Role>
           <stratml35:ReferenceIdentifier>uid-role-chair</stratml35:ReferenceIdentifier>
+          <stratml35:Clear>
+            <stratml35:Type>Map</stratml35:Type>
+          </stratml35:Clear>
         </stratml35:Role>
       </stratml35:Individual>
       <stratml35:Individual>
         <stratml35:ReferenceIdentifier>uid-ind-jason-lind</stratml35:ReferenceIdentifier>
+        <stratml35:Clear>
+          <stratml35:Type>Role</stratml35:Type>
+        </stratml35:Clear>
         <stratml35:Status>Implemented</stratml35:Status>
         <stratml35:Role>
           <stratml35:Identifier>uid-role-chief</stratml35:Identifier>
@@ -747,8 +728,11 @@
         </stratml35:Role>
         <stratml35:Role>
           <stratml35:ReferenceIdentifier>uid-role-transformation</stratml35:ReferenceIdentifier>
+          <stratml35:Clear>
+            <stratml35:Type>Map</stratml35:Type>
+          </stratml35:Clear>
           <stratml35:Status>Implemented</stratml35:Status>
-        </stratml35:Role>
+      </stratml35:Role>
       </stratml35:Individual>
     </stratml35:Organization>
     <stratml35:Organization>
