@@ -425,8 +425,6 @@
           <stratml35:MappedIdentifier>uid-role-transformation</stratml35:MappedIdentifier>
           <stratml35:MappedIdentifier>uid-role-creative</stratml35:MappedIdentifier>
           <stratml35:MappedIdentifier>uid-role-medicine</stratml35:MappedIdentifier>
-          <stratml35:MappedIdentifier>uid-role-research</stratml35:MappedIdentifier>
-          <stratml35:MappedIdentifier>uid-role-math</stratml35:MappedIdentifier>
           <stratml35:MappedIdentifier>uid-role-security</stratml35:MappedIdentifier>
           <stratml35:MappedIdentifier>uid-role-operations</stratml35:MappedIdentifier>
           <stratml35:MappedIdentifier>uid-role-finance</stratml35:MappedIdentifier>
@@ -480,14 +478,14 @@
           <stratml35:MappedIdentifier>uid-role-engineering</stratml35:MappedIdentifier>
           <stratml35:MappedIdentifier>uid-role-transformation</stratml35:MappedIdentifier>
           <stratml35:MappedIdentifier>uid-role-medicine</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-econ</stratml35:MappedIdentifier>
+          <stratml35:MappedIdentifier>uid-role-politics</stratml35:MappedIdentifier>
         </stratml35:Map>
         <stratml35:Map>
           <stratml35:Name>Tangentially Supports</stratml35:Name>
           <stratml35:Type>Supports</stratml35:Type>
           <stratml35:Weight>0.5</stratml35:Weight>
           <stratml35:MappedIdentifier>uid-role-digital</stratml35:MappedIdentifier>
-          <stratml35:MappedIdentifier>uid-role-econ</stratml35:MappedIdentifier>
-          <stratml35:MappedIdentifier>uid-role-politics</stratml35:MappedIdentifier>
           <stratml35:MappedIdentifier>uid-role-legal</stratml35:MappedIdentifier>
           <stratml35:MappedIdentifier>uid-role-psych</stratml35:MappedIdentifier>
         </stratml35:Map>
