@@ -180,11 +180,26 @@
     }
     ApplyOrganizationReference(Model.Organization, null);
 }
-<h1>@Model.Name</h1>
+
 <h4>Submitter: @Model.Submitter.Surname, @Model.Submitter.GivenName</h4>
 <h5>Publication Date: @Model.AdministrativeInformation.PublicationDate.ToString("MMMM dd, yyyy")</h5>
-
-@Html.Partial("_Organization", Model.Organization)
+<section class="page container">
+    <div class="row">
+        <div class="span16">
+            <div class="box">
+                <div class="box-header">
+                    <h5>@Model.Name</h5>
+                </div>
+                <div class="box-content">
+                    <div class="container">
+                        @Html.Partial("_Organization", Model.Organization)
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+   </section>
+       
 
 
 
