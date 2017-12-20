@@ -1,0 +1,41 @@
+﻿@model StratML.Core.ThreeFive.Organization
+<h5>@Model.Name</h5>
+@if (Model.Strategy != null)
+{
+    <h6>Mission</h6>
+    <p>@Model.Strategy.Mission.Description</p>
+    <h6>Vision</h6>
+    <p>@Model.Strategy.Vision.Description</p>
+}
+@if (!string.IsNullOrEmpty(Model.Description))
+{
+    <h6>Description</h6>
+    <p>@Model.Description</p>
+}
+@if (Model.Role != null)
+{
+    <h6>Roles</h6>
+    <ul>
+        @foreach (var role in Model.Role)
+        {
+             @Html.Partial("_Role", role);
+        }
+    </ul>
+}
+@if (Model.Organization1 != null)
+{
+    <h6>Organizations</h6>
+    @foreach (var org in Model.Organization1)
+    {
+        @Html.Partial("_Organization", org);
+    }
+}
+@if (Model.Individual != null)
+{
+    <h6>Individuals</h6>
+    @foreach(var individual in Model.Individual)
+    {
+        @Html.Partial("_Individual", individual)
+
+    }
+}

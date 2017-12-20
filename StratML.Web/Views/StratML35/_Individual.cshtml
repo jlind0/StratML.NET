@@ -1,0 +1,12 @@
+﻿@model StratML.Core.ThreeFive.Individual
+<h5>@Model.Surname, @Model.GivenName</h5>
+@if(Model.Role != null)
+{
+    <h6>Roles</h6>
+    <ul>
+    @foreach (var role in Model.Role)
+    {
+        @Html.Partial("_Role", role);
+    }
+    </ul>
+}

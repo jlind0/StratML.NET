@@ -25,7 +25,7 @@
         var type = obj.GetType();
         var propType = clearMapping[clear.Type];
         var props = type.GetPropertiesCached();
-        foreach (var prop in props.Where(p => p.GetType().GetElementType() == propType))
+        foreach (var prop in props.Where(p => p.PropertyType.GetElementType() == propType))
         {
             var value = prop.GetValue(obj) as Array;
             if (value != null && clear.Identifier != null && clear.Identifier.Length > 0)
@@ -69,7 +69,7 @@
             return null;
         object obj;
         objMapping.TryGetValue(id, out obj);
-        return obj as T;
+        return obj?.CreateRelatedInstance<T>();
     }
     void ApplyBaseReference(Base obj, Base reference)
     {
@@ -138,36 +138,54 @@
             obj.Surname = obj.Surname ?? reference.Surname;
         }
     }
+    void ApplyPortotypeIndividualReference(PrototypeIndividual ind, PrototypeIndividual reference)
+    {
+        ApplyIndividualBaseReference(ind, reference);
+    }
     void ApplyRoleReference(Role obj, Role reference)
     {
+        ApplyStakeHolderBaseReference(obj, reference);
         if (reference != null)
         {
-            ApplyStakeHolderBaseReference(obj, reference);
             obj.Extends = obj.Extends ?? reference.Extends;
-
+            obj.RoleType = reference.RoleType?.Union(obj.RoleType ?? new RoleType[] { }).ToArray() ?? obj.RoleType;
         }
-
     }
-    foreach (var individual in Model.Organization.Individual)
+    void ApplyGroupReference(Group group, Group reference)
     {
-        ApplyIndividualReference(individual, GetReference<Individual>(individual.ReferenceIdentifier));
-    }
-}
-
-<h1>Strategy: @Model.Name</h1>
-@foreach(var individual in Model.Organization.Individual)
-{
-    <h2>@individual.Surname, @individual.GivenName</h2>
-    <h3>Roles</h3>
-    <ul>
-        @foreach (var role in individual.Role)
+        ApplyStakeholderReferrence(group, reference);
+        if (reference != null)
         {
-            <li>
-                <h4>@role.Name</h4>
-                @*To do: mappings*@
-            </li>
+            group.Acronym = group.Acronym ?? reference.Acronym;
+            group.Individual = reference.Individual?.Union(group.Individual ?? new Individual[] { }).ToArray() ?? group.Individual;
+            group.PrototypeIndividual = reference.PrototypeIndividual?.Union(group.PrototypeIndividual ?? new PrototypeIndividual[] { }).ToArray() ?? group.PrototypeIndividual;
+            group.SpecialType = group.SpecialTypeSpecified ? group.SpecialType : reference.SpecialType;
+            group.SpecialTypeSpecified = group.SpecialTypeSpecified || reference.SpecialTypeSpecified;
         }
-    </ul>
+        if (group.Individual != null)
+            foreach (var ind in group.Individual)
+                ApplyIndividualReference(ind, GetReference<Individual>(ind.ReferenceIdentifier));
+        if (group.PrototypeIndividual != null)
+            foreach (var proto in group.PrototypeIndividual)
+                ApplyPortotypeIndividualReference(proto, GetReference<PrototypeIndividual>(proto.ReferenceIdentifier));
+    }
+    void ApplyOrganizationReference(Organization org, Organization reference)
+    {
+        ApplyGroupReference(org, reference);
+        //TODO: Apply references to strategy
+        if (org.Organization1 != null)
+            foreach (var o in org.Organization1)
+                ApplyOrganizationReference(o, GetReference<Organization>(o.ReferenceIdentifier));
+
+    }
+    ApplyOrganizationReference(Model.Organization, null);
 }
+<h1>@Model.Name</h1>
+<h4>Submitter: @Model.Submitter.Surname, @Model.Submitter.GivenName</h4>
+<h5>Publication Date: @Model.AdministrativeInformation.PublicationDate.ToString("MMMM dd, yyyy")</h5>
+
+@Html.Partial("_Organization", Model.Organization)
+
+
 
 

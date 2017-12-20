@@ -1,0 +1,11 @@
+﻿@model StratML.Core.ThreeFive.Role
+<li>
+    @if (!string.IsNullOrEmpty(Model.Name))
+    {
+    <b>@Model.Name</b><br />
+    }
+    @if(Model.RoleType != null)
+    {
+        @string.Join(", ", Model.RoleType)
+    }
+</li>
