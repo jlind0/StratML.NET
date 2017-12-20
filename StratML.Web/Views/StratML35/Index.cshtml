@@ -56,6 +56,9 @@
 
         }
         var props = type.GetPropertiesCached();
+        foreach(var subObj in props.Where(p => p.PropertyType.IsArray).Select(p => p.GetValue(obj)).Where(
+            v => v != null).Cast<Array>().SelectMany(a => a.OfType<Base>()))
+            IdObject(subObj);
         foreach (var subObj in props.Select(p => p.GetValue(obj)).Where(v => v != null).OfType<Base>())
             IdObject(subObj);
     }
@@ -72,8 +75,8 @@
     {
         if (reference != null)
         {
-            if (reference.Clear != null)
-                foreach (var clear in reference.Clear)
+            if (obj.Clear != null)
+                foreach (var clear in obj.Clear)
                     Clear(clear, reference);
             obj.Description = obj.Description ?? reference.Description;
             obj.Map = reference.Map?.Union(obj.Map ?? new Map[] { }).ToArray() ?? obj.Map;
@@ -84,9 +87,9 @@
     }
     void ApplyStakeHolderBaseReference(StakeholderBase obj, StakeholderBase reference)
     {
+        ApplyBaseReference(obj, reference);
         if (reference != null)
         {
-            ApplyBaseReference(obj, reference);
             obj.Competency = reference.Competency?.Union(
                 obj.Competency ?? new Competency[] { }).ToArray() ?? obj.Competency;
             obj.Payoff = reference.Payoff?.Union(
@@ -106,17 +109,19 @@
     }
     void ApplyStakeholderReferrence(Stakeholder obj, Stakeholder reference)
     {
+        ApplyStakeHolderBaseReference(obj, reference);
         if (reference != null)
         {
-            ApplyStakeHolderBaseReference(obj, reference);
+
             obj.Role = reference.Role?.Union(
                 obj.Role ?? new Role[] { }).ToArray() ?? obj.Role;
-            if (obj.Role != null)
-            {
-                foreach (var role in obj.Role.Where(r => r.ReferenceIdentifier != null))
-                    ApplyRoleReference(role, GetReference<Role>(role.ReferenceIdentifier));
-            }
+
             //TODO: Contact
+        }
+        if (obj.Role != null)
+        {
+            foreach (var role in obj.Role.Where(r => r.ReferenceIdentifier != null))
+                ApplyRoleReference(role, GetReference<Role>(role.ReferenceIdentifier));
         }
 
     }
@@ -126,9 +131,9 @@
     }
     void ApplyIndividualReference(Individual obj, Individual reference)
     {
+        ApplyIndividualBaseReference(obj, reference);
         if (reference != null)
         {
-            ApplyIndividualBaseReference(obj, reference);
             obj.GivenName = obj.GivenName ?? reference.GivenName;
             obj.Surname = obj.Surname ?? reference.Surname;
         }
