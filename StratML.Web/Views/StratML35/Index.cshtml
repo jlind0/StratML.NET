@@ -1,0 +1,168 @@
+﻿@model StratML.Core.ThreeFive.OrganizationalStrategyDocument
+@using StratML.Core
+@using System.Reflection
+@using StratML.Core.ThreeFive;
+@using System.Collections
+@{
+    ViewData["Title"] = Model.Name;
+
+    Dictionary<string, Type> idMapping = new Dictionary<string, Type>();
+    Dictionary<string, object> objMapping = new Dictionary<string, object>();
+    Dictionary<ClearTypes, Type> clearMapping = new Dictionary<ClearTypes, Type>();
+    clearMapping.Add(ClearTypes.Competency, typeof(Competency));
+    clearMapping.Add(ClearTypes.Contact, typeof(ContactInformation));
+    clearMapping.Add(ClearTypes.Map, typeof(Map));
+    clearMapping.Add(ClearTypes.Relationship, typeof(Relationship));
+    clearMapping.Add(ClearTypes.Responsiblity, typeof(Responsibility));
+    clearMapping.Add(ClearTypes.Right, typeof(Right));
+    clearMapping.Add(ClearTypes.Risk, typeof(Risk));
+    clearMapping.Add(ClearTypes.Role, typeof(Role));
+    clearMapping.Add(ClearTypes.Stakeholder, typeof(Stakeholder));
+    clearMapping.Add(ClearTypes.ValueProposition, typeof(Proposition));
+    IdObject(Model);
+    void Clear(BaseClear clear, object obj)
+    {
+        var type = obj.GetType();
+        var propType = clearMapping[clear.Type];
+        var props = type.GetPropertiesCached();
+        foreach (var prop in props.Where(p => p.GetType().GetElementType() == propType))
+        {
+            var value = prop.GetValue(obj) as Array;
+            if (value != null && clear.Identifier != null && clear.Identifier.Length > 0)
+            {
+                ArrayList newValues = new ArrayList();
+                foreach (var v in value.OfType<Base>().Where(b => !clear.Identifier.Contains(b.Identifier)))
+                {
+                    newValues.Add(v);
+                }
+                prop.SetValue(obj, newValues.ToArray(prop.PropertyType.GetElementType()));
+            }
+            else
+                prop.SetValue(obj, null);
+        }
+    }
+    void IdObject(object obj)
+    {
+        var type = obj.GetType();
+        var idProp = type.GetPropertyCached("Identifier");
+        if (idProp != null)
+        {
+            var id = idProp.GetValue(obj) as string;
+            if (!string.IsNullOrEmpty(id))
+            {
+                idMapping.Add(id, type);
+                objMapping.Add(id, obj);
+            }
+
+        }
+        var props = type.GetPropertiesCached();
+        foreach (var subObj in props.Select(p => p.GetValue(obj)).Where(v => v != null).OfType<Base>())
+            IdObject(subObj);
+    }
+    T GetReference<T>(string id)
+        where T : class
+    {
+        if (id == null)
+            return null;
+        object obj;
+        objMapping.TryGetValue(id, out obj);
+        return obj as T;
+    }
+    void ApplyBaseReference(Base obj, Base reference)
+    {
+        if (reference != null)
+        {
+            if (reference.Clear != null)
+                foreach (var clear in reference.Clear)
+                    Clear(clear, reference);
+            obj.Description = obj.Description ?? reference.Description;
+            obj.Map = reference.Map?.Union(obj.Map ?? new Map[] { }).ToArray() ?? obj.Map;
+            obj.Name = obj.Name ?? reference.Name;
+            obj.Status = obj.StatusSpecified ? obj.Status : reference.Status;
+            obj.StatusSpecified = obj.StatusSpecified || reference.StatusSpecified;
+        }
+    }
+    void ApplyStakeHolderBaseReference(StakeholderBase obj, StakeholderBase reference)
+    {
+        if (reference != null)
+        {
+            ApplyBaseReference(obj, reference);
+            obj.Competency = reference.Competency?.Union(
+                obj.Competency ?? new Competency[] { }).ToArray() ?? obj.Competency;
+            obj.Payoff = reference.Payoff?.Union(
+                obj.Payoff ?? new Payoff[] { }).ToArray() ?? obj.Payoff;
+            obj.Relationship = reference.Relationship?.Union(
+                obj.Relationship ?? new Relationship[] { }).ToArray() ?? obj.Relationship;
+            obj.Responsiblity = reference.Responsiblity?.Union(
+                obj.Responsiblity ?? new Responsibility[] { }).ToArray() ?? obj.Responsiblity;
+            obj.Right = reference.Right?.Union(
+                obj.Right ?? new Right[] { }).ToArray() ?? obj.Right;
+            obj.Risk = reference.Risk?.Union(
+                obj.Risk ?? new Risk[] { }).ToArray() ?? obj.Risk;
+            obj.ValueProposition = reference.ValueProposition?.Union(
+                obj.ValueProposition ?? new Proposition[] { }).ToArray() ?? obj.ValueProposition;
+
+        }
+    }
+    void ApplyStakeholderReferrence(Stakeholder obj, Stakeholder reference)
+    {
+        if (reference != null)
+        {
+            ApplyStakeHolderBaseReference(obj, reference);
+            obj.Role = reference.Role?.Union(
+                obj.Role ?? new Role[] { }).ToArray() ?? obj.Role;
+            if (obj.Role != null)
+            {
+                foreach (var role in obj.Role.Where(r => r.ReferenceIdentifier != null))
+                    ApplyRoleReference(role, GetReference<Role>(role.ReferenceIdentifier));
+            }
+            //TODO: Contact
+        }
+
+    }
+    void ApplyIndividualBaseReference(IndividualBase obj, IndividualBase reference)
+    {
+        ApplyStakeholderReferrence(obj, reference);
+    }
+    void ApplyIndividualReference(Individual obj, Individual reference)
+    {
+        if (reference != null)
+        {
+            ApplyIndividualBaseReference(obj, reference);
+            obj.GivenName = obj.GivenName ?? reference.GivenName;
+            obj.Surname = obj.Surname ?? reference.Surname;
+        }
+    }
+    void ApplyRoleReference(Role obj, Role reference)
+    {
+        if (reference != null)
+        {
+            ApplyStakeHolderBaseReference(obj, reference);
+            obj.Extends = obj.Extends ?? reference.Extends;
+
+        }
+
+    }
+    foreach (var individual in Model.Organization.Individual)
+    {
+        ApplyIndividualReference(individual, GetReference<Individual>(individual.ReferenceIdentifier));
+    }
+}
+
+<h1>Strategy: @Model.Name</h1>
+@foreach(var individual in Model.Organization.Individual)
+{
+    <h2>@individual.Surname, @individual.GivenName</h2>
+    <h3>Roles</h3>
+    <ul>
+        @foreach (var role in individual.Role)
+        {
+            <li>
+                <h4>@role.Name</h4>
+                @*To do: mappings*@
+            </li>
+        }
+    </ul>
+}
+
+

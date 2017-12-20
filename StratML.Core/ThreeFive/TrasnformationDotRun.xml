@@ -8,7 +8,12 @@
     <stratml35:Identifier>uid-org-transformation-dot-run</stratml35:Identifier>
     <stratml35:Name>Transformation.run</stratml35:Name>
     <stratml35:Status>Mandatory</stratml35:Status>
-
+    <stratml35:Contact>
+      <stratml35:Identifier>uid-contact-transformation-run</stratml35:Identifier>
+      <stratml35:Website>
+        <stratml35:WebAddress>http://transformation.run</stratml35:WebAddress>
+      </stratml35:Website>
+    </stratml35:Contact>
     <stratml35:Individual>
       <stratml35:ReferenceIdentifier>uid-ind-jason-lind</stratml35:ReferenceIdentifier>
       <stratml35:Map>
@@ -23,6 +28,7 @@
         <stratml35:MappedIdentifier>uid-role-psych</stratml35:MappedIdentifier>
       </stratml35:Map>
       <stratml35:Status>Approved</stratml35:Status>
+      
       <stratml35:Role>
         <stratml35:Identifier>uid-role-member</stratml35:Identifier>
         <stratml35:Name>Member</stratml35:Name>
@@ -727,6 +733,14 @@
       <stratml35:Mission>
         <stratml35:Description>Transform.run is a collective organization in the style of A Lind Innovation (http://wwidew.net/omega/GoalStruct.pdf) and aims to foster transformation, directly and indirectly, in all aspects of society and science through funding and directing research and development to enable true freedom, independence and happiness to one and all.</stratml35:Description>
       </stratml35:Mission>
+      <stratml35:Vision>
+        <stratml35:Description>A group of dedicated, talented and inspired individuals intent on transforming society into the next frontier.</stratml35:Description>
+      </stratml35:Vision>
+      <stratml35:Value>
+        <stratml35:Identifier>uid-value-innovation</stratml35:Identifier>
+        <stratml35:Name>Innovation</stratml35:Name>
+        <stratml35:Description>That </stratml35:Description>
+      </stratml35:Value>
       <stratml35:Goal>
         <stratml35:Identifier>uid-goal-membership-incentives</stratml35:Identifier>
         <stratml35:Name>Membership Incentivies</stratml35:Name>
@@ -745,57 +759,58 @@
         <stratml35:Objective>
           <stratml35:Identifier>uid-obj-revenue-sharing</stratml35:Identifier>
           <stratml35:Name>Revenue Sharing</stratml35:Name>
-        <stratml35:QuantitativePerformanceIndicator>
-          <stratml35:Map>
-            <stratml35:Type>Input</stratml35:Type>
-            <stratml35:Weight>0.5</stratml35:Weight>
-            <stratml35:MappedIdentifier>uid-assets-revenue</stratml35:MappedIdentifier>
-          </stratml35:Map>
-          <stratml35:MeasurementDimension>
-            <stratml35:ReferenceIdentifier>uid-dim-monthly</stratml35:ReferenceIdentifier>
-          </stratml35:MeasurementDimension>
-          <stratml35:UnitOfMeasurement>
-            <stratml35:Identifier>uid-unit-percent</stratml35:Identifier>
-            <stratml35:Name>Percent</stratml35:Name>
-          </stratml35:UnitOfMeasurement>
-        <stratml35:Target>
-          <stratml35:Result>
+          <stratml35:QuantitativePerformanceIndicator>
+            <stratml35:Name>Shares</stratml35:Name>
             <stratml35:Map>
-              <stratml35:Type>Output</stratml35:Type>
-              <stratml35:MappedIdentifier>uid-role-board-member</stratml35:MappedIdentifier>
+              <stratml35:Type>Input</stratml35:Type>
+              <stratml35:Weight>0.5</stratml35:Weight>
+              <stratml35:MappedIdentifier>uid-assets-revenue</stratml35:MappedIdentifier>
             </stratml35:Map>
-            <stratml35:NumberOfUnits>10</stratml35:NumberOfUnits>
-          </stratml35:Result>
-          <stratml35:Result>
-            <stratml35:Map>
-              <stratml35:Type>Output</stratml35:Type>
-              <stratml35:MappedIdentifier>uid-role-staff</stratml35:MappedIdentifier>
-            </stratml35:Map>
-            <stratml35:NumberOfUnits>10</stratml35:NumberOfUnits>
-          </stratml35:Result>
-          <stratml35:Result>
-            <stratml35:Map>
-              <stratml35:Type>Output</stratml35:Type>
-              <stratml35:MappedIdentifier>uid-role-evp</stratml35:MappedIdentifier>
-            </stratml35:Map>
-            <stratml35:NumberOfUnits>30</stratml35:NumberOfUnits>
-          </stratml35:Result>
-          <stratml35:Result>
-            <stratml35:Map>
-              <stratml35:Type>Output</stratml35:Type>
-              <stratml35:MappedIdentifier>uid-role-svp</stratml35:MappedIdentifier>
-            </stratml35:Map>
-            <stratml35:NumberOfUnits>30</stratml35:NumberOfUnits>
-          </stratml35:Result>
-          <stratml35:Result>
-            <stratml35:Map>
-              <stratml35:Type>Output</stratml35:Type>
-              <stratml35:MappedIdentifier>uid-role-vp</stratml35:MappedIdentifier>
-            </stratml35:Map>
-            <stratml35:NumberOfUnits>20</stratml35:NumberOfUnits>
-          </stratml35:Result>
-        </stratml35:Target>
-        </stratml35:QuantitativePerformanceIndicator>
+            <stratml35:MeasurementDimension>
+              <stratml35:ReferenceIdentifier>uid-dim-monthly</stratml35:ReferenceIdentifier>
+            </stratml35:MeasurementDimension>
+            <stratml35:UnitOfMeasurement>
+              <stratml35:Identifier>uid-unit-percent</stratml35:Identifier>
+              <stratml35:Name>Percent</stratml35:Name>
+            </stratml35:UnitOfMeasurement>
+          <stratml35:Target>
+            <stratml35:Result>
+              <stratml35:Map>
+                <stratml35:Type>Output</stratml35:Type>
+                <stratml35:MappedIdentifier>uid-role-board-member</stratml35:MappedIdentifier>
+              </stratml35:Map>
+              <stratml35:NumberOfUnits>0.1</stratml35:NumberOfUnits>
+            </stratml35:Result>
+            <stratml35:Result>
+              <stratml35:Map>
+                <stratml35:Type>Output</stratml35:Type>
+                <stratml35:MappedIdentifier>uid-role-staff</stratml35:MappedIdentifier>
+              </stratml35:Map>
+              <stratml35:NumberOfUnits>0.1</stratml35:NumberOfUnits>
+            </stratml35:Result>
+            <stratml35:Result>
+              <stratml35:Map>
+                <stratml35:Type>Output</stratml35:Type>
+                <stratml35:MappedIdentifier>uid-role-evp</stratml35:MappedIdentifier>
+              </stratml35:Map>
+              <stratml35:NumberOfUnits>0.3</stratml35:NumberOfUnits>
+            </stratml35:Result>
+            <stratml35:Result>
+              <stratml35:Map>
+                <stratml35:Type>Output</stratml35:Type>
+                <stratml35:MappedIdentifier>uid-role-svp</stratml35:MappedIdentifier>
+              </stratml35:Map>
+              <stratml35:NumberOfUnits>0.3</stratml35:NumberOfUnits>
+            </stratml35:Result>
+            <stratml35:Result>
+              <stratml35:Map>
+                <stratml35:Type>Output</stratml35:Type>
+                <stratml35:MappedIdentifier>uid-role-vp</stratml35:MappedIdentifier>
+              </stratml35:Map>
+              <stratml35:NumberOfUnits>0.2</stratml35:NumberOfUnits>
+            </stratml35:Result>
+          </stratml35:Target>
+          </stratml35:QuantitativePerformanceIndicator>
         </stratml35:Objective>
         <stratml35:SuccessFactor>
           <stratml35:Criticality>Critical</stratml35:Criticality>
