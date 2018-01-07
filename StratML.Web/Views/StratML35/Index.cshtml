@@ -4,202 +4,249 @@
 @using StratML.Core.ThreeFive;
 @using System.Collections
 @{
-    ViewData["Title"] = Model.Name;
+	ViewData["Title"] = Model.Name;
 
-    Dictionary<string, Type> idMapping = new Dictionary<string, Type>();
-    Dictionary<string, object> objMapping = new Dictionary<string, object>();
-    Dictionary<ClearTypes, Type> clearMapping = new Dictionary<ClearTypes, Type>();
-    clearMapping.Add(ClearTypes.Competency, typeof(Competency));
-    clearMapping.Add(ClearTypes.Contact, typeof(ContactInformation));
-    clearMapping.Add(ClearTypes.Map, typeof(Map));
-    clearMapping.Add(ClearTypes.Relationship, typeof(Relationship));
-    clearMapping.Add(ClearTypes.Responsiblity, typeof(Responsibility));
-    clearMapping.Add(ClearTypes.Right, typeof(Right));
-    clearMapping.Add(ClearTypes.Risk, typeof(Risk));
-    clearMapping.Add(ClearTypes.Role, typeof(Role));
-    clearMapping.Add(ClearTypes.Stakeholder, typeof(Stakeholder));
-    clearMapping.Add(ClearTypes.ValueProposition, typeof(Proposition));
-    IdObject(Model);
-    void Clear(BaseClear clear, object obj)
-    {
-        var type = obj.GetType();
-        var propType = clearMapping[clear.Type];
-        var props = type.GetPropertiesCached();
-        foreach (var prop in props.Where(p => p.PropertyType.GetElementType() == propType))
-        {
-            var value = prop.GetValue(obj) as Array;
-            if (value != null && clear.Identifier != null && clear.Identifier.Length > 0)
-            {
-                ArrayList newValues = new ArrayList();
-                foreach (var v in value.OfType<Base>().Where(b => !clear.Identifier.Contains(b.Identifier)))
-                {
-                    newValues.Add(v);
-                }
-                prop.SetValue(obj, newValues.ToArray(prop.PropertyType.GetElementType()));
-            }
-            else
-                prop.SetValue(obj, null);
-        }
-    }
-    void IdObject(object obj)
-    {
-        var type = obj.GetType();
-        var idProp = type.GetPropertyCached("Identifier");
-        if (idProp != null)
-        {
-            var id = idProp.GetValue(obj) as string;
-            if (!string.IsNullOrEmpty(id))
-            {
-                idMapping.Add(id, type);
-                objMapping.Add(id, obj);
-            }
+	Dictionary<string, Type> idMapping = new Dictionary<string, Type>();
+	Dictionary<string, object> objMapping = new Dictionary<string, object>();
+	Dictionary<ClearTypes, Type> clearMapping = new Dictionary<ClearTypes, Type>();
+	clearMapping.Add(ClearTypes.Competency, typeof(Competency));
+	clearMapping.Add(ClearTypes.Contact, typeof(ContactInformation));
+	clearMapping.Add(ClearTypes.Map, typeof(Map));
+	clearMapping.Add(ClearTypes.Relationship, typeof(Relationship));
+	clearMapping.Add(ClearTypes.Responsiblity, typeof(Responsibility));
+	clearMapping.Add(ClearTypes.Right, typeof(Right));
+	clearMapping.Add(ClearTypes.Risk, typeof(Risk));
+	clearMapping.Add(ClearTypes.Role, typeof(Role));
+	clearMapping.Add(ClearTypes.Stakeholder, typeof(Stakeholder));
+	clearMapping.Add(ClearTypes.ValueProposition, typeof(Proposition));
+	IdObject(Model);
+	void Clear(BaseClear clear, object obj)
+	{
+		var type = obj.GetType();
+		var propType = clearMapping[clear.Type];
+		var props = type.GetPropertiesCached();
+		foreach (var prop in props.Where(p => p.PropertyType.GetElementType() == propType))
+		{
+			var value = prop.GetValue(obj) as Array;
+			if (value != null && clear.Identifier != null && clear.Identifier.Length > 0)
+			{
+				ArrayList newValues = new ArrayList();
+				foreach (var v in value.OfType<Base>().Where(b => !clear.Identifier.Contains(b.Identifier)))
+				{
+					newValues.Add(v);
+				}
+				prop.SetValue(obj, newValues.ToArray(prop.PropertyType.GetElementType()));
+			}
+			else
+			{
+				prop.SetValue(obj, null);
+			}
 
-        }
-        var props = type.GetPropertiesCached();
-        foreach (var subObj in props.Where(p => p.PropertyType.IsArray).Select(p => p.GetValue(obj)).Where(
-            v => v != null).Cast<Array>().SelectMany(a => a.OfType<Base>()))
-            IdObject(subObj);
-        foreach (var subObj in props.Select(p => p.GetValue(obj)).Where(v => v != null).OfType<Base>())
-            IdObject(subObj);
-    }
+		}
+	}
+	void IdObject(object obj)
+	{
+		var type = obj.GetType();
+		var idProp = type.GetPropertyCached("Identifier");
+		if (idProp != null)
+		{
+			var id = idProp.GetValue(obj) as string;
+			if (!string.IsNullOrEmpty(id))
+			{
+				idMapping.Add(id, type);
+				objMapping.Add(id, obj);
+			}
 
-    T GetReference<T>(string id)
-        where T : class
-    {
-        if (id == null)
-            return null;
-        object obj;
-        objMapping.TryGetValue(id, out obj);
-        return obj?.CreateRelatedInstance<T>();
-    }
-    void ApplyBaseReference(Base obj, Base reference)
-    {
-        if (reference != null)
-        {
-            if (obj.Clear != null)
-                foreach (var clear in obj.Clear)
-                    Clear(clear, reference);
-            obj.Description = obj.Description ?? reference.Description;
-            obj.Map = reference.Map?.Union(obj.Map ?? new Map[] { }).ToArray() ?? obj.Map;
-            obj.Name = obj.Name ?? reference.Name;
-            obj.Status = obj.StatusSpecified ? obj.Status : reference.Status;
-            obj.StatusSpecified = obj.StatusSpecified || reference.StatusSpecified;
-        }
-    }
-    void ApplyStakeHolderBaseReference(StakeholderBase obj, StakeholderBase reference)
-    {
-        ApplyBaseReference(obj, reference);
-        if (reference != null)
-        {
-            obj.Competency = reference.Competency?.Union(
-                obj.Competency ?? new Competency[] { }).ToArray() ?? obj.Competency;
-            obj.Payoff = reference.Payoff?.Union(
-                obj.Payoff ?? new Payoff[] { }).ToArray() ?? obj.Payoff;
-            obj.Relationship = reference.Relationship?.Union(
-                obj.Relationship ?? new Relationship[] { }).ToArray() ?? obj.Relationship;
-            obj.Responsiblity = reference.Responsiblity?.Union(
-                obj.Responsiblity ?? new Responsibility[] { }).ToArray() ?? obj.Responsiblity;
-            obj.Right = reference.Right?.Union(
-                obj.Right ?? new Right[] { }).ToArray() ?? obj.Right;
-            obj.Risk = reference.Risk?.Union(
-                obj.Risk ?? new Risk[] { }).ToArray() ?? obj.Risk;
-            obj.ValueProposition = reference.ValueProposition?.Union(
-                obj.ValueProposition ?? new Proposition[] { }).ToArray() ?? obj.ValueProposition;
+		}
+		var props = type.GetPropertiesCached();
+		foreach (var subObj in props.Where(p => p.PropertyType.IsArray).Select(p => p.GetValue(obj)).Where(
+			v => v != null).Cast<Array>().SelectMany(a => a.OfType<Base>()))
+		{
+			IdObject(subObj);
+		}
 
-        }
-    }
-    void ApplyStakeholderReferrence(Stakeholder obj, Stakeholder reference)
-    {
-        ApplyStakeHolderBaseReference(obj, reference);
-        if (reference != null)
-        {
+		foreach (var subObj in props.Select(p => p.GetValue(obj)).Where(v => v != null).OfType<Base>())
+		{
+			IdObject(subObj);
+		}
 
-            obj.Role = reference.Role?.Union(
-                obj.Role ?? new Role[] { }).ToArray() ?? obj.Role;
+	}
 
-            //TODO: Contact
-        }
-        if (obj.Role != null)
-        {
-            foreach (var role in obj.Role.Where(r => r.ReferenceIdentifier != null))
-                ApplyRoleReference(role, GetReference<Role>(role.ReferenceIdentifier));
-        }
+	T GetReference<T>(string id)
+		where T : class
+	{
+		if (id == null)
+		{
+			return null;
+		}
 
-    }
-    void ApplyIndividualBaseReference(IndividualBase obj, IndividualBase reference)
-    {
-        ApplyStakeholderReferrence(obj, reference);
-    }
-    void ApplyIndividualReference(Individual obj, Individual reference)
-    {
-        ApplyIndividualBaseReference(obj, reference);
-        if (reference != null)
-        {
-            obj.GivenName = obj.GivenName ?? reference.GivenName;
-            obj.Surname = obj.Surname ?? reference.Surname;
-        }
-    }
-    void ApplyPortotypeIndividualReference(PrototypeIndividual ind, PrototypeIndividual reference)
-    {
-        ApplyIndividualBaseReference(ind, reference);
-    }
-    void ApplyRoleReference(Role obj, Role reference)
-    {
-        ApplyStakeHolderBaseReference(obj, reference);
-        if (reference != null)
-        {
-            obj.Extends = obj.Extends ?? reference.Extends;
-            obj.RoleType = reference.RoleType?.Union(obj.RoleType ?? new RoleType[] { }).ToArray() ?? obj.RoleType;
-        }
-    }
-    void ApplyGroupReference(Group group, Group reference)
-    {
-        ApplyStakeholderReferrence(group, reference);
-        if (reference != null)
-        {
-            group.Acronym = group.Acronym ?? reference.Acronym;
-            group.Individual = reference.Individual?.Union(group.Individual ?? new Individual[] { }).ToArray() ?? group.Individual;
-            group.PrototypeIndividual = reference.PrototypeIndividual?.Union(group.PrototypeIndividual ?? new PrototypeIndividual[] { }).ToArray() ?? group.PrototypeIndividual;
-            group.SpecialType = group.SpecialTypeSpecified ? group.SpecialType : reference.SpecialType;
-            group.SpecialTypeSpecified = group.SpecialTypeSpecified || reference.SpecialTypeSpecified;
-        }
-        if (group.Individual != null)
-            foreach (var ind in group.Individual)
-                ApplyIndividualReference(ind, GetReference<Individual>(ind.ReferenceIdentifier));
-        if (group.PrototypeIndividual != null)
-            foreach (var proto in group.PrototypeIndividual)
-                ApplyPortotypeIndividualReference(proto, GetReference<PrototypeIndividual>(proto.ReferenceIdentifier));
-    }
-    void ApplyOrganizationReference(Organization org, Organization reference)
-    {
-        ApplyGroupReference(org, reference);
-        //TODO: Apply references to strategy
-        if (org.Organization1 != null)
-            foreach (var o in org.Organization1)
-                ApplyOrganizationReference(o, GetReference<Organization>(o.ReferenceIdentifier));
+		object obj;
+		objMapping.TryGetValue(id, out obj);
+		return obj?.CreateRelatedInstance<T>();
+	}
+	void ApplyBaseReference(Base obj, Base reference)
+	{
+		if (reference != null)
+		{
+			if (obj.Clear != null)
+			{
+				foreach (var clear in obj.Clear)
+				{
+					Clear(clear, reference);
+				}
+			}
 
-    }
-    ApplyOrganizationReference(Model.Organization, null);
+			obj.Description = obj.Description ?? reference.Description;
+			obj.Map = reference.Map?.Union(obj.Map ?? new Map[] { }).ToArray() ?? obj.Map;
+			obj.Name = obj.Name ?? reference.Name;
+			obj.Status = obj.StatusSpecified ? obj.Status : reference.Status;
+			obj.StatusSpecified = obj.StatusSpecified || reference.StatusSpecified;
+		}
+	}
+	void ApplyStakeHolderBaseReference(StakeholderBase obj, StakeholderBase reference)
+	{
+		ApplyBaseReference(obj, reference);
+		if (reference != null)
+		{
+			obj.Competency = reference.Competency?.Union(
+				obj.Competency ?? new Competency[] { }).ToArray() ?? obj.Competency;
+			obj.Payoff = reference.Payoff?.Union(
+				obj.Payoff ?? new Payoff[] { }).ToArray() ?? obj.Payoff;
+			obj.Relationship = reference.Relationship?.Union(
+				obj.Relationship ?? new Relationship[] { }).ToArray() ?? obj.Relationship;
+			obj.Responsiblity = reference.Responsiblity?.Union(
+				obj.Responsiblity ?? new Responsibility[] { }).ToArray() ?? obj.Responsiblity;
+			obj.Right = reference.Right?.Union(
+				obj.Right ?? new Right[] { }).ToArray() ?? obj.Right;
+			obj.Risk = reference.Risk?.Union(
+				obj.Risk ?? new Risk[] { }).ToArray() ?? obj.Risk;
+			obj.ValueProposition = reference.ValueProposition?.Union(
+				obj.ValueProposition ?? new Proposition[] { }).ToArray() ?? obj.ValueProposition;
+
+		}
+	}
+	void ApplyStakeholderReferrence(Stakeholder obj, Stakeholder reference)
+	{
+		ApplyStakeHolderBaseReference(obj, reference);
+		if (reference != null)
+		{
+
+			obj.Role = reference.Role?.Union(
+				obj.Role ?? new Role[] { }).ToArray() ?? obj.Role;
+
+			//TODO: Contact
+		}
+		if (obj.Role != null)
+		{
+			foreach (var role in obj.Role.Where(r => r.ReferenceIdentifier != null))
+			{
+				ApplyRoleReference(role, GetReference<Role>(role.ReferenceIdentifier));
+			}
+		}
+
+	}
+	void ApplyIndividualBaseReference(IndividualBase obj, IndividualBase reference)
+	{
+		ApplyStakeholderReferrence(obj, reference);
+	}
+	void ApplyIndividualReference(Individual obj, Individual reference)
+	{
+		ApplyIndividualBaseReference(obj, reference);
+		if (reference != null)
+		{
+			obj.GivenName = obj.GivenName ?? reference.GivenName;
+			obj.Surname = obj.Surname ?? reference.Surname;
+		}
+	}
+	void ApplyPortotypeIndividualReference(PrototypeIndividual ind, PrototypeIndividual reference)
+	{
+		ApplyIndividualBaseReference(ind, reference);
+	}
+	void ApplyRoleReference(Role obj, Role reference)
+	{
+		ApplyStakeHolderBaseReference(obj, reference);
+		if (reference != null)
+		{
+			obj.Extends = obj.Extends ?? reference.Extends;
+			obj.RoleType = reference.RoleType?.Union(obj.RoleType ?? new RoleType[] { }).ToArray() ?? obj.RoleType;
+		}
+	}
+	void ApplyGroupReference(Group group, Group reference)
+	{
+		ApplyStakeholderReferrence(group, reference);
+		if (reference != null)
+		{
+			group.Acronym = group.Acronym ?? reference.Acronym;
+			group.Individual = reference.Individual?.Union(group.Individual ?? new Individual[] { }).ToArray() ?? group.Individual;
+			group.PrototypeIndividual = reference.PrototypeIndividual?.Union(group.PrototypeIndividual ?? new PrototypeIndividual[] { }).ToArray() ?? group.PrototypeIndividual;
+			group.SpecialType = group.SpecialTypeSpecified ? group.SpecialType : reference.SpecialType;
+			group.SpecialTypeSpecified = group.SpecialTypeSpecified || reference.SpecialTypeSpecified;
+		}
+		if (group.Individual != null)
+		{
+			foreach (var ind in group.Individual)
+			{
+				ApplyIndividualReference(ind, GetReference<Individual>(ind.ReferenceIdentifier));
+			}
+		}
+
+		if (group.PrototypeIndividual != null)
+		{
+			foreach (var proto in group.PrototypeIndividual)
+			{
+				ApplyPortotypeIndividualReference(proto, GetReference<PrototypeIndividual>(proto.ReferenceIdentifier));
+			}
+		}
+	}
+	void ApplyOrganizationReference(Organization org, Organization reference)
+	{
+		ApplyGroupReference(org, reference);
+		//TODO: Apply references to strategy
+		if (org.Organization1 != null)
+		{
+			foreach (var o in org.Organization1)
+			{
+				ApplyOrganizationReference(o, GetReference<Organization>(o.ReferenceIdentifier));
+			}
+		}
+	}
+	ApplyOrganizationReference(Model.Organization, null);
 }
 
-<h4>Submitter: @Model.Submitter.Surname, @Model.Submitter.GivenName</h4>
-<h5>Publication Date: @Model.AdministrativeInformation.PublicationDate.ToString("MMMM dd, yyyy")</h5>
-<section class="page container">
-    <div class="row">
-        <div class="span16">
-            <div class="box">
-                <div class="box-header">
-                    <h5>@Model.Name</h5>
-                </div>
-                <div class="box-content">
-                    <div class="container">
-                        @Html.Partial("_Organization", Model.Organization)
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="row">
+	<h2 class="row-seperator-header">
+		<i class="fa fa-user"></i>
+		<strong>Submitter:</strong> @Model.Submitter.Surname, @Model.Submitter.GivenName / <strong>Publication Date:</strong> @Model.AdministrativeInformation.PublicationDate.ToString("MMMM dd, yyyy")
+</h2>
+</div>
+
+<div class="row">
+	<article class="col-sm-12 sortable-grid ui-sortable">
+		<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
+			<header>
+				<span class="widget-icon"> <i class="fa fa-align-justify"></i> </span>
+				<h2>@Model.Name</h2>
+			</header>
+		
+			<div>
+				
+				<!-- widget edit box -->
+				<div class="jarviswidget-editbox">
+					<!-- This area used as dropdown edit box -->
+				
+				</div>
+				<!-- end widget edit box -->
+				
+				<!-- widget content -->
+				<div class="widget-body">
+					@Html.Partial("_Organization", Model.Organization)
+				</div>
+			</div>
+		</div>
+	</article>
+</div>
+
+
 
 
 

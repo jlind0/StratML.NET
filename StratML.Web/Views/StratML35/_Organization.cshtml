@@ -1,57 +1,106 @@
 ﻿@model StratML.Core.ThreeFive.Organization
-<div class="box">
-    <div class="box-header">
-        <i class="icon-group"></i>
-        <h5>@Model.Name</h5>
-    </div>
-    <div class="box-content">
-        @if (Model.Strategy != null)
-    {
-        <h6>Mission</h6>
-        <p>@Model.Strategy.Mission.Description</p>
-        <h6>Vision</h6>
-        <p>@Model.Strategy.Vision.Description</p>
-}
-        @if (!string.IsNullOrEmpty(Model.Description))
-    {
-        <h6>Description</h6>
-        <p>@Model.Description</p>
-}
-        @if (Model.Role != null)
-    {
-        <h6>Roles</h6>
-        <ul>
-            @foreach (var role in Model.Role)
-        {
-            @Html.Partial("_Role", role);
-    }
-        </ul>
-}
-        <div class="blockoff-left">
-            <legend class="lead">
-                Stakeholders
-            </legend>
 
-            @if (Model.Organization1 != null)
-        {
-            <div class="container">
-                @foreach (var org in Model.Organization1)
-            {
-                @Html.Partial("_Organization", org);
-        }
-            </div>
-    }
-            @if (Model.Individual != null)
-        {
-            <div class="container">
-                @foreach (var individual in Model.Individual)
-            {
-                @Html.Partial("_Individual", individual)
+<div class="row">
+	<article class="col-sm-12 sortable-grid ui-sortable">
+		<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
+			<header>
+				<span class="widget-icon"> <i class="fa fa-align-justify"></i> </span>
+				<h2>@Model.Name</h2>
+			</header>
 
-        }
-            </div>
-    }
-        </div>
-    </div>
-    </div>
+			<div>
 
+				<!-- widget edit box -->
+				<div class="jarviswidget-editbox">
+					<!-- This area used as dropdown edit box -->
+
+				</div>
+				<!-- end widget edit box -->
+				<!-- widget content -->
+				<div class="widget-body">
+
+					@if (Model.Strategy != null)
+					{
+						<h6>Mission</h6>
+						<p>@Model.Strategy.Mission.Description</p>
+						<h6>Vision</h6>
+						<p>@Model.Strategy.Vision.Description</p>
+					}
+
+					@if (!string.IsNullOrEmpty(Model.Description))
+					{
+						<h6>Description</h6>
+						<p>@Model.Description</p>
+					}
+
+					@if (Model.Role != null)
+					{
+						<h6>Roles</h6>
+						<ul>
+							@foreach (var role in Model.Role)
+							{
+								@Html.Partial("_Role", role)
+							}
+						</ul>
+					}
+
+					<div class="blockoff-left">
+						<legend class="lead">
+							Stakeholders
+						</legend>
+
+						@if (Model.Organization1 != null)
+						{
+							@foreach (var org in Model.Organization1)
+							{
+								@Html.Partial("_Organization", org)
+							}
+						}
+
+						@if (Model.Individual != null)
+						{
+							<div class="row row-table equal">
+								@foreach (var individual in Model.Individual)
+								{
+									@Html.Partial("_Individual", individual)
+								}
+							</div>
+						}
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</article>
+</div>
+
+
+
+<style>
+	@@media (min-width: 768px) {
+		.row.equal {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.row.equal .col-md-4 {
+			margin-bottom: 10px;
+		}
+	}
+</style>
+
+<!--
+<script>
+	   $(document).ready(function () {
+		   var tallest = 0;
+		   $(".row-table .col-xs-12").each(function () {
+			   if ($(this).height() > tallest) {
+				   tallest = $(this).height();
+			   }
+		   });
+
+		   $(".row-table .col-xs-12").children(".well").height(tallest);
+		   $(".row-table .col-xs-12").css("margin-bottom", "10px");
+	   });
+</script>
+-->
