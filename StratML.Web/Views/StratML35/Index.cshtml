@@ -5,10 +5,10 @@
 @using System.Collections
 @{
     ViewData["Title"] = Model.Name;
-
     Dictionary<string, Type> idMapping = new Dictionary<string, Type>();
     Dictionary<string, object> objMapping = new Dictionary<string, object>();
     Dictionary<ClearTypes, Type> clearMapping = new Dictionary<ClearTypes, Type>();
+    Dictionary<string, List<Tuple<string, Map>>> mapPointers = new Dictionary<string, List<Tuple<string, Map>>>();
     clearMapping.Add(ClearTypes.Competency, typeof(Competency));
     clearMapping.Add(ClearTypes.Contact, typeof(ContactInformation));
     clearMapping.Add(ClearTypes.Map, typeof(Map));
@@ -20,6 +20,8 @@
     clearMapping.Add(ClearTypes.Stakeholder, typeof(Stakeholder));
     clearMapping.Add(ClearTypes.ValueProposition, typeof(Proposition));
     IdObject(Model);
+    }
+@{
     void Clear(BaseClear clear, object obj)
     {
         var type = obj.GetType();
@@ -62,7 +64,36 @@
         foreach (var subObj in props.Select(p => p.GetValue(obj)).Where(v => v != null).OfType<Base>())
             IdObject(subObj);
     }
+    void PointMaps(object obj)
+    {
+        var type = obj.GetType();
+        var mapsProp = type.GetPropertyCached("Map");
+        var idProp = type.GetPropertyCached("Identifier");
 
+        if(mapsProp != null && idProp != null)
+        {
+            var id = idProp.GetValue(obj) as string;
+            var maps = mapsProp.GetValue(obj) as Map[];
+            if(id != null && maps != null)
+            {
+                foreach(var map in maps)
+                {
+                    foreach(var refId in map.MappedIdentifier)
+                    {
+                        if (!mapPointers.ContainsKey(refId))
+                            mapPointers.Add(refId, new List<Tuple<string, Map>>());
+                        mapPointers[refId].Add(new Tuple<string, Map>(id, map));
+                    }
+                }
+            }
+            var props = type.GetPropertiesCached();
+            foreach (var subObj in props.Where(p => p.PropertyType.IsArray).Select(p => p.GetValue(obj)).Where(
+   v => v != null).Cast<Array>().SelectMany(a => a.OfType<Base>()))
+                PointMaps(subObj);
+            foreach (var subObj in props.Select(p => p.GetValue(obj)).Where(v => v != null).OfType<Base>())
+                PointMaps(subObj);
+        }
+    }
     T GetReference<T>(string id)
         where T : class
     {
@@ -180,6 +211,7 @@
 
     }
     ApplyOrganizationReference(Model.Organization, null);
+    PointMaps(Model);
 }
 
 <h4>Submitter: @Model.Submitter.Surname, @Model.Submitter.GivenName</h4>
