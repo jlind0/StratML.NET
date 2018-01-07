@@ -137,24 +137,26 @@
             obj.ValueProposition = reference.ValueProposition?.Union(
                 obj.ValueProposition ?? new Proposition[] { }).ToArray() ?? obj.ValueProposition;
 
-        }
-    }
-    void ApplyStakeholderReferrence(Stakeholder obj, Stakeholder reference)
-    {
-        ApplyStakeHolderBaseReference(obj, reference);
-        if (reference != null)
-        {
+		}
+	}
+	void ApplyStakeholderReferrence(Stakeholder obj, Stakeholder reference)
+	{
+		ApplyStakeHolderBaseReference(obj, reference);
+		if (reference != null)
+		{
 
-            obj.Role = reference.Role?.Union(
-                obj.Role ?? new Role[] { }).ToArray() ?? obj.Role;
+			obj.Role = reference.Role?.Union(
+				obj.Role ?? new Role[] { }).ToArray() ?? obj.Role;
 
-            //TODO: Contact
-        }
-        if (obj.Role != null)
-        {
-            foreach (var role in obj.Role.Where(r => r.ReferenceIdentifier != null))
-                ApplyRoleReference(role, GetReference<Role>(role.ReferenceIdentifier));
-        }
+			//TODO: Contact
+		}
+		if (obj.Role != null)
+		{
+			foreach (var role in obj.Role.Where(r => r.ReferenceIdentifier != null))
+			{
+				ApplyRoleReference(role, GetReference<Role>(role.ReferenceIdentifier));
+			}
+		}
 
     }
     void ApplyIndividualBaseReference(IndividualBase obj, IndividualBase reference)
@@ -214,24 +216,40 @@
     PointMaps(Model);
 }
 
-<h4>Submitter: @Model.Submitter.Surname, @Model.Submitter.GivenName</h4>
-<h5>Publication Date: @Model.AdministrativeInformation.PublicationDate.ToString("MMMM dd, yyyy")</h5>
-<section class="page container">
-    <div class="row">
-        <div class="span16">
-            <div class="box">
-                <div class="box-header">
-                    <h5>@Model.Name</h5>
-                </div>
-                <div class="box-content">
-                    <div class="container">
-                        @Html.Partial("_Organization", Model.Organization)
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="row">
+	<h2 class="row-seperator-header">
+		<i class="fa fa-user"></i>
+		<strong>Submitter:</strong> @Model.Submitter.Surname, @Model.Submitter.GivenName / <strong>Publication Date:</strong> @Model.AdministrativeInformation.PublicationDate.ToString("MMMM dd, yyyy")
+</h2>
+</div>
+
+<div class="row">
+	<article class="col-sm-12 sortable-grid ui-sortable">
+		<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
+			<header>
+				<span class="widget-icon"> <i class="fa fa-align-justify"></i> </span>
+				<h2>@Model.Name</h2>
+			</header>
+		
+			<div>
+				
+				<!-- widget edit box -->
+				<div class="jarviswidget-editbox">
+					<!-- This area used as dropdown edit box -->
+				
+				</div>
+				<!-- end widget edit box -->
+				
+				<!-- widget content -->
+				<div class="widget-body">
+					@Html.Partial("_Organization", Model.Organization)
+				</div>
+			</div>
+		</div>
+	</article>
+</div>
+
+
 
 
 
