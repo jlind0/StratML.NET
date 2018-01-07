@@ -331,7 +331,7 @@
             <xs:simpleType>
               <xs:restriction base="xs:int">
                 <xs:minInclusive value="0"/>
-                <xs:maxExclusive value="10"/>
+                <xs:maxInclusive value="10"/>
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
@@ -347,7 +347,7 @@
             <xs:simpleType>
               <xs:restriction base="xs:int">
                 <xs:minInclusive value="-10"/>
-                <xs:maxExclusive value="10"/>
+                <xs:maxInclusive value="10"/>
               </xs:restriction>
             </xs:simpleType>
           </xs:element>
@@ -377,6 +377,7 @@
     <xs:complexContent>
       <xs:extension base="Artifact">
         <xs:sequence>
+          <xs:element name="Objective" type="Objective" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="Categorization" type="CategoryGroup" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="ManagementChallenge" type="ManagementChallenge" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="QuantitativePerformanceIndicator" type="UnitPerformanceIndicator" maxOccurs="unbounded" minOccurs="0"/>
@@ -428,7 +429,7 @@
     <xs:complexContent>
       <xs:extension base="MeasurementResult">
         <xs:sequence>
-          <xs:element name="NumberOfUnits" type="xs:double" maxOccurs="1" minOccurs="1"/>
+          <xs:element name="NumberOfUnits" type="xs:double" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -437,7 +438,7 @@
     <xs:complexContent>
       <xs:extension base="MeasurementResult">
         <xs:sequence>
-          <xs:element name="Score" type="Score" maxOccurs="1" minOccurs="1"/>
+          <xs:element name="Score" type="Score" maxOccurs="1" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -450,7 +451,7 @@
             <xs:complexType>
               <xs:sequence>
                 <xs:element name="Name" type="xs:string" maxOccurs="1" minOccurs="0"/>
-                <xs:element name="Value" type="xs:string" maxOccurs="1" minOccurs="1"/>
+                <xs:element name="Value" type="xs:string" maxOccurs="1" minOccurs="0"/>
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -525,7 +526,9 @@
   <xs:complexType name="PrototypeIndividual">
     <xs:complexContent>
       <xs:extension base="IndividualBase">
-        
+        <xs:sequence>
+          <xs:element name="CanHaveMultiple" type="xs:boolean" maxOccurs="1" minOccurs="0" default="false"/>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -567,12 +570,24 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="Concept">
+    <xs:complexContent>
+      <xs:extension base="Base">
+        <xs:sequence>
+          
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="Map">
     <xs:complexContent>
       <xs:extension base="Base">
         <xs:sequence>
+          <xs:element name="Concept" type="Concept" minOccurs="0" maxOccurs="1"/>
           <xs:element name="Type" type="MapType" default="Relationship" maxOccurs="unbounded" minOccurs="0"/>
           <xs:element name="Weight" type="xs:double" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Risk" type="Risk" maxOccurs="1" minOccurs="0"/>
+          <xs:element name="Payoff" type="Payoff" maxOccurs="1" minOccurs="0"/>
           <xs:element name="MappedIdentifier" type="xs:IDREF" maxOccurs="unbounded" minOccurs="1"/>
         </xs:sequence>
       </xs:extension>

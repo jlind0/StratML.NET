@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<stratml35:OrganizationalStrategyDocument
+  xmlns:stratml35="http://schemas.stratml.us/3.5">
+  <stratml35:Organization>
+    <stratml35:Identifier>uid-org-csh-four-sheet</stratml35:Identifier>
+    <stratml35:Name>4Sheet Development Project for Cyber Saftey Harbor</stratml35:Name>
+    <stratml35:Status>Mandatory</stratml35:Status>
+    <stratml35:Organization>
+      <stratml35:Identifier>uid-org-cyber-saftey-harbor</stratml35:Identifier>
+      <stratml35:Name>Cyber Saftey Harbor</stratml35:Name>
+      <stratml35:Status>Implemented</stratml35:Status>
+      <stratml35:Role>
+        <stratml35:RoleType>Client</stratml35:RoleType>
+      </stratml35:Role>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-chris-murphy</stratml35:Identifier>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-chief-scientist</stratml35:Identifier>
+          <stratml35:Name>Chief Scientist</stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Christopher</stratml35:GivenName>
+        <stratml35:Surname>Murphy</stratml35:Surname>
+      </stratml35:Individual>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-sean-parkinson</stratml35:Identifier>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-ceo</stratml35:Identifier>
+          <stratml35:Name>Chief Executive Officer</stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Sean</stratml35:GivenName>
+        <stratml35:Surname>Parkinson</stratml35:Surname>
+      </stratml35:Individual>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-dan-lee</stratml35:Identifier>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-tech-director</stratml35:Identifier>
+          <stratml35:Name>Technical Director</stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Dan</stratml35:GivenName>
+        <stratml35:Surname>Lee</stratml35:Surname>
+      </stratml35:Individual>
+    </stratml35:Organization>
+    <stratml35:Organization>
+      <stratml35:Identifier>uid-org-transformation-run</stratml35:Identifier>
+      <stratml35:Name>Transformation.run</stratml35:Name>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-bob-weiss</stratml35:Identifier>
+        <stratml35:Contact>
+          <stratml35:Identifier>uid-contact-bob-weiss</stratml35:Identifier>
+          <stratml35:Website>
+            <stratml35:WebAddress>https://www.linkedin.com/in/bob-weiss-8003718/</stratml35:WebAddress>
+          </stratml35:Website>
+        </stratml35:Contact>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-chairman-pro-tiem</stratml35:Identifier>
+          <stratml35:Name>Chairman Pro-Tiem &amp; Board Member </stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Robert</stratml35:GivenName>
+        <stratml35:Surname>Weiss</stratml35:Surname>
+      </stratml35:Individual>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-ryan-vartoogian</stratml35:Identifier>
+        <stratml35:Contact>
+          <stratml35:Identifier>uid-contact-ryan-vartoogian</stratml35:Identifier>
+          <stratml35:Website>
+            <stratml35:WebAddress>https://www.linkedin.com/in/ryanvartoogian/</stratml35:WebAddress>
+          </stratml35:Website>
+        </stratml35:Contact>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-chief-staff</stratml35:Identifier>
+          <stratml35:Name>Chief of Staff</stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Ryan</stratml35:GivenName>
+        <stratml35:Surname>Vartoogian</stratml35:Surname>
+      </stratml35:Individual>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-jason-lind</stratml35:Identifier>
+        <stratml35:Contact>
+          <stratml35:Identifier>uid-contact-jason-lind</stratml35:Identifier>
+          <stratml35:Website>
+            <stratml35:WebAddress>https://www.linkedin.com/in/jasonlind0/</stratml35:WebAddress>
+          </stratml35:Website>
+        </stratml35:Contact>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-evp-transformation</stratml35:Identifier>
+          <stratml35:Name>EVP/Transformation</stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Jason</stratml35:GivenName>
+        <stratml35:Surname>Lind</stratml35:Surname>
+      </stratml35:Individual>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-scott-ginter</stratml35:Identifier>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-evp-creative</stratml35:Identifier>
+          <stratml35:Name>EVP/Creative</stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Jason</stratml35:GivenName>
+        <stratml35:Surname>Lind</stratml35:Surname>
+      </stratml35:Individual>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-chuck-brooks</stratml35:Identifier>
+        <stratml35:Contact>
+          <stratml35:Identifier>uid-contact-chuck-brooks</stratml35:Identifier>
+          <stratml35:Website>
+            <stratml35:WebAddress>https://www.linkedin.com/in/chuckbrooks/</stratml35:WebAddress>
+          </stratml35:Website>
+        </stratml35:Contact>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-svp-security</stratml35:Identifier>
+          <stratml35:Name>SVP/Security</stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Chuck</stratml35:GivenName>
+        <stratml35:Surname>Brooks</stratml35:Surname>
+      </stratml35:Individual>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-stephen-roberts</stratml35:Identifier>
+        <stratml35:Contact>
+          <stratml35:Identifier>uid-contact-stephen-roberts</stratml35:Identifier>
+          <stratml35:Website>
+            <stratml35:WebAddress>https://www.linkedin.com/in/ubersteiner/</stratml35:WebAddress>
+          </stratml35:Website>
+        </stratml35:Contact>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-svp-marketing</stratml35:Identifier>
+          <stratml35:Name>SVP/Marketing</stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Stephen</stratml35:GivenName>
+        <stratml35:Surname>Roberts</stratml35:Surname>
+      </stratml35:Individual>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-jack-driscoll</stratml35:Identifier>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-svp-engineering</stratml35:Identifier>
+          <stratml35:Name>SVP/Engineering</stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Jack</stratml35:GivenName>
+        <stratml35:Surname>Driscoll</stratml35:Surname>
+      </stratml35:Individual>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-mitchell-maddox</stratml35:Identifier>
+        <stratml35:Contact>
+          <stratml35:Identifier>uid-contact-mitch</stratml35:Identifier>
+          <stratml35:Website>
+            <stratml35:WebAddress>https://www.linkedin.com/in/mitchell-mitch-maddox-0880a46/</stratml35:WebAddress>
+          </stratml35:Website>
+        </stratml35:Contact>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-vp-finance</stratml35:Identifier>
+          <stratml35:Name>VP/Finance</stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Mitchell</stratml35:GivenName>
+        <stratml35:Surname>Maddox</stratml35:Surname>
+      </stratml35:Individual>
+      <stratml35:Individual>
+        <stratml35:Identifier>uid-ind-leszek-zychowski</stratml35:Identifier>
+        <stratml35:Contact>
+          <stratml35:Identifier>uid-contact-les</stratml35:Identifier>
+          <stratml35:Website>
+            <stratml35:WebAddress>https://www.linkedin.com/in/leszek-zychowski/</stratml35:WebAddress>
+          </stratml35:Website>
+        </stratml35:Contact>
+        <stratml35:Role>
+          <stratml35:Identifier>uid-role-vp-digital</stratml35:Identifier>
+          <stratml35:Name>VP/Digital</stratml35:Name>
+        </stratml35:Role>
+        <stratml35:GivenName>Leszek</stratml35:GivenName>
+        <stratml35:Surname>Zychowski</stratml35:Surname>
+      </stratml35:Individual>
+      <stratml35:Strategy>
+        
+        <stratml35:Assets>
+          <stratml35:Identifier>uid-assets-architecture</stratml35:Identifier>
+          <stratml35:Name>Architecture</stratml35:Name>
+          <stratml35:Family>
+            <stratml35:Identifier>uid-family-skills</stratml35:Identifier>
+            <stratml35:Name>Skills</stratml35:Name>
+          </stratml35:Family>
+          <stratml35:Asset>
+            <stratml35:Identifier>uid-asset-arch-information</stratml35:Identifier>
+            <stratml35:Name>Information Architecture</stratml35:Name>
+            <stratml35:Dimension>
+              <stratml35:Identifier>uid-dim-information</stratml35:Identifier>
+              <stratml35:Name>Information</stratml35:Name>
+            </stratml35:Dimension>
+            <stratml35:Type>Intangible</stratml35:Type>
+          </stratml35:Asset>
+          <stratml35:Asset>
+            <stratml35:Identifier>uid-asset-arch-enterprise</stratml35:Identifier>
+            <stratml35:Name>Enterprise Architecture</stratml35:Name>
+            <stratml35:Dimension>
+              <stratml35:Identifier>uid-dim-enterprise</stratml35:Identifier>
+              <stratml35:Name>Enterprise</stratml35:Name>
+            </stratml35:Dimension>
+            <stratml35:Type>Intangible</stratml35:Type>
+          </stratml35:Asset>
+          <stratml35:Asset>
+            <stratml35:Identifier>uid-asset-arch-software</stratml35:Identifier>
+            <stratml35:Name>Software Architecture</stratml35:Name>
+            <stratml35:Dimension>
+              <stratml35:Identifier>uid-dim-software</stratml35:Identifier>
+              <stratml35:Name>Software</stratml35:Name>
+            </stratml35:Dimension>
+            <stratml35:Type>Intangible</stratml35:Type>
+          </stratml35:Asset>
+          <stratml35:Asset>
+            <stratml35:Identifier>uid-asset-arch-hardware</stratml35:Identifier>
+            <stratml35:Name>Hardware Architecture</stratml35:Name>
+            <stratml35:Dimension>
+              <stratml35:Identifier>uid-dim-hardware</stratml35:Identifier>
+              <stratml35:Name>Hardware</stratml35:Name>
+            </stratml35:Dimension>
+            <stratml35:Type>Intangible</stratml35:Type>
+          </stratml35:Asset>
+          <stratml35:Asset>
+            <stratml35:Identifier>uid-asset-arch-ux</stratml35:Identifier>
+            <stratml35:Name>User Experience Architecture</stratml35:Name>
+            <stratml35:Dimension>
+              <stratml35:Identifier>uid-dim-ux</stratml35:Identifier>
+              <stratml35:Name>User Experience</stratml35:Name>
+            </stratml35:Dimension>
+            <stratml35:Type>Intangible</stratml35:Type>
+          </stratml35:Asset>
+        </stratml35:Assets>
+      </stratml35:Strategy>
+    </stratml35:Organization>
+    <stratml35:Strategy>
+      <stratml35:Mission>
+        <stratml35:Description> To create a 4-sheet presentation simultaneously targeting investors and customers for Cyber Safety Harbor's Token Authentication System; on a business-technical-branding continuum.</stratml35:Description>
+        <stratml35:Stakeholders>
+          <stratml35:Organization>
+            <stratml35:ReferenceIdentifier>uid-org-cyber-saftey-harbor</stratml35:ReferenceIdentifier>
+            <stratml35:Role>
+              <stratml35:RoleType>Performer</stratml35:RoleType>
+              <stratml35:RoleType>Beneficiary</stratml35:RoleType>
+            </stratml35:Role>
+          </stratml35:Organization>
+          <stratml35:Organization>
+            <stratml35:ReferenceIdentifier>uid-org-transformation-run</stratml35:ReferenceIdentifier>
+            <stratml35:Role>
+              <stratml35:RoleType>Performer</stratml35:RoleType>
+            </stratml35:Role>
+          </stratml35:Organization>
+        </stratml35:Stakeholders>
+      </stratml35:Mission>
+      <stratml35:Vision>
+        <stratml35:Description>By blending technical, business and creative skills we will produce a document that is compellingly accurate and beautiful.</stratml35:Description>
+      </stratml35:Vision>
+      <stratml35:Value>
+        <stratml35:Identifier>uid-value-broad</stratml35:Identifier>
+        <stratml35:Name>Broad Strokes</stratml35:Name>
+        <stratml35:Description>The analysis must be just deep enough to be both sound and convincing.</stratml35:Description>
+      </stratml35:Value>
+      <stratml35:Value>
+        <stratml35:Identifier>uid-data-presentation</stratml35:Identifier>
+        <stratml35:Name>Tufte-esq Information Presentation Standards</stratml35:Name>
+        <stratml35:Description>http://www.redditmirror.cc/cache/websites/www.evogeneao.com_8pp8o/www.evogeneao.com/images/Evo_large.gif</stratml35:Description>
+      </stratml35:Value>
+      <stratml35:Goal>
+        <stratml35:Identifier>uid-goal-attract-customers</stratml35:Identifier>
+        <stratml35:SequenceIndicator>1</stratml35:SequenceIndicator>
+        <stratml35:Priority>High</stratml35:Priority>
+      </stratml35:Goal>
+      <stratml35:Goal>
+        <stratml35:Identifier>uid-goal-attract-investors</stratml35:Identifier>
+        <stratml35:Name>Attract Investors</stratml35:Name>
+        <stratml35:Description>CSH need additional capital to take their product to the next phase, but not to launch a client.</stratml35:Description>
+        <stratml35:SequenceIndicator>2</stratml35:SequenceIndicator>
+        <stratml35:Objective>
+          <stratml35:Identifier>uid-obj-competitor-anylysis</stratml35:Identifier>
+          <stratml35:Name>Competitor Analysis</stratml35:Name>
+          <stratml35:Description>Identify major competitors in the marketplace and analyize their solutions in constrast to CSH's</stratml35:Description>
+          <stratml35:SequenceIndicator>2.1</stratml35:SequenceIndicator>
+          <stratml35:Objective>
+            <stratml35:Identifier>uid-obj-compeititor-anylysis-functional</stratml35:Identifier>
+            <stratml35:SequenceIndicator>2.1.1</stratml35:SequenceIndicator>
+          </stratml35:Objective>
+          <stratml35:Objective>
+            <stratml35:Identifier>uid-obj-compeititor-anylysis-cost</stratml35:Identifier>
+            <stratml35:SequenceIndicator>2.1.2</stratml35:SequenceIndicator>
+          </stratml35:Objective>
+          <stratml35:Objective>
+            <stratml35:Identifier>uid-obj-compeititor-anylysis-market-share</stratml35:Identifier>
+            <stratml35:SequenceIndicator>2.1.3</stratml35:SequenceIndicator>
+          </stratml35:Objective>
+          <stratml35:QuantitativePerformanceIndicator>
+
+          </stratml35:QuantitativePerformanceIndicator>
+        </stratml35:Objective>
+        
+        <stratml35:Objective>
+          <stratml35:Identifier>uid-obj-business-plan-def</stratml35:Identifier>
+          <stratml35:Objective>
+            <stratml35:Objective>
+              <stratml35:Identifier>uid-obj-business-plan-def-org-struct</stratml35:Identifier>
+            </stratml35:Objective>
+            <stratml35:Objective>
+              <stratml35:Identifier>uid-obj-business-plan-finance</stratml35:Identifier>
+              <stratml35:Objective>
+                <stratml35:Identifier>uid-obj-business-plan-def-finance-pricing-model</stratml35:Identifier>
+              </stratml35:Objective>
+              <stratml35:Objective>
+                <stratml35:Identifier>uid-obj-business-plan-def-finance-market-share-projection</stratml35:Identifier>
+              </stratml35:Objective>
+              <stratml35:Objective>
+                <stratml35:Identifier>uid-obj-business-plan-def-cost-projection</stratml35:Identifier>
+              </stratml35:Objective>
+              <stratml35:QuantitativePerformanceIndicator>
+                <stratml35:Name>PNL Projections</stratml35:Name>
+                <stratml35:MeasurementDimension>
+                  <stratml35:Name>PNL</stratml35:Name>
+                </stratml35:MeasurementDimension>
+                <stratml35:UnitOfMeasurement>
+                  <stratml35:Name>Dollars</stratml35:Name>
+                </stratml35:UnitOfMeasurement>
+                <stratml35:Target>
+                  <stratml35:Result>
+                    <stratml35:StartDate>2018-01-01</stratml35:StartDate>
+                    <stratml35:EndDate>2018-12-31</stratml35:EndDate>
+                  </stratml35:Result>
+                  <stratml35:Result>
+                    <stratml35:StartDate>2019-01-01</stratml35:StartDate>
+                    <stratml35:EndDate>2019-12-31</stratml35:EndDate>
+                  </stratml35:Result>
+                  <stratml35:Result>
+                    <stratml35:StartDate>2021-01-01</stratml35:StartDate>
+                    <stratml35:EndDate>2021-12-31</stratml35:EndDate>
+                  </stratml35:Result>
+                  <stratml35:Result>
+                    <stratml35:StartDate>2023-01-01</stratml35:StartDate>
+                    <stratml35:EndDate>2023-12-31</stratml35:EndDate>
+                  </stratml35:Result>
+                </stratml35:Target>
+              </stratml35:QuantitativePerformanceIndicator>
+            </stratml35:Objective>
+          </stratml35:Objective>
+        </stratml35:Objective>
+        <stratml35:Priority>High</stratml35:Priority>
+        
+      </stratml35:Goal>
+      <stratml35:Goal>
+        <stratml35:Identifier>uid-goal-unify</stratml35:Identifier>
+        <stratml35:Priority>High</stratml35:Priority>
+      </stratml35:Goal>
+      
+    </stratml35:Strategy>
+  </stratml35:Organization>
+  <stratml35:Submitter>
+    
+  </stratml35:Submitter>
+  <stratml35:AdministrativeInformation>
+  
+</stratml35:AdministrativeInformation>
+</stratml35:OrganizationalStrategyDocument>

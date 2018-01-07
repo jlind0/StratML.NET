@@ -106,6 +106,20 @@
                 obj.ValueProposition ?? new Proposition[] { }).ToArray() ?? obj.ValueProposition;
 
         }
+        if (obj.Risk != null)
+            foreach (var r in obj.Risk)
+                ApplyRiskReference(r, GetReference<Risk>(r.ReferenceIdentifier));
+        if (obj.Payoff != null)
+            foreach (var r in obj.Payoff)
+                ApplyPayoffReference(r, GetReference<Payoff>(r.ReferenceIdentifier));
+    }
+    void ApplyPayoffReference(Payoff payoff, Payoff reference)
+    {
+        ApplyBaseReference(payoff, reference);
+        if(reference != null)
+        {
+            payoff.Weight = payoff.Weight ?? reference.Weight;
+        }
     }
     void ApplyStakeholderReferrence(Stakeholder obj, Stakeholder reference)
     {
@@ -176,6 +190,72 @@
         if (org.Organization1 != null)
             foreach (var o in org.Organization1)
                 ApplyOrganizationReference(o, GetReference<Organization>(o.ReferenceIdentifier));
+
+    }
+    void ApplyArtifiactBaseReferece(ArtifactBase artifact, ArtifactBase reference)
+    {
+        ApplyBaseReference(artifact, reference);
+        if(reference != null)
+        {
+            artifact.Extends = artifact.Extends ?? reference.Extends;
+            artifact.Risk = reference.Risk?.Union(artifact.Risk ?? new Risk[] { }).ToArray() ?? artifact.Risk;
+            if (artifact.Stakeholders == null)
+                artifact.Stakeholders = reference.Stakeholders;
+            else if(reference.Stakeholders != null)
+            {
+                artifact.Stakeholders.Individual = artifact.Stakeholders.Individual?.Union(
+                    artifact.Stakeholders.Individual ?? new Individual[] { }).ToArray()
+                    ?? artifact.Stakeholders.Individual;
+                artifact.Stakeholders.Group = artifact.Stakeholders.Group?.Union(
+                    artifact.Stakeholders.Group ?? new Group[] { }).ToArray()
+                    ?? artifact.Stakeholders.Group;
+                artifact.Stakeholders.Organization = artifact.Stakeholders.Organization?.Union(
+                    artifact.Stakeholders.Organization ?? new Organization[] { }).ToArray()
+                    ?? artifact.Stakeholders.Organization;
+                artifact.Stakeholders.PrototypeIndividual = artifact.Stakeholders.PrototypeIndividual?.Union(
+                    artifact.Stakeholders.PrototypeIndividual ?? new PrototypeIndividual[] { }).ToArray()
+                    ?? artifact.Stakeholders.PrototypeIndividual;
+                artifact.Stakeholders.Role = artifact.Stakeholders.Role?.Union(
+                    artifact.Stakeholders.Role ?? new Role[] { }).ToArray()
+                    ?? artifact.Stakeholders.Role;
+            }
+        }
+        if (artifact.Stakeholders?.Group != null)
+            foreach (var g in artifact.Stakeholders.Group)
+                ApplyGroupReference(g, GetReference<Group>(g.ReferenceIdentifier));
+        if (artifact.Stakeholders?.Individual != null)
+            foreach (var g in artifact.Stakeholders.Individual)
+                ApplyIndividualReference(g, GetReference<Individual>(g.ReferenceIdentifier));
+        if (artifact.Stakeholders?.Organization != null)
+            foreach (var g in artifact.Stakeholders.Organization)
+                ApplyOrganizationReference(g, GetReference<Organization>(g.ReferenceIdentifier));
+        if (artifact.Stakeholders?.PrototypeIndividual != null)
+            foreach (var g in artifact.Stakeholders.PrototypeIndividual)
+                ApplyPortotypeIndividualReference(g, GetReference<PrototypeIndividual>(g.ReferenceIdentifier));
+        if (artifact.Stakeholders?.Role != null)
+            foreach (var g in artifact.Stakeholders.Role)
+                ApplyRoleReference(g, GetReference<Role>(g.ReferenceIdentifier));
+        if (artifact.Risk != null)
+            foreach (var r in artifact.Risk)
+                ApplyRiskReference(r, GetReference<Risk>(r.ReferenceIdentifier));
+
+    }
+    void ApplyArtifactReference(Artifact artifact, Artifact reference)
+    {
+        
+    }
+    void ApplyRiskReference(Risk risk, Risk reference)
+    {
+        ApplyBaseReference(risk, reference);
+        if(reference != null)
+        {
+            risk.Weight = risk.Weight ?? reference.Weight;
+        }
+
+    }
+    void ApplyStrategyReference(Strategy strategy, Strategy reference)
+    {
+        ApplyBaseReference(strategy, reference);
 
     }
     ApplyOrganizationReference(Model.Organization, null);

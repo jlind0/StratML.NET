@@ -620,8 +620,6 @@ namespace StratML.Core.ThreeFive {
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DrivingForce))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Relationship))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Payoff))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SuccessFactor))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RatingSet))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Score))]
@@ -667,6 +665,9 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Right))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Perspective))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Strategy))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Payoff))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Risk))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Concept))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Map))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
@@ -1046,13 +1047,29 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class Map : Base {
         
+        private Concept conceptField;
+        
         private MapType[] typeField;
         
         private double weightField;
         
         private bool weightFieldSpecified;
         
+        private Risk riskField;
+        
+        private Payoff payoffField;
+        
         private string[] mappedIdentifierField;
+        
+        /// <remarks/>
+        public Concept Concept {
+            get {
+                return this.conceptField;
+            }
+            set {
+                this.conceptField = value;
+            }
+        }
         
         /// <remarks/>
         // CODEGEN Warning: DefaultValue attribute on members of type MapType[] is not supported in this version of the .Net Framework.
@@ -1089,6 +1106,26 @@ namespace StratML.Core.ThreeFive {
         }
         
         /// <remarks/>
+        public Risk Risk {
+            get {
+                return this.riskField;
+            }
+            set {
+                this.riskField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Payoff Payoff {
+            get {
+                return this.payoffField;
+            }
+            set {
+                this.payoffField = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("MappedIdentifier", DataType="IDREF")]
         public string[] MappedIdentifier {
             get {
@@ -1098,6 +1135,15 @@ namespace StratML.Core.ThreeFive {
                 this.mappedIdentifierField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Concept : Base {
     }
     
     /// <remarks/>
@@ -1120,6 +1166,50 @@ namespace StratML.Core.ThreeFive {
         
         /// <remarks/>
         Output,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Risk : Base {
+        
+        private int[] weightField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Weight")]
+        public int[] Weight {
+            get {
+                return this.weightField;
+            }
+            set {
+                this.weightField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
+    public partial class Payoff : Base {
+        
+        private int[] weightField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Weight")]
+        public int[] Weight {
+            get {
+                return this.weightField;
+            }
+            set {
+                this.weightField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1229,6 +1319,8 @@ namespace StratML.Core.ThreeFive {
         
         private double numberOfUnitsField;
         
+        private bool numberOfUnitsFieldSpecified;
+        
         /// <remarks/>
         public double NumberOfUnits {
             get {
@@ -1236,6 +1328,17 @@ namespace StratML.Core.ThreeFive {
             }
             set {
                 this.numberOfUnitsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NumberOfUnitsSpecified {
+            get {
+                return this.numberOfUnitsFieldSpecified;
+            }
+            set {
+                this.numberOfUnitsFieldSpecified = value;
             }
         }
     }
@@ -1375,50 +1478,6 @@ namespace StratML.Core.ThreeFive {
         
         /// <remarks/>
         Narrower_Than,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Payoff : Base {
-        
-        private int[] weightField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Weight")]
-        public int[] Weight {
-            get {
-                return this.weightField;
-            }
-            set {
-                this.weightField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
-    public partial class Risk : Base {
-        
-        private int[] weightField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Weight")]
-        public int[] Weight {
-            get {
-                return this.weightField;
-            }
-            set {
-                this.weightField = value;
-            }
-        }
     }
     
     /// <remarks/>
@@ -2095,6 +2154,8 @@ namespace StratML.Core.ThreeFive {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class Objective : Artifact {
         
+        private Objective[] objective1Field;
+        
         private CategoryGroup[] categorizationField;
         
         private ManagementChallenge[] managementChallengeField;
@@ -2104,6 +2165,17 @@ namespace StratML.Core.ThreeFive {
         private DescriptorPerformanceIndicator[] qualitativePerformanceIndicatorField;
         
         private ScoredPerformanceIndicator[] qualitativeScoredPerformanceIndicatorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Objective")]
+        public Objective[] Objective1 {
+            get {
+                return this.objective1Field;
+            }
+            set {
+                this.objective1Field = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Categorization")]
@@ -2884,6 +2956,23 @@ namespace StratML.Core.ThreeFive {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.stratml.us/3.5")]
     public partial class PrototypeIndividual : IndividualBase {
+        
+        private bool canHaveMultipleField;
+        
+        public PrototypeIndividual() {
+            this.canHaveMultipleField = false;
+        }
+        
+        /// <remarks/>
+        [System.ComponentModel.DefaultValueAttribute(false)]
+        public bool CanHaveMultiple {
+            get {
+                return this.canHaveMultipleField;
+            }
+            set {
+                this.canHaveMultipleField = value;
+            }
+        }
     }
     
     /// <remarks/>
