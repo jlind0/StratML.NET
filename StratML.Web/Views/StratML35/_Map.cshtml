@@ -24,7 +24,7 @@
 			<div class="widget-body">
 				@foreach (var item in @Model.Value)
 				{
-					<h6>@item.Item1</h6>
+					<h6>@item.Item1 <span style="font-size: .85em; color: gray;"><em>@item.Item2.Name</em> (weight: @item.Item2.Weight)</span></h6>
 					<ul>
 						@foreach (var mappedIdentifier in @item.Item2.MappedIdentifier)
 						{
