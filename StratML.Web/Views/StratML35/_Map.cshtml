@@ -4,7 +4,7 @@
 
 	<!-- Widget ID (each widget will need unique ID)-->
 	<div class="jarviswidget jarviswidget-color-darken jarviswidget-sortable" id="widget-@Model.Key" role="widget">
-		<header class="ui-sortable-handle">
+		<header class="ui-sortable-handle" id="@Model.Key">
 			<div class="jarviswidget-ctrls" role="menu">
 				<a href="javascript:void(0);" 
 				   class="button-icon jarviswidget-toggle-btn" 
@@ -28,7 +28,7 @@
 					<ul>
 						@foreach (var mappedIdentifier in @item.Item2.MappedIdentifier)
 						{
-							<li>@mappedIdentifier</li>
+							<li><a href="#@mappedIdentifier">@mappedIdentifier</a></li>
 						}
 					</ul>
 
