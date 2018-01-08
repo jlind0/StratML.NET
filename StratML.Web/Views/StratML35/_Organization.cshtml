@@ -32,9 +32,9 @@
 					@if (Model.Strategy != null)
 					{
 						<h6>Mission</h6>
-						<p>@Model.Strategy.Mission.Description</p>
+						<p>@Model.Strategy?.Mission?.Description</p>
 						<h6>Vision</h6>
-						<p>@Model.Strategy.Vision.Description</p>
+						<p>@Model.Strategy?.Vision?.Description</p>
 					}
 
 					@if (!string.IsNullOrEmpty(Model.Description))
