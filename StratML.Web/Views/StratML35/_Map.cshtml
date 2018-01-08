@@ -1,0 +1,40 @@
+﻿@model KeyValuePair<string, List<Tuple<string, StratML.Core.ThreeFive.Map>>>
+
+<article class="col-md-12 sortable-grid ui-sortable">
+
+	<!-- Widget ID (each widget will need unique ID)-->
+	<div class="jarviswidget jarviswidget-color-darken jarviswidget-sortable jarviswidget-collapsed" id="widget-@Model.Key" role="widget">
+		<header class="ui-sortable-handle">
+			<div class="jarviswidget-ctrls" role="menu">
+				<a href="javascript:void(0);" 
+				   class="button-icon jarviswidget-toggle-btn" 
+				   rel="tooltip" 
+				   title="" 
+				   data-placement="bottom" 
+				   data-original-title="Collapse"><i class="fa fa-plus"></i></a>
+			</div>
+			<span class="widget-icon"> <i class="fa fa-arrows-v"></i> </span>
+			<h2>
+				<strong>@Model.Key</strong> <i></i>
+			</h2>
+			<span class="jarviswidget-loader" style="display: none;"><i class="fa fa-refresh fa-spin"></i></span>
+		</header>
+
+		<div role="content">
+			<div class="widget-body">
+				@foreach (var item in @Model.Value)
+				{
+					<h6>@item.Item1</h6>
+					<ul>
+						@foreach (var mappedIdentifier in @item.Item2.MappedIdentifier)
+						{
+							<li>@mappedIdentifier</li>
+						}
+					</ul>
+
+				}
+			</div>
+		</div>
+	</div>
+</article>
+

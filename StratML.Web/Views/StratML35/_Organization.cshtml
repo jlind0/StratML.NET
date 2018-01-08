@@ -1,14 +1,24 @@
-﻿@model StratML.Core.ThreeFive.Organization
+﻿@using StratML.Core.ThreeFive
+@model StratML.Core.ThreeFive.Organization
 
 <div class="row">
 	<article class="col-sm-12 sortable-grid ui-sortable">
-		<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-x" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false">
-			<header>
+		<div class="jarviswidget jarviswidget-color-blueDark jarviswidget-sortable jarviswidget-collapsed" id="widget-@Model.Name" role="widget">
+			<header class="ui-sortable-handle">
+				<div class="jarviswidget-ctrls" role="menu">
+					<a href="javascript:void(0);"
+					   class="button-icon jarviswidget-toggle-btn"
+					   rel="tooltip"
+					   title=""
+					   data-placement="bottom"
+					   data-original-title="Collapse"><i class="fa fa-minus"></i></a>
+				</div>
 				<span class="widget-icon"> <i class="fa fa-users"></i> </span>
 				<h2>@Model.Name</h2>
+				<span class="jarviswidget-loader" style="display: none;"><i class="fa fa-refresh fa-spin"></i></span>
 			</header>
 
-			<div>
+			<div role="content">
 
 				<!-- widget edit box -->
 				<div class="jarviswidget-editbox">
@@ -51,10 +61,10 @@
 
 						@if (Model.Organization1 != null)
 						{
-							@foreach (var org in Model.Organization1)
-							{
-								@Html.Partial("_Organization", org)
-							}
+							foreach (var org in Model.Organization1)
+							 {
+								 @Html.Partial("_Organization", org)
+							 }
 						}
 
 						@if (Model.Individual != null)
@@ -67,7 +77,6 @@
 							</div>
 						}
 					</div>
-
 				</div>
 			</div>
 		</div>
@@ -88,19 +97,3 @@
 		}
 	}
 </style>
-
-<!--
-<script>
-	   $(document).ready(function () {
-		   var tallest = 0;
-		   $(".row-table .col-xs-12").each(function () {
-			   if ($(this).height() > tallest) {
-				   tallest = $(this).height();
-			   }
-		   });
-
-		   $(".row-table .col-xs-12").children(".well").height(tallest);
-		   $(".row-table .col-xs-12").css("margin-bottom", "10px");
-	   });
-</script>
--->

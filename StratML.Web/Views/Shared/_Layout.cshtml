@@ -116,7 +116,7 @@ Use search to find needed section.
 		<div id="logo-group">
 
 			<!-- PLACE YOUR LOGO HERE -->
-			<span id="logo"><img src="~/img/transformation.run.png" style="width: 30px; margin-right: 10px;"/><strong>StratML.services</strong></span>
+			<span id="logo"><img src="~/img/transformation.run.png" style="width: 30px; margin-right: 10px;" /><strong>StratML.services</strong></span>
 			<!-- END LOGO PLACEHOLDER -->
 			<!-- Note: The activity badge color changes when clicked and resets the number to 0
 				 Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
@@ -332,10 +332,10 @@ Use search to find needed section.
 		-->
 		<nav>
 			<!--
-	NOTE: Notice the gaps after each icon usage <i></i>..
-	Please note that these links work a bit different than
-	traditional href="" links. See documentation for details.
-	-->
+			NOTE: Notice the gaps after each icon usage <i></i>..
+			Please note that these links work a bit different than
+			traditional href="" links. See documentation for details.
+			-->
 
 			<ul>
 				<li class="">
@@ -348,7 +348,7 @@ Use search to find needed section.
 				</li>
 			</ul>
 
-			
+
 		</nav>
 
 		<span class="minifyme" data-action="minifyMenu"> <i class="fa fa-arrow-circle-left hit"></i> </span>
@@ -381,9 +381,9 @@ Use search to find needed section.
 		</div>
 		<!-- END RIBBON -->
 		<!-- #MAIN CONTENT -->
-		
+
 		<div id="content">
-			
+
 			<div class="row">
 				<!-- col -->
 				<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
@@ -403,11 +403,11 @@ Use search to find needed section.
 
 			<!-- end row -->
 
-			<section id="widget-gird">
+			<section id="widget-grid">
 				@RenderBody()
 			</section>
 		</div>
-		
+
 
 
 		<!-- END #MAIN CONTENT -->
@@ -437,20 +437,24 @@ Use search to find needed section.
 	<!--================================================== -->
 	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)
 	<script data-pace-options='{ "restartOnRequestAfter": true }' src="~/js/plugin/pace/pace.min.js"></script>-->
-	<!-- #PLUGINS -->
-	<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+<!-- #PLUGINS -->
+	
 
+<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
 	<!-- IMPORTANT: APP CONFIG -->
 	<script src="~/js/app.config.js"></script>
-
+	<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+	<script src="~/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
 	<!-- BOOTSTRAP JS -->
 	<script src="~/js/bootstrap/bootstrap.min.js"></script>
-
+	<!-- CUSTOM NOTIFICATION -->
+	<script src="~/js/notification/SmartNotification.min.js"></script>
+	<script src="~/js/smartwidgets/jarvis.widget.min.js"></script>
 	<!--[if IE 8]>
 		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
 	<![endif]-->
 	<!-- MAIN APP JS FILE -->
-	<script src="~/js/app.min.js"></script>
+	<script src="~/js/app.js"></script>
 
 	<!-- Your GOOGLE ANALYTICS CODE Below -->
 	<script>
@@ -466,7 +470,7 @@ Use search to find needed section.
 		})();
 
 	</script>
-
+	
 	<script src="~/lib/accounting/accounting.js" type="text/javascript"></script>
 	<script src="~/lib/knockout/dist/knockout.js" type="text/javascript"></script>
 	<script src="~/lib/linq4js/dist/linq4js.js" type="text/javascript"></script>

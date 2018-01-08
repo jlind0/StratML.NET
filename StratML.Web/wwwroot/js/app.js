@@ -1972,3 +1972,7 @@ var calc_navbar_height = function() {
 	        return results[1];
 	}
 /* ~ END: HELPFUL FUNCTIONS */
+
+$(document).ready(function () {
+	pageSetUp();
+});
