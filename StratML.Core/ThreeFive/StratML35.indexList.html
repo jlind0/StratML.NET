@@ -1,0 +1,554 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <h2><a id="INDEX">Table of Contents</a></h2>
+      <div class="toc">
+         <form action="none">
+            <div><span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'StratML35.indexList.html', 'StratML35.indexListns.html', 'StratML35.indexListcomp.html');">
+                     <option value="toc_group_by_namespace">Namespace</option>
+                     <option value="toc_group_by_location" selected="selected">Location</option>
+                     <option value="toc_group_by_component_type">Component Type</option></select></span></div>
+         </form>
+         <div class="level1" id="toc_group_by_location" style="display:block">
+            <div>
+               <div class="level2">
+                  <p><input id="button_gr_StratML35.xsd" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_StratML35.xsd');" class="control" /><span class="indexGroupTitle">StratML35.xsd</span></p>
+                  <div id="gr_StratML35.xsd" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup"><input id="button_gr_StratML35.xsdMain_schema" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_StratML35.xsdMain_schema');" class="control" /></td>
+                                          <td class="componentGroup">
+                                             <div class="componentGroupTitle">s</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup"></td>
+                                          <td class="componentGroup">
+                                             <div id="gr_StratML35.xsdMain_schema" class="componentGroup" style="display:block">
+                                                <div><b><a href="StratML35_xsd.html#StratML35.xsd" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">StratML35.xsd</a></b></div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup"><input id="button_gr_StratML35.xsdElement" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_StratML35.xsdElement');" class="control" /></td>
+                                          <td class="componentGroup">
+                                             <div class="componentGroupTitle">Elements</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup"></td>
+                                          <td class="componentGroup">
+                                             <div id="gr_StratML35.xsdElement" class="componentGroup" style="display:block">
+                                                <div><b><a href="StratML35_xsd.html#OrganizationalStrategyDocument" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">OrganizationalStrategyDocument</a></b></div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup"><input id="button_gr_StratML35.xsdComplex_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_StratML35.xsdComplex_Type');" class="control" /></td>
+                                          <td class="componentGroup">
+                                             <div class="componentGroupTitle">Complex Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup"></td>
+                                          <td class="componentGroup">
+                                             <div id="gr_StratML35.xsdComplex_Type" class="componentGroup" style="display:block">
+                                                <div><b><a href="StratML35_xsd.html#ActivityBase" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">ActivityBase</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#AdministrativeInformation" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">AdministrativeInformation</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Artifact" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Artifact</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#ArtifactBase" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">ArtifactBase</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Asset" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Asset</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#AssetCollection" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">AssetCollection</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Authority" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Authority</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Base" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Base</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Category" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Category</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#CategoryGroup" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">CategoryGroup</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Concept" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Concept</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#ContactInformation" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">ContactInformation</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#ContactMechanism" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">ContactMechanism</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Decision" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Decision</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#DescriptorPerformanceIndicator" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">DescriptorPerformanceIndicator</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#DrivingForce" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">DrivingForce</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Email" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Email</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Family" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Family</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Goal" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Goal</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Group" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Group</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Individual" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Individual</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#IndividualBase" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">IndividualBase</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#ManagementChallenge" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">ManagementChallenge</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Map" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Map</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#MeasurementResult" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">MeasurementResult</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#MeasurementResultDescriptor" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">MeasurementResultDescriptor</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#MeasurementResultScore" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">MeasurementResultScore</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#MeasurementResultUnits" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">MeasurementResultUnits</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Mission" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Mission</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Objective" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Objective</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Organization" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Organization</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Payoff" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Payoff</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#PerformanceIndicatorBase" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">PerformanceIndicatorBase</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Perspective" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Perspective</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#PhoneNumber" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">PhoneNumber</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#PhysicalAddress" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">PhysicalAddress</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#PrimaryActivity" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">PrimaryActivity</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Process" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Process</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Proposition" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Proposition</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#PrototypeIndividual" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">PrototypeIndividual</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#RatingSet" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">RatingSet</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Relationship" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Relationship</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Responsibility" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Responsibility</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Right" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Right</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Risk" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Risk</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Role" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Role</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Score" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Score</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#ScoredPerformanceIndicator" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">ScoredPerformanceIndicator</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Stakeholder" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Stakeholder</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#StakeholderBase" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">StakeholderBase</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Strategy" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Strategy</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#StrategyFramework" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">StrategyFramework</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#SuccessFactor" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">SuccessFactor</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#SupportingActivity" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">SupportingActivity</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#UnitPerformanceIndicator" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">UnitPerformanceIndicator</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Value" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Value</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Vision" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Vision</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#WebAddress" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">WebAddress</a></b></div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup"><input id="button_gr_StratML35.xsdSimple_Type" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_StratML35.xsdSimple_Type');" class="control" /></td>
+                                          <td class="componentGroup">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup"></td>
+                                          <td class="componentGroup">
+                                             <div id="gr_StratML35.xsdSimple_Type" class="componentGroup" style="display:block">
+                                                <div><b><a href="StratML35_xsd.html#ClearTypes" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">ClearTypes</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Competency" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Competency</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Criticality" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Criticality</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#InhibitingOrEnabling" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">InhibitingOrEnabling</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#InternalOrExternal" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">InternalOrExternal</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Keyness" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Keyness</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#MapType" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">MapType</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Priority" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Priority</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#RelationshipType" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">RelationshipType</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#RoleType" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">RoleType</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#SpecialOrganizationType" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">SpecialOrganizationType</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#Status" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">Status</a></b></div>
+                                                <div><b><a href="StratML35_xsd.html#ValueChainStageType" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">ValueChainStageType</a></b></div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup"><input id="button_gr_StratML35.xsdElement_Group" type="image" value="-" src="img/btM.gif" onclick="switchState('gr_StratML35.xsdElement_Group');" class="control" /></td>
+                                          <td class="componentGroup">
+                                             <div class="componentGroupTitle">Element Groups</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup"></td>
+                                          <td class="componentGroup">
+                                             <div id="gr_StratML35.xsdElement_Group" class="componentGroup" style="display:block">
+                                                <div><b><a href="StratML35_xsd.html#DocumentMetaData" target="mainFrame" title="http://schemas.stratml.us/3.5" onclick="updatePageTitle('Schema documentation for StratML35.xsd')">DocumentMetaData</a></b></div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="footer">
+         <hr />
+         <div align="center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor Trial Edition.
+         </div>
+      </div><script type="text/javascript">
+         <!--
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //--></script></body>
+</html>
