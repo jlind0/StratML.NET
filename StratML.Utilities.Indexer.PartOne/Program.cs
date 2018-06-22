@@ -21,7 +21,7 @@ namespace StratML.Utilities.Indexer.PartOne
             {
                 RestRequest patch = new RestRequest("PartOne/{id}", Method.PATCH);
                 patch.AddParameter("id", doc.Id, ParameterType.UrlSegment);
-                client.Patch(patch);
+                var resp = client.Patch(patch);
             }
         }
     }

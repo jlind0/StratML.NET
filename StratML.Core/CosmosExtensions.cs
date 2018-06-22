@@ -9,7 +9,11 @@ namespace StratML.Core
     {
         public static string BuildCollectionString<T>(this IEnumerable<T> collection, Func<T, string> selector)
         {
-            return $"[{string.Join(",", collection.Select(t => $"'{selector(t)}'"))}]";
+            
+            var strings = collection.Select(c => selector(c).Replace("'", "&quote;").Replace("(","").Replace(")","").Replace("\\", "").Replace("\n", " ").Replace("-", " ")).Where(
+                c => c != "").Distinct().Select(c => $"'{c}'");
+            return $"[{string.Join(",", strings)}]";
         }
+
     }
 }

@@ -644,6 +644,7 @@ namespace StratML.Core.One {
         public string objectiveNameCollection { get; set; }
         [XmlIgnore]
         public string objectiveDescriptionCollection { get; set; }
+        [XmlIgnore]
         public string objectiveOtherInformationCollection { get; set; }
 
     }
