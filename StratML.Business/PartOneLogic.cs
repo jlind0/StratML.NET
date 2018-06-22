@@ -32,5 +32,10 @@ namespace StratML.Business
         {
             return this.Data.Save(report, token);
         }
+
+        public Task UpdateIndexes(string id, CancellationToken token = default(CancellationToken))
+        {
+            return this.Data.UpdateIndexes(id, token);
+        }
     }
 }

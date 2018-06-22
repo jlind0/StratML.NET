@@ -36,5 +36,10 @@ namespace StratML.Web.Services.Controllers
         {
             return this.Logic.GetStrategy(id, token);
         }
+        [HttpPatch("{id}")]
+        public Task UpdateIndexes(string id, CancellationToken token = default(CancellationToken))
+        {
+            return this.Logic.UpdateIndexes(id, token);
+        }
     }
 }

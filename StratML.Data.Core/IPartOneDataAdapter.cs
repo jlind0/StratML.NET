@@ -13,5 +13,6 @@ namespace StratML.Data.Core
         Task Save(StrategicPlan report, CancellationToken token = default(CancellationToken));
         Task<StrategicPlan> GetStrategy(string id, CancellationToken token = default(CancellationToken));
         Task<IEnumerable<NameId>> GetStrategies(CancellationToken token = default(CancellationToken));
+        Task UpdateIndexes(string id, CancellationToken token = default(CancellationToken));
     }
 }

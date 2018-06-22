@@ -57,7 +57,41 @@ namespace StratML.Data
 
         public Task Save(StrategicPlan report, CancellationToken token = default(CancellationToken))
         {
-            return UseClient(client => client.CreateDocumentAsync(this.DataPath, report));
+            return UseClient(async client =>
+            {
+                await client.CreateDocumentAsync(this.DataPath, report);
+                await UpdateIndexes(report.id, token);
+            });
+        }
+
+        public Task UpdateIndexes(string id, CancellationToken token = default(CancellationToken))
+        {
+            return UseClient(async client =>
+            {
+                var strat = await GetStrategy(id, token);
+                if(strat != null)
+                {
+                    strat.organizationAcronymCollection = strat.StrategicPlanCore?.Organization?.BuildCollectionString(o => o.Acronym);
+                    strat.organizationDescriptionCollection = strat.StrategicPlanCore?.Organization?.BuildCollectionString(o => o.Description);
+                    strat.organizationNameCollection = strat.StrategicPlanCore?.Organization?.BuildCollectionString(o => o.Name);
+                    strat.stakeholderDescriptionCollection = strat.StrategicPlanCore?.Goal?.SelectMany(g => g.Stakeholder).Select(s => s.Description).Union(
+                        strat.StrategicPlanCore?.Goal?.SelectMany(g => g.Objective).SelectMany(o => o.Stakeholder).Select(s => s.Description)).Union(
+                            strat.StrategicPlanCore?.Organization?.SelectMany(s => s.Stakeholder).Select(s => s.Description)).BuildCollectionString(s => s);
+                    strat.stakeholderNameCollection = strat.StrategicPlanCore?.Goal?.SelectMany(g => g.Stakeholder).Select(s => s.Name).Union(
+                        strat.StrategicPlanCore?.Goal?.SelectMany(g => g.Objective).SelectMany(o => o.Stakeholder).Select(s => s.Name)).Union(
+                            strat.StrategicPlanCore?.Organization?.SelectMany(s => s.Stakeholder).Select(s => s.Name)).BuildCollectionString(s => s);
+                    strat.valueDescriptionCollection = strat.StrategicPlanCore?.Value?.Select(v => v.Description).BuildCollectionString(v => v);
+                    strat.valueNameCollection = strat.StrategicPlanCore?.Value?.Select(v => v.Name).BuildCollectionString(v => v);
+                    strat.goalDescriptionCollection = strat.StrategicPlanCore?.Goal?.BuildCollectionString(s => s.Description);
+                    strat.goalNameCollection = strat.StrategicPlanCore?.Goal?.BuildCollectionString(s => s.Name);
+                    strat.goalOtherInformationCollection = strat.StrategicPlanCore?.Goal?.BuildCollectionString(s => s.OtherInformation);
+                    strat.objectiveDescriptionCollection = strat.StrategicPlanCore?.Goal?.SelectMany(g => g.Objective).BuildCollectionString(o => o.Description);
+                    strat.objectiveNameCollection = strat.StrategicPlanCore?.Goal?.SelectMany(g => g.Objective).BuildCollectionString(o => o.Name);
+                    strat.objectiveOtherInformationCollection = strat.StrategicPlanCore?.Goal?.SelectMany(g => g.Objective).BuildCollectionString(o => o.OtherInformation);
+
+                    await client.UpsertDocumentAsync(this.DataPath, strat);
+                }
+            });
         }
     }
 }

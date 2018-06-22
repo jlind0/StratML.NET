@@ -620,6 +620,32 @@ namespace StratML.Core.One {
         }
         [XmlIgnore]
         public string id { get; set; }
+        [XmlIgnore]
+        public string organizationNameCollection { get; set; }
+        [XmlIgnore]
+        public string organizationAcronymCollection { get; set; }
+        [XmlIgnore]
+        public string organizationDescriptionCollection { get; set; }
+        [XmlIgnore]
+        public string stakeholderNameCollection { get; set; }
+        [XmlIgnore]
+        public string stakeholderDescriptionCollection { get; set; }
+        [XmlIgnore]
+        public string valueNameCollection { get; set; }
+        [XmlIgnore]
+        public string valueDescriptionCollection { get; set; }
+        [XmlIgnore]
+        public string goalNameCollection { get; set; }
+        [XmlIgnore]
+        public string goalDescriptionCollection { get; set; }
+        [XmlIgnore]
+        public string goalOtherInformationCollection { get; set; }
+        [XmlIgnore]
+        public string objectiveNameCollection { get; set; }
+        [XmlIgnore]
+        public string objectiveDescriptionCollection { get; set; }
+        public string objectiveOtherInformationCollection { get; set; }
+
     }
     
     /// <remarks/>
