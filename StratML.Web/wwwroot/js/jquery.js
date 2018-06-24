@@ -24,3 +24,4 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 // endregion
+//# sourceMappingURL=jquery.js.map

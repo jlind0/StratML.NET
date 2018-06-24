@@ -1,5 +1,5 @@
 ﻿///<reference path="jquery.ts"/>
-///<reference path="knockout.ts"/>
+///<reference path="../node_modules/@types/knockout/index.d.ts"/>
 ///<reference path="Form990Services.ts"/>
 ///<reference path="accounting.ts"/>
 ///<reference path="../lib/linq4js/dist/linq4js.d.ts"/>

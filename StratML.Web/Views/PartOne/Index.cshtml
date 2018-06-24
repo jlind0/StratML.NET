@@ -1,0 +1,112 @@
+﻿@model StratML.Web.Models.AzureSearchUri
+@{
+    ViewData["Title"] = "StratML Part One Query Service";
+}
+<div class="row">
+    <h2 class="row-seperator-header">
+        StratML Part One Query Service
+    </h2>
+</div>
+<div id="partOne" class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>Query Parameters</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group row" data-bind="foreach: QueryItems">
+                <div class="col-md-3">
+                    <select class="form-control input" data-bind="options: $parent.QueryFields, value: SelectedQueryField,
+                    optionsText:'DisplayName'"></select>
+                </div>
+                <div class="col-md-7">
+                    <input type="text" class="form-control" data-bind="inputText: QueryText" />
+                </div>
+                <div class="col-md-push-2">
+                    <button class="btn btn-sm btn-info" data-bind="visible: IsLast, click: Add"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                    <button class="btn btn-sm btn-danger" data-bind="visible:IsNotOnly, click: Delete"><span class="glyphicon glyphicon-minus-sign"></span></button>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-1">
+                    <label>Publication Date</label>
+                </div>
+                <div class="col-md-2">
+                    
+                    <select class="form-control input-sm" data-bind="options: PubDateSelectOptions, value:SelectedPubDateOption,
+                        optionsValue:'Value', optionsText:'Text'"></select>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="text" class="form-control" data-bind="value: PubDateFilter1">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2" data-bind="visible: IsPubDateFilterBetween">
+                    <div class="input-group date" data-provide="datepicker">
+
+                        <input type="text" class="form-control" data-bind="value: PubDateFilter2">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer text-right">
+            <button class="btn btn-lg btn-primary" data-bind="click:Search"><span class="glyphicon glyphicon-search"></span></button>
+        </div>
+    </div>
+</div>
+<div id="results" class="row">
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                    <button class="btn btn-sm btn-primary" data-bind="click:ToggleSortByName, css: NameSortedAscClass">
+                        <span class="glyphicon glyphicon-arrow-up"></span>
+                    </button>
+                    <button class="btn btn-sm btn-info" data-bind="click:ToggleSortByName, css: NameSortedDscClass">
+                        <span class="glyphicon glyphicon-arrow-down"></span>
+                    </button>
+                    <button class="btn btn-sm btn-info" data-bind="click:RemoveSortByName, visible:IsNameSorted">
+                        <span class="glyphicon glyphicon-minus-sign"></span>
+                    </button>
+
+                </th>
+                <th>
+                    Publication Date
+                    <button class="btn btn-sm btn-primary" data-bind="click:ToggleSortByPubDate, css: PubDateSortedAscClass">
+                        <span class="glyphicon glyphicon-arrow-up"></span>
+                    </button>
+                    <button class="btn btn-sm btn-info" data-bind="click:ToggleSortByPubDate, css: PubDateSortedDscClass">
+                        <span class="glyphicon glyphicon-arrow-down"></span>
+                    </button>
+                    <button class="btn btn-sm btn-info" data-bind="click:RemoveSortByPubDate, visisble:IsNamePubDate">
+                        <span class="glyphicon glyphicon-minus-sign"></span>
+                    </button>
+                </th>
+
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:Result">
+            <tr>
+                <td data-bind="text:Name"></td>
+                <td data-bind="text:PublicationDate"></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+@section Scripts{
+    <script type="text/javascript" src="~/lib/knockout/dist/knockout.js"></script>
+    <script type="text/javascript" src="~/node_modules/q/q.js"></script>
+    <script type="text/javascript" src="~/node_modules/odata/o.js"></script>
+    <script type="text/javascript" src="~/js/PartOneViewModel.js"></script>
+    <script type="text/javascript">
+        var azureSearchUri = "@Model.Location";
+        var azureAPIKey = "@Model.APIKey";
+    </script>
+}

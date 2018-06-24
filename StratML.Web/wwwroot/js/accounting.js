@@ -3,3 +3,4 @@
 // Definitions by: Sergey Gerasimov <https://github.com/gerich-home>
 //                 Christopher Eck <https://github.com/chrisleck>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+//# sourceMappingURL=accounting.js.map

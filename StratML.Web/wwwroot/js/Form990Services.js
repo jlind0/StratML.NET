@@ -29,3 +29,4 @@ var Services;
     }());
     Services.Form990Service = Form990Service;
 })(Services || (Services = {}));
+//# sourceMappingURL=Form990Services.js.map

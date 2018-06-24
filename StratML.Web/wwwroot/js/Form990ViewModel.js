@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 $(function () {
     var vm = new ViewModels.Form990VM();
     ko.applyBindings(vm, document.getElementById('form990'));
@@ -94,3 +94,4 @@ var ViewModels;
         DataPointType[DataPointType["IncomeOverAsset"] = 3] = "IncomeOverAsset";
     })(DataPointType = ViewModels.DataPointType || (ViewModels.DataPointType = {}));
 })(ViewModels = exports.ViewModels || (exports.ViewModels = {}));
+//# sourceMappingURL=Form990ViewModel.js.map
