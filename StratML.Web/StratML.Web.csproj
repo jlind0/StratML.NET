@@ -8,36 +8,24 @@
 
   <ItemGroup>
     <Compile Remove="wwwroot\node_modules\%2540types\**" />
+    <Compile Remove="wwwroot\npm\%2540types\**" />
     <Content Remove="wwwroot\node_modules\%2540types\**" />
+    <Content Remove="wwwroot\npm\%2540types\**" />
     <EmbeddedResource Remove="wwwroot\node_modules\%2540types\**" />
+    <EmbeddedResource Remove="wwwroot\npm\%2540types\**" />
     <None Remove="wwwroot\node_modules\%2540types\**" />
+    <None Remove="wwwroot\npm\%2540types\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\DateBinding.ts" />
     <Content Remove="wwwroot\js\Form990ViewModel.ts" />
     <Content Remove="wwwroot\js\PartOneViewModel.ts" />
+    <Content Remove="wwwroot\lib\linq4js\dist\linq4js.d.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Properties\PublishProfiles\www-stratml - Web Deploy.pubxml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="wwwroot\node_modules\@types\o.js\package.json" />
-    <Content Include="wwwroot\node_modules\@types\q\package.json" />
-    <Content Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.css" />
-    <Content Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
-    <Content Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.css" />
-    <Content Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.min.css" />
-    <Content Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker3.css" />
-    <Content Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker3.min.css" />
-    <Content Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker3.standalone.css" />
-    <Content Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker3.standalone.min.css" />
-    <Content Include="wwwroot\node_modules\odata\bower.json" />
-    <Content Include="wwwroot\node_modules\odata\package.json" />
-    <Content Include="wwwroot\node_modules\q\package.json" />
-    <Content Include="wwwroot\node_modules\xhr2\LICENSE.txt" />
-    <Content Include="wwwroot\node_modules\xhr2\package.json" />
   </ItemGroup>
 
   
@@ -59,11 +47,8 @@
     <TypeScriptCompile Include="wwwroot\js\accounting.ts">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="wwwroot\js\DateBinding.ts" />
     <TypeScriptCompile Include="wwwroot\js\Form990ViewModel.ts" />
-   
-    <TypeScriptCompile Include="wwwroot\js\jquery.ts">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </TypeScriptCompile>
 
     <TypeScriptCompile Include="wwwroot\js\Form990Services.ts">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -71,128 +56,123 @@
 
     <TypeScriptCompile Include="wwwroot\js\PartOneViewModel.ts" />
 
-    <TypeScriptCompile Include="wwwroot\node_modules\%40types\knockout\index.d.ts" />
-
-    <TypeScriptCompile Include="wwwroot\node_modules\@types\o.js\index.d.ts" />
-
-    <TypeScriptCompile Include="wwwroot\node_modules\@types\q\index.d.ts" />
+    <TypeScriptCompile Include="wwwroot\lib\linq4js\dist\linq4js.d.ts" />
     
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="wwwroot\node_modules\" />
+    <Folder Include="wwwroot\npm\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\node_modules\@types\o.js\LICENSE" />
-    <None Include="wwwroot\node_modules\@types\o.js\README.md" />
-    <None Include="wwwroot\node_modules\@types\q\LICENSE" />
-    <None Include="wwwroot\node_modules\@types\q\README.md" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.css.map" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.css.map" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker3.css.map" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\css\bootstrap-datepicker3.standalone.css.map" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\js\bootstrap-datepicker.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\js\bootstrap-datepicker.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker-en-CA.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ar-tn.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ar.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.az.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.bg.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.bn.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.br.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.bs.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ca.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.cs.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.cy.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.da.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.de.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.el.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-AU.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-CA.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-GB.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-IE.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-NZ.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-ZA.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.eo.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.es.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.et.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.eu.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.fa.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.fi.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.fo.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.fr-CH.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.fr.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.gl.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.he.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.hi.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.hr.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.hu.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.hy.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.id.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.is.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.it-CH.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.it.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ja.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ka.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.kh.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.kk.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.km.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ko.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.kr.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.lt.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.lv.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.me.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.mk.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.mn.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ms.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.nl-BE.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.nl.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.no.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.oc.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.pl.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.pt-BR.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.pt.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ro.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.rs-latin.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.rs.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ru.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.si.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sk.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sl.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sq.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sr-latin.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sr.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sv.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sw.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ta.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.tg.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.th.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.tk.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.tr.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.uk.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.uz-cyrl.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.uz-latn.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.vi.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.zh-CN.min.js" />
-    <None Include="wwwroot\node_modules\bootstrap-datepicker\dist\locales\bootstrap-datepicker.zh-TW.min.js" />
-    <None Include="wwwroot\node_modules\odata\.gitattributes" />
-    <None Include="wwwroot\node_modules\odata\.travis.yml" />
-    <None Include="wwwroot\node_modules\odata\LICENSE" />
-    <None Include="wwwroot\node_modules\odata\o.js" />
-    <None Include="wwwroot\node_modules\odata\o.min.js" />
-    <None Include="wwwroot\node_modules\odata\README.md" />
-    <None Include="wwwroot\node_modules\q\CHANGES.md" />
-    <None Include="wwwroot\node_modules\q\LICENSE" />
-    <None Include="wwwroot\node_modules\q\q.js" />
-    <None Include="wwwroot\node_modules\q\queue.js" />
-    <None Include="wwwroot\node_modules\q\README.md" />
-    <None Include="wwwroot\node_modules\xhr2\.npmignore" />
-    <None Include="wwwroot\node_modules\xhr2\Cakefile" />
-    <None Include="wwwroot\node_modules\xhr2\CONTRIBUTING.md" />
-    <None Include="wwwroot\node_modules\xhr2\lib\browser.js" />
-    <None Include="wwwroot\node_modules\xhr2\lib\xhr2.js" />
-    <None Include="wwwroot\node_modules\xhr2\README.md" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\css\bootstrap-datepicker.css.map" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.css.map" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\css\bootstrap-datepicker3.css.map" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\css\bootstrap-datepicker3.standalone.css.map" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\js\bootstrap-datepicker.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\js\bootstrap-datepicker.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker-en-CA.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ar-tn.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ar.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.az.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.bg.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.bn.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.br.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.bs.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ca.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.cs.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.cy.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.da.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.de.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.el.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-AU.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-CA.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-GB.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-IE.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.eo.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.es.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.et.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.eu.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.fa.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.fi.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.fo.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.fr.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.gl.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.he.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.hi.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.hr.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.hu.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.hy.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.id.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.is.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.it-CH.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.it.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ja.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ka.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.kh.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.kk.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.km.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ko.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.kr.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.lt.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.lv.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.me.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.mk.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.mn.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ms.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.nl.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.no.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.oc.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.pl.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.pt.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ro.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.rs.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ru.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.si.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sk.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sl.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sq.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sr.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sv.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.sw.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ta.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.tg.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.th.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.tk.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.tr.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.uk.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.uz-cyrl.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.uz-latn.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.vi.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <None Include="wwwroot\npm\bootstrap-datepicker\dist\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <None Include="wwwroot\npm\lucene-query-string-builder\dist\lucene.min.js" />
+    <None Include="wwwroot\npm\odata\.gitattributes" />
+    <None Include="wwwroot\npm\odata\.travis.yml" />
+    <None Include="wwwroot\npm\odata\LICENSE" />
+    <None Include="wwwroot\npm\odata\o.js" />
+    <None Include="wwwroot\npm\odata\o.min.js" />
+    <None Include="wwwroot\npm\odata\README.md" />
+    <None Include="wwwroot\npm\q\CHANGES.md" />
+    <None Include="wwwroot\npm\q\LICENSE" />
+    <None Include="wwwroot\npm\q\q.js" />
+    <None Include="wwwroot\npm\q\queue.js" />
+    <None Include="wwwroot\npm\q\README.md" />
+    <None Include="wwwroot\npm\xhr2\.npmignore" />
+    <None Include="wwwroot\npm\xhr2\Cakefile" />
+    <None Include="wwwroot\npm\xhr2\CONTRIBUTING.md" />
+    <None Include="wwwroot\npm\xhr2\lib\browser.js" />
+    <None Include="wwwroot\npm\xhr2\lib\xhr2.js" />
+    <None Include="wwwroot\npm\xhr2\README.md" />
   </ItemGroup>
 
   <ItemGroup>
@@ -200,9 +180,9 @@
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptTarget>ESNext</TypeScriptTarget>
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
-    <TypeScriptModuleKind />
+    <TypeScriptModuleKind>None</TypeScriptModuleKind>
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
     <TypeScriptRemoveComments>False</TypeScriptRemoveComments>

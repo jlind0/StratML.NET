@@ -1,0 +1,62 @@
+{
+  "_from": "@types/o.js",
+  "_id": "@types/o.js@0.3.2",
+  "_inBundle": false,
+  "_integrity": "sha512-dxDY0gCeIF8H4dZlzFhbNOL+1NDAj4Cnsmsi0rGHkfReSI03D1P6nUSV5RnXD4FJOMTQs71b5lr3Mao0ZEPNZw==",
+  "_location": "/@types/o.js",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@types/o.js",
+    "name": "@types/o.js",
+    "escapedName": "@types%2fo.js",
+    "scope": "@types",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/@types/o.js/-/o.js-0.3.2.tgz",
+  "_shasum": "1068bcbd7d7f6d7700171c8055d18fca06417c4f",
+  "_spec": "@types/o.js",
+  "_where": "C:\\Users\\jlind0\\source\\repos\\StratML\\StratML.Web",
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Matteo Antony Mistretta",
+      "url": "https://github.com/IceOnFire"
+    },
+    {
+      "name": "Brad Zacher",
+      "url": "https://github.com/bradzacher"
+    },
+    {
+      "name": "Jan Hommes",
+      "url": "https://github.com/janhommes"
+    },
+    {
+      "name": "Jean-Christophe Chalte",
+      "url": "https://github.com/jcchalte"
+    }
+  ],
+  "dependencies": {
+    "@types/q": "^0"
+  },
+  "deprecated": false,
+  "description": "TypeScript definitions for o.js",
+  "license": "MIT",
+  "main": "",
+  "name": "@types/o.js",
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+  },
+  "scripts": {},
+  "typeScriptVersion": "2.3",
+  "typesPublisherContentHash": "831f4bcb609351ffc74062175b2ec670e76745baf52a84e1cc99af116c0dbe3e",
+  "version": "0.3.2"
+}

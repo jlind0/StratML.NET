@@ -1,0 +1,69 @@
+{
+  "_from": "odata",
+  "_id": "odata@0.3.8",
+  "_inBundle": false,
+  "_integrity": "sha512-Qi5u1LECNLgPkbnJxO38plaoAaq3dS7kJ0oJMqta3Zw/LGbfsjJancAcDQDM/lK8YwOUHn8fXh6dPkAqBF/pzw==",
+  "_location": "/odata",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "odata",
+    "name": "odata",
+    "escapedName": "odata",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/odata/-/odata-0.3.8.tgz",
+  "_shasum": "7efd0f43f8797c069081cf495f22ed1873aa8847",
+  "_spec": "odata",
+  "_where": "C:\\Users\\jlind0\\source\\repos\\StratML\\StratML.Web",
+  "author": {
+    "name": "Jan Hommes"
+  },
+  "bugs": {
+    "url": "https://github.com/janhommes/o.js/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Matteo Antony Mistretta",
+      "email": "antony.mistretta@gmail.com",
+      "url": "http://www.ingloriouscoderz.it"
+    }
+  ],
+  "dependencies": {
+    "q": "^1.5.0",
+    "xhr2": "^0.1.4 "
+  },
+  "deprecated": false,
+  "description": "o.js is a client side Odata Javascript library to simplify the request of data. The main goal is to build a standalone, lightweight and easy to understand Odata lib.",
+  "devDependencies": {
+    "jasmine": "*",
+    "jslint": "^0.10.3",
+    "uglify-js": "*"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true
+    }
+  },
+  "homepage": "https://github.com/janhommes/o.js#readme",
+  "license": "MIT",
+  "main": "o.js",
+  "name": "odata",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/janhommes/o.js.git"
+  },
+  "scripts": {
+    "test": "jasmine",
+    "uglify": "uglifyjs --compress --mangle -o o.min.js o.js"
+  },
+  "version": "0.3.8"
+}

@@ -26,7 +26,7 @@ namespace StratML.Web
             services.AddSingleton<AzureSearchUri>(new AzureSearchUri()
             {
                 APIKey = Configuration["AzureSearchAPIKey"],
-                Location = new Uri(Configuration["AzureSearchAPIURI"].Replace("{index}", "partoneindex"))
+                Location = new Uri(Configuration["AzureSearchAPIURI"].Replace("{index}", "part-one-index"))
             });
             services.AddMvc().AddControllersAsServices();
             
